@@ -34,6 +34,7 @@ export interface ApiTrack {
   artists: { id: string; name: string }[];
   album: { id: string; name: string; images: { url: string }[] };
   duration_ms: number;
+  preview_url: string | null;
   external_urls: { spotify?: string };
 }
 

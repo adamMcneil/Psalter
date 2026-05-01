@@ -7,6 +7,8 @@ import { extractTrackId } from '../spotify/launch';
 import { Song } from '../types';
 
 const LOCAL_KEY = 'psalter:favorites:v1';
+const SPOTIFY_CACHE_KEY = 'psalter:favorites:spotifyContains:v1';
+const SPOTIFY_TTL_MS = 60 * 60 * 1000;
 
 async function readLocal(): Promise<string[]> {
   const raw = await AsyncStorage.getItem(LOCAL_KEY);
@@ -38,6 +40,46 @@ async function emitLocal(next: string[]) {
   localListeners.forEach((fn) => fn(next));
 }
 
+interface SpotifyCache {
+  ts: number;
+  ids: string[];
+}
+
+const spotifyListeners = new Set<(ids: Set<string>) => void>();
+let spotifyCache: Set<string> | null = null;
+let spotifyHydration: Promise<Set<string> | null> | null = null;
+let spotifyFetchInflight: Promise<Set<string>> | null = null;
+
+async function readSpotifyCache(): Promise<Set<string> | null> {
+  try {
+    const raw = await AsyncStorage.getItem(SPOTIFY_CACHE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as SpotifyCache;
+    if (!parsed || typeof parsed.ts !== 'number' || !Array.isArray(parsed.ids)) {
+      return null;
+    }
+    if (Date.now() - parsed.ts > SPOTIFY_TTL_MS) return null;
+    return new Set(parsed.ids);
+  } catch {
+    return null;
+  }
+}
+
+async function writeSpotifyCache(ids: Set<string>): Promise<void> {
+  const payload: SpotifyCache = { ts: Date.now(), ids: Array.from(ids) };
+  try {
+    await AsyncStorage.setItem(SPOTIFY_CACHE_KEY, JSON.stringify(payload));
+  } catch {
+    // ignore
+  }
+}
+
+function emitSpotify(next: Set<string>) {
+  spotifyCache = next;
+  spotifyListeners.forEach((fn) => fn(next));
+  void writeSpotifyCache(next);
+}
+
 function songTrackId(song: Song): string | null {
   return extractTrackId(song.spotifyUrl);
 }
@@ -57,9 +99,9 @@ export function useFavorites(): FavoritesValue {
 
   const [localIds, setLocalIds] = useState<string[]>(localCache ?? []);
   const [spotifyTrackIds, setSpotifyTrackIds] = useState<Set<string>>(
-    new Set(),
+    spotifyCache ?? new Set(),
   );
-  const [loading, setLoading] = useState(isAuthed);
+  const [loading, setLoading] = useState(isAuthed && !spotifyCache);
 
   useEffect(() => {
     let mounted = true;
@@ -81,28 +123,65 @@ export function useFavorites(): FavoritesValue {
       return;
     }
     let mounted = true;
-    setLoading(true);
-    const candidateIds = catalog
-      .map(songTrackId)
-      .filter((id): id is string => !!id);
-    api
-      .containsMySavedTracks(candidateIds)
-      .then((flags) => {
-        if (!mounted) return;
-        const next = new Set<string>();
-        flags.forEach((on, idx) => {
-          if (on) next.add(candidateIds[idx]);
+    const fn = (next: Set<string>) => {
+      if (mounted) setSpotifyTrackIds(next);
+    };
+    spotifyListeners.add(fn);
+
+    const run = async () => {
+      if (!spotifyHydration) {
+        spotifyHydration = readSpotifyCache().then((v) => {
+          if (v) spotifyCache = v;
+          return v;
         });
-        setSpotifyTrackIds(next);
-      })
-      .catch(() => {
-        if (mounted) setSpotifyTrackIds(new Set());
-      })
-      .finally(() => {
+      }
+      const fromDisk = await spotifyHydration;
+      if (!mounted) return;
+      if (fromDisk) {
+        setSpotifyTrackIds(fromDisk);
+        setLoading(false);
+        return;
+      }
+
+      if (!spotifyFetchInflight) {
+        const candidateIds = catalog
+          .map(songTrackId)
+          .filter((id): id is string => !!id);
+        spotifyFetchInflight = api
+          .containsMySavedTracks(candidateIds)
+          .then((flags) => {
+            const next = new Set<string>();
+            flags.forEach((on, idx) => {
+              if (on) next.add(candidateIds[idx]);
+            });
+            emitSpotify(next);
+            return next;
+          })
+          .catch(() => {
+            const empty = new Set<string>();
+            return empty;
+          })
+          .finally(() => {
+            spotifyFetchInflight = null;
+          });
+      }
+      try {
+        const next = await spotifyFetchInflight;
+        if (mounted) {
+          setSpotifyTrackIds(next);
+        }
+      } finally {
         if (mounted) setLoading(false);
-      });
+      }
+    };
+
+    setLoading(!spotifyCache);
+    if (spotifyCache) setSpotifyTrackIds(spotifyCache);
+    void run();
+
     return () => {
       mounted = false;
+      spotifyListeners.delete(fn);
     };
   }, [isAuthed, api]);
 
@@ -153,12 +232,12 @@ export function useFavorites(): FavoritesValue {
         const optimistic = new Set(spotifyTrackIds);
         if (isOn) optimistic.delete(trackId);
         else optimistic.add(trackId);
-        setSpotifyTrackIds(optimistic);
+        emitSpotify(optimistic);
         try {
           if (isOn) await api.removeTracks([trackId]);
           else await api.saveTracks([trackId]);
         } catch {
-          setSpotifyTrackIds(new Set(spotifyTrackIds));
+          emitSpotify(new Set(spotifyTrackIds));
         }
         return;
       }

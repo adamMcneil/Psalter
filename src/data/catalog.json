@@ -1,6 +1,14 @@
 {
   "songs": [
     {
+      "id": "caroline-cob-001-0OcOwA",
+      "psalm": 1,
+      "title": "Like A Tree (Psalm 1)",
+      "artist": "Caroline Cobb",
+      "album": "Psalms: The Poetry of Prayer",
+      "spotifyUrl": "https://open.spotify.com/track/0OcOwAmxOT0kpWs1mfUcXE"
+    },
+    {
       "id": "joe-stout-001-24545S",
       "psalm": 1,
       "title": "Blest Is the Man Who Does Not Walk (Psalm 1)",
@@ -55,6 +63,14 @@
       "artist": "The Psalms Project",
       "album": "Vol. 1: Psalms 1-10",
       "spotifyUrl": "https://open.spotify.com/track/4oXym5rXZEERYWpPmqzlfR"
+    },
+    {
+      "id": "zac-fitzsimm-001-1zvFrd",
+      "psalm": 1,
+      "title": "Psalm 1 Word for Word",
+      "artist": "Zac Fitzsimmons",
+      "album": "Psalms: Word for Word",
+      "spotifyUrl": "https://open.spotify.com/track/1zvFrdDQcbf0IiImQvwmwF"
     },
     {
       "id": "brian-sauv-002-39UDh6",
@@ -113,6 +129,30 @@
       "spotifyUrl": "https://open.spotify.com/track/2pMUJ2UiWbFpkXhV8htn1F"
     },
     {
+      "id": "tim-bushong-002-4sAruN",
+      "psalm": 2,
+      "title": "Psalm 2: Why Do the Heathen Nations Vainly Rage?",
+      "artist": "Tim Bushong",
+      "album": "Psalm 2: Why Do the Heathen Nations Vainly Rage?",
+      "spotifyUrl": "https://open.spotify.com/track/4sAruNvamzBZbfpJWunswE"
+    },
+    {
+      "id": "tim-bushong-002-0EDcQe",
+      "psalm": 2,
+      "title": "Why Do The Heathen Nations Vainly Rage (Psalm 2)",
+      "artist": "Tim Bushong",
+      "album": "Battle Hymns for Weary Souls II: Hail to Jesus",
+      "spotifyUrl": "https://open.spotify.com/track/0EDcQelRYgUWkZn0jdVCBn"
+    },
+    {
+      "id": "zac-fitzsimm-002-2AxzcX",
+      "psalm": 2,
+      "title": "Psalm 2 Word for Word",
+      "artist": "Zac Fitzsimmons",
+      "album": "Psalms: Word for Word",
+      "spotifyUrl": "https://open.spotify.com/track/2AxzcX162lGjU2pNC1zYjg"
+    },
+    {
       "id": "brian-sauv-003-1G3gXC",
       "psalm": 3,
       "title": "Psalm 3 (10,000 Foes)",
@@ -137,12 +177,28 @@
       "spotifyUrl": "https://open.spotify.com/track/74LqkmMdDoQgBO01NcDGAk"
     },
     {
+      "id": "robbie-seay--003-1LLrsz",
+      "psalm": 3,
+      "title": "Psalm 3 (A Shield About Me)",
+      "artist": "Robbie Seay Band",
+      "album": "Psalms LP",
+      "spotifyUrl": "https://open.spotify.com/track/1LLrszYiDCAuCXsuXHjoEu"
+    },
+    {
       "id": "the-psalms-p-003-5yz1WG",
       "psalm": 3,
       "title": "Psalm 3: Lifter of My Head",
       "artist": "The Psalms Project",
       "album": "Vol. 1: Psalms 1-10",
       "spotifyUrl": "https://open.spotify.com/track/5yz1WGfoQiZ2RF48cjKc57"
+    },
+    {
+      "id": "zac-fitzsimm-003-0uMSjw",
+      "psalm": 3,
+      "title": "Psalm 3 Word for Word",
+      "artist": "Zac Fitzsimmons",
+      "album": "Psalms: Word for Word",
+      "spotifyUrl": "https://open.spotify.com/track/0uMSjwnkLsZrknXNvhwn1T"
     },
     {
       "id": "my-soul-amon-004-5d7dUf",
@@ -215,6 +271,22 @@
       "artist": "The Psalms Project",
       "album": "Vol. 1: Psalms 1-10",
       "spotifyUrl": "https://open.spotify.com/track/64nBrNLI37gN7IOCEF5nrA"
+    },
+    {
+      "id": "zac-fitzsimm-005-4evfYB",
+      "psalm": 5,
+      "title": "Psalm 5 Word For Word",
+      "artist": "Zac Fitzsimmons",
+      "album": "Psalms Word For Word: Volume 2",
+      "spotifyUrl": "https://open.spotify.com/track/4evfYBMyV4nxVjAmw5hOJJ"
+    },
+    {
+      "id": "zac-fitzsimm-005-6NMGAd",
+      "psalm": 5,
+      "title": "Psalm 5 Word For Word",
+      "artist": "Zac Fitzsimmons",
+      "album": "Psalm 5 Word For Word",
+      "spotifyUrl": "https://open.spotify.com/track/6NMGAdDqlIifNLtS0hImoY"
     },
     {
       "id": "brother-down-006-2nsfxp",
@@ -329,6 +401,30 @@
       "spotifyUrl": "https://open.spotify.com/track/4LqqmrKkyuNSbI2kPGmFZf"
     },
     {
+      "id": "shane-shane-008-4SdrS2",
+      "psalm": 8,
+      "title": "Psalm 8 (How Majestic Is Your Name)",
+      "artist": "Shane & Shane",
+      "album": "Psalms, Hymns, and Spiritual Songs, Vol. 1",
+      "spotifyUrl": "https://open.spotify.com/track/4SdrS21OB26xY1hWYTOA4i"
+    },
+    {
+      "id": "shane-shane-008-68Kfb1",
+      "psalm": 8,
+      "title": "Psalm 8 (How Majestic Is Your Name) - Live",
+      "artist": "Shane & Shane",
+      "album": "Psalms, Hymns, and Spiritual Songs (Live)",
+      "spotifyUrl": "https://open.spotify.com/track/68Kfb1IvSRzSIuDFlc0xHp"
+    },
+    {
+      "id": "shane-shane-008-1sUB2a",
+      "psalm": 8,
+      "title": "Tell the Story (Psalm 8) - Live",
+      "artist": "Shane & Shane",
+      "album": "Psalms, Hymns, and Spiritual Songs (Live)",
+      "spotifyUrl": "https://open.spotify.com/track/1sUB2adev4A2MPZaEFzsUk"
+    },
+    {
       "id": "the-corner-r-008-1BKzJe",
       "psalm": 8,
       "title": "Psalm 8",
@@ -343,6 +439,14 @@
       "artist": "The Psalms Project",
       "album": "Vol. 1: Psalms 1-10",
       "spotifyUrl": "https://open.spotify.com/track/65O04dF8CaVsFe1iDTI0pA"
+    },
+    {
+      "id": "zac-fitzsimm-008-09CTVD",
+      "psalm": 8,
+      "title": "Psalm 8 Word for Word",
+      "artist": "Zac Fitzsimmons",
+      "album": "Psalms: Word for Word",
+      "spotifyUrl": "https://open.spotify.com/track/09CTVD9M9J78vB49NTc3E5"
     },
     {
       "id": "my-soul-amon-009-1XykRe",
@@ -367,6 +471,14 @@
       "artist": "The Psalms Project",
       "album": "Vol. 1: Psalms 1-10",
       "spotifyUrl": "https://open.spotify.com/track/0D2546VDC3pXPJH0cn10aP"
+    },
+    {
+      "id": "wendell-kimb-009-61whmu",
+      "psalm": 9,
+      "title": "The Hope Of The Poor (Psalm 9)",
+      "artist": "Wendell Kimbrough",
+      "album": "Psalms We Sing Together",
+      "spotifyUrl": "https://open.spotify.com/track/61whmuKsw7NRIXNgUUKOOY"
     },
     {
       "id": "my-soul-amon-010-2YNU2J",
@@ -513,6 +625,22 @@
       "spotifyUrl": "https://open.spotify.com/track/2aMKKMMcNI8EHjdUt4TEcf"
     },
     {
+      "id": "shane-shane-013-22Ajms",
+      "psalm": 13,
+      "title": "Psalm 13",
+      "artist": "Shane & Shane",
+      "album": "Psalms",
+      "spotifyUrl": "https://open.spotify.com/track/22AjmsRbfnePf6IN7Gr956"
+    },
+    {
+      "id": "shane-shane-013-4lwdp8",
+      "psalm": 13,
+      "title": "Psalm 13 (Live)",
+      "artist": "Shane & Shane",
+      "album": "Psalms Live",
+      "spotifyUrl": "https://open.spotify.com/track/4lwdp8zITkQV9hqILm78dG"
+    },
+    {
       "id": "the-corner-r-013-4NDlTN",
       "psalm": 13,
       "title": "Psalm 13",
@@ -527,6 +655,14 @@
       "artist": "The Psalms Project",
       "album": "Vol. 2: Psalms 11-20",
       "spotifyUrl": "https://open.spotify.com/track/70V6WGxWxKUpr3gIPh1kIm"
+    },
+    {
+      "id": "zac-fitzsimm-013-1SB1o5",
+      "psalm": 13,
+      "title": "Psalm 13 Word for Word",
+      "artist": "Zac Fitzsimmons",
+      "album": "Psalms: Word for Word",
+      "spotifyUrl": "https://open.spotify.com/track/1SB1o5rGRHLxqb1xv9hZLi"
     },
     {
       "id": "my-soul-amon-014-5hoxNZ",
@@ -617,6 +753,14 @@
       "spotifyUrl": "https://open.spotify.com/track/7Gn7fqqq88L2wthVSvgFkF"
     },
     {
+      "id": "shane-shane-016-47K7E5",
+      "psalm": 16,
+      "title": "Psalm 16 (Fullness of Joy)",
+      "artist": "Shane & Shane",
+      "album": "Psalms, Vol. 2",
+      "spotifyUrl": "https://open.spotify.com/track/47K7E5tUAU23egwKOQuZdy"
+    },
+    {
       "id": "the-corner-r-016-05S93O",
       "psalm": 16,
       "title": "Psalm 16",
@@ -673,6 +817,14 @@
       "spotifyUrl": "https://open.spotify.com/track/0FN2s7dAsLDRV0w5lPEiW8"
     },
     {
+      "id": "robbie-seay--018-4ZYpgB",
+      "psalm": 18,
+      "title": "Psalm 18 (I Love You O Lord)",
+      "artist": "Robbie Seay Band",
+      "album": "Psalms LP",
+      "spotifyUrl": "https://open.spotify.com/track/4ZYpgBZzpzWFc1afq7AhiX"
+    },
+    {
       "id": "the-psalms-p-018-3vplfV",
       "psalm": 18,
       "title": "Psalm 18: He Delights in Me",
@@ -711,6 +863,14 @@
       "artist": "The Psalms Project",
       "album": "Vol. 2: Psalms 11-20",
       "spotifyUrl": "https://open.spotify.com/track/4ulzfNp17zpmKjtPOk6Lct"
+    },
+    {
+      "id": "zac-fitzsimm-019-36wbKM",
+      "psalm": 19,
+      "title": "Psalm 19 Word For Word",
+      "artist": "Zac Fitzsimmons",
+      "album": "Psalms Word For Word: Volume 2",
+      "spotifyUrl": "https://open.spotify.com/track/36wbKMAPMaYwnK21G2dncd"
     },
     {
       "id": "my-soul-amon-020-3wTvJY",
@@ -801,6 +961,14 @@
       "spotifyUrl": "https://open.spotify.com/track/0aFMsz3QpotF5QuOeVx51H"
     },
     {
+      "id": "caroline-cob-023-5isl30",
+      "psalm": 23,
+      "title": "Shepherd, Walk Beside Me (Psalm 23)",
+      "artist": "Caroline Cobb",
+      "album": "Psalms: The Poetry of Prayer",
+      "spotifyUrl": "https://open.spotify.com/track/5isl30AWpU5ikMp0jyTTXn"
+    },
+    {
       "id": "my-soul-amon-023-3E1sFw",
       "psalm": 23,
       "title": "The Lord Is My Shepherd (Psalm 23)",
@@ -815,6 +983,22 @@
       "artist": "Poor Bishop Hooper",
       "album": "EveryPsalm",
       "spotifyUrl": "https://open.spotify.com/track/3SbYI0F1rAXTjIGJZvHZOR"
+    },
+    {
+      "id": "shane-shane-023-5ug4Mv",
+      "psalm": 23,
+      "title": "Psalm 23 (Live)",
+      "artist": "Shane & Shane",
+      "album": "Psalms Live",
+      "spotifyUrl": "https://open.spotify.com/track/5ug4MvGi46m9ZnDBjk29UU"
+    },
+    {
+      "id": "shane-shane-023-2Zxili",
+      "psalm": 23,
+      "title": "Psalm 23 (Surely Goodness, Surely Mercy)",
+      "artist": "Shane & Shane",
+      "album": "Psalms, Vol. 2",
+      "spotifyUrl": "https://open.spotify.com/track/2Zxili8AmCuqiomg9HzTgH"
     },
     {
       "id": "the-corner-r-023-3pI8th",
@@ -840,6 +1024,14 @@
       "spotifyUrl": "https://open.spotify.com/track/0Kdb52QkoA7QyFsTIDSOYB"
     },
     {
+      "id": "zac-fitzsimm-023-3fMYm2",
+      "psalm": 23,
+      "title": "Psalm 23 Word for Word",
+      "artist": "Zac Fitzsimmons",
+      "album": "Psalms: Word for Word",
+      "spotifyUrl": "https://open.spotify.com/track/3fMYm2kFSum58ZtLhA0Nnu"
+    },
+    {
       "id": "my-soul-amon-024-1xBbc2",
       "psalm": 24,
       "title": "King of Glory (Psalm 24)",
@@ -862,6 +1054,22 @@
       "artist": "The Psalms Project",
       "album": "Vol. 3: Psalms 21-30",
       "spotifyUrl": "https://open.spotify.com/track/2MH737Oeht5xLIswGSpZUr"
+    },
+    {
+      "id": "wendell-kimb-024-39qbAF",
+      "psalm": 24,
+      "title": "We Long To See You (Psalm 24)",
+      "artist": "Wendell Kimbrough",
+      "album": "Psalms We Sing Together",
+      "spotifyUrl": "https://open.spotify.com/track/39qbAFaGn6xOCRDdxUq9dD"
+    },
+    {
+      "id": "zac-fitzsimm-024-45gHY0",
+      "psalm": 24,
+      "title": "Psalm 24 Word for Word",
+      "artist": "Zac Fitzsimmons",
+      "album": "Psalms: Word for Word",
+      "spotifyUrl": "https://open.spotify.com/track/45gHY01aOmlGv5UsdDUMFY"
     },
     {
       "id": "brian-sauv-025-1qB6E8",
@@ -944,6 +1152,14 @@
       "spotifyUrl": "https://open.spotify.com/track/1mxvrksLGh9Chvn0lanm68"
     },
     {
+      "id": "shane-shane-027-6z7xSM",
+      "psalm": 27,
+      "title": "Psalm 27 (One Thing)",
+      "artist": "Shane & Shane",
+      "album": "Psalms, Vol. 2",
+      "spotifyUrl": "https://open.spotify.com/track/6z7xSMRwhqRuJchUlw2N76"
+    },
+    {
       "id": "the-psalms-p-027-0lsczP",
       "psalm": 27,
       "title": "Psalm 27 (Whom Shall I Fear?)",
@@ -976,12 +1192,36 @@
       "spotifyUrl": "https://open.spotify.com/track/4XXYB2FFlUakksUoEwIwq4"
     },
     {
+      "id": "zac-fitzsimm-028-5oM0Iw",
+      "psalm": 28,
+      "title": "Psalm 28 Word For Word",
+      "artist": "Zac Fitzsimmons",
+      "album": "Psalms Word For Word: Volume 2",
+      "spotifyUrl": "https://open.spotify.com/track/5oM0IwS4yPSkai4lNTQrxi"
+    },
+    {
+      "id": "gregory-wilb-029-6muDBY",
+      "psalm": 29,
+      "title": "Psalm 29: Now Unto Jehovah",
+      "artist": "Gregory Wilbur",
+      "album": "My Cry Ascends: New Parish Psalms",
+      "spotifyUrl": "https://open.spotify.com/track/6muDBYpVlrLVEMRJE9oT2n"
+    },
+    {
       "id": "my-soul-amon-029-3zi9t6",
       "psalm": 29,
       "title": "The Voice of God (Psalm 29)",
       "artist": "My Soul Among Lions",
       "album": "Song of the King: Psalms 21-30",
       "spotifyUrl": "https://open.spotify.com/track/3zi9t6LKxZ2H3QqdEFeVrV"
+    },
+    {
+      "id": "nathan-clark-029-0m0pfK",
+      "psalm": 29,
+      "title": "The Voice of the Lord (Psalm 29) - Live",
+      "artist": "Nathan Clark George",
+      "album": "The Voice of the Lord (Psalm 29)",
+      "spotifyUrl": "https://open.spotify.com/track/0m0pfKfMCzD9M3NkZRWgM2"
     },
     {
       "id": "pbh-029",
@@ -1048,6 +1288,14 @@
       "spotifyUrl": "https://open.spotify.com/track/1KkYlqNactwHxP5aR2hrV4"
     },
     {
+      "id": "gregory-wilb-032-3UZCtT",
+      "psalm": 32,
+      "title": "Psalm 32: Blest Is the Man",
+      "artist": "Gregory Wilbur",
+      "album": "My Cry Ascends: New Parish Psalms",
+      "spotifyUrl": "https://open.spotify.com/track/3UZCtTOL7ivIz4gpoRJ52a"
+    },
+    {
       "id": "poor-bishop--032-42IGHJ",
       "psalm": 32,
       "title": "Psalm 32",
@@ -1069,6 +1317,14 @@
       "artist": "The Psalms Project",
       "album": "Vol. 4: Psalms 31-38",
       "spotifyUrl": "https://open.spotify.com/track/20o0671ZXe7NrwCZiAKTuv"
+    },
+    {
+      "id": "wendell-kimb-032-4QZJh6",
+      "psalm": 32,
+      "title": "Then At Last (Psalm 32)",
+      "artist": "Wendell Kimbrough",
+      "album": "Psalms We Sing Together",
+      "spotifyUrl": "https://open.spotify.com/track/4QZJh6jm1HUR8lshLfYyIg"
     },
     {
       "id": "pbh-033",
@@ -1109,6 +1365,22 @@
       "artist": "Scripture Hymnal",
       "album": "Scripture Hymnal, Vol. 1",
       "spotifyUrl": "https://open.spotify.com/track/4zinm9y2Mwn4QujmD7FUoF"
+    },
+    {
+      "id": "shane-shane-034-6JIBqM",
+      "psalm": 34,
+      "title": "Psalm 34 (Live)",
+      "artist": "Shane & Shane",
+      "album": "Psalms Live",
+      "spotifyUrl": "https://open.spotify.com/track/6JIBqMgc90xVGcfKkfrJ7P"
+    },
+    {
+      "id": "shane-shane-034-4JDmqx",
+      "psalm": 34,
+      "title": "Psalm 34 (Taste and See)",
+      "artist": "Shane & Shane",
+      "album": "Psalms, Vol. 2",
+      "spotifyUrl": "https://open.spotify.com/track/4JDmqxJrJS9FoMPzWmILkQ"
     },
     {
       "id": "the-psalms-p-034-5P2n2Y",
@@ -1269,6 +1541,22 @@
       "spotifyUrl": "https://open.spotify.com/track/2nfvsABRhdWJbwTvx2GcU1"
     },
     {
+      "id": "zac-fitzsimm-040-4eniLS",
+      "psalm": 40,
+      "title": "Psalm 40 Word for Word",
+      "artist": "Zac Fitzsimmons",
+      "album": "Psalms: Word for Word",
+      "spotifyUrl": "https://open.spotify.com/track/4eniLSoRxDPyGudOUKI7RV"
+    },
+    {
+      "id": "gregory-wilb-041-30e7ae",
+      "psalm": 41,
+      "title": "Psalm 41: How Blest the Man",
+      "artist": "Gregory Wilbur",
+      "album": "My Cry Ascends: New Parish Psalms",
+      "spotifyUrl": "https://open.spotify.com/track/30e7aesDz0XuPRzspI1jlh"
+    },
+    {
       "id": "poor-bishop--041-0d9qiD",
       "psalm": 41,
       "title": "Psalm 41",
@@ -1317,6 +1605,14 @@
       "spotifyUrl": "https://open.spotify.com/track/2sT27CcXyHpW4TgBazMeCY"
     },
     {
+      "id": "robbie-seay--042-6FPFKE",
+      "psalm": 42,
+      "title": "Psalm 42 (Hope In God) [feat. Aimee Norris]",
+      "artist": "Robbie Seay Band",
+      "album": "Psalms LP",
+      "spotifyUrl": "https://open.spotify.com/track/6FPFKEmKYM7ZCOZ2qSppsv"
+    },
+    {
       "id": "sandra-mccra-042-4ESutS",
       "psalm": 42,
       "title": "My Help, My God (Psalm 42)",
@@ -1330,6 +1626,14 @@
       "title": "Psalm 42 (Loudest Praise)",
       "artist": "Shane & Shane",
       "spotifyUrl": "https://open.spotify.com/track/7iV050kmhdJHr2RZbChiVA"
+    },
+    {
+      "id": "shane-shane-042-5CJ67q",
+      "psalm": 42,
+      "title": "Psalm 42 (Loudest Praise) - Live",
+      "artist": "Shane & Shane",
+      "album": "Psalms, Hymns, and Spiritual Songs (Live)",
+      "spotifyUrl": "https://open.spotify.com/track/5CJ67qnqLDrjdNDRZLqVIr"
     },
     {
       "id": "the-corner-r-042-6dq4m9",
@@ -1428,6 +1732,22 @@
       "spotifyUrl": "https://open.spotify.com/track/2vmJCmQf35kTfhYkU2pppW"
     },
     {
+      "id": "shane-shane-045-3EWCQ1",
+      "psalm": 45,
+      "title": "Psalm 45 (Fairest of All)",
+      "artist": "Shane & Shane",
+      "album": "Psalms, Vol. 2",
+      "spotifyUrl": "https://open.spotify.com/track/3EWCQ11cjcgjKOCJFXTKuz"
+    },
+    {
+      "id": "shane-shane-045-2N5KnM",
+      "psalm": 45,
+      "title": "Psalm 45 (Live)",
+      "artist": "Shane & Shane",
+      "album": "Psalms Live",
+      "spotifyUrl": "https://open.spotify.com/track/2N5KnMApNzcblJeYStLM0N"
+    },
+    {
       "id": "the-psalms-p-045-2W8roA",
       "psalm": 45,
       "title": "Psalm 45 (Mighty Warrior)",
@@ -1466,6 +1786,22 @@
       "artist": "Scripture Hymnal",
       "album": "Scripture Hymnal EP",
       "spotifyUrl": "https://open.spotify.com/track/6nOVoVorQxugQNvPi83eyj"
+    },
+    {
+      "id": "shane-shane-046-2lqc2v",
+      "psalm": 46,
+      "title": "Psalm 46 (Live)",
+      "artist": "Shane & Shane",
+      "album": "Psalms Live",
+      "spotifyUrl": "https://open.spotify.com/track/2lqc2v750cfFJx6kvkUikn"
+    },
+    {
+      "id": "shane-shane-046-6obkbp",
+      "psalm": 46,
+      "title": "Psalm 46 (Lord of Hosts)",
+      "artist": "Shane & Shane",
+      "album": "Psalms, Vol. 2",
+      "spotifyUrl": "https://open.spotify.com/track/6obkbpih6pYSgjPyoI75Xp"
     },
     {
       "id": "the-corner-r-046-6iYBOv",
@@ -1548,6 +1884,14 @@
       "spotifyUrl": "https://open.spotify.com/track/19Icl2HrXoeh6ATtLbUftu"
     },
     {
+      "id": "caroline-cob-051-6ey95T",
+      "psalm": 51,
+      "title": "Have Mercy (Psalm 51)",
+      "artist": "Caroline Cobb",
+      "album": "Psalms: The Poetry of Prayer",
+      "spotifyUrl": "https://open.spotify.com/track/6ey95T0cP9WZXwohuBy0d6"
+    },
+    {
       "id": "pbh-051",
       "psalm": 51,
       "title": "Psalm 51",
@@ -1572,12 +1916,28 @@
       "spotifyUrl": "https://open.spotify.com/track/5Vb2i3GdVsT1XAtGI96pP4"
     },
     {
+      "id": "shane-shane-051-1L19bp",
+      "psalm": 51,
+      "title": "Psalm 51 (Wisdom in the Secret Heart)",
+      "artist": "Shane & Shane",
+      "album": "Psalms, Vol. 2",
+      "spotifyUrl": "https://open.spotify.com/track/1L19bpoY8Vp8JiQzazWq8s"
+    },
+    {
       "id": "the-psalms-p-051-4jAids",
       "psalm": 51,
       "title": "Psalm 51 (Forgive Me)",
       "artist": "The Psalms Project",
       "album": "Vol. 6: Psalms 47-55",
       "spotifyUrl": "https://open.spotify.com/track/4jAidsKF9deEtixEVffMJM"
+    },
+    {
+      "id": "zac-fitzsimm-051-6hk0Pw",
+      "psalm": 51,
+      "title": "Psalm 51 Word for Word",
+      "artist": "Zac Fitzsimmons",
+      "album": "Psalms: Word for Word",
+      "spotifyUrl": "https://open.spotify.com/track/6hk0PwaP4HaMttMoanfAih"
     },
     {
       "id": "poor-bishop--052-3kDqzR",
@@ -1700,6 +2060,14 @@
       "spotifyUrl": "https://open.spotify.com/track/3XRwPP5cAmv6RMRQMkbfGk"
     },
     {
+      "id": "zac-fitzsimm-061-1eiN5A",
+      "psalm": 61,
+      "title": "Psalm 61 Word for Word",
+      "artist": "Zac Fitzsimmons",
+      "album": "Psalms: Word for Word",
+      "spotifyUrl": "https://open.spotify.com/track/1eiN5AQRJ1YREZ7z1ie3k8"
+    },
+    {
       "id": "poor-bishop--062-75Sbow",
       "psalm": 62,
       "title": "Psalm 62",
@@ -1708,12 +2076,28 @@
       "spotifyUrl": "https://open.spotify.com/track/75SbowoZX9FAQsdoL2k4Op"
     },
     {
+      "id": "robbie-seay--062-61zpvl",
+      "psalm": 62,
+      "title": "Psalm 62 (God Is a Refuge)",
+      "artist": "Robbie Seay Band",
+      "album": "Psalms LP",
+      "spotifyUrl": "https://open.spotify.com/track/61zpvlfX0a7bomy0XQCM2w"
+    },
+    {
       "id": "sandra-mccra-062-1cGOFB",
       "psalm": 62,
       "title": "My Soul Finds Rest (Psalm 62)",
       "artist": "Sandra McCracken",
       "album": "Psalms",
       "spotifyUrl": "https://open.spotify.com/track/1cGOFBhe3Npl7PFKCgccjW"
+    },
+    {
+      "id": "wendell-kimb-062-5ZmGpJ",
+      "psalm": 62,
+      "title": "I'll Not Be Shaken (Psalm 62)",
+      "artist": "Wendell Kimbrough",
+      "album": "Psalms We Sing Together",
+      "spotifyUrl": "https://open.spotify.com/track/5ZmGpJcKLAGkFZLaNveX5E"
     },
     {
       "id": "brother-down-063-0n55cQ",
@@ -1732,6 +2116,14 @@
       "spotifyUrl": "https://open.spotify.com/track/7j8DlSGQjx1ZDhm0zBXw1S"
     },
     {
+      "id": "caroline-cob-063-1ZTSkD",
+      "psalm": 63,
+      "title": "Better Than Life (Psalm 63)",
+      "artist": "Caroline Cobb",
+      "album": "Psalms: The Poetry of Prayer",
+      "spotifyUrl": "https://open.spotify.com/track/1ZTSkDGhG0VzsUTgPkMvOd"
+    },
+    {
       "id": "coram-deo-ch-063-5hk6UL",
       "psalm": 63,
       "title": "Soul Satisfied (Psalm 63)",
@@ -1746,6 +2138,30 @@
       "artist": "Poor Bishop Hooper",
       "album": "EveryPsalm",
       "spotifyUrl": "https://open.spotify.com/track/4ocq559R8I0XwbK7AsPA6i"
+    },
+    {
+      "id": "robbie-seay--063-31UAOp",
+      "psalm": 63,
+      "title": "Psalm 63 (Better Than Life) [feat. Lindsey Kidd]",
+      "artist": "Robbie Seay Band",
+      "album": "Psalms LP",
+      "spotifyUrl": "https://open.spotify.com/track/31UAOpDw3eSQqFYvQvBGz9"
+    },
+    {
+      "id": "shane-shane-063-43rVaC",
+      "psalm": 63,
+      "title": "Psalm 63 (Better Than Life)",
+      "artist": "Shane & Shane",
+      "album": "Psalms, Vol. 2",
+      "spotifyUrl": "https://open.spotify.com/track/43rVaC703YCbLSUBeGW9Jo"
+    },
+    {
+      "id": "shane-shane-063-0A9nhL",
+      "psalm": 63,
+      "title": "Psalm 63 (Live)",
+      "artist": "Shane & Shane",
+      "album": "Psalms Live",
+      "spotifyUrl": "https://open.spotify.com/track/0A9nhLgh2KWCuiUlHQciTp"
     },
     {
       "id": "the-corner-r-063-0eeEn1",
@@ -1780,6 +2196,14 @@
       "spotifyUrl": "https://open.spotify.com/track/2nsTesaT9DOXaCzctvdJNP"
     },
     {
+      "id": "robbie-seay--066-6effTo",
+      "psalm": 66,
+      "title": "Psalm 66 (You Are Great)",
+      "artist": "Robbie Seay Band",
+      "album": "Psalms LP",
+      "spotifyUrl": "https://open.spotify.com/track/6effToB95egFnEFzXNaIxD"
+    },
+    {
       "id": "liturgical-f-067-1yiDcf",
       "psalm": 67,
       "title": "Psalm 67",
@@ -1802,6 +2226,22 @@
       "artist": "The Corner Room",
       "album": "Psalm Songs, Vol. 2",
       "spotifyUrl": "https://open.spotify.com/track/7n4ZqCXvC83QP16qf0BVqz"
+    },
+    {
+      "id": "zac-fitzsimm-067-6prQdx",
+      "psalm": 67,
+      "title": "Psalm 67 Word For Word",
+      "artist": "Zac Fitzsimmons",
+      "album": "Psalms Word For Word: Volume 2",
+      "spotifyUrl": "https://open.spotify.com/track/6prQdxArfKHFka4IrEsz0P"
+    },
+    {
+      "id": "gregory-wilb-068-76jK9g",
+      "psalm": 68,
+      "title": "Psalm 68: Let God Arise",
+      "artist": "Gregory Wilbur",
+      "album": "My Cry Ascends: New Parish Psalms",
+      "spotifyUrl": "https://open.spotify.com/track/76jK9gxosqyec3OfX2IApZ"
     },
     {
       "id": "poor-bishop--068-6j0QBc",
@@ -1857,6 +2297,14 @@
       "artist": "Brian Sauvé",
       "album": "Even Dragons Shall Him Praise",
       "spotifyUrl": "https://open.spotify.com/track/2NAuSGoaMeDDNYaThbBA1V"
+    },
+    {
+      "id": "gregory-wilb-072-3dMOpp",
+      "psalm": 72,
+      "title": "Psalm 72: O God to Thine Anointed King",
+      "artist": "Gregory Wilbur",
+      "album": "My Cry Ascends: New Parish Psalms",
+      "spotifyUrl": "https://open.spotify.com/track/3dMOppu55csd87lXkN25j0"
     },
     {
       "id": "poor-bishop--072-6CC39P",
@@ -1931,6 +2379,14 @@
       "spotifyUrl": "https://open.spotify.com/track/4B9BfivfrcPbNoC1ngwwQH"
     },
     {
+      "id": "gregory-wilb-079-66UA9p",
+      "psalm": 79,
+      "title": "Remember Not, O God: Psalm 79",
+      "artist": "Gregory Wilbur",
+      "album": "Remember Not, O God: Psalm 79",
+      "spotifyUrl": "https://open.spotify.com/track/66UA9pRga05EahGaujlNIT"
+    },
+    {
       "id": "poor-bishop--079-1ggUvD",
       "psalm": 79,
       "title": "Psalm 79",
@@ -1995,12 +2451,28 @@
       "spotifyUrl": "https://open.spotify.com/track/3XqAQWh0Sw9dycoQ9dd47L"
     },
     {
+      "id": "caroline-cob-084-77tMWr",
+      "psalm": 84,
+      "title": "No Place Better (Psalm 84)",
+      "artist": "Caroline Cobb",
+      "album": "Psalms: The Poetry of Prayer",
+      "spotifyUrl": "https://open.spotify.com/track/77tMWrtgr0ud5IR0uHpV9y"
+    },
+    {
       "id": "poor-bishop--084-60gFqO",
       "psalm": 84,
       "title": "Psalm 84",
       "artist": "Poor Bishop Hooper",
       "album": "EveryPsalm",
       "spotifyUrl": "https://open.spotify.com/track/60gFqOday0YLXrpPB7v5gi"
+    },
+    {
+      "id": "shane-shane-084-6BaCss",
+      "psalm": 84,
+      "title": "Psalm 84 (I'm Home)",
+      "artist": "Shane & Shane",
+      "album": "Psalms, Hymns, and Spiritual Songs, Vol. 1",
+      "spotifyUrl": "https://open.spotify.com/track/6BaCssQMVGSLNElXyrmmGF"
     },
     {
       "id": "poor-bishop--085-0M9nbG",
@@ -2075,11 +2547,35 @@
       "spotifyUrl": "https://open.spotify.com/track/470ZEZMKYgjaYcFWRH4lDv"
     },
     {
+      "id": "shane-shane-090-1BsEjM",
+      "psalm": 90,
+      "title": "Psalm 90 (Satisfy Us with Your Love)",
+      "artist": "Shane & Shane",
+      "album": "Psalms, Hymns, and Spiritual Songs, Vol. 1",
+      "spotifyUrl": "https://open.spotify.com/track/1BsEjM4yjgsTlykhygDeNr"
+    },
+    {
+      "id": "shane-shane-090-1gHfYW",
+      "psalm": 90,
+      "title": "Psalm 90 (Satisfy Us with Your Love) - Live",
+      "artist": "Shane & Shane",
+      "album": "Psalms, Hymns, and Spiritual Songs (Live)",
+      "spotifyUrl": "https://open.spotify.com/track/1gHfYWgJGGrUv0buT2KBQu"
+    },
+    {
       "id": "sgm-090",
       "psalm": 90,
       "title": "From Everlasting (Psalm 90)",
       "artist": "Sovereign Grace Music",
       "spotifyUrl": "https://open.spotify.com/track/1HUrq7hFK89PBqiiNNsYBP"
+    },
+    {
+      "id": "zac-fitzsimm-090-413V8w",
+      "psalm": 90,
+      "title": "Psalm 90 Word for Word",
+      "artist": "Zac Fitzsimmons",
+      "album": "Psalms: Word for Word",
+      "spotifyUrl": "https://open.spotify.com/track/413V8wugNcYcNTkzUt4Yoi"
     },
     {
       "id": "brian-sauv-091-5In7P1",
@@ -2090,12 +2586,52 @@
       "spotifyUrl": "https://open.spotify.com/track/5In7P1o3FC1e0NU8qOPYwi"
     },
     {
+      "id": "caroline-cob-091-0Hkvbk",
+      "psalm": 91,
+      "title": "My Refuge, My Fortress (Psalm 91)",
+      "artist": "Caroline Cobb",
+      "album": "Psalms: The Poetry of Prayer",
+      "spotifyUrl": "https://open.spotify.com/track/0Hkvbk6F9DfNlGA8X3nVui"
+    },
+    {
+      "id": "gregory-wilb-091-19zGLl",
+      "psalm": 91,
+      "title": "Psalm 91: Call Jehovah Your Salvation",
+      "artist": "Gregory Wilbur",
+      "album": "My Cry Ascends: New Parish Psalms",
+      "spotifyUrl": "https://open.spotify.com/track/19zGLlZBCko3ROOX0oIxI7"
+    },
+    {
       "id": "pbh-091",
       "psalm": 91,
       "title": "Psalm 91",
       "artist": "Poor Bishop Hooper",
       "album": "EveryPsalm",
       "spotifyUrl": "https://open.spotify.com/track/6uj20xsIAQx7IO1ZRkCWXi"
+    },
+    {
+      "id": "robbie-seay--091-2vwpo3",
+      "psalm": 91,
+      "title": "Psalm 91 (He Knows My Name)",
+      "artist": "Robbie Seay Band",
+      "album": "Psalms LP",
+      "spotifyUrl": "https://open.spotify.com/track/2vwpo31htjWRuLUlwdrIlb"
+    },
+    {
+      "id": "shane-shane-091-4Vorkm",
+      "psalm": 91,
+      "title": "Psalm 91 (Live)",
+      "artist": "Shane & Shane",
+      "album": "Psalms Live",
+      "spotifyUrl": "https://open.spotify.com/track/4VorkmHdZRFx9PQyTXbTAd"
+    },
+    {
+      "id": "shane-shane-091-572afB",
+      "psalm": 91,
+      "title": "Psalm 91 (On Eagles' Wings)",
+      "artist": "Shane & Shane",
+      "album": "Psalms, Vol. 2",
+      "spotifyUrl": "https://open.spotify.com/track/572afBiucwePeZgB1BBRfC"
     },
     {
       "id": "the-verses-p-091-76gyVU",
@@ -2154,6 +2690,22 @@
       "spotifyUrl": "https://open.spotify.com/track/04JCuhbcK34lhINUe9AHDQ"
     },
     {
+      "id": "zac-fitzsimm-091-0nLqMT",
+      "psalm": 91,
+      "title": "Psalm 91 Word for Word",
+      "artist": "Zac Fitzsimmons",
+      "album": "Psalms: Word for Word",
+      "spotifyUrl": "https://open.spotify.com/track/0nLqMTqOwAfS3ZaZVcvfA3"
+    },
+    {
+      "id": "caroline-cob-092-6lRVUz",
+      "psalm": 92,
+      "title": "Good To Give Thanks (Psalm 92)",
+      "artist": "Caroline Cobb",
+      "album": "Psalms: The Poetry of Prayer",
+      "spotifyUrl": "https://open.spotify.com/track/6lRVUz7aqnVeRAB21yK08X"
+    },
+    {
       "id": "poor-bishop--092-7o5qys",
       "psalm": 92,
       "title": "Psalm 92",
@@ -2202,12 +2754,44 @@
       "spotifyUrl": "https://open.spotify.com/track/2C23y9fMl9cnzYYWXHQpjX"
     },
     {
+      "id": "zac-fitzsimm-095-1WOHLc",
+      "psalm": 95,
+      "title": "Psalm 95 Word For Word",
+      "artist": "Zac Fitzsimmons",
+      "album": "Psalms Word For Word: Volume 2",
+      "spotifyUrl": "https://open.spotify.com/track/1WOHLc3AUHKJy3zdxm5tzc"
+    },
+    {
       "id": "poor-bishop--096-53xghO",
       "psalm": 96,
       "title": "Psalm 96",
       "artist": "Poor Bishop Hooper",
       "album": "EveryPsalm",
       "spotifyUrl": "https://open.spotify.com/track/53xghOT1y5SiMYheZURA7i"
+    },
+    {
+      "id": "robbie-seay--096-6GE9CW",
+      "psalm": 96,
+      "title": "Psalm 96 (Let the Earth Rejoice)",
+      "artist": "Robbie Seay Band",
+      "album": "Psalms LP",
+      "spotifyUrl": "https://open.spotify.com/track/6GE9CWpTSBYwconHFM9zw0"
+    },
+    {
+      "id": "wendell-kimb-096-6XuQs4",
+      "psalm": 96,
+      "title": "Let the Earth Be Glad (Psalm 96)",
+      "artist": "Wendell Kimbrough",
+      "album": "Let the Earth Be Glad (Psalm 96)",
+      "spotifyUrl": "https://open.spotify.com/track/6XuQs4Ic7YPYag4X5ZsYSf"
+    },
+    {
+      "id": "zac-fitzsimm-096-49fU8M",
+      "psalm": 96,
+      "title": "Psalm 96 Word For Word",
+      "artist": "Zac Fitzsimmons",
+      "album": "Psalms Word For Word: Volume 2",
+      "spotifyUrl": "https://open.spotify.com/track/49fU8Mv4KPaGqXYtQIGLC8"
     },
     {
       "id": "poor-bishop--097-037Bjd",
@@ -2232,6 +2816,22 @@
       "artist": "Poor Bishop Hooper",
       "album": "EveryPsalm",
       "spotifyUrl": "https://open.spotify.com/track/47srmaEHH90pRSSOL2qwAd"
+    },
+    {
+      "id": "shane-shane-098-4WWYNL",
+      "psalm": 98,
+      "title": "Psalm 98 (Live)",
+      "artist": "Shane & Shane",
+      "album": "Psalms Live",
+      "spotifyUrl": "https://open.spotify.com/track/4WWYNLDXUvYWfUyBGuYUUI"
+    },
+    {
+      "id": "shane-shane-098-2wXbVH",
+      "psalm": 98,
+      "title": "Psalm 98 (Sing Unto the Lord)",
+      "artist": "Shane & Shane",
+      "album": "Psalms, Vol. 2",
+      "spotifyUrl": "https://open.spotify.com/track/2wXbVH6oQtUPMcZrlUqnPs"
     },
     {
       "id": "poor-bishop--099-0udx8m",
@@ -2290,6 +2890,30 @@
       "spotifyUrl": "https://open.spotify.com/track/0f7ncdelYYK6pTOtgCru36"
     },
     {
+      "id": "zac-fitzsimm-100-2HdMVP",
+      "psalm": 100,
+      "title": "Psalm 100 Word For Word",
+      "artist": "Zac Fitzsimmons",
+      "album": "Psalms Word For Word: Volume 2",
+      "spotifyUrl": "https://open.spotify.com/track/2HdMVPNnGe3MGtIpccpV6V"
+    },
+    {
+      "id": "caroline-cob-102-3rqibx",
+      "psalm": 102,
+      "title": "Don't Hide Your Face (Psalm 102)",
+      "artist": "Caroline Cobb",
+      "album": "Psalms: The Poetry of Prayer",
+      "spotifyUrl": "https://open.spotify.com/track/3rqibxp13nvcGZ3jX6YnI0"
+    },
+    {
+      "id": "gregory-wilb-102-5nQYX9",
+      "psalm": 102,
+      "title": "Psalm 102: Lord, Hear My Prayer",
+      "artist": "Gregory Wilbur",
+      "album": "My Cry Ascends: New Parish Psalms",
+      "spotifyUrl": "https://open.spotify.com/track/5nQYX92X7c4qk94k6YPgCF"
+    },
+    {
       "id": "brother-down-103-53zaY6",
       "psalm": 103,
       "title": "My Soul, Now Bless Thy Maker - Psalm 103",
@@ -2306,6 +2930,14 @@
       "spotifyUrl": "https://open.spotify.com/track/24Ej0kqdU8sjppEDhSpeD4"
     },
     {
+      "id": "gregory-wilb-103-2vOoCC",
+      "psalm": 103,
+      "title": "Psalm 103: O Bless the Lord My Soul",
+      "artist": "Gregory Wilbur",
+      "album": "My Cry Ascends: New Parish Psalms",
+      "spotifyUrl": "https://open.spotify.com/track/2vOoCCajm6aVEh4CfdQVwP"
+    },
+    {
       "id": "pbh-103",
       "psalm": 103,
       "title": "Psalm 103",
@@ -2314,12 +2946,36 @@
       "spotifyUrl": "https://open.spotify.com/track/6XqIShgrHX3XrgMW92gZaO"
     },
     {
+      "id": "zac-fitzsimm-103-6KCt30",
+      "psalm": 103,
+      "title": "Psalm 103 Word for Word",
+      "artist": "Zac Fitzsimmons",
+      "album": "Psalms: Word for Word",
+      "spotifyUrl": "https://open.spotify.com/track/6KCt3045aOj7JMP2Kex5eR"
+    },
+    {
       "id": "sandra-mccra-104-4ruszc",
       "psalm": 104,
       "title": "All Your Works Are Good (Psalm 104)",
       "artist": "Sandra McCracken",
       "album": "Psalms",
       "spotifyUrl": "https://open.spotify.com/track/4ruszcUTkL45zpEACGBToj"
+    },
+    {
+      "id": "wendell-kimb-104-3zkGi7",
+      "psalm": 104,
+      "title": "Rejoice In All Your Works (Psalm 104)",
+      "artist": "Wendell Kimbrough",
+      "album": "Psalms We Sing Together",
+      "spotifyUrl": "https://open.spotify.com/track/3zkGi7usggOXTTYB2EwKui"
+    },
+    {
+      "id": "wendell-kimb-107-1udggF",
+      "psalm": 107,
+      "title": "Oh Give Thanks (Psalm 107)",
+      "artist": "Wendell Kimbrough",
+      "album": "Psalms We Sing Together",
+      "spotifyUrl": "https://open.spotify.com/track/1udggFfWSZpcGB2LBo3xCb"
     },
     {
       "id": "brian-sauv-108-3V6wbE",
@@ -2336,6 +2992,30 @@
       "artist": "Liturgical Folk",
       "album": "Psalm Settings",
       "spotifyUrl": "https://open.spotify.com/track/2ubz9gcq28eL7Q8BljhWaa"
+    },
+    {
+      "id": "tim-bushong-110-1FaFI6",
+      "psalm": 110,
+      "title": "Hail To Jesus (Psalm 110)",
+      "artist": "Tim Bushong",
+      "album": "Battle Hymns for Weary Souls II: Hail to Jesus",
+      "spotifyUrl": "https://open.spotify.com/track/1FaFI6tq1R2KWHBuem0rdW"
+    },
+    {
+      "id": "gregory-wilb-111-5wZEGC",
+      "psalm": 111,
+      "title": "Psalm 111: O Give the Lord",
+      "artist": "Gregory Wilbur",
+      "album": "My Cry Ascends: New Parish Psalms",
+      "spotifyUrl": "https://open.spotify.com/track/5wZEGC4ErjHeFxB7qif2dP"
+    },
+    {
+      "id": "zac-fitzsimm-111-4qWNCA",
+      "psalm": 111,
+      "title": "Psalm 111 Word For Word",
+      "artist": "Zac Fitzsimmons",
+      "album": "Psalms Word For Word: Volume 2",
+      "spotifyUrl": "https://open.spotify.com/track/4qWNCA9qCKM65708B6antS"
     },
     {
       "id": "brian-sauv-112-0ejukt",
@@ -2450,6 +3130,14 @@
       "spotifyUrl": "https://open.spotify.com/track/5rDF392jrEMCOhROfLo7H8"
     },
     {
+      "id": "robbie-seay--116-3qYl0h",
+      "psalm": 116,
+      "title": "Psalm 116 (You Turned My Soul to Rest)",
+      "artist": "Robbie Seay Band",
+      "album": "Psalms LP",
+      "spotifyUrl": "https://open.spotify.com/track/3qYl0hdSb8zjy3TZ59fcbb"
+    },
+    {
       "id": "brian-sauv-117-6KrJsq",
       "psalm": 117,
       "title": "Psalm 117 (His Merciful Kindness)",
@@ -2474,6 +3162,14 @@
       "spotifyUrl": "https://open.spotify.com/track/6mcsdLWwwycPri1Mz7ivXi"
     },
     {
+      "id": "zac-fitzsimm-117-1CRAx9",
+      "psalm": 117,
+      "title": "Psalm 117 Word For Word",
+      "artist": "Zac Fitzsimmons",
+      "album": "Psalms Word For Word: Volume 2",
+      "spotifyUrl": "https://open.spotify.com/track/1CRAx9WpZgoDpuDPU2yOD8"
+    },
+    {
       "id": "cardiphonia--118-0SC7bM",
       "psalm": 118,
       "title": "He's Opened the Gates (Psalm 118) [feat. Wen Reagan]",
@@ -2496,6 +3192,22 @@
       "artist": "Cardiphonia Music",
       "album": "Hallel Psalms",
       "spotifyUrl": "https://open.spotify.com/track/38CZihtfKTWE957GkHK5PQ"
+    },
+    {
+      "id": "robbie-seay--118-1Qh0T9",
+      "psalm": 118,
+      "title": "Psalm 118 (Your Steadfast Love)",
+      "artist": "Robbie Seay Band",
+      "album": "Psalms LP",
+      "spotifyUrl": "https://open.spotify.com/track/1Qh0T9P4EJhRfFUJCqQmtR"
+    },
+    {
+      "id": "shane-shane-118-3f8p3Y",
+      "psalm": 118,
+      "title": "Psalm 118 (This Is The Day)",
+      "artist": "Shane & Shane",
+      "album": "Psalms",
+      "spotifyUrl": "https://open.spotify.com/track/3f8p3Yyt2n4n3pJIXUuha5"
     },
     {
       "id": "cardiphonia--119-56FM3p",
@@ -2672,6 +3384,14 @@
       "artist": "Cardiphonia Music",
       "album": "Psalm 119",
       "spotifyUrl": "https://open.spotify.com/track/222CBYCrHPCBKMxgYhAChJ"
+    },
+    {
+      "id": "caroline-cob-119-4GIIcD",
+      "psalm": 119,
+      "title": "I Love Your Word (Psalm 119)",
+      "artist": "Caroline Cobb",
+      "album": "Psalms: The Poetry of Prayer",
+      "spotifyUrl": "https://open.spotify.com/track/4GIIcD3fMzdlGP09H8lW1O"
     },
     {
       "id": "exodus-music-119-4rmRBi",
@@ -2930,6 +3650,14 @@
       "spotifyUrl": "https://open.spotify.com/track/6EzokWGdlrwTtW4KLyNpR8"
     },
     {
+      "id": "zac-fitzsimm-121-7DNVql",
+      "psalm": 121,
+      "title": "Psalm 121 Word For Word",
+      "artist": "Zac Fitzsimmons",
+      "album": "Psalms Word For Word: Volume 2",
+      "spotifyUrl": "https://open.spotify.com/track/7DNVqly1ngSh3BRvzCOvi0"
+    },
+    {
       "id": "coram-deo-ch-122-6JghUw",
       "psalm": 122,
       "title": "I Was Glad When They Said to Me (Psalm 122) [feat. Coram Deo Church]",
@@ -3090,12 +3818,36 @@
       "spotifyUrl": "https://open.spotify.com/track/77mhMS4h1iYN3ipS7t3yqc"
     },
     {
+      "id": "gregory-wilb-130-6iHNa1",
+      "psalm": 130,
+      "title": "Psalm 130: From Depths of Woe",
+      "artist": "Gregory Wilbur",
+      "album": "My Cry Ascends: New Parish Psalms",
+      "spotifyUrl": "https://open.spotify.com/track/6iHNa1DjjiS4sgJslT2nuR"
+    },
+    {
       "id": "liturgical-f-130-3g8PPC",
       "psalm": 130,
       "title": "Psalm 130",
       "artist": "Liturgical Folk",
       "album": "Psalm Settings",
       "spotifyUrl": "https://open.spotify.com/track/3g8PPCNQrm2eaGegG6k1RO"
+    },
+    {
+      "id": "robbie-seay--130-14Fjaj",
+      "psalm": 130,
+      "title": "Psalm 130 (I Wait)",
+      "artist": "Robbie Seay Band",
+      "album": "Psalms LP",
+      "spotifyUrl": "https://open.spotify.com/track/14FjajUzosJigd7pVQJxxu"
+    },
+    {
+      "id": "caroline-cob-131-1TGxRM",
+      "psalm": 131,
+      "title": "Like A Child With Its Mother (Psalm 131)",
+      "artist": "Caroline Cobb",
+      "album": "Psalms: The Poetry of Prayer",
+      "spotifyUrl": "https://open.spotify.com/track/1TGxRMBqnfZtwEaaMLs2e1"
     },
     {
       "id": "coram-deo-ch-131-5JYLxC",
@@ -3136,6 +3888,14 @@
       "artist": "Coram Deo Church",
       "album": "Songs for the Sojourn, Volume 2",
       "spotifyUrl": "https://open.spotify.com/track/4DAS6kfAfVFDH7LyUQZahv"
+    },
+    {
+      "id": "robbie-seay--134-34RgxS",
+      "psalm": 134,
+      "title": "Psalm 134 (Bless the Lord)",
+      "artist": "Robbie Seay Band",
+      "album": "Psalms LP",
+      "spotifyUrl": "https://open.spotify.com/track/34RgxSrTBsmOCARJgTifDv"
     },
     {
       "id": "cardiphonia--135-4Ypc5Z",
@@ -3200,6 +3960,22 @@
       "artist": "Poor Bishop Hooper",
       "album": "EveryPsalm",
       "spotifyUrl": "https://open.spotify.com/track/3UShWzuqMpTIbLt04uqbnH"
+    },
+    {
+      "id": "robbie-seay--139-3U6om6",
+      "psalm": 139,
+      "title": "Psalm 139 (You Have Searched and Know Me)",
+      "artist": "Robbie Seay Band",
+      "album": "Psalms LP",
+      "spotifyUrl": "https://open.spotify.com/track/3U6om6J53k0iqNVmfNJqGr"
+    },
+    {
+      "id": "shane-shane-139-3MS8o3",
+      "psalm": 139,
+      "title": "Psalm 139 (Far Too Wonderful)",
+      "artist": "Shane & Shane",
+      "album": "Psalms, Vol. 2",
+      "spotifyUrl": "https://open.spotify.com/track/3MS8o3UWQkGdFmhQ8vrFDP"
     },
     {
       "id": "the-corner-r-139-5ZuJg1",
@@ -3306,12 +4082,28 @@
       "spotifyUrl": "https://open.spotify.com/track/7qFp792fRJiDWxol2UZ9zk"
     },
     {
+      "id": "wendell-kimb-139-4Khtis",
+      "psalm": 139,
+      "title": "In You O Lord I Am Found (Psalm 139)",
+      "artist": "Wendell Kimbrough",
+      "album": "Psalms We Sing Together",
+      "spotifyUrl": "https://open.spotify.com/track/4KhtisaQK8QxhNDvtmTUpO"
+    },
+    {
       "id": "cardiphonia--140-4w0b3a",
       "psalm": 140,
       "title": "Deliver Me from Evil (Psalm 140) [feat. Jered McKenna]",
       "artist": "Cardiphonia Music",
       "album": "The Songs of the Psalter, Vol. 5.1",
       "spotifyUrl": "https://open.spotify.com/track/4w0b3a7ZSZJ7efFsjqAQ4G"
+    },
+    {
+      "id": "robbie-seay--140-2GuCMK",
+      "psalm": 140,
+      "title": "Psalm 140 (Cry for Mercy)",
+      "artist": "Robbie Seay Band",
+      "album": "Psalms LP",
+      "spotifyUrl": "https://open.spotify.com/track/2GuCMKlFHC0YjQefbZcgkT"
     },
     {
       "id": "cardiphonia--142-0u24Am",
@@ -3328,6 +4120,14 @@
       "artist": "Cardiphonia Music",
       "album": "The Songs of the Psalter, Vol. 5.1",
       "spotifyUrl": "https://open.spotify.com/track/0qya4tKEv3kYRCDs6rbxWI"
+    },
+    {
+      "id": "shane-shane-143-1teNGV",
+      "psalm": 143,
+      "title": "Psalm 143",
+      "artist": "Shane & Shane",
+      "album": "Psalms",
+      "spotifyUrl": "https://open.spotify.com/track/1teNGVT852NegVcjqt7EMn"
     },
     {
       "id": "brian-sauv-144-6Y4cca",
@@ -3360,6 +4160,22 @@
       "artist": "Scripture Hymnal",
       "album": "Scripture Hymnal, Vol. 2",
       "spotifyUrl": "https://open.spotify.com/track/3XXl5caUvFDHMj0Iqr15jt"
+    },
+    {
+      "id": "shane-shane-145-5FeIwn",
+      "psalm": 145,
+      "title": "Psalm 145",
+      "artist": "Shane & Shane",
+      "album": "Psalms",
+      "spotifyUrl": "https://open.spotify.com/track/5FeIwnHme2zk6YJMyd6odO"
+    },
+    {
+      "id": "shane-shane-145-0j9rNb",
+      "psalm": 145,
+      "title": "Psalm 145 (Live)",
+      "artist": "Shane & Shane",
+      "album": "Psalms Live",
+      "spotifyUrl": "https://open.spotify.com/track/0j9rNb4IHxLgKdLGZ1sd1I"
     },
     {
       "id": "cardiphonia--146-3kpc7J",
@@ -3456,6 +4272,14 @@
       "artist": "The Corner Room",
       "album": "Psalm Songs, Vol. 3",
       "spotifyUrl": "https://open.spotify.com/track/005cMSkGeBXrQH4h4jV8FQ"
+    },
+    {
+      "id": "zac-fitzsimm-150-4OHqVh",
+      "psalm": 150,
+      "title": "Psalm 150 Word for Word",
+      "artist": "Zac Fitzsimmons",
+      "album": "Psalms: Word for Word",
+      "spotifyUrl": "https://open.spotify.com/track/4OHqVhkeZA1Haw0FcPNxsq"
     }
   ]
 }

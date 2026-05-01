@@ -1,11 +1,12 @@
 import { useMemo, useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Song } from '../types';
 import { colors, fontSize, radius, spacing } from '../theme';
 import { useFavorites } from '../storage/favorites';
 import { useSpotifyAuth } from '../spotify/AuthContext';
 import { useWebPlayer } from '../spotify/WebPlayerContext';
+import { usePreviewPlayer } from '../spotify/PreviewPlayerContext';
 import { extractTrackId, openSpotifyTrack } from '../spotify/launch';
 import { SpotifyEmbedPlayer } from './SpotifyEmbedPlayer';
 
@@ -19,12 +20,19 @@ export function SongRow({
   const { isFavorite, toggle } = useFavorites();
   const { tokens, login } = useSpotifyAuth();
   const player = useWebPlayer();
+  const preview = usePreviewPlayer();
   const router = useRouter();
   const fav = isFavorite(song.id);
   const trackId = extractTrackId(song.spotifyUrl);
   const trackUri = trackId ? `spotify:track:${trackId}` : null;
-  const isCurrent = trackUri !== null && player.currentUri === trackUri;
-  const isPlayingNow = isCurrent && player.isPlaying;
+  const isCurrentFull = trackUri !== null && player.currentUri === trackUri;
+  const isCurrentPreview =
+    trackId !== null && preview.currentTrackId === trackId;
+  const isCurrent = isCurrentFull || isCurrentPreview;
+  const isPlayingNow =
+    (isCurrentFull && player.isPlaying) ||
+    (isCurrentPreview && preview.isPlaying);
+  const previewLoading = isCurrentPreview && preview.loading;
   const [expanded, setExpanded] = useState(false);
   const [busy, setBusy] = useState(false);
 
@@ -56,11 +64,15 @@ export function SongRow({
       return;
     }
     if (player.supported) {
-      if (isCurrent) {
+      if (isCurrentFull) {
         await player.toggle();
       } else {
         await player.play(playQueueUris ?? trackUri!);
       }
+      return;
+    }
+    if (preview.supported) {
+      await preview.toggle(trackId);
       return;
     }
     setExpanded((v) => !v);
@@ -80,22 +92,32 @@ export function SongRow({
         ? 'Opening Spotify…'
         : 'Sign in to play'
       : player.supported
-        ? isCurrent
+        ? isCurrentFull
           ? player.isPlaying
             ? 'Playing'
             : 'Paused'
           : !player.ready
             ? 'Connecting…'
             : 'Tap to play'
-        : expanded
-          ? 'Tap to hide preview'
-          : '30-sec preview';
+        : preview.supported
+          ? previewLoading
+            ? 'Loading preview…'
+            : isCurrentPreview
+              ? preview.isPlaying
+                ? 'Playing preview'
+                : 'Paused'
+              : '30-sec preview'
+          : expanded
+            ? 'Tap to hide preview'
+            : '30-sec preview';
 
   const playGlyph = !trackId
     ? '↗'
-    : isPlayingNow
-      ? '❚❚'
-      : '▶';
+    : previewLoading
+      ? '…'
+      : isPlayingNow
+        ? '❚❚'
+        : '▶';
 
   return (
     <View style={[styles.card, isCurrent && styles.cardCurrent]}>
@@ -177,11 +199,15 @@ export function SongRow({
           </Text>
         </Pressable>
       </Pressable>
-      {trackId && expanded && !player.supported && (
-        <View style={styles.playerWrap}>
-          <SpotifyEmbedPlayer trackId={trackId} />
-        </View>
-      )}
+      {trackId &&
+        expanded &&
+        !player.supported &&
+        !preview.supported &&
+        Platform.OS !== 'web' && (
+          <View style={styles.playerWrap}>
+            <SpotifyEmbedPlayer trackId={trackId} />
+          </View>
+        )}
     </View>
   );
 }

@@ -13,6 +13,10 @@ import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { Screen } from '@/components/Screen';
 import { useSpotifyAuth } from '@/spotify/AuthContext';
 import { ApiPlaylist, spotifyApi } from '@/spotify/api';
+import {
+  loadMyPlaylists,
+  patchPlaylistsCache,
+} from '@/spotify/playlistsCache';
 import { songById } from '@/data/catalog';
 import { colors, radius, spacing } from '@/theme';
 
@@ -36,8 +40,7 @@ export default function AddToPlaylistScreen() {
     if (!tokens) return;
     let mounted = true;
     setLoading(true);
-    api
-      .getMyPlaylists()
+    loadMyPlaylists(api)
       .then((list) => {
         if (!mounted) return;
         const writable = list.filter(
@@ -80,6 +83,7 @@ export default function AddToPlaylistScreen() {
         description: 'Created from Psalter',
       });
       await api.addTracksToPlaylist(created.id, [trackUri]);
+      patchPlaylistsCache((items) => [created, ...items]);
       Alert.alert('Created', `Added to "${created.name}".`);
       router.back();
     } catch (e) {

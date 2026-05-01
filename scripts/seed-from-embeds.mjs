@@ -221,6 +221,101 @@ const SOURCES = [
     artist: 'Coram Deo Church',
     album: 'Doxology',
   },
+  {
+    url: 'https://open.spotify.com/album/6znHMBtyZwbyqWyB0CAPkW',
+    artist: 'Robbie Seay Band',
+    album: 'Psalms LP',
+  },
+  {
+    url: 'https://open.spotify.com/album/6VFy6mcp6qDQjhFdB6h8NB',
+    artist: 'Shane & Shane',
+    album: 'Psalms',
+  },
+  {
+    url: 'https://open.spotify.com/album/6pwAGIb6tyzhbsxmEeoTYu',
+    artist: 'Shane & Shane',
+    album: 'Psalms, Vol. 2',
+  },
+  {
+    url: 'https://open.spotify.com/album/3UzKQzSKz9lo1rGBDm7iFv',
+    artist: 'Shane & Shane',
+    album: 'Psalms Live',
+  },
+  {
+    url: 'https://open.spotify.com/album/0zQOH5kEUD7CDho30wHTjf',
+    artist: 'Shane & Shane',
+    album: 'Psalms, Hymns, and Spiritual Songs, Vol. 1',
+  },
+  {
+    url: 'https://open.spotify.com/album/5HQ1DoBSvOsNK0hTw0NvPv',
+    artist: 'Shane & Shane',
+    album: 'Psalms, Hymns, and Spiritual Songs (Live)',
+  },
+  {
+    url: 'https://open.spotify.com/album/1ZDW5Zhwiq8E84QPoCNitK',
+    artist: 'Nathan Clark George',
+    album: 'Rise and Worship',
+  },
+  {
+    url: 'https://open.spotify.com/album/4RAIcxwZ6pRmHm581Sjpz8',
+    artist: 'Nathan Clark George',
+    album: 'The Voice of the Lord (Psalm 29)',
+  },
+  {
+    url: 'https://open.spotify.com/album/6tlbDGo6GbZ7M2w154Ha0e',
+    artist: 'Zac Fitzsimmons',
+    album: 'Psalms: Word for Word',
+  },
+  {
+    url: 'https://open.spotify.com/album/05cezELBUXHxrjQJ31k3vV',
+    artist: 'Zac Fitzsimmons',
+    album: 'Psalms Word For Word: Volume 2',
+  },
+  {
+    url: 'https://open.spotify.com/album/3MmqHaJzeV4AmaLgV5fSw3',
+    artist: 'Zac Fitzsimmons',
+    album: 'Psalm 5 Word For Word',
+  },
+  {
+    url: 'https://open.spotify.com/album/7ESJp5Yy4kCFe5F2lHhpI5',
+    artist: 'Tim Bushong',
+    album: 'Battle Hymns for Weary Souls',
+  },
+  {
+    url: 'https://open.spotify.com/album/79eaMz1V8RaMy21I5QKW9o',
+    artist: 'Tim Bushong',
+    album: 'Battle Hymns for Weary Souls II: Hail to Jesus',
+  },
+  {
+    url: 'https://open.spotify.com/album/68JJU9Vxh4kLIBMyftKuNi',
+    artist: 'Tim Bushong',
+    album: 'Psalm 2: Why Do the Heathen Nations Vainly Rage?',
+  },
+  {
+    url: 'https://open.spotify.com/album/43hJz2yvCf6BfObGTz3SKj',
+    artist: 'Gregory Wilbur',
+    album: 'My Cry Ascends: New Parish Psalms',
+  },
+  {
+    url: 'https://open.spotify.com/album/5yiGb1rHNTs3nzJAwhOJTf',
+    artist: 'Gregory Wilbur',
+    album: 'Remember Not, O God: Psalm 79',
+  },
+  {
+    url: 'https://open.spotify.com/album/1q3qe2SOuApOqxLxX4SWNC',
+    artist: 'Wendell Kimbrough',
+    album: 'Psalms We Sing Together',
+  },
+  {
+    url: 'https://open.spotify.com/album/4nyv3LKJL0eb1Bh2tiYKX3',
+    artist: 'Wendell Kimbrough',
+    album: 'Let the Earth Be Glad (Psalm 96)',
+  },
+  {
+    url: 'https://open.spotify.com/album/1ky9fgDdUQAdaMsVPs2E8l',
+    artist: 'Caroline Cobb',
+    album: 'Psalms: The Poetry of Prayer',
+  },
 ];
 
 const PSALM_RE = /\bPsalm\s+(\d{1,3})\b/i;

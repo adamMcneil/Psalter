@@ -4,6 +4,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { SpotifyAuthProvider } from '@/spotify/AuthContext';
 import { WebPlayerProvider } from '@/spotify/WebPlayerContext';
+import { PreviewPlayerProvider } from '@/spotify/PreviewPlayerContext';
 import { colors } from '@/theme';
 
 export default function RootLayout() {
@@ -12,6 +13,7 @@ export default function RootLayout() {
       <SafeAreaProvider>
         <SpotifyAuthProvider>
           <WebPlayerProvider>
+            <PreviewPlayerProvider>
             <StatusBar style="light" />
           <Stack
             screenOptions={{
@@ -37,6 +39,7 @@ export default function RootLayout() {
               options={{ title: 'Add to playlist', presentation: 'modal' }}
             />
           </Stack>
+            </PreviewPlayerProvider>
           </WebPlayerProvider>
         </SpotifyAuthProvider>
       </SafeAreaProvider>

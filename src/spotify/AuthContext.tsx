@@ -53,6 +53,8 @@ export function SpotifyAuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<SpotifyUser | null>(null);
   const [loading, setLoading] = useState(true);
   const refreshing = useRef<Promise<StoredTokens> | null>(null);
+  const tokensRef = useRef<StoredTokens | null>(null);
+  tokensRef.current = tokens;
 
   const fetchUser = useCallback(async (accessToken: string) => {
     const res = await fetch('https://api.spotify.com/v1/me', {
@@ -100,12 +102,13 @@ export function SpotifyAuthProvider({ children }: { children: ReactNode }) {
   }, [fetchUser]);
 
   const getAccessToken = useCallback(async (): Promise<string | null> => {
-    if (!tokens) return null;
-    if (tokens.expiresAt - Date.now() > REFRESH_LEEWAY_MS) {
-      return tokens.accessToken;
+    const current = tokensRef.current;
+    if (!current) return null;
+    if (current.expiresAt - Date.now() > REFRESH_LEEWAY_MS) {
+      return current.accessToken;
     }
     if (!refreshing.current) {
-      refreshing.current = refreshAccessToken(tokens.refreshToken).finally(
+      refreshing.current = refreshAccessToken(current.refreshToken).finally(
         () => {
           refreshing.current = null;
         },
@@ -121,7 +124,7 @@ export function SpotifyAuthProvider({ children }: { children: ReactNode }) {
       setUser(null);
       return null;
     }
-  }, [tokens]);
+  }, []);
 
   const login = useCallback(async () => {
     if (!isSpotifyConfigured() || !SPOTIFY_CLIENT_ID) {
