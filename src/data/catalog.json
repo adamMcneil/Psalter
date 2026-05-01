@@ -1,95 +1,397 @@
 {
   "songs": [
     {
-      "id": "ebh-001",
+      "id": "pbh-001",
       "psalm": 1,
       "title": "Psalm 1",
       "artist": "Poor Bishop Hooper",
       "album": "EveryPsalm",
-      "durationSec": 215,
-      "url": "https://example.invalid/audio/poorbishop/psalm-001.mp3",
-      "license": { "kind": "Permission", "notes": "Pending written permission" }
+      "spotifyUrl": "https://open.spotify.com/track/1ipqa2dYhUNbCLJovyzupi"
+    },
+    {
+      "id": "pbh-002",
+      "psalm": 2,
+      "title": "Psalm 2",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/5tdtGgMP3qgSiwqol4Wpgk"
+    },
+    {
+      "id": "pbh-003",
+      "psalm": 3,
+      "title": "Psalm 3",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/74LqkmMdDoQgBO01NcDGAk"
+    },
+    {
+      "id": "pbh-004",
+      "psalm": 4,
+      "title": "Psalm 4",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/79s6lFN6RfNzgrQHAcx3ba"
+    },
+    {
+      "id": "pbh-005",
+      "psalm": 5,
+      "title": "Psalm 5",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/6RDCBh86feGGvWEXg9H6LM"
+    },
+    {
+      "id": "pbh-006",
+      "psalm": 6,
+      "title": "Psalm 6",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/4AFeBSbxfe5RnDw7dpJ7Rr"
+    },
+    {
+      "id": "pbh-007",
+      "psalm": 7,
+      "title": "Psalm 7",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/6l6HdFQ3EXPu8wUurkZo3y"
+    },
+    {
+      "id": "pbh-008",
+      "psalm": 8,
+      "title": "Psalm 8",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/4LqqmrKkyuNSbI2kPGmFZf"
+    },
+    {
+      "id": "pbh-009",
+      "psalm": 9,
+      "title": "Psalm 9",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/7z0iwrS5jCw2YaaS22WntW"
+    },
+    {
+      "id": "pbh-010",
+      "psalm": 10,
+      "title": "Psalm 10",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/4oix32QJTGsqwMgP5ogMqO"
+    },
+    {
+      "id": "pbh-011",
+      "psalm": 11,
+      "title": "Psalm 11",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/1p94M25LERrXYo8PKq3T5v"
+    },
+    {
+      "id": "pbh-012",
+      "psalm": 12,
+      "title": "Psalm 12",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/4sjhw6qq6RCDhHat5N8Eyq"
+    },
+    {
+      "id": "pbh-013",
+      "psalm": 13,
+      "title": "Psalm 13",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/2aMKKMMcNI8EHjdUt4TEcf"
+    },
+    {
+      "id": "pbh-014",
+      "psalm": 14,
+      "title": "Psalm 14",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/1HNH1EjqpWibcLaMTIWztU"
+    },
+    {
+      "id": "pbh-015",
+      "psalm": 15,
+      "title": "Psalm 15",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/4V8GPcRLGlLkWINLbjKxlJ"
+    },
+    {
+      "id": "pbh-016",
+      "psalm": 16,
+      "title": "Psalm 16",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/7Gn7fqqq88L2wthVSvgFkF"
+    },
+    {
+      "id": "pbh-017",
+      "psalm": 17,
+      "title": "Psalm 17",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/6SjE5bh7aDy0O8lRg4NdoZ"
+    },
+    {
+      "id": "pbh-018",
+      "psalm": 18,
+      "title": "Psalm 18",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/0FN2s7dAsLDRV0w5lPEiW8"
+    },
+    {
+      "id": "pbh-019",
+      "psalm": 19,
+      "title": "Psalm 19",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/6GlfaSX2lDUyMBbEYa8VSK"
+    },
+    {
+      "id": "pbh-020",
+      "psalm": 20,
+      "title": "Psalm 20",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/0VLGwMnOCzMVqeBlRvlRet"
+    },
+    {
+      "id": "pbh-021",
+      "psalm": 21,
+      "title": "Psalm 21",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/7F8OhQe60UuysT0fn5cyzV"
+    },
+    {
+      "id": "pbh-022",
+      "psalm": 22,
+      "title": "Psalm 22",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/646pOsTpoVRrrH36KfiI30"
+    },
+    {
+      "id": "pbh-023",
+      "psalm": 23,
+      "title": "Psalm 23",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/3SbYI0F1rAXTjIGJZvHZOR"
     },
     {
       "id": "wk-023",
       "psalm": 23,
-      "title": "Psalm 23 (Surely Goodness, Surely Mercy)",
+      "title": "The Goodness of the Lord",
       "artist": "Wendell Kimbrough",
-      "durationSec": 268,
-      "url": "https://example.invalid/audio/kimbrough/psalm-023.mp3",
-      "license": { "kind": "Permission", "notes": "Pending written permission" }
+      "spotifyUrl": "https://open.spotify.com/track/0Kdb52QkoA7QyFsTIDSOYB"
     },
     {
-      "id": "tcr-027",
+      "id": "pbh-024",
+      "psalm": 24,
+      "title": "Psalm 24",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/56TnIW7W9fKT5PcUGlsPj3"
+    },
+    {
+      "id": "pbh-025",
+      "psalm": 25,
+      "title": "Psalm 25",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/0fljCUfHL33I6WznHvk2OE"
+    },
+    {
+      "id": "pbh-026",
+      "psalm": 26,
+      "title": "Psalm 26",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/0alG3ebKzk360AJlp0bYbl"
+    },
+    {
+      "id": "pbh-027",
       "psalm": 27,
-      "title": "Psalm 27 (One Thing)",
+      "title": "Psalm 27",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/1mxvrksLGh9Chvn0lanm68"
+    },
+    {
+      "id": "pbh-028",
+      "psalm": 28,
+      "title": "Psalm 28",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/7kFOTBzcNMdi2lA3PuJVVC"
+    },
+    {
+      "id": "pbh-029",
+      "psalm": 29,
+      "title": "Psalm 29",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/0Gzx2eqo1QYFPLAgvC5Aqy"
+    },
+    {
+      "id": "pbh-030",
+      "psalm": 30,
+      "title": "Psalm 30",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/5oe04QiHUmh812NdasDsHv"
+    },
+    {
+      "id": "tcr-032",
+      "psalm": 32,
+      "title": "Psalm 32",
       "artist": "The Corner Room",
-      "durationSec": 312,
-      "url": "https://example.invalid/audio/cornerroom/psalm-027.mp3",
-      "license": { "kind": "Permission", "notes": "Pending written permission" }
+      "spotifyUrl": "https://open.spotify.com/track/3IZ05iglBEIpPZMruWib9L"
     },
     {
-      "id": "sok-042",
+      "id": "pbh-033",
+      "psalm": 33,
+      "title": "Psalm 33",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/6tUgoaCKziqfbINhNHpbNG"
+    },
+    {
+      "id": "pbh-034",
+      "psalm": 34,
+      "title": "Psalm 34",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/4LDYUOOHSAkbHFwYbu5Zq0"
+    },
+    {
+      "id": "stl-036",
+      "psalm": 36,
+      "title": "Psalm 36",
+      "artist": "Streetlights",
+      "spotifyUrl": "https://open.spotify.com/track/0WXsgFSc8uCKSdI3HI1DYg"
+    },
+    {
+      "id": "pbh-037",
+      "psalm": 37,
+      "title": "Psalm 37",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/4ugstMip0ZbLMKfuxuxUU5"
+    },
+    {
+      "id": "tpp-038",
+      "psalm": 38,
+      "title": "Psalm 38 (You Will Answer)",
+      "artist": "The Psalms Project",
+      "spotifyUrl": "https://open.spotify.com/track/2EaQuXUBsLEWBOOpiiNY4s"
+    },
+    {
+      "id": "pbh-040",
+      "psalm": 40,
+      "title": "Psalm 40",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/6KFR968CvPziWGlICpDtbw"
+    },
+    {
+      "id": "ss-042",
       "psalm": 42,
-      "title": "Psalm 42 (As the Deer)",
-      "artist": "Sons of Korah",
-      "durationSec": 297,
-      "url": "https://example.invalid/audio/sonsofkorah/psalm-042.mp3",
-      "license": { "kind": "Permission", "notes": "Pending written permission" }
+      "title": "Psalm 42 (Loudest Praise)",
+      "artist": "Shane & Shane",
+      "spotifyUrl": "https://open.spotify.com/track/7iV050kmhdJHr2RZbChiVA"
     },
     {
-      "id": "smc-051",
+      "id": "pbh-048",
+      "psalm": 48,
+      "title": "Psalm 48",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/5GVXG1hP4gbyrSWbFPoiU3"
+    },
+    {
+      "id": "pbh-050",
+      "psalm": 50,
+      "title": "Psalm 50",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/7sRH7Izjda2XTG5zJUoiDZ"
+    },
+    {
+      "id": "pbh-051",
       "psalm": 51,
-      "title": "Psalm 51 (Create in Me a Clean Heart)",
-      "artist": "Sandra McCracken",
-      "durationSec": 246,
-      "url": "https://example.invalid/audio/mccracken/psalm-051.mp3",
-      "license": { "kind": "Permission", "notes": "Pending written permission" }
+      "title": "Psalm 51",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/3eDu9Mx4QfmycpRYpDAFSp"
     },
     {
-      "id": "ss-103",
+      "id": "pbh-065",
+      "psalm": 65,
+      "title": "Psalm 65",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/2nlq7GiWmWAcbYN8P3aWs6"
+    },
+    {
+      "id": "stl-070",
+      "psalm": 70,
+      "title": "Psalm 70",
+      "artist": "Streetlights",
+      "spotifyUrl": "https://open.spotify.com/track/36NweSDIaW28AwUtIp7aoI"
+    },
+    {
+      "id": "pbh-090",
+      "psalm": 90,
+      "title": "Psalm 90",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/2WjdoF3bWxRu2dG2rhSbDZ"
+    },
+    {
+      "id": "sgm-090",
+      "psalm": 90,
+      "title": "From Everlasting (Psalm 90)",
+      "artist": "Sovereign Grace Music",
+      "spotifyUrl": "https://open.spotify.com/track/1HUrq7hFK89PBqiiNNsYBP"
+    },
+    {
+      "id": "pbh-091",
+      "psalm": 91,
+      "title": "Psalm 91",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/6uj20xsIAQx7IO1ZRkCWXi"
+    },
+    {
+      "id": "pbh-103",
       "psalm": 103,
       "title": "Psalm 103",
-      "artist": "Shane & Shane",
-      "durationSec": 274,
-      "url": "https://example.invalid/audio/shaneandshane/psalm-103.mp3",
-      "license": { "kind": "Permission", "notes": "Pending written permission" }
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/6XqIShgrHX3XrgMW92gZaO"
     },
     {
-      "id": "tpp-119",
-      "psalm": 119,
-      "title": "Psalm 119 (Aleph)",
-      "artist": "The Psalms Project",
-      "durationSec": 301,
-      "url": "https://example.invalid/audio/psalmsproject/psalm-119-aleph.mp3",
-      "license": { "kind": "Permission", "notes": "Pending written permission" }
+      "id": "pbh-139",
+      "psalm": 139,
+      "title": "Psalm 139",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/3UShWzuqMpTIbLt04uqbnH"
     },
     {
-      "id": "msl-022",
-      "psalm": 22,
-      "title": "Psalm 22 (My God, My God)",
-      "artist": "My Soul Among Lions",
-      "durationSec": 263,
-      "url": "https://example.invalid/audio/mysoulamonglions/psalm-022.mp3",
-      "license": { "kind": "Permission", "notes": "Pending written permission" }
-    },
-    {
-      "id": "pd-150-bach",
+      "id": "pbh-150",
       "psalm": 150,
-      "title": "Singet dem Herrn ein neues Lied (BWV 225)",
-      "artist": "J. S. Bach (public domain recording)",
-      "durationSec": 832,
-      "url": "https://example.invalid/audio/bach/bwv-225.mp3",
-      "license": { "kind": "PublicDomain", "notes": "Pre-1928 recording" }
-    },
-    {
-      "id": "cc-008-musopen",
-      "psalm": 8,
-      "title": "O Lord, Our Lord (Anglican Chant)",
-      "artist": "Musopen Ensemble",
-      "durationSec": 198,
-      "url": "https://example.invalid/audio/musopen/psalm-008.mp3",
-      "license": { "kind": "CC0" }
+      "title": "Psalm 150",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "spotifyUrl": "https://open.spotify.com/track/5iHJWrpQVv91xiw0mTrzod"
     }
   ]
 }

@@ -56,7 +56,7 @@ export default function SubmitScreen() {
   };
 
   return (
-    <Screen showMiniPlayer={false}>
+    <Screen>
       <KeyboardAvoidingView
         style={{ flex: 1 }}
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
@@ -64,9 +64,9 @@ export default function SubmitScreen() {
         <ScrollView contentContainerStyle={{ paddingBottom: spacing.xl }}>
           <Text style={styles.h1}>Submit a song</Text>
           <Text style={styles.intro}>
-            Suggest a Psalm-based song to add. We only include music where the
-            artist has given written permission, or that is in the public
-            domain / under a permissive Creative Commons license.
+            Suggest a Psalm-based song to add to the catalog. Paste a Spotify
+            track link — that's what powers in-app playback, Liked Songs, and
+            playlists.
           </Text>
 
           <Field
@@ -78,7 +78,7 @@ export default function SubmitScreen() {
           <Field label="Song title" value={form.title} onChangeText={set('title')} />
           <Field label="Artist" value={form.artist} onChangeText={set('artist')} />
           <Field
-            label="Link (Bandcamp, artist site, etc.)"
+            label="Spotify track link (open.spotify.com/track/…)"
             value={form.link}
             onChangeText={set('link')}
             autoCapitalize="none"

@@ -1,5 +1,7 @@
 import { Tabs } from 'expo-router';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
+import { BottomTabBar } from '@react-navigation/bottom-tabs';
+import { NowPlayingBar } from '@/components/NowPlayingBar';
 import { colors } from '@/theme';
 
 const TabIcon = ({ glyph, color }: { glyph: string; color: string }) => (
@@ -9,6 +11,12 @@ const TabIcon = ({ glyph, color }: { glyph: string; color: string }) => (
 export default function TabsLayout() {
   return (
     <Tabs
+      tabBar={(props) => (
+        <View>
+          <NowPlayingBar />
+          <BottomTabBar {...props} />
+        </View>
+      )}
       screenOptions={{
         headerStyle: { backgroundColor: colors.bg },
         headerTitleStyle: { color: colors.text },
@@ -29,10 +37,24 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
+        name="playlists"
+        options={{
+          title: 'Featured',
+          tabBarIcon: ({ color }) => <TabIcon glyph="✶" color={color} />,
+        }}
+      />
+      <Tabs.Screen
         name="themes"
         options={{
           title: 'Themes',
           tabBarIcon: ({ color }) => <TabIcon glyph="✦" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="artists"
+        options={{
+          title: 'Artists',
+          tabBarIcon: ({ color }) => <TabIcon glyph="♪" color={color} />,
         }}
       />
       <Tabs.Screen
@@ -45,8 +67,15 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="favorites"
         options={{
-          title: 'Favorites',
+          title: 'Liked',
           tabBarIcon: ({ color }) => <TabIcon glyph="♥" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="account"
+        options={{
+          title: 'Account',
+          tabBarIcon: ({ color }) => <TabIcon glyph="◉" color={color} />,
         }}
       />
     </Tabs>

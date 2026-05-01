@@ -1,0 +1,23 @@
+[    2079ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:17962
+[    2226ms] [LOG] Running application "main" with appParams:
+ {rootTag: #root, hydrate: undefined} 
+Development-level warnings: ON.
+Performance optimizations: OFF. @ http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:66164
+[    2479ms] [WARNING] props.pointerEvents is deprecated. Use style.pointerEvents @ http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:24284
+[  321644ms] Error: TransformError SyntaxError: C:\git-repos\Psalter\app\_layout.tsx: Expected corresponding JSX closing tag for <WebPlayerProvider>. (39:8)
+
+[0m [90m 37 |[39m             [33m/[39m[33m>[39m
+ [90m 38 |[39m           [33m<[39m[33m/[39m[33mStack[39m[33m>[39m
+[31m[1m>[22m[39m[90m 39 |[39m         [33m<[39m[33m/[39m[33mSpotifyAuthProvider[39m[33m>[39m
+ [90m    |[39m         [31m[1m^[22m[39m
+ [90m 40 |[39m       [33m<[39m[33m/[39m[33mSafeAreaProvider[39m[33m>[39m
+ [90m 41 |[39m     [33m<[39m[33m/[39m[33mGestureHandlerRootView[39m[33m>[39m
+ [90m 42 |[39m   )[33m;[39m[0m
+    at showCompileError (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:72325:19)
+    at HMRClient.<anonymous> (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:72245:13)
+    at HMRClient.emit (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:72576:31)
+    at HMRClient._ws.onmessage (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:72391:18)
+[  525479ms] [WARNING] Disconnected from Metro (1006)
+To reconnect:
+- Ensure that Metro is running and available on the same network
+- Reload this app (will trigger further help if Metro cannot be connected to) @ http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:72284

@@ -1,15 +1,13 @@
-import { useLocalSearchParams, useRouter, Stack } from 'expo-router';
+import { useLocalSearchParams, Stack } from 'expo-router';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 import { Screen } from '@/components/Screen';
 import { SongRow } from '@/components/SongRow';
 import { psalmByNumber } from '@/data/psalms';
 import { songsForPsalm } from '@/data/catalog';
-import { playSong } from '@/audio/queue';
 import { colors, radius, spacing } from '@/theme';
 
 export default function PsalmDetail() {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const router = useRouter();
   const num = Number(id);
   const psalm = psalmByNumber(num);
   const songs = songsForPsalm(num);
@@ -36,21 +34,11 @@ export default function PsalmDetail() {
           ))}
         </View>
       </View>
-      <Text style={styles.section}>
-        Songs ({songs.length})
-      </Text>
+      <Text style={styles.section}>Songs ({songs.length})</Text>
       <FlatList
         data={songs}
         keyExtractor={(s) => s.id}
-        renderItem={({ item }) => (
-          <SongRow
-            song={item}
-            onPress={async () => {
-              await playSong(item, songs);
-              router.push('/player');
-            }}
-          />
-        )}
+        renderItem={({ item }) => <SongRow song={item} />}
         ListEmptyComponent={
           <Text style={styles.empty}>
             No songs yet for this Psalm. Tap “Submit a song” to suggest one.

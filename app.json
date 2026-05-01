@@ -7,26 +7,15 @@
     "scheme": "psalter",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
-    "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "app.psalter",
-      "infoPlist": {
-        "UIBackgroundModes": ["audio"]
-      }
-    },
-    "android": {
-      "package": "app.psalter",
-      "permissions": [
-        "android.permission.FOREGROUND_SERVICE",
-        "android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK",
-        "android.permission.WAKE_LOCK"
-      ]
-    },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "SPOTIFY_CLIENT_ID": "750204e46dfa414988d5776ad9196988"
     }
   }
 }

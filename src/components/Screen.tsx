@@ -2,19 +2,11 @@ import { ReactNode } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { colors, spacing } from '../theme';
-import { MiniPlayer } from './MiniPlayer';
 
-export function Screen({
-  children,
-  showMiniPlayer = true,
-}: {
-  children: ReactNode;
-  showMiniPlayer?: boolean;
-}) {
+export function Screen({ children }: { children: ReactNode }) {
   return (
     <SafeAreaView style={styles.safe} edges={['top']}>
       <View style={styles.content}>{children}</View>
-      {showMiniPlayer && <MiniPlayer />}
     </SafeAreaView>
   );
 }
