@@ -1,0 +1,95 @@
+{
+  "songs": [
+    {
+      "id": "ebh-001",
+      "psalm": 1,
+      "title": "Psalm 1",
+      "artist": "Poor Bishop Hooper",
+      "album": "EveryPsalm",
+      "durationSec": 215,
+      "url": "https://example.invalid/audio/poorbishop/psalm-001.mp3",
+      "license": { "kind": "Permission", "notes": "Pending written permission" }
+    },
+    {
+      "id": "wk-023",
+      "psalm": 23,
+      "title": "Psalm 23 (Surely Goodness, Surely Mercy)",
+      "artist": "Wendell Kimbrough",
+      "durationSec": 268,
+      "url": "https://example.invalid/audio/kimbrough/psalm-023.mp3",
+      "license": { "kind": "Permission", "notes": "Pending written permission" }
+    },
+    {
+      "id": "tcr-027",
+      "psalm": 27,
+      "title": "Psalm 27 (One Thing)",
+      "artist": "The Corner Room",
+      "durationSec": 312,
+      "url": "https://example.invalid/audio/cornerroom/psalm-027.mp3",
+      "license": { "kind": "Permission", "notes": "Pending written permission" }
+    },
+    {
+      "id": "sok-042",
+      "psalm": 42,
+      "title": "Psalm 42 (As the Deer)",
+      "artist": "Sons of Korah",
+      "durationSec": 297,
+      "url": "https://example.invalid/audio/sonsofkorah/psalm-042.mp3",
+      "license": { "kind": "Permission", "notes": "Pending written permission" }
+    },
+    {
+      "id": "smc-051",
+      "psalm": 51,
+      "title": "Psalm 51 (Create in Me a Clean Heart)",
+      "artist": "Sandra McCracken",
+      "durationSec": 246,
+      "url": "https://example.invalid/audio/mccracken/psalm-051.mp3",
+      "license": { "kind": "Permission", "notes": "Pending written permission" }
+    },
+    {
+      "id": "ss-103",
+      "psalm": 103,
+      "title": "Psalm 103",
+      "artist": "Shane & Shane",
+      "durationSec": 274,
+      "url": "https://example.invalid/audio/shaneandshane/psalm-103.mp3",
+      "license": { "kind": "Permission", "notes": "Pending written permission" }
+    },
+    {
+      "id": "tpp-119",
+      "psalm": 119,
+      "title": "Psalm 119 (Aleph)",
+      "artist": "The Psalms Project",
+      "durationSec": 301,
+      "url": "https://example.invalid/audio/psalmsproject/psalm-119-aleph.mp3",
+      "license": { "kind": "Permission", "notes": "Pending written permission" }
+    },
+    {
+      "id": "msl-022",
+      "psalm": 22,
+      "title": "Psalm 22 (My God, My God)",
+      "artist": "My Soul Among Lions",
+      "durationSec": 263,
+      "url": "https://example.invalid/audio/mysoulamonglions/psalm-022.mp3",
+      "license": { "kind": "Permission", "notes": "Pending written permission" }
+    },
+    {
+      "id": "pd-150-bach",
+      "psalm": 150,
+      "title": "Singet dem Herrn ein neues Lied (BWV 225)",
+      "artist": "J. S. Bach (public domain recording)",
+      "durationSec": 832,
+      "url": "https://example.invalid/audio/bach/bwv-225.mp3",
+      "license": { "kind": "PublicDomain", "notes": "Pre-1928 recording" }
+    },
+    {
+      "id": "cc-008-musopen",
+      "psalm": 8,
+      "title": "O Lord, Our Lord (Anglican Chant)",
+      "artist": "Musopen Ensemble",
+      "durationSec": 198,
+      "url": "https://example.invalid/audio/musopen/psalm-008.mp3",
+      "license": { "kind": "CC0" }
+    }
+  ]
+}
