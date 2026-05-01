@@ -23,7 +23,6 @@ const APP_JSON = join(ROOT, 'app.json');
 
 // Edit this list to control who gets seeded.
 const ARTISTS = [
-  'Poor Bishop Hooper',
   'Shane & Shane',
   'Wendell Kimbrough',
   'The Corner Room',
@@ -33,8 +32,6 @@ const ARTISTS = [
   'My Soul Among Lions',
   'Cardiphonia',
   'Indelible Grace Music',
-  'Streetlights',
-  'Caroline Cobb',
 ];
 
 const PSALM_RE = /\bPsalm\s+(\d{1,3})\b/i;
@@ -68,15 +65,38 @@ async function getAppToken(clientId, clientSecret) {
   return j.access_token;
 }
 
+// If Spotify returns Retry-After greater than this many seconds, abort
+// rather than sleep — a multi-hour wait means our app's daily quota is
+// exhausted and we should stop.
+const MAX_RETRY_AFTER_SEC = 60;
+
+class RateLimitedError extends Error {
+  constructor(retryAfter) {
+    super(`Rate limited; Spotify says retry after ${retryAfter}s`);
+    this.retryAfter = retryAfter;
+  }
+}
+
 async function api(token, path) {
   const url = path.startsWith('http')
     ? path
     : `https://api.spotify.com/v1${path}`;
-  const res = await fetch(url, {
-    headers: { Authorization: `Bearer ${token}` },
-  });
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 15000);
+  let res;
+  try {
+    res = await fetch(url, {
+      headers: { Authorization: `Bearer ${token}` },
+      signal: ctrl.signal,
+    });
+  } finally {
+    clearTimeout(timer);
+  }
   if (res.status === 429) {
     const retry = parseInt(res.headers.get('retry-after') ?? '2', 10);
+    if (retry > MAX_RETRY_AFTER_SEC) {
+      throw new RateLimitedError(retry);
+    }
     await new Promise((r) => setTimeout(r, (retry + 1) * 1000));
     return api(token, path);
   }
@@ -102,6 +122,7 @@ async function paged(token, path) {
   let url = path;
   const out = [];
   while (url) {
+    console.log(`    fetching ${url}…`);
     const j = await api(token, url);
     out.push(...(j.items ?? []));
     url = j.next ?? null;
@@ -110,14 +131,16 @@ async function paged(token, path) {
 }
 
 async function getArtistAlbums(token, artistId) {
-  return paged(
-    token,
-    `/artists/${artistId}/albums?include_groups=album,single&limit=50`,
-  );
+  // Spotify quirk: passing include_groups + limit together returns
+  // 400 "Invalid limit". Omit limit; default page size + next-link
+  // pagination via paged() still walks the full discography.
+  const qs = new URLSearchParams({ include_groups: 'album,single' });
+  return paged(token, `/artists/${artistId}/albums?${qs}`);
 }
 
 async function getAlbumTracks(token, albumId) {
-  return paged(token, `/albums/${albumId}/tracks?limit=50`);
+  const qs = new URLSearchParams({ limit: '50' });
+  return paged(token, `/albums/${albumId}/tracks?${qs}`);
 }
 
 function isVocalPsalmTrack(track) {
@@ -134,18 +157,33 @@ function isVocalPsalmTrack(track) {
 }
 
 async function collectArtist(token, artistName) {
+  console.log(`  looking up artist ID for "${artistName}"…`);
   const artistId = await findArtistId(token, artistName);
+  console.log(`    found artist ID: ${artistId ?? 'none'}`);
   if (!artistId) {
     console.warn(`  ⚠  artist not found: ${artistName}`);
     return [];
   }
+  console.log(`  fetching albums for artist ID ${artistId}…`);
   const albums = await getArtistAlbums(token, artistId);
+  console.log(`    (${albums.length} albums to scan)`);
   const seen = new Set();
   const found = [];
+  let scanned = 0;
   for (const album of albums) {
     if (seen.has(album.id)) continue;
     seen.add(album.id);
-    const tracks = await getAlbumTracks(token, album.id);
+    scanned += 1;
+    let tracks;
+    try {
+      tracks = await getAlbumTracks(token, album.id);
+    } catch (e) {
+      console.warn(`    ⚠  album ${album.name}: ${e.message ?? e}`);
+      continue;
+    }
+    if (scanned % 10 === 0) {
+      console.log(`    scanned ${scanned}/${albums.length} albums…`);
+    }
     for (const t of tracks) {
       const psalm = isVocalPsalmTrack(t);
       if (psalm == null) continue;
@@ -207,6 +245,11 @@ function mergeIntoCatalog(existing, freshEntries) {
 async function main() {
   const clientId = readClientId();
   const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
+  // Optional CLI args: artist names to scan. e.g.
+  //   node scripts/seed-catalog.mjs "Shane & Shane"
+  // Falls back to ARTISTS if none given.
+  const cliArtists = process.argv.slice(2).filter(Boolean);
+  const artists = cliArtists.length > 0 ? cliArtists : ARTISTS;
   if (!clientId) {
     console.error('Missing SPOTIFY_CLIENT_ID (env or app.json extra)');
     process.exit(1);
@@ -214,8 +257,8 @@ async function main() {
   if (!clientSecret) {
     console.error(
       'Missing SPOTIFY_CLIENT_SECRET. Get it from your Spotify Developer\n' +
-        'dashboard → app → "View client secret", then run e.g.\n' +
-        '  PowerShell:  $env:SPOTIFY_CLIENT_SECRET="xxx"; node scripts/seed-catalog.mjs',
+      'dashboard → app → "View client secret", then run e.g.\n' +
+      '  PowerShell:  $env:SPOTIFY_CLIENT_SECRET="xxx"; node scripts/seed-catalog.mjs',
     );
     process.exit(1);
   }
@@ -223,30 +266,55 @@ async function main() {
   console.log('Fetching app token…');
   const token = await getAppToken(clientId, clientSecret);
 
-  const allFound = [];
-  for (const artist of ARTISTS) {
+  let totalAdded = 0;
+  let totalSongs = 0;
+  let coveredPsalms = 0;
+  let rateLimited = null;
+
+  for (const artist of artists) {
     console.log(`Scanning ${artist}…`);
+    let found;
     try {
-      const found = await collectArtist(token, artist);
+      found = await collectArtist(token, artist);
       console.log(`  → ${found.length} Psalm-titled tracks`);
-      allFound.push(...found);
     } catch (e) {
+      if (e instanceof RateLimitedError) {
+        rateLimited = e;
+        console.warn(
+          `  ⛔  ${artist}: ${e.message} — stopping; partial results saved.`,
+        );
+        break;
+      }
       console.warn(`  ⚠  ${artist}: ${e.message ?? e}`);
+      continue;
     }
+
+    // Persist after each artist so partial progress survives crashes/limits.
+    const fresh = dedupeByPsalmArtistTrack(found).map(buildEntry);
+    const existing = JSON.parse(readFileSync(CATALOG_PATH, 'utf8'));
+    const merged = mergeIntoCatalog(existing, fresh);
+    writeFileSync(
+      CATALOG_PATH,
+      JSON.stringify({ songs: merged.songs }, null, 2) + '\n',
+    );
+    totalAdded += merged.added;
+    totalSongs = merged.songs.length;
+    coveredPsalms = new Set(merged.songs.map((s) => s.psalm)).size;
+    console.log(
+      `  ✔  catalog now ${totalSongs} songs (+${merged.added} this artist) — ${coveredPsalms}/150 Psalms covered`,
+    );
   }
 
-  const deduped = dedupeByPsalmArtistTrack(allFound);
-  const fresh = deduped.map(buildEntry);
-
-  const existing = JSON.parse(readFileSync(CATALOG_PATH, 'utf8'));
-  const merged = mergeIntoCatalog(existing, fresh);
-
-  writeFileSync(CATALOG_PATH, JSON.stringify({ songs: merged.songs }, null, 2) + '\n');
-
-  const psalmsCovered = new Set(merged.songs.map((s) => s.psalm));
   console.log(
-    `\nWrote ${merged.songs.length} songs (${merged.added} new) — covering ${psalmsCovered.size}/150 Psalms.`,
+    `\nDone. ${totalSongs} songs (${totalAdded} new) — ${coveredPsalms}/150 Psalms.`,
   );
+  if (rateLimited) {
+    const hrs = Math.round(rateLimited.retryAfter / 3600);
+    console.log(
+      `\n⛔  Spotify rate-limited the app — try again in ~${hrs} hour(s).`,
+    );
+    process.exit(2);
+  }
 }
 
 main().catch((e) => {

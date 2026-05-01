@@ -74,6 +74,20 @@ export const spotifyApi = (getToken: GetToken) => ({
       `/search?type=track&limit=${limit}&q=${encodeURIComponent(q)}`,
     ),
 
+  searchArtist: (q: string) =>
+    request<{
+      artists: {
+        items: Array<{
+          id: string;
+          name: string;
+          images: { url: string; width?: number; height?: number }[];
+        }>;
+      };
+    }>(
+      getToken,
+      `/search?type=artist&limit=1&q=${encodeURIComponent(q)}`,
+    ),
+
   containsMySavedTracks: async (ids: string[]): Promise<boolean[]> => {
     if (ids.length === 0) return [];
     const out: boolean[] = [];

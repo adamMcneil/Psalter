@@ -1,15 +1,21 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Song } from '../types';
-import { colors, radius, spacing } from '../theme';
+import { colors, fontSize, radius, spacing } from '../theme';
 import { useFavorites } from '../storage/favorites';
 import { useSpotifyAuth } from '../spotify/AuthContext';
 import { useWebPlayer } from '../spotify/WebPlayerContext';
 import { extractTrackId, openSpotifyTrack } from '../spotify/launch';
 import { SpotifyEmbedPlayer } from './SpotifyEmbedPlayer';
 
-export function SongRow({ song }: { song: Song }) {
+export function SongRow({
+  song,
+  queue,
+}: {
+  song: Song;
+  queue?: Song[];
+}) {
   const { isFavorite, toggle } = useFavorites();
   const { tokens, login } = useSpotifyAuth();
   const player = useWebPlayer();
@@ -18,8 +24,21 @@ export function SongRow({ song }: { song: Song }) {
   const trackId = extractTrackId(song.spotifyUrl);
   const trackUri = trackId ? `spotify:track:${trackId}` : null;
   const isCurrent = trackUri !== null && player.currentUri === trackUri;
+  const isPlayingNow = isCurrent && player.isPlaying;
   const [expanded, setExpanded] = useState(false);
   const [busy, setBusy] = useState(false);
+
+  const playQueueUris = useMemo(() => {
+    if (!queue || queue.length === 0) return null;
+    const idx = queue.findIndex((s) => s.id === song.id);
+    if (idx === -1) return null;
+    const uris = queue
+      .slice(idx)
+      .map((s) => extractTrackId(s.spotifyUrl))
+      .filter((id): id is string => !!id)
+      .map((id) => `spotify:track:${id}`);
+    return uris.length > 0 ? uris : null;
+  }, [queue, song.id]);
 
   async function handlePress() {
     if (!trackId) {
@@ -30,7 +49,8 @@ export function SongRow({ song }: { song: Song }) {
       setBusy(true);
       try {
         await login();
-      } catch {} finally {
+      } catch {
+      } finally {
         setBusy(false);
       }
       return;
@@ -39,7 +59,7 @@ export function SongRow({ song }: { song: Song }) {
       if (isCurrent) {
         await player.toggle();
       } else {
-        await player.play(trackUri!);
+        await player.play(playQueueUris ?? trackUri!);
       }
       return;
     }
@@ -62,29 +82,79 @@ export function SongRow({ song }: { song: Song }) {
       : player.supported
         ? isCurrent
           ? player.isPlaying
-            ? 'Playing · Tap to pause'
-            : 'Paused · Tap to resume'
+            ? 'Playing'
+            : 'Paused'
           : !player.ready
             ? 'Connecting…'
-            : 'Tap to play full song'
+            : 'Tap to play'
         : expanded
           ? 'Tap to hide preview'
-          : 'Tap for 30-sec preview';
+          : '30-sec preview';
+
+  const playGlyph = !trackId
+    ? '↗'
+    : isPlayingNow
+      ? '❚❚'
+      : '▶';
 
   return (
-    <View style={styles.card}>
+    <View style={[styles.card, isCurrent && styles.cardCurrent]}>
       <Pressable
         onPress={handlePress}
         style={({ pressed }) => [styles.row, pressed && styles.pressed]}
       >
+        <View
+          style={[
+            styles.playBtn,
+            isCurrent && styles.playBtnOn,
+          ]}
+        >
+          <Text
+            style={[
+              styles.playGlyph,
+              isCurrent && styles.playGlyphOn,
+            ]}
+          >
+            {playGlyph}
+          </Text>
+        </View>
         <View style={{ flex: 1 }}>
           <Text style={styles.title} numberOfLines={1}>
             {song.title}
           </Text>
-          <Text style={styles.artist} numberOfLines={1}>
-            {song.artist}
-          </Text>
-          <Text style={styles.meta}>{meta}</Text>
+          <Pressable
+            onPress={(e) => {
+              e.stopPropagation?.();
+              router.push({
+                pathname: '/artist/[name]',
+                params: { name: song.artist },
+              });
+            }}
+            hitSlop={{ top: 4, bottom: 4 }}
+            accessibilityLabel={`View ${song.artist}`}
+          >
+            <Text style={styles.artist} numberOfLines={1}>
+              {song.artist} <Text style={styles.artistArrow}>›</Text>
+            </Text>
+          </Pressable>
+          <View style={styles.metaRow}>
+            {isPlayingNow ? (
+              <View style={styles.eq}>
+                <View style={[styles.eqBar, styles.eqBarA]} />
+                <View style={[styles.eqBar, styles.eqBarB]} />
+                <View style={[styles.eqBar, styles.eqBarC]} />
+              </View>
+            ) : null}
+            <Text
+              style={[
+                styles.meta,
+                isCurrent && styles.metaOn,
+              ]}
+              numberOfLines={1}
+            >
+              {meta}
+            </Text>
+          </View>
         </View>
         {tokens && trackId && (
           <Pressable
@@ -125,16 +195,76 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
     overflow: 'hidden',
   },
+  cardCurrent: {
+    borderColor: colors.accent,
+    backgroundColor: colors.bgElevated,
+  },
   row: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: spacing.md,
+    padding: spacing.sm + 2,
+    paddingRight: spacing.xs,
+    gap: spacing.sm,
   },
-  pressed: { opacity: 0.7 },
-  title: { color: colors.text, fontSize: 15, fontWeight: '600' },
-  artist: { color: colors.text, opacity: 0.85, fontSize: 13, marginTop: 2 },
-  meta: { color: colors.accent, fontSize: 11, marginTop: 4, fontWeight: '600' },
-  iconBtn: { paddingHorizontal: spacing.sm },
+  pressed: { opacity: 0.78 },
+  playBtn: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: colors.surfaceAlt,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
+  playBtnOn: {
+    backgroundColor: colors.accent,
+    borderColor: colors.accent,
+  },
+  playGlyph: {
+    color: colors.text,
+    fontSize: 13,
+    fontWeight: '800',
+    marginLeft: 1,
+  },
+  playGlyphOn: { color: '#1a1207' },
+  title: { color: colors.text, fontSize: fontSize.lg, fontWeight: '600' },
+  artist: {
+    color: colors.text,
+    opacity: 0.85,
+    fontSize: fontSize.md,
+    marginTop: 2,
+  },
+  artistArrow: { color: colors.textDim, fontSize: fontSize.lg },
+  metaRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.xs + 2,
+    marginTop: 4,
+  },
+  meta: {
+    color: colors.accent,
+    fontSize: fontSize.xs,
+    fontWeight: '700',
+    letterSpacing: 0.4,
+    textTransform: 'uppercase',
+  },
+  metaOn: { color: colors.accentHi },
+  eq: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    gap: 2,
+    height: 10,
+  },
+  eqBar: {
+    width: 2,
+    backgroundColor: colors.accent,
+    borderRadius: 1,
+  },
+  eqBarA: { height: 7 },
+  eqBarB: { height: 10 },
+  eqBarC: { height: 5 },
+  iconBtn: { paddingHorizontal: spacing.xs + 2, paddingVertical: spacing.xs },
   heart: { color: colors.textMuted, fontSize: 22 },
   heartOn: { color: colors.accent },
   plus: { color: colors.textMuted, fontSize: 22, fontWeight: '700' },

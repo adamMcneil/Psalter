@@ -55,7 +55,7 @@ interface WebPlayerValue {
   artistName: string | null;
   albumArt: string | null;
   error: string | null;
-  play: (spotifyUri: string) => Promise<void>;
+  play: (spotifyUriOrQueue: string | string[]) => Promise<void>;
   pause: () => Promise<void>;
   resume: () => Promise<void>;
   toggle: () => Promise<void>;
@@ -199,7 +199,7 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
   }, [isPlaying, duration]);
 
   const play = useCallback(
-    async (spotifyUri: string) => {
+    async (spotifyUriOrQueue: string | string[]) => {
       if (!supported) {
         setError('Spotify Premium required for full playback.');
         return;
@@ -208,6 +208,10 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
         setError('Player not ready yet — try again in a moment.');
         return;
       }
+      const uris = Array.isArray(spotifyUriOrQueue)
+        ? spotifyUriOrQueue.filter((u) => !!u)
+        : [spotifyUriOrQueue];
+      if (uris.length === 0) return;
       const token = await getAccessToken();
       if (!token) {
         setError('Sign in with Spotify first.');
@@ -222,7 +226,7 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ uris: [spotifyUri] }),
+          body: JSON.stringify({ uris }),
         },
       );
       if (!res.ok) {

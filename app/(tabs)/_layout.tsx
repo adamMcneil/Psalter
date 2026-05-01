@@ -1,7 +1,5 @@
 import { Tabs } from 'expo-router';
-import { Text, View } from 'react-native';
-import { BottomTabBar } from '@react-navigation/bottom-tabs';
-import { NowPlayingBar } from '@/components/NowPlayingBar';
+import { Text } from 'react-native';
 import { colors } from '@/theme';
 
 const TabIcon = ({ glyph, color }: { glyph: string; color: string }) => (
@@ -11,15 +9,8 @@ const TabIcon = ({ glyph, color }: { glyph: string; color: string }) => (
 export default function TabsLayout() {
   return (
     <Tabs
-      tabBar={(props) => (
-        <View>
-          <NowPlayingBar />
-          <BottomTabBar {...props} />
-        </View>
-      )}
       screenOptions={{
-        headerStyle: { backgroundColor: colors.bg },
-        headerTitleStyle: { color: colors.text },
+        headerShown: false,
         tabBarStyle: {
           backgroundColor: colors.surface,
           borderTopColor: colors.border,

@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Screen } from '@/components/Screen';
-import { colors, radius, spacing } from '@/theme';
+import { colors, fontSize, radius, spacing } from '@/theme';
 
 interface FormState {
   psalm: string;
@@ -132,19 +132,27 @@ function Field({
 const styles = StyleSheet.create({
   h1: {
     color: colors.text,
-    fontSize: 24,
-    fontWeight: '700',
+    fontSize: fontSize.h1,
+    fontWeight: '800',
     paddingTop: spacing.md,
+    letterSpacing: -0.5,
   },
   intro: {
     color: colors.textMuted,
     marginTop: spacing.sm,
     marginBottom: spacing.lg,
-    fontSize: 13,
-    lineHeight: 18,
+    fontSize: fontSize.md,
+    lineHeight: 19,
   },
   field: { marginBottom: spacing.md },
-  label: { color: colors.textMuted, fontSize: 12, marginBottom: spacing.xs },
+  label: {
+    color: colors.textMuted,
+    fontSize: fontSize.xs,
+    fontWeight: '700',
+    letterSpacing: 0.8,
+    textTransform: 'uppercase',
+    marginBottom: spacing.xs,
+  },
   input: {
     backgroundColor: colors.surface,
     borderColor: colors.border,
@@ -163,6 +171,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   submitDisabled: { backgroundColor: colors.surface, borderWidth: 1, borderColor: colors.border },
-  submitText: { color: '#1a1207', fontWeight: '700' },
+  submitText: { color: '#1a1207', fontWeight: '800', fontSize: fontSize.lg },
   submitTextDisabled: { color: colors.textMuted },
 });

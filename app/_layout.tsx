@@ -31,6 +31,7 @@ export default function RootLayout() {
               options={{ title: 'Playlist' }}
             />
             <Stack.Screen name="submit" options={{ title: 'Submit a Song' }} />
+            <Stack.Screen name="coverage" options={{ title: 'Coverage' }} />
             <Stack.Screen
               name="add-to-playlist"
               options={{ title: 'Add to playlist', presentation: 'modal' }}

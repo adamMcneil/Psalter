@@ -4,7 +4,13 @@ import { Screen } from '@/components/Screen';
 import { PsalmCard } from '@/components/PsalmCard';
 import { playlistById } from '@/data/playlists';
 import { psalmByNumber } from '@/data/psalms';
-import { colors, spacing } from '@/theme';
+import {
+  colors,
+  fontSize,
+  paletteForThemes,
+  radius,
+  spacing,
+} from '@/theme';
 
 export default function PlaylistDetail() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -23,42 +29,84 @@ export default function PlaylistDetail() {
     .map((n) => psalmByNumber(n))
     .filter((p): p is NonNullable<typeof p> => !!p);
 
+  const palette = paletteForThemes(psalms[0]?.themes);
+
   return (
     <Screen>
       <Stack.Screen options={{ title: playlist.title }} />
-      <View style={styles.header}>
-        <Text style={styles.kicker}>FEATURED PLAYLIST</Text>
-        <Text style={styles.title}>{playlist.title}</Text>
-        <Text style={styles.blurb}>{playlist.blurb}</Text>
-      </View>
       <FlatList
         data={psalms}
         keyExtractor={(p) => String(p.number)}
         renderItem={({ item }) => <PsalmCard psalm={item} />}
-        contentContainerStyle={{ paddingVertical: spacing.md }}
+        showsVerticalScrollIndicator={false}
+        ListHeaderComponent={
+          <View
+            style={[
+              styles.hero,
+              { backgroundColor: palette.soft, borderColor: palette.base },
+            ]}
+          >
+            <Text style={[styles.heroGlyph, { color: palette.base }]}>
+              {palette.glyph}
+            </Text>
+            <Text style={[styles.kicker, { color: palette.base }]}>
+              FEATURED PLAYLIST
+            </Text>
+            <Text style={styles.title}>{playlist.title}</Text>
+            <Text style={styles.blurb}>{playlist.blurb}</Text>
+            <View style={[styles.countPill, { borderColor: palette.base }]}>
+              <Text style={[styles.countText, { color: palette.base }]}>
+                {psalms.length} psalms
+              </Text>
+            </View>
+          </View>
+        }
+        contentContainerStyle={{ paddingBottom: spacing.xl }}
       />
     </Screen>
   );
 }
 
 const styles = StyleSheet.create({
-  header: {
-    paddingTop: spacing.md,
-    paddingBottom: spacing.md,
-    borderBottomColor: colors.border,
-    borderBottomWidth: 1,
+  hero: {
+    marginTop: spacing.md,
+    marginBottom: spacing.md,
+    padding: spacing.lg,
+    borderRadius: radius.lg,
+    borderWidth: 1,
   },
-  kicker: { color: colors.accent, fontWeight: '700', letterSpacing: 1 },
+  heroGlyph: { fontSize: 36 },
+  kicker: {
+    fontWeight: '800',
+    letterSpacing: 1.6,
+    fontSize: fontSize.xs,
+    marginTop: spacing.sm,
+  },
   title: {
     color: colors.text,
-    fontSize: 26,
-    fontWeight: '700',
+    fontSize: fontSize.h1,
+    fontWeight: '800',
     marginTop: spacing.xs,
+    lineHeight: 34,
+    letterSpacing: -0.5,
   },
   blurb: {
     color: colors.textMuted,
     marginTop: spacing.sm,
-    fontSize: 14,
-    lineHeight: 20,
+    fontSize: fontSize.lg,
+    lineHeight: 21,
+  },
+  countPill: {
+    alignSelf: 'flex-start',
+    marginTop: spacing.md,
+    paddingHorizontal: spacing.sm + 2,
+    paddingVertical: 3,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+  },
+  countText: {
+    fontSize: 10,
+    fontWeight: '700',
+    letterSpacing: 0.5,
   },
 });
