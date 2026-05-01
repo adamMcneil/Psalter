@@ -11,7 +11,8 @@ const REDIRECT_PATH = 'spotify-auth';
 
 export function getRedirectUri(): string {
   if (Platform.OS === 'web') {
-    return `${window.location.origin}/${REDIRECT_PATH}`;
+    const baseUrl = (process.env.EXPO_BASE_URL ?? '').replace(/\/$/, '');
+    return `${window.location.origin}${baseUrl}/${REDIRECT_PATH}`;
   }
   return AuthSession.makeRedirectUri({
     scheme: 'psalter',

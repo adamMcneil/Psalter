@@ -32,8 +32,10 @@ jobs:
           EXPO_BASE_URL: /${{ github.event.repository.name }}
         run: npx expo export --platform web
 
-      - name: Add .nojekyll
-        run: touch dist/.nojekyll
+      - name: Add .nojekyll and SPA fallback
+        run: |
+          touch dist/.nojekyll
+          cp dist/index.html dist/404.html
 
       - uses: actions/configure-pages@v5
 
