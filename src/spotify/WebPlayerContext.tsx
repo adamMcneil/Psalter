@@ -9,7 +9,38 @@ import {
   useState,
 } from 'react';
 import { Platform } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useSpotifyAuth } from './AuthContext';
+
+const STATE_KEY = 'psalter:webPlayer:lastState:v1';
+
+interface PersistedState {
+  uri: string;
+  position: number;
+  trackName?: string;
+  artistName?: string;
+  albumArt?: string;
+}
+
+async function readPersisted(): Promise<PersistedState | null> {
+  try {
+    const raw = await AsyncStorage.getItem(STATE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed.uri !== 'string') return null;
+    return parsed as PersistedState;
+  } catch {
+    return null;
+  }
+}
+
+async function writePersisted(state: PersistedState): Promise<void> {
+  try {
+    await AsyncStorage.setItem(STATE_KEY, JSON.stringify(state));
+  } catch {
+    // ignore
+  }
+}
 
 interface SpotifyPlayer {
   connect(): Promise<boolean>;
@@ -17,6 +48,7 @@ interface SpotifyPlayer {
   pause(): Promise<void>;
   resume(): Promise<void>;
   togglePlay(): Promise<void>;
+  seek(positionMs: number): Promise<void>;
   addListener(event: string, cb: (...args: unknown[]) => void): boolean;
   removeListener(event: string, cb?: (...args: unknown[]) => void): boolean;
 }
@@ -55,10 +87,18 @@ interface WebPlayerValue {
   artistName: string | null;
   albumArt: string | null;
   error: string | null;
-  play: (spotifyUriOrQueue: string | string[]) => Promise<void>;
+  play: (
+    spotifyUriOrQueue: string | string[],
+    opts?: { positionMs?: number },
+  ) => Promise<void>;
   pause: () => Promise<void>;
   resume: () => Promise<void>;
   toggle: () => Promise<void>;
+  seek: (positionMs: number) => Promise<void>;
+  // Resume the last known track from a previous session. No-op if nothing saved.
+  resumeLast: () => Promise<void>;
+  // Smart play: in-place resume if SDK has live state, else play from persisted position.
+  playOrResume: () => Promise<void>;
 }
 
 const noop = async () => {};
@@ -79,6 +119,9 @@ const initial: WebPlayerValue = {
   pause: noop,
   resume: noop,
   toggle: noop,
+  seek: noop,
+  resumeLast: noop,
+  playOrResume: noop,
 };
 
 const Ctx = createContext<WebPlayerValue>(initial);
@@ -118,6 +161,10 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
   const [artistName, setArtistName] = useState<string | null>(null);
   const [albumArt, setAlbumArt] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  // True once the SDK has reported real playback state for this session.
+  // Lets us distinguish "paused live track" (resume locally) from "hydrated
+  // from disk, never played this session" (need to send play to the API).
+  const [hasLiveState, setHasLiveState] = useState(false);
 
   useEffect(() => {
     if (!supported || !tokens) {
@@ -156,6 +203,7 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
         player.addListener('player_state_changed', (...args: unknown[]) => {
           const state = args[0] as PlayerState | null;
           if (!state) return;
+          setHasLiveState(true);
           setIsPlaying(!state.paused);
           setPosition(state.position);
           setDuration(state.duration);
@@ -199,7 +247,10 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
   }, [isPlaying, duration]);
 
   const play = useCallback(
-    async (spotifyUriOrQueue: string | string[]) => {
+    async (
+      spotifyUriOrQueue: string | string[],
+      opts?: { positionMs?: number },
+    ) => {
       if (!supported) {
         setError('Spotify Premium required for full playback.');
         return;
@@ -218,6 +269,10 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
         return;
       }
       setError(null);
+      const body: Record<string, unknown> = { uris };
+      if (opts?.positionMs && opts.positionMs > 0) {
+        body.position_ms = Math.floor(opts.positionMs);
+      }
       const res = await fetch(
         `https://api.spotify.com/v1/me/player/play?device_id=${deviceIdRef.current}`,
         {
@@ -226,7 +281,7 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ uris }),
+          body: JSON.stringify(body),
         },
       );
       if (!res.ok) {
@@ -246,6 +301,61 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
   const toggle = useCallback(async () => {
     await playerRef.current?.togglePlay();
   }, []);
+  const seek = useCallback(
+    async (positionMs: number) => {
+      if (!playerRef.current) return;
+      await playerRef.current.seek(Math.max(0, Math.floor(positionMs)));
+      setPosition(positionMs);
+    },
+    [],
+  );
+  const resumeLast = useCallback(async () => {
+    const saved = await readPersisted();
+    if (!saved) return;
+    await play(saved.uri, { positionMs: saved.position });
+  }, [play]);
+
+  // Smart play action for UI: resume in-place if the SDK is mid-track,
+  // otherwise start fresh from the persisted position.
+  const playOrResume = useCallback(async () => {
+    if (hasLiveState) {
+      await playerRef.current?.resume();
+      return;
+    }
+    if (currentUri) {
+      await play(currentUri, { positionMs: position });
+    }
+  }, [hasLiveState, currentUri, position, play]);
+
+  // Hydrate last-known track so the MiniPlayer can show it before the user hits play.
+  useEffect(() => {
+    if (currentUri) return;
+    let cancelled = false;
+    readPersisted().then((saved) => {
+      if (cancelled || !saved) return;
+      // Only fill in if we haven't started playing something new.
+      setCurrentUri((u) => u ?? saved.uri);
+      setPosition((p) => (p > 0 ? p : saved.position));
+      setTrackName((n) => n ?? saved.trackName ?? null);
+      setArtistName((n) => n ?? saved.artistName ?? null);
+      setAlbumArt((a) => a ?? saved.albumArt ?? null);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [currentUri]);
+
+  // Persist current state whenever it meaningfully changes.
+  useEffect(() => {
+    if (!currentUri) return;
+    void writePersisted({
+      uri: currentUri,
+      position,
+      trackName: trackName ?? undefined,
+      artistName: artistName ?? undefined,
+      albumArt: albumArt ?? undefined,
+    });
+  }, [currentUri, position, trackName, artistName, albumArt]);
 
   const value = useMemo<WebPlayerValue>(
     () => ({
@@ -265,6 +375,9 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
       pause,
       resume,
       toggle,
+      seek,
+      resumeLast,
+      playOrResume,
     }),
     [
       supported,
@@ -283,6 +396,9 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
       pause,
       resume,
       toggle,
+      seek,
+      resumeLast,
+      playOrResume,
     ],
   );
 

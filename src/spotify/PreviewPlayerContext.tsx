@@ -9,8 +9,36 @@ import {
   useState,
 } from 'react';
 import { Platform } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useSpotifyAuth } from './AuthContext';
 import { getPreviewUrl } from './previewUrls';
+
+const STATE_KEY = 'psalter:previewPlayer:lastState:v1';
+
+interface PersistedPreview {
+  trackId: string;
+  position: number;
+}
+
+async function readPersisted(): Promise<PersistedPreview | null> {
+  try {
+    const raw = await AsyncStorage.getItem(STATE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed.trackId !== 'string') return null;
+    return parsed as PersistedPreview;
+  } catch {
+    return null;
+  }
+}
+
+async function writePersisted(state: PersistedPreview): Promise<void> {
+  try {
+    await AsyncStorage.setItem(STATE_KEY, JSON.stringify(state));
+  } catch {
+    // ignore
+  }
+}
 
 interface PreviewPlayerValue {
   supported: boolean;
@@ -20,10 +48,11 @@ interface PreviewPlayerValue {
   position: number;
   duration: number;
   error: string | null;
-  play: (trackId: string) => Promise<void>;
+  play: (trackId: string, opts?: { positionSec?: number }) => Promise<void>;
   pause: () => void;
   toggle: (trackId: string) => Promise<void>;
   stop: () => void;
+  seek: (positionSec: number) => void;
 }
 
 const noopAsync = async () => {};
@@ -41,6 +70,7 @@ const initial: PreviewPlayerValue = {
   pause: noop,
   toggle: noopAsync,
   stop: noop,
+  seek: noop,
 };
 
 const Ctx = createContext<PreviewPlayerValue>(initial);
@@ -101,12 +131,15 @@ export function PreviewPlayerProvider({ children }: { children: ReactNode }) {
   }, [isWeb]);
 
   const play = useCallback(
-    async (trackId: string) => {
+    async (trackId: string, opts?: { positionSec?: number }) => {
       if (!isWeb) return;
       const a = audioRef.current;
       if (!a) return;
       setError(null);
       if (currentTrackId === trackId && a.src) {
+        if (opts?.positionSec != null) {
+          a.currentTime = Math.max(0, opts.positionSec);
+        }
         try {
           await a.play();
         } catch (e) {
@@ -127,7 +160,7 @@ export function PreviewPlayerProvider({ children }: { children: ReactNode }) {
           return;
         }
         a.src = url;
-        a.currentTime = 0;
+        a.currentTime = Math.max(0, opts?.positionSec ?? 0);
         await a.play();
       } catch (e) {
         setError(e instanceof Error ? e.message : 'Preview failed.');
@@ -137,6 +170,34 @@ export function PreviewPlayerProvider({ children }: { children: ReactNode }) {
     },
     [isWeb, currentTrackId, getAccessToken],
   );
+
+  const seek = useCallback((positionSec: number) => {
+    const a = audioRef.current;
+    if (!a) return;
+    a.currentTime = Math.max(0, positionSec);
+    setPosition(a.currentTime);
+  }, []);
+
+  // Hydrate last-known track on mount so MiniPlayer can show it (paused).
+  useEffect(() => {
+    if (!isWeb) return;
+    if (currentTrackId) return;
+    let cancelled = false;
+    readPersisted().then((saved) => {
+      if (cancelled || !saved) return;
+      setCurrentTrackId((t) => t ?? saved.trackId);
+      setPosition((p) => (p > 0 ? p : saved.position));
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [isWeb, currentTrackId]);
+
+  // Persist whenever the track or position meaningfully changes.
+  useEffect(() => {
+    if (!currentTrackId) return;
+    void writePersisted({ trackId: currentTrackId, position });
+  }, [currentTrackId, position]);
 
   const pause = useCallback(() => {
     audioRef.current?.pause();
@@ -185,6 +246,7 @@ export function PreviewPlayerProvider({ children }: { children: ReactNode }) {
       pause,
       toggle,
       stop,
+      seek,
     }),
     [
       isWeb,
@@ -198,6 +260,7 @@ export function PreviewPlayerProvider({ children }: { children: ReactNode }) {
       pause,
       toggle,
       stop,
+      seek,
     ],
   );
 

@@ -1,0 +1,288 @@
+import { useMemo, useRef, useState } from 'react';
+import {
+  GestureResponderEvent,
+  Image,
+  LayoutChangeEvent,
+  Platform,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
+import { useRouter } from 'expo-router';
+import { useWebPlayer } from '../spotify/WebPlayerContext';
+import { usePreviewPlayer } from '../spotify/PreviewPlayerContext';
+import { formatDuration, songByTrackId } from '../data/catalog';
+import { extractTrackId } from '../spotify/launch';
+import { colors, fontSize, radius, spacing } from '../theme';
+
+export function MiniPlayer() {
+  const web = useWebPlayer();
+  const preview = usePreviewPlayer();
+  const router = useRouter();
+
+  const usingWeb = web.supported && !!web.currentUri;
+  const usingPreview = !usingWeb && !!preview.currentTrackId;
+
+  // Resolve track display info + a psalm number we can deep-link to.
+  const info = useMemo(() => {
+    if (usingWeb) {
+      const trackId = web.currentUri
+        ? web.currentUri.replace('spotify:track:', '')
+        : null;
+      const song = trackId ? songByTrackId(trackId) : undefined;
+      return {
+        title: web.trackName ?? song?.title ?? 'Now playing',
+        artist: web.artistName ?? song?.artist ?? '',
+        cover: web.albumArt ?? song?.albumCoverUrl ?? null,
+        positionSec: Math.floor(web.position / 1000),
+        durationSec: Math.floor(web.duration / 1000) || song?.durationSec || 0,
+        isPlaying: web.isPlaying,
+        psalm: song?.psalm,
+      };
+    }
+    if (usingPreview) {
+      const song = preview.currentTrackId
+        ? songByTrackId(preview.currentTrackId)
+        : undefined;
+      // Preview clips are typically 30s. If we don't have audio metadata yet,
+      // fall back to 30 to keep the bar from looking broken.
+      const dur = preview.duration > 0 ? preview.duration : 30;
+      return {
+        title: song?.title ?? 'Preview',
+        artist: song?.artist ?? '',
+        cover: song?.albumCoverUrl ?? null,
+        positionSec: preview.position,
+        durationSec: dur,
+        isPlaying: preview.isPlaying,
+        psalm: song?.psalm,
+      };
+    }
+    return null;
+  }, [usingWeb, usingPreview, web, preview]);
+
+  const [barWidth, setBarWidth] = useState(0);
+  const draggingRef = useRef(false);
+  const [dragPct, setDragPct] = useState<number | null>(null);
+
+  if (!info) return null;
+
+  const pctFromEvent = (e: GestureResponderEvent): number => {
+    if (barWidth <= 0) return 0;
+    const x = e.nativeEvent.locationX;
+    return Math.max(0, Math.min(1, x / barWidth));
+  };
+
+  const commitSeek = (pct: number) => {
+    if (info.durationSec <= 0) return;
+    const targetSec = pct * info.durationSec;
+    if (usingWeb) {
+      void web.seek(targetSec * 1000);
+    } else if (usingPreview) {
+      preview.seek(targetSec);
+    }
+  };
+
+  const onBarPress = (e: GestureResponderEvent) => {
+    const pct = pctFromEvent(e);
+    commitSeek(pct);
+  };
+
+  // Drag support (web): pointer events translate through react-native-web.
+  const dragHandlers =
+    Platform.OS === 'web'
+      ? {
+          onResponderGrant: (e: GestureResponderEvent) => {
+            draggingRef.current = true;
+            setDragPct(pctFromEvent(e));
+          },
+          onResponderMove: (e: GestureResponderEvent) => {
+            if (draggingRef.current) setDragPct(pctFromEvent(e));
+          },
+          onResponderRelease: (e: GestureResponderEvent) => {
+            if (draggingRef.current) {
+              commitSeek(pctFromEvent(e));
+              draggingRef.current = false;
+              setDragPct(null);
+            }
+          },
+          onStartShouldSetResponder: () => true,
+          onMoveShouldSetResponder: () => true,
+        }
+      : {};
+
+  const livePct =
+    info.durationSec > 0
+      ? Math.max(0, Math.min(1, info.positionSec / info.durationSec))
+      : 0;
+  const shownPct = dragPct ?? livePct;
+  const shownPositionSec =
+    dragPct != null ? Math.round(dragPct * info.durationSec) : info.positionSec;
+
+  const togglePlay = () => {
+    if (usingWeb) {
+      if (web.isPlaying) {
+        void web.pause();
+      } else {
+        void web.playOrResume();
+      }
+      return;
+    }
+    if (usingPreview && preview.currentTrackId) {
+      if (preview.isPlaying) {
+        preview.pause();
+      } else {
+        void preview.play(preview.currentTrackId, {
+          positionSec: preview.position,
+        });
+      }
+    }
+  };
+
+  const goToPsalm = () => {
+    if (info.psalm) router.push(`/psalm/${info.psalm}`);
+  };
+
+  return (
+    <View style={styles.wrap} pointerEvents="box-none">
+      <View style={styles.bar}>
+        <Pressable
+          onPress={goToPsalm}
+          style={({ pressed }) => [styles.meta, pressed && styles.pressed]}
+        >
+          {info.cover ? (
+            <Image
+              source={{ uri: info.cover }}
+              style={styles.cover}
+              accessibilityIgnoresInvertColors
+            />
+          ) : (
+            <View style={[styles.cover, styles.coverPlaceholder]} />
+          )}
+          <View style={styles.text}>
+            <Text style={styles.title} numberOfLines={1}>
+              {info.title}
+            </Text>
+            {info.artist ? (
+              <Text style={styles.artist} numberOfLines={1}>
+                {info.artist}
+              </Text>
+            ) : null}
+          </View>
+        </Pressable>
+        <Text style={styles.time}>
+          {formatDuration(shownPositionSec)} / {formatDuration(info.durationSec)}
+        </Text>
+        <Pressable
+          onPress={togglePlay}
+          style={({ pressed }) => [styles.playBtn, pressed && styles.pressed]}
+          accessibilityLabel={info.isPlaying ? 'Pause' : 'Play'}
+        >
+          <Text style={styles.playGlyph}>{info.isPlaying ? '❚❚' : '▶'}</Text>
+        </Pressable>
+      </View>
+      <Pressable
+        onPress={onBarPress}
+        onLayout={(e: LayoutChangeEvent) =>
+          setBarWidth(e.nativeEvent.layout.width)
+        }
+        style={styles.trackHit}
+        {...dragHandlers}
+      >
+        <View style={styles.track}>
+          <View style={[styles.fill, { width: `${shownPct * 100}%` }]} />
+          <View style={[styles.thumb, { left: `${shownPct * 100}%` }]} />
+        </View>
+      </Pressable>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  wrap: {
+    backgroundColor: colors.surface,
+    borderTopWidth: 1,
+    borderTopColor: colors.border,
+    paddingTop: spacing.sm,
+    paddingBottom: spacing.xs,
+    paddingHorizontal: spacing.sm,
+  },
+  bar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+  },
+  meta: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+    flex: 1,
+    minWidth: 0,
+  },
+  cover: {
+    width: 44,
+    height: 44,
+    borderRadius: radius.sm,
+    backgroundColor: colors.surfaceAlt,
+  },
+  coverPlaceholder: {
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
+  text: { flex: 1, minWidth: 0 },
+  title: {
+    color: colors.text,
+    fontSize: fontSize.md,
+    fontWeight: '700',
+  },
+  artist: {
+    color: colors.textMuted,
+    fontSize: fontSize.sm,
+    marginTop: 1,
+  },
+  time: {
+    color: colors.textMuted,
+    fontSize: fontSize.xs,
+    fontWeight: '700',
+    fontVariant: ['tabular-nums'],
+  },
+  playBtn: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: colors.accent,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  playGlyph: {
+    color: '#1a1207',
+    fontSize: 14,
+    fontWeight: '800',
+    marginLeft: 1,
+  },
+  pressed: { opacity: 0.78 },
+  trackHit: {
+    paddingVertical: spacing.sm,
+    marginTop: -spacing.xs,
+  },
+  track: {
+    height: 4,
+    borderRadius: 2,
+    backgroundColor: colors.surfaceAlt,
+    overflow: 'visible',
+  },
+  fill: {
+    height: '100%',
+    backgroundColor: colors.accent,
+    borderRadius: 2,
+  },
+  thumb: {
+    position: 'absolute',
+    top: -4,
+    width: 12,
+    height: 12,
+    borderRadius: 6,
+    backgroundColor: colors.accent,
+    marginLeft: -6,
+  },
+});
