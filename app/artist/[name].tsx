@@ -141,31 +141,37 @@ export default function ArtistDetail() {
                             asChild
                           >
                             <Pressable
-                              style={({ pressed }) => [
-                                styles.cell,
-                                covered && {
-                                  backgroundColor: tint.fg,
-                                  borderColor: tint.fg,
-                                },
-                                intense && styles.cellIntense,
-                                pressed && styles.pressed,
-                              ]}
+                              style={styles.cellPressable}
                               accessibilityLabel={`Psalm ${num}${
                                 covered
                                   ? `, ${count} song${count === 1 ? '' : 's'}`
                                   : ' (no song)'
                               }`}
                             >
-                              {count > 1 ? (
-                                <Text
+                              {({ pressed }) => (
+                                <View
                                   style={[
-                                    styles.cellNum,
-                                    { color: tint.bg },
+                                    styles.cell,
+                                    covered && {
+                                      backgroundColor: tint.fg,
+                                      borderColor: tint.fg,
+                                    },
+                                    intense && styles.cellIntense,
+                                    pressed && styles.pressed,
                                   ]}
                                 >
-                                  {count}
-                                </Text>
-                              ) : null}
+                                  {count > 1 ? (
+                                    <Text
+                                      style={[
+                                        styles.cellNum,
+                                        { color: tint.bg },
+                                      ]}
+                                    >
+                                      {count}
+                                    </Text>
+                                  ) : null}
+                                </View>
+                              )}
                             </Pressable>
                           </Link>
                         );
@@ -198,8 +204,8 @@ export default function ArtistDetail() {
                 <View
                   style={[
                     styles.legendSwatch,
+                    { backgroundColor: tint.fg },
                     styles.cellIntense,
-                    { backgroundColor: tint.fg, borderColor: tint.fg },
                   ]}
                 />
                 <Text style={styles.legendText}>2+</Text>
@@ -316,8 +322,10 @@ const styles = StyleSheet.create({
     gap: 3,
     flex: 1,
   },
-  cell: {
+  cellPressable: {
     flex: 1,
+  },
+  cell: {
     height: 18,
     borderRadius: 3,
     backgroundColor: colors.surfaceAlt,

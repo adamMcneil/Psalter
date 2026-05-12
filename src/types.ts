@@ -19,6 +19,7 @@ export interface Song {
   title: string;
   artist: string;
   album?: string;
+  albumCoverUrl?: string;
   durationSec?: number;
   spotifyUrl?: string;
   themes?: Theme[];

@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Image, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Song } from '../types';
 import { colors, fontSize, radius, spacing } from '../theme';
@@ -125,20 +125,31 @@ export function SongRow({
         onPress={handlePress}
         style={({ pressed }) => [styles.row, pressed && styles.pressed]}
       >
-        <View
-          style={[
-            styles.playBtn,
-            isCurrent && styles.playBtnOn,
-          ]}
-        >
-          <Text
+        <View style={styles.coverWrap}>
+          {song.albumCoverUrl ? (
+            <Image
+              source={{ uri: song.albumCoverUrl }}
+              style={styles.cover}
+              accessibilityIgnoresInvertColors
+            />
+          ) : (
+            <View style={[styles.cover, styles.coverPlaceholder]} />
+          )}
+          <View
             style={[
-              styles.playGlyph,
-              isCurrent && styles.playGlyphOn,
+              styles.coverOverlay,
+              isCurrent && styles.coverOverlayOn,
             ]}
           >
-            {playGlyph}
-          </Text>
+            <Text
+              style={[
+                styles.playGlyph,
+                isCurrent && styles.playGlyphOn,
+              ]}
+            >
+              {playGlyph}
+            </Text>
+          </View>
         </View>
         <View style={{ flex: 1 }}>
           <Text style={styles.title} numberOfLines={1}>
@@ -159,6 +170,11 @@ export function SongRow({
               {song.artist} <Text style={styles.artistArrow}>›</Text>
             </Text>
           </Pressable>
+          {song.album ? (
+            <Text style={styles.album} numberOfLines={1}>
+              {song.album}
+            </Text>
+          ) : null}
           <View style={styles.metaRow}>
             {isPlayingNow ? (
               <View style={styles.eq}>
@@ -233,28 +249,51 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
   },
   pressed: { opacity: 0.78 },
-  playBtn: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
+  coverWrap: {
+    width: 56,
+    height: 56,
+    borderRadius: radius.sm,
+    overflow: 'hidden',
     backgroundColor: colors.surfaceAlt,
-    alignItems: 'center',
-    justifyContent: 'center',
     borderWidth: 1,
     borderColor: colors.border,
   },
-  playBtnOn: {
-    backgroundColor: colors.accent,
-    borderColor: colors.accent,
+  cover: {
+    width: '100%',
+    height: '100%',
+  },
+  coverPlaceholder: {
+    backgroundColor: colors.surfaceAlt,
+  },
+  coverOverlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0,0,0,0.42)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  coverOverlayOn: {
+    backgroundColor: 'rgba(0,0,0,0.55)',
   },
   playGlyph: {
-    color: colors.text,
-    fontSize: 13,
+    color: '#fff',
+    fontSize: 16,
     fontWeight: '800',
     marginLeft: 1,
+    textShadowColor: 'rgba(0,0,0,0.6)',
+    textShadowRadius: 4,
   },
-  playGlyphOn: { color: '#1a1207' },
+  playGlyphOn: { color: colors.accentHi },
   title: { color: colors.text, fontSize: fontSize.lg, fontWeight: '600' },
+  album: {
+    color: colors.textDim,
+    fontSize: fontSize.xs,
+    marginTop: 2,
+    fontStyle: 'italic',
+  },
   artist: {
     color: colors.text,
     opacity: 0.85,

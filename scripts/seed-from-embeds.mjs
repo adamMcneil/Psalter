@@ -277,6 +277,16 @@ const SOURCES = [
     album: 'Psalm 5 Word For Word',
   },
   {
+    url: 'https://open.spotify.com/album/19k0cNfcvMTJqEY0w3N3oh',
+    artist: 'Zac Fitzsimmons',
+    album: 'Psalm 4 Word For Word',
+  },
+  {
+    url: 'https://open.spotify.com/album/5VI0oRN6YMdBjryTp3IVPT',
+    artist: 'Zac Fitzsimmons',
+    album: 'Psalm 84 Word For Word',
+  },
+  {
     url: 'https://open.spotify.com/album/7ESJp5Yy4kCFe5F2lHhpI5',
     artist: 'Tim Bushong',
     album: 'Battle Hymns for Weary Souls',
@@ -316,11 +326,263 @@ const SOURCES = [
     artist: 'Caroline Cobb',
     album: 'Psalms: The Poetry of Prayer',
   },
+  {
+    url: 'https://open.spotify.com/album/4c4cEn07dXS7q9l4mwk5Ic',
+    artist: 'Writers Well',
+    album: 'Psalms from the Well',
+  },
+  {
+    url: 'https://open.spotify.com/album/6kzgbvdFrR5oQ592604RTv',
+    artist: 'Writers Well',
+    album: 'Psalms from the Well (Deluxe Edition)',
+  },
+  {
+    url: 'https://open.spotify.com/album/03xfhaO6ghABY2fBfcw0yi',
+    artist: 'Writers Well',
+    album: 'Psalms from the Well, Vol. 2 (Live)',
+  },
+  {
+    url: 'https://open.spotify.com/album/0Klev9Xrmok3JnDpAn5OtD',
+    artist: 'Writers Well',
+    album: 'Psalms from the Well, Vol. 3',
+  },
+  {
+    url: 'https://open.spotify.com/album/0qHno9rzk7aLAE4KOR57Ah',
+    artist: 'Advent Birmingham',
+    album: 'Our Strivings Cease',
+  },
+  {
+    url: 'https://open.spotify.com/album/0e8zHs0emx0Gi23pXe7zMw',
+    artist: 'Advent Birmingham',
+    album: 'Hunger, Thirst, and Altar Fire',
+  },
+  {
+    url: 'https://open.spotify.com/track/4C2Mtrzc33OmjPFt2QGtXH',
+    artist: 'Keith Green',
+    album: 'Songs for the Shepherd',
+  },
+  {
+    url: 'https://open.spotify.com/track/2b5hbrwwjpKuQUJRCZVec3',
+    artist: 'Keith Green',
+    album: 'The Ministry Years, Volume 2',
+    psalmOverride: 23,
+  },
+  {
+    url: 'https://open.spotify.com/track/5uxacKc9x3xMRnCzP0CxHG',
+    artist: 'Keith Green',
+    album: 'For Him Who Has Ears to Hear',
+    psalmOverride: 51,
+  },
+  { url: 'https://open.spotify.com/album/2ULRUZkzTz8z0nB5pscbur', artist: 'Sons of Korah', album: 'Psalm 1' },
+  { url: 'https://open.spotify.com/album/4qNl1fzBEfHPBBZTHdSqNd', artist: 'Sons of Korah', album: 'Psalm 23' },
+  { url: 'https://open.spotify.com/album/3065cOLiTlTxcZAb9xVvdQ', artist: 'Sons of Korah', album: 'Psalm 46b' },
+  { url: 'https://open.spotify.com/album/6KnddBElOTjyoaCsGXNPRr', artist: 'Sons of Korah', album: 'Psalm 51' },
+  { url: 'https://open.spotify.com/album/3pg5KRMtvhNU0sDfOqtx00', artist: 'Sons of Korah', album: 'Psalm 68c' },
+  { url: 'https://open.spotify.com/album/0BFCfV9AdVA3j6qT9ZqdJZ', artist: 'Sons of Korah', album: 'Psalm 80' },
+  { url: 'https://open.spotify.com/album/5VaAB3RtG3obN4V1g5vI9J', artist: 'Sons of Korah', album: 'Psalm 88c' },
+  { url: 'https://open.spotify.com/album/2alH2AAHFSP38506JIXGxi', artist: 'Sons of Korah', album: 'Psalm 91' },
+  { url: 'https://open.spotify.com/album/7x8Bxn8eDGd9GQsUWWb87L', artist: 'Sons of Korah', album: 'Psalm 94' },
+  { url: 'https://open.spotify.com/album/1tBQ09rKaaOCgLUB2ojfFO', artist: 'Sons of Korah', album: 'Psalm 95' },
+  { url: 'https://open.spotify.com/album/7ALzG0zoNumsp78nsdCjWs', artist: 'Sons of Korah', album: 'Psalm 110' },
+  { url: 'https://open.spotify.com/album/3XmZPEBnM0PtDahRDCzxRr', artist: 'Sons of Korah', album: 'Psalm 119 (Nun)' },
+  { url: 'https://open.spotify.com/album/1orvUcFmeKgVO85RYkMi3w', artist: 'Sons of Korah', album: 'Psalm 121' },
+  { url: 'https://open.spotify.com/album/4E46F0nfe49LaewYE1Q6W0', artist: 'Sons of Korah', album: 'Psalm 139' },
+  { url: 'https://open.spotify.com/album/7H7aTjlNu58mMD9XtFnmZ1', artist: 'Sons of Korah', album: 'Psalm 16' },
+  { url: 'https://open.spotify.com/album/02XrjHvvv8zCulClMCWJOY', artist: 'Sons of Korah', album: 'Psalm 27b' },
+  { url: 'https://open.spotify.com/album/3smLoYwJHHyKpF56Up3fc2', artist: 'Sons of Korah', album: 'Psalm 68e' },
+  { url: 'https://open.spotify.com/album/25zYhCZ2TKQfBJna8G92n5', artist: 'Sons of Korah', album: 'Psalm 116' },
+  {
+    url: 'https://open.spotify.com/album/1hNcP5wPDySPz9FiThpBy7',
+    artist: 'Cardiphonia Music',
+    album: 'Joy to the World (Psalms 90-106)',
+  },
+  {
+    url: 'https://open.spotify.com/album/5KVIT3Z6HSaaTQjy0ZOOMA',
+    artist: 'Cardiphonia Music',
+    album: 'Stewarding Praise (Psalms 107-112)',
+  },
+  {
+    url: 'https://open.spotify.com/album/56IfebZLZzx41ameKTQiW0',
+    artist: 'Cardiphonia Music',
+    album: 'Restore Us O God, Volume 1 (Psalms 73-89)',
+  },
+  {
+    url: 'https://open.spotify.com/album/639j8NtluMUEV38YYdYHcj',
+    artist: 'Brian Sauvé',
+    album: 'Bright, the Rider',
+  },
+  {
+    url: 'https://open.spotify.com/album/7v5CzJxRFOcwp0tg5eLxof',
+    artist: 'Brian Sauvé',
+    album: 'Songs Worth Singing',
+  },
+  {
+    url: 'https://open.spotify.com/album/4VXVNyB00sCrZKxGfJdzOS',
+    artist: 'Wendell Kimbrough',
+    album: 'Come to Me',
+  },
+  {
+    url: 'https://open.spotify.com/album/1GTQiSY1PpsgeHaNQaf0vz',
+    artist: 'Wendell Kimbrough',
+    album: 'You Belong',
+  },
+  {
+    url: 'https://open.spotify.com/album/2ktdd3j5ou13mMlPmcJ0zR',
+    artist: 'Wendell Kimbrough',
+    album: 'Planted Like Trees',
+  },
+  {
+    url: 'https://open.spotify.com/album/2pFMjs1wqF8eOJwGMXj3V7',
+    artist: 'Wendell Kimbrough',
+    album: 'Hymns and Friends',
+  },
+  {
+    url: 'https://open.spotify.com/album/2YTAVqMrTQNBFg1dRwsGp1',
+    artist: 'Wendell Kimbrough',
+    album: 'See How Good It Is (Psalm 133)',
+    psalmOverride: 133,
+  },
+  {
+    url: 'https://open.spotify.com/album/2lBHQT5RAcQjd5Dni0Uc1B',
+    artist: 'Wendell Kimbrough',
+    album: 'Advent',
+  },
+  {
+    url: 'https://open.spotify.com/album/5JOqqxuTbP7pFyjcPS6v6j',
+    artist: 'Sandra McCracken',
+    album: "God's Highway",
+  },
+  {
+    url: 'https://open.spotify.com/album/7tmxXlKEXhR3ZecVAEGwwD',
+    artist: 'Robbie Seay Band',
+    album: 'Psalms, Vol. 2 - EP',
+  },
+  {
+    url: 'https://open.spotify.com/album/4DAHk7atebpr0XM5mGE63d',
+    artist: 'Scripture Hymnal',
+    album: 'Scripture Hymnal, Vol. 3',
+  },
+  {
+    url: 'https://open.spotify.com/album/74zJvUgEVnZmSzNLJTVxxQ',
+    artist: 'Scripture Hymnal',
+    album: 'Scripture Hymnal, Vol. 4',
+  },
+  {
+    url: 'https://open.spotify.com/album/3hZmM8u2THShCW4PIIR7dA',
+    artist: 'Scripture Hymnal',
+    album: 'Scripture Hymnal, Vol. 5',
+  },
+  {
+    url: 'https://open.spotify.com/album/5XGTvjNvL0ZWxsgm5s45bD',
+    artist: 'Scripture Hymnal',
+    album: 'Scripture Hymnal, Vol. 6',
+  },
+  {
+    url: 'https://open.spotify.com/album/0lrb78FZhsmv5b8LHmQSIQ',
+    artist: 'Scripture Hymnal',
+    album: 'Scripture Hymnal, Vol. 7',
+  },
+  {
+    url: 'https://open.spotify.com/album/7IMeLI6c6HnTK2WjyWyQmf',
+    artist: 'Nathan Clark George',
+    album: 'To Live Is Christ',
+  },
+  {
+    url: 'https://open.spotify.com/album/5grgr1JPaH35QwDT8BiAK9',
+    artist: 'Nathan Clark George',
+    album: 'Words for Everyday',
+  },
+  {
+    url: 'https://open.spotify.com/album/1a3I8PF6a2ULuoqVJQjPWn',
+    artist: 'Nathan Clark George',
+    album: 'Pull Up a Chair',
+  },
+  {
+    url: 'https://open.spotify.com/album/007kFIMjObPtdwCmbMYcTy',
+    artist: 'Nathan Clark George',
+    album: 'Rise in the Darkness',
+  },
+  {
+    url: 'https://open.spotify.com/album/0AwjaY7BnvGLbz696GZVsu',
+    artist: 'Nathan Clark George',
+    album: 'Turn Your Ear and Answer (Psalm 86)',
+    psalmOverride: 86,
+  },
+  {
+    url: 'https://open.spotify.com/album/3qIlNgDIL0ccJHfZY3cADf',
+    artist: 'Nathan Clark George',
+    album: 'Unto You O Lord (Psalm 25)',
+    psalmOverride: 25,
+  },
+  {
+    url: 'https://open.spotify.com/album/5aieFBjeSSlN3bTmbM394x',
+    artist: 'Joe Stout',
+    album: 'Praise the LORD, All You Gentiles (Psalm 117)',
+    psalmOverride: 117,
+  },
+  {
+    url: 'https://open.spotify.com/album/4bCkRSx5J0RwTVnx4nZkDS',
+    artist: 'Tim Bushong',
+    album: 'Battle Hymns III: Rise Again, Ye Lion Hearted',
+  },
+  {
+    url: 'https://open.spotify.com/album/36H6Ewrg2M8vlNrmcOrhV2',
+    artist: 'Gregory Wilbur',
+    album: 'Securely I Will Dwell',
+  },
+  {
+    url: 'https://open.spotify.com/album/2xauMyMcVDmGtQVPt5R5uA',
+    artist: 'Gregory Wilbur',
+    album: 'Praise Your Maker',
+  },
+  {
+    url: 'https://open.spotify.com/album/1n25m337vTlJ4ccxJzqCPW',
+    artist: 'Gregory Wilbur',
+    album: 'In Beauty of Holiness (Remastered)',
+  },
+  {
+    url: 'https://open.spotify.com/album/5sW1Wdgs09FA0euLPa2bU8',
+    artist: 'Streetlights',
+    album: 'Psalms // Book 1 (Chapters 1-41)',
+  },
+  {
+    url: 'https://open.spotify.com/album/3mFAXWws9JM4KwJPM2GaCS',
+    artist: 'Streetlights',
+    album: 'Psalms // Book 2 (Chapters 42-72)',
+  },
+  {
+    url: 'https://open.spotify.com/album/44kbUZaYlKlxGPclXBFIth',
+    artist: 'Streetlights',
+    album: 'Psalms // Book 3 (Chapters 73-89)',
+  },
+  {
+    url: 'https://open.spotify.com/album/178exKL4ZJa9QHU3GhUiZi',
+    artist: 'Streetlights',
+    album: 'Psalms // Book 4 (Chapters 90-106)',
+  },
+  {
+    url: 'https://open.spotify.com/album/4MM48CrOBvCmZfmulS8aML',
+    artist: 'Streetlights',
+    album: 'Psalms // Book 5 (Chapters 107-150)',
+  },
+  {
+    url: 'https://open.spotify.com/album/2tGqMl4FiikcPvMlWdrXtX',
+    artist: 'Sovereign Grace Music',
+    album: 'Unchanging God: Songs from the Book of Psalms, Vol. 1',
+  },
+  {
+    url: 'https://open.spotify.com/album/6LM6JFK07PBR23fXtI0mSt',
+    artist: 'Sovereign Grace Music',
+    album: 'Unchanging God: Songs from the Book of Psalms, Vol. 2',
+  },
 ];
 
 const PSALM_RE = /\bPsalm\s+(\d{1,3})\b/i;
 const URI_RE = /"uri":"spotify:track:([A-Za-z0-9]{22})"/g;
 const TITLE_RE = /"title":"((?:[^"\\]|\\.)*)"/g;
+// Spotify embeds preload the cover image at a CDN URL. The hash suffix is the
+// same across sizes; the `b273` prefix is the 640x640 variant we want.
+const COVER_RE = /(?:i\.scdn\.co|image-cdn-[a-z]+\.spotifycdn\.com)\/image\/([a-f0-9]{40})/g;
 
 function toEmbedUrl(spotifyUrl) {
   const m = spotifyUrl.match(/open\.spotify\.com\/(playlist|album|track)\/([A-Za-z0-9]+)/);
@@ -378,6 +640,31 @@ function parseTracks(html) {
   return tracks;
 }
 
+function parseCoverUrl(html) {
+  // Embed pages reference the cover at 3 sizes that share a hash suffix.
+  // Strip the size prefix (first 8 hex chars) and rebuild with `ab67616d0000b273`
+  // (640x640 for albums) or `ab67706c0000bebb` (640x640 for playlists).
+  COVER_RE.lastIndex = 0;
+  const hashes = new Set();
+  let m;
+  while ((m = COVER_RE.exec(html))) hashes.add(m[1]);
+  if (hashes.size === 0) return null;
+  // Prefer a hash starting with the 640x640 album prefix; otherwise take the
+  // first hash and assume the prefix indicates whether it's an album or
+  // playlist cover.
+  const list = [...hashes];
+  const album640 = list.find((h) => h.startsWith('ab67616d0000b273'));
+  if (album640) return `https://i.scdn.co/image/${album640}`;
+  const playlist640 = list.find((h) => h.startsWith('ab67706c0000bebb'));
+  if (playlist640) return `https://i.scdn.co/image/${playlist640}`;
+  // Fall back to whichever hash we have. Strip the size prefix and force 640x640.
+  const any = list[0];
+  const suffix = any.slice(16);
+  // Album hashes use ab67616d* prefix, playlists use ab67706c*.
+  const prefix = any.startsWith('ab67706c') ? 'ab67706c0000bebb' : 'ab67616d0000b273';
+  return `https://i.scdn.co/image/${prefix}${suffix}`;
+}
+
 function isVocalPsalmTrack(title) {
   if (!title) return null;
   if (/instrumental/i.test(title)) return null;
@@ -404,9 +691,9 @@ function shouldKeepTrackForSource(track, source) {
   return isVocalPsalmTrack(track.title);
 }
 
-function buildEntry({ track, psalm, artist, album }) {
+function buildEntry({ track, psalm, artist, album, albumCoverUrl }) {
   const id = `${slug(artist)}-${String(psalm).padStart(3, '0')}-${track.id.slice(0, 6)}`;
-  return {
+  const entry = {
     id,
     psalm,
     title: track.title,
@@ -414,6 +701,8 @@ function buildEntry({ track, psalm, artist, album }) {
     album,
     spotifyUrl: `https://open.spotify.com/track/${track.id}`,
   };
+  if (albumCoverUrl) entry.albumCoverUrl = albumCoverUrl;
+  return entry;
 }
 
 function dedupeBySpotifyUrl(songs) {
@@ -441,12 +730,43 @@ function dedupeBySpotifyUrl(songs) {
 function mergeIntoCatalog(existing, freshEntries) {
   const byId = new Map();
   for (const s of existing.songs) byId.set(s.id, s);
+  // Also index existing by Spotify URL so we can backfill metadata onto
+  // hand-curated entries that use a different (shorter) id.
+  const byUrl = new Map();
+  for (const s of existing.songs) {
+    if (s.spotifyUrl) byUrl.set(s.spotifyUrl, s);
+  }
   let added = 0;
+  let backfilled = 0;
   for (const entry of freshEntries) {
-    if (!byId.has(entry.id)) {
-      byId.set(entry.id, entry);
-      added += 1;
+    if (byId.has(entry.id)) {
+      // Same id — backfill missing fields (e.g. albumCoverUrl on older entries).
+      const e = byId.get(entry.id);
+      let changed = false;
+      for (const k of ['album', 'albumCoverUrl']) {
+        if (!e[k] && entry[k]) {
+          e[k] = entry[k];
+          changed = true;
+        }
+      }
+      if (changed) backfilled += 1;
+      continue;
     }
+    const existingByUrl = entry.spotifyUrl ? byUrl.get(entry.spotifyUrl) : null;
+    if (existingByUrl) {
+      // URL match but different id — backfill onto the existing (shorter-id) entry.
+      let changed = false;
+      for (const k of ['album', 'albumCoverUrl']) {
+        if (!existingByUrl[k] && entry[k]) {
+          existingByUrl[k] = entry[k];
+          changed = true;
+        }
+      }
+      if (changed) backfilled += 1;
+      continue;
+    }
+    byId.set(entry.id, entry);
+    added += 1;
   }
   const all = Array.from(byId.values());
   const { songs: deduped, removed } = dedupeBySpotifyUrl(all);
@@ -456,7 +776,7 @@ function mergeIntoCatalog(existing, freshEntries) {
       a.artist.localeCompare(b.artist) ||
       a.title.localeCompare(b.title),
   );
-  return { songs: deduped, added, removed };
+  return { songs: deduped, added, removed, backfilled };
 }
 
 async function main() {
@@ -472,7 +792,8 @@ async function main() {
       continue;
     }
     const tracks = parseTracks(html);
-    console.log(`  parsed ${tracks.length} tracks`);
+    const albumCoverUrl = parseCoverUrl(html);
+    console.log(`  parsed ${tracks.length} tracks${albumCoverUrl ? ' + cover' : ''}`);
     let kept = 0;
     for (const t of tracks) {
       const psalm = shouldKeepTrackForSource(t, src);
@@ -481,7 +802,13 @@ async function main() {
         ? { ...t, title: `${src.titlePrefix}${t.title}` }
         : t;
       allEntries.push(
-        buildEntry({ track: titled, psalm, artist: src.artist, album: src.album }),
+        buildEntry({
+          track: titled,
+          psalm,
+          artist: src.artist,
+          album: src.album,
+          albumCoverUrl,
+        }),
       );
       kept += 1;
     }
@@ -495,8 +822,9 @@ async function main() {
     JSON.stringify({ songs: merged.songs }, null, 2) + '\n',
   );
   const psalmsCovered = new Set(merged.songs.map((s) => s.psalm)).size;
+  const withCover = merged.songs.filter((s) => s.albumCoverUrl).length;
   console.log(
-    `\nWrote ${merged.songs.length} songs (+${merged.added} new, -${merged.removed} dupes) — ${psalmsCovered}/150 Psalms covered.`,
+    `\nWrote ${merged.songs.length} songs (+${merged.added} new, ~${merged.backfilled} backfilled, -${merged.removed} dupes) — ${psalmsCovered}/150 Psalms covered, ${withCover} with cover art.`,
   );
 }
 
