@@ -3,7 +3,11 @@ import { FlatList, StyleSheet, Text, View } from 'react-native';
 import { Screen } from '@/components/Screen';
 import { SongRow } from '@/components/SongRow';
 import { psalmByNumber } from '@/data/psalms';
-import { songsForPsalm } from '@/data/catalog';
+import {
+  formatDuration,
+  songsForPsalm,
+  totalDurationSec,
+} from '@/data/catalog';
 import {
   colors,
   fontSize,
@@ -86,7 +90,12 @@ export default function PsalmDetail() {
             </View>
             <View style={styles.sectionRow}>
               <Text style={styles.section}>Songs</Text>
-              <Text style={styles.sectionCount}>{songs.length}</Text>
+              <Text style={styles.sectionCount}>
+                {songs.length}
+                {songs.length > 0
+                  ? ` · ${formatDuration(totalDurationSec(songs))}`
+                  : ''}
+              </Text>
             </View>
           </View>
         }

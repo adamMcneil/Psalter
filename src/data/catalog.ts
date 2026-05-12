@@ -39,3 +39,28 @@ export const songsByArtist = (name: string): Song[] =>
   catalog
     .filter((s) => s.artist === name)
     .sort((a, b) => a.psalm - b.psalm);
+
+export const totalDurationSec = (songs: Song[]): number =>
+  songs.reduce((sum, s) => sum + (s.durationSec ?? 0), 0);
+
+// Compact, human-readable duration. Picks units based on magnitude so
+// 3-minute songs ("3:42"), hour-long playlists ("1h 12m"), and day-long
+// catalogs ("2d 14h") all read naturally.
+export function formatDuration(sec: number): string {
+  if (!Number.isFinite(sec) || sec <= 0) return '0:00';
+  const total = Math.round(sec);
+  const days = Math.floor(total / 86400);
+  const hours = Math.floor((total % 86400) / 3600);
+  const minutes = Math.floor((total % 3600) / 60);
+  const seconds = total % 60;
+  if (days >= 1) {
+    return hours > 0 ? `${days}d ${hours}h` : `${days}d`;
+  }
+  if (hours >= 1) {
+    return minutes > 0 ? `${hours}h ${minutes}m` : `${hours}h`;
+  }
+  if (minutes >= 1) {
+    return seconds > 0 ? `${minutes}:${String(seconds).padStart(2, '0')}` : `${minutes}:00`;
+  }
+  return `0:${String(seconds).padStart(2, '0')}`;
+}

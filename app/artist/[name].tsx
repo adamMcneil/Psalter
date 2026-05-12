@@ -4,7 +4,11 @@ import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 import { Screen } from '@/components/Screen';
 import { SongRow } from '@/components/SongRow';
 import { ArtistAvatar } from '@/components/ArtistAvatar';
-import { songsByArtist } from '@/data/catalog';
+import {
+  formatDuration,
+  songsByArtist,
+  totalDurationSec,
+} from '@/data/catalog';
 import { Song } from '@/types';
 import { colors, fontSize, radius, spacing } from '@/theme';
 
@@ -61,6 +65,7 @@ export default function ArtistDetail() {
   ).size;
 
   const hasAlbums = albumCount > 0;
+  const totalDuration = formatDuration(totalDurationSec(allSongs));
   const [sort, setSort] = useState<SortMode>('psalm');
   const songs = useMemo(() => sortSongs(allSongs, sort), [allSongs, sort]);
 
@@ -113,6 +118,7 @@ export default function ArtistDetail() {
                 {hasAlbums
                   ? ` · ${albumCount} album${albumCount === 1 ? '' : 's'}`
                   : ''}
+                {allSongs.length > 0 ? ` · ${totalDuration}` : ''}
               </Text>
             </View>
 

@@ -5,6 +5,11 @@ import { PsalmCard } from '@/components/PsalmCard';
 import { playlistById } from '@/data/playlists';
 import { psalmByNumber } from '@/data/psalms';
 import {
+  formatDuration,
+  songsForPsalm,
+  totalDurationSec,
+} from '@/data/catalog';
+import {
   colors,
   fontSize,
   paletteForThemes,
@@ -30,6 +35,8 @@ export default function PlaylistDetail() {
     .filter((p): p is NonNullable<typeof p> => !!p);
 
   const palette = paletteForThemes(psalms[0]?.themes);
+  const playlistSongs = playlist.psalms.flatMap((n) => songsForPsalm(n));
+  const playlistDuration = formatDuration(totalDurationSec(playlistSongs));
 
   return (
     <Screen>
@@ -54,10 +61,17 @@ export default function PlaylistDetail() {
             </Text>
             <Text style={styles.title}>{playlist.title}</Text>
             <Text style={styles.blurb}>{playlist.blurb}</Text>
-            <View style={[styles.countPill, { borderColor: palette.base }]}>
-              <Text style={[styles.countText, { color: palette.base }]}>
-                {psalms.length} psalms
-              </Text>
+            <View style={styles.pillRow}>
+              <View style={[styles.countPill, { borderColor: palette.base }]}>
+                <Text style={[styles.countText, { color: palette.base }]}>
+                  {psalms.length} psalms
+                </Text>
+              </View>
+              <View style={[styles.countPill, { borderColor: palette.base }]}>
+                <Text style={[styles.countText, { color: palette.base }]}>
+                  {playlistSongs.length} songs · {playlistDuration}
+                </Text>
+              </View>
             </View>
           </View>
         }
@@ -96,9 +110,13 @@ const styles = StyleSheet.create({
     fontSize: fontSize.lg,
     lineHeight: 21,
   },
-  countPill: {
-    alignSelf: 'flex-start',
+  pillRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.xs + 2,
     marginTop: spacing.md,
+  },
+  countPill: {
     paddingHorizontal: spacing.sm + 2,
     paddingVertical: 3,
     borderRadius: radius.pill,

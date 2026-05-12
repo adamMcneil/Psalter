@@ -12,7 +12,12 @@ import { PsalmCard } from '@/components/PsalmCard';
 import { psalms } from '@/data/psalms';
 import { themes } from '@/data/themes';
 import { featuredPlaylists } from '@/data/playlists';
-import { catalog, songsForPsalm } from '@/data/catalog';
+import {
+  catalog,
+  formatDuration,
+  songsForPsalm,
+  totalDurationSec,
+} from '@/data/catalog';
 import { useSpotifyAuth } from '@/spotify/AuthContext';
 import { Theme } from '@/types';
 import {
@@ -96,7 +101,8 @@ export default function PsalmsList() {
                 </Link>
               </View>
               <Text style={styles.subtitle}>
-                All 150 Psalms · {catalog.length} songs
+                All 150 Psalms · {catalog.length} songs ·{' '}
+                {formatDuration(totalDurationSec(catalog))}
               </Text>
             </View>
 

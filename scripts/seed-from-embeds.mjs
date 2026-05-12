@@ -580,6 +580,7 @@ const SOURCES = [
 const PSALM_RE = /\bPsalm\s+(\d{1,3})\b/i;
 const URI_RE = /"uri":"spotify:track:([A-Za-z0-9]{22})"/g;
 const TITLE_RE = /"title":"((?:[^"\\]|\\.)*)"/g;
+const DUR_RE = /"duration":(\d+)/g;
 // Spotify embeds preload the cover image at a CDN URL. The hash suffix is the
 // same across sizes; the `b273` prefix is the 640x640 variant we want.
 const COVER_RE = /(?:i\.scdn\.co|image-cdn-[a-z]+\.spotifycdn\.com)\/image\/([a-f0-9]{40})/g;
@@ -633,9 +634,20 @@ function parseTracks(html) {
   // First "title" is the playlist/album title — drop it.
   if (titles.length > uris.length) titles.shift();
 
+  const durs = [];
+  DUR_RE.lastIndex = 0;
+  while ((m = DUR_RE.exec(html))) durs.push(parseInt(m[1], 10));
+  // First "duration" is the collection-level summary (often 0) — drop it so
+  // the remaining list aligns with uris.
+  if (durs.length > uris.length) durs.shift();
+
   const tracks = [];
   for (let i = 0; i < Math.min(uris.length, titles.length); i++) {
-    tracks.push({ id: uris[i], title: titles[i] });
+    tracks.push({
+      id: uris[i],
+      title: titles[i],
+      durationSec: durs[i] ? Math.round(durs[i] / 1000) : undefined,
+    });
   }
   return tracks;
 }
@@ -702,6 +714,7 @@ function buildEntry({ track, psalm, artist, album, albumCoverUrl }) {
     spotifyUrl: `https://open.spotify.com/track/${track.id}`,
   };
   if (albumCoverUrl) entry.albumCoverUrl = albumCoverUrl;
+  if (track.durationSec) entry.durationSec = track.durationSec;
   return entry;
 }
 
@@ -743,7 +756,7 @@ function mergeIntoCatalog(existing, freshEntries) {
       // Same id — backfill missing fields (e.g. albumCoverUrl on older entries).
       const e = byId.get(entry.id);
       let changed = false;
-      for (const k of ['album', 'albumCoverUrl']) {
+      for (const k of ['album', 'albumCoverUrl', 'durationSec']) {
         if (!e[k] && entry[k]) {
           e[k] = entry[k];
           changed = true;
@@ -756,7 +769,7 @@ function mergeIntoCatalog(existing, freshEntries) {
     if (existingByUrl) {
       // URL match but different id — backfill onto the existing (shorter-id) entry.
       let changed = false;
-      for (const k of ['album', 'albumCoverUrl']) {
+      for (const k of ['album', 'albumCoverUrl', 'durationSec']) {
         if (!existingByUrl[k] && entry[k]) {
           existingByUrl[k] = entry[k];
           changed = true;
@@ -823,8 +836,9 @@ async function main() {
   );
   const psalmsCovered = new Set(merged.songs.map((s) => s.psalm)).size;
   const withCover = merged.songs.filter((s) => s.albumCoverUrl).length;
+  const withDur = merged.songs.filter((s) => s.durationSec).length;
   console.log(
-    `\nWrote ${merged.songs.length} songs (+${merged.added} new, ~${merged.backfilled} backfilled, -${merged.removed} dupes) — ${psalmsCovered}/150 Psalms covered, ${withCover} with cover art.`,
+    `\nWrote ${merged.songs.length} songs (+${merged.added} new, ~${merged.backfilled} backfilled, -${merged.removed} dupes) — ${psalmsCovered}/150 Psalms covered, ${withCover} with cover art, ${withDur} with duration.`,
   );
 }
 
