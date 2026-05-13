@@ -3,7 +3,6 @@ import {
   GestureResponderEvent,
   Image,
   LayoutChangeEvent,
-  Platform,
   Pressable,
   StyleSheet,
   Text,
@@ -15,6 +14,7 @@ import { usePreviewPlayer } from '../spotify/PreviewPlayerContext';
 import { formatDuration, songByTrackId } from '../data/catalog';
 import { extractTrackId } from '../spotify/launch';
 import { colors, fontSize, radius, spacing } from '../theme';
+import { MarqueeText } from './MarqueeText';
 
 export function MiniPlayer() {
   const web = useWebPlayer();
@@ -83,33 +83,32 @@ export function MiniPlayer() {
     }
   };
 
-  const onBarPress = (e: GestureResponderEvent) => {
-    const pct = pctFromEvent(e);
-    commitSeek(pct);
+  // Single source of truth for tap + drag: the responder API. We deliberately
+  // don't wrap this in a Pressable — Pressable's onPress fires in addition to
+  // the responder release on web and provides a press-event whose locationX is
+  // unreliable for clicks, causing a second commitSeek(0) that resets the song.
+  const seekHandlers = {
+    onStartShouldSetResponder: () => true,
+    onMoveShouldSetResponder: () => true,
+    onResponderGrant: (e: GestureResponderEvent) => {
+      draggingRef.current = true;
+      setDragPct(pctFromEvent(e));
+    },
+    onResponderMove: (e: GestureResponderEvent) => {
+      if (draggingRef.current) setDragPct(pctFromEvent(e));
+    },
+    onResponderRelease: (e: GestureResponderEvent) => {
+      if (draggingRef.current) {
+        commitSeek(pctFromEvent(e));
+        draggingRef.current = false;
+        setDragPct(null);
+      }
+    },
+    onResponderTerminate: () => {
+      draggingRef.current = false;
+      setDragPct(null);
+    },
   };
-
-  // Drag support (web): pointer events translate through react-native-web.
-  const dragHandlers =
-    Platform.OS === 'web'
-      ? {
-          onResponderGrant: (e: GestureResponderEvent) => {
-            draggingRef.current = true;
-            setDragPct(pctFromEvent(e));
-          },
-          onResponderMove: (e: GestureResponderEvent) => {
-            if (draggingRef.current) setDragPct(pctFromEvent(e));
-          },
-          onResponderRelease: (e: GestureResponderEvent) => {
-            if (draggingRef.current) {
-              commitSeek(pctFromEvent(e));
-              draggingRef.current = false;
-              setDragPct(null);
-            }
-          },
-          onStartShouldSetResponder: () => true,
-          onMoveShouldSetResponder: () => true,
-        }
-      : {};
 
   const livePct =
     info.durationSec > 0
@@ -146,6 +145,15 @@ export function MiniPlayer() {
   return (
     <View style={styles.wrap} pointerEvents="box-none">
       <View style={styles.bar}>
+        {usingWeb ? (
+          <Pressable
+            onPress={() => void web.previousTrack()}
+            style={({ pressed }) => [styles.skipBtn, pressed && styles.pressed]}
+            accessibilityLabel="Previous track"
+          >
+            <Text style={styles.skipGlyph}>⏮</Text>
+          </Pressable>
+        ) : null}
         <Pressable
           onPress={goToPsalm}
           style={({ pressed }) => [styles.meta, pressed && styles.pressed]}
@@ -160,9 +168,7 @@ export function MiniPlayer() {
             <View style={[styles.cover, styles.coverPlaceholder]} />
           )}
           <View style={styles.text}>
-            <Text style={styles.title} numberOfLines={1}>
-              {info.title}
-            </Text>
+            <MarqueeText text={info.title} style={styles.title} />
             {info.artist ? (
               <Text style={styles.artist} numberOfLines={1}>
                 {info.artist}
@@ -180,20 +186,28 @@ export function MiniPlayer() {
         >
           <Text style={styles.playGlyph}>{info.isPlaying ? '❚❚' : '▶'}</Text>
         </Pressable>
+        {usingWeb ? (
+          <Pressable
+            onPress={() => void web.nextTrack()}
+            style={({ pressed }) => [styles.skipBtn, pressed && styles.pressed]}
+            accessibilityLabel="Next track"
+          >
+            <Text style={styles.skipGlyph}>⏭</Text>
+          </Pressable>
+        ) : null}
       </View>
-      <Pressable
-        onPress={onBarPress}
+      <View
         onLayout={(e: LayoutChangeEvent) =>
           setBarWidth(e.nativeEvent.layout.width)
         }
         style={styles.trackHit}
-        {...dragHandlers}
+        {...seekHandlers}
       >
         <View style={styles.track}>
           <View style={[styles.fill, { width: `${shownPct * 100}%` }]} />
           <View style={[styles.thumb, { left: `${shownPct * 100}%` }]} />
         </View>
-      </Pressable>
+      </View>
     </View>
   );
 }
@@ -255,10 +269,23 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   playGlyph: {
-    color: '#1a1207',
+    color: colors.accentInk,
     fontSize: 14,
     fontWeight: '800',
     marginLeft: 1,
+  },
+  skipBtn: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  skipGlyph: {
+    color: colors.text,
+    fontSize: 18,
+    fontWeight: '700',
+    lineHeight: 18,
   },
   pressed: { opacity: 0.78 },
   trackHit: {

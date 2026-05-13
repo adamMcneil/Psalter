@@ -86,20 +86,7 @@ export default function PsalmsList() {
                 {greeting()}
                 {user?.displayName ? `, ${user.displayName.split(' ')[0]}` : ''}
               </Text>
-              <View style={styles.titleRow}>
-                <Text style={styles.h1}>Psalter</Text>
-                <Link href="/submit" asChild>
-                  <Pressable>
-                    {({ pressed }) => (
-                      <View
-                        style={[styles.submitBtn, pressed && styles.pressed]}
-                      >
-                        <Text style={styles.submitText}>＋ Submit</Text>
-                      </View>
-                    )}
-                  </Pressable>
-                </Link>
-              </View>
+              <Text style={styles.h1}>Psalter</Text>
               <Text style={styles.subtitle}>
                 All 150 Psalms · {catalog.length} songs ·{' '}
                 {formatDuration(totalDurationSec(catalog))}
@@ -279,25 +266,7 @@ export default function PsalmsList() {
               })}
             </ScrollView>
 
-            <View style={styles.allHeader}>
-              <Text style={styles.sectionLabel}>All Psalms</Text>
-              <Link href="/coverage" asChild>
-                <Pressable>
-                  {({ pressed }) => (
-                    <View
-                      style={[
-                        styles.coverageLink,
-                        pressed && styles.pressed,
-                      ]}
-                    >
-                      <Text style={styles.coverageLinkText}>
-                        📊 Coverage →
-                      </Text>
-                    </View>
-                  )}
-                </Pressable>
-              </Link>
-            </View>
+            <Text style={styles.sectionLabel}>All Psalms</Text>
           </View>
         }
       />
@@ -317,29 +286,11 @@ const styles = StyleSheet.create({
     letterSpacing: 0.3,
     marginBottom: 2,
   },
-  titleRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
   h1: {
     color: colors.text,
     fontSize: 32,
     fontWeight: '800',
     letterSpacing: -0.4,
-  },
-  submitBtn: {
-    backgroundColor: colors.surface,
-    borderColor: colors.border,
-    borderWidth: 1,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-    borderRadius: radius.pill,
-  },
-  submitText: {
-    color: colors.accent,
-    fontWeight: '700',
-    fontSize: fontSize.sm,
   },
   subtitle: {
     color: colors.textMuted,
@@ -452,25 +403,5 @@ const styles = StyleSheet.create({
   themeName: { fontWeight: '700', fontSize: fontSize.md },
   themeCount: { color: colors.textDim, fontSize: 10, marginTop: 1 },
 
-  allHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginTop: spacing.lg,
-  },
-  coverageLink: {
-    backgroundColor: colors.surface,
-    borderColor: colors.border,
-    borderWidth: 1,
-    paddingHorizontal: spacing.sm + 2,
-    paddingVertical: 4,
-    borderRadius: radius.pill,
-  },
-  coverageLinkText: {
-    color: colors.accent,
-    fontSize: fontSize.xs,
-    fontWeight: '800',
-    letterSpacing: 0.4,
-  },
   pressed: { opacity: 0.78, transform: [{ scale: 0.99 }] },
 });

@@ -11,9 +11,10 @@ export const colors = {
   text: '#e8ebf1',
   textMuted: '#8a93a6',
   textDim: '#5b6378',
-  accent: '#c9a56a',
-  accentHi: '#e2c089',
-  accentSoft: '#3a2e1c',
+  accent: '#a82828',
+  accentHi: '#c43838',
+  accentSoft: '#2a0c0c',
+  accentInk: '#ffffff',
   danger: '#e57373',
 };
 

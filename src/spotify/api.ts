@@ -2,6 +2,17 @@ const BASE = 'https://api.spotify.com/v1';
 
 export type GetToken = () => Promise<string | null>;
 
+export class SpotifyApiError extends Error {
+  constructor(
+    public readonly status: number,
+    message: string,
+    public readonly body?: unknown,
+  ) {
+    super(message);
+    this.name = 'SpotifyApiError';
+  }
+}
+
 async function request<T>(
   getToken: GetToken,
   path: string,
@@ -19,10 +30,20 @@ async function request<T>(
   });
   if (res.status === 204) return undefined as T;
   const text = await res.text();
-  const body = text ? JSON.parse(text) : null;
+  let body: any = null;
+  if (text) {
+    try {
+      body = JSON.parse(text);
+    } catch {
+      body = text;
+    }
+  }
   if (!res.ok) {
-    const msg = body?.error?.message ?? res.statusText;
-    throw new Error(`Spotify API ${res.status}: ${msg}`);
+    const msg = body?.error?.message ?? res.statusText ?? `HTTP ${res.status}`;
+    if (typeof console !== 'undefined') {
+      console.warn(`[Spotify] ${init.method ?? 'GET'} ${path} → ${res.status}`, body);
+    }
+    throw new SpotifyApiError(res.status, `Spotify API ${res.status}: ${msg}`, body);
   }
   return body as T;
 }
@@ -36,22 +57,6 @@ export interface ApiTrack {
   duration_ms: number;
   preview_url: string | null;
   external_urls: { spotify?: string };
-}
-
-export interface ApiPlaylist {
-  id: string;
-  name: string;
-  collaborative: boolean;
-  public: boolean | null;
-  owner: { id: string; display_name: string | null };
-  tracks: { total: number };
-  images: { url: string }[];
-}
-
-interface Paged<T> {
-  items: T[];
-  next: string | null;
-  total: number;
 }
 
 export const spotifyApi = (getToken: GetToken) => ({
@@ -87,92 +92,6 @@ export const spotifyApi = (getToken: GetToken) => ({
     }>(
       getToken,
       `/search?type=artist&limit=1&q=${encodeURIComponent(q)}`,
-    ),
-
-  containsMySavedTracks: async (ids: string[]): Promise<boolean[]> => {
-    if (ids.length === 0) return [];
-    const out: boolean[] = [];
-    for (let i = 0; i < ids.length; i += 50) {
-      const chunk = ids.slice(i, i + 50);
-      const res = await request<boolean[]>(
-        getToken,
-        `/me/tracks/contains?ids=${chunk.join(',')}`,
-      );
-      out.push(...res);
-    }
-    return out;
-  },
-
-  saveTracks: async (ids: string[]): Promise<void> => {
-    for (let i = 0; i < ids.length; i += 50) {
-      const chunk = ids.slice(i, i + 50);
-      await request(getToken, '/me/tracks', {
-        method: 'PUT',
-        body: JSON.stringify({ ids: chunk }),
-      });
-    }
-  },
-
-  removeTracks: async (ids: string[]): Promise<void> => {
-    for (let i = 0; i < ids.length; i += 50) {
-      const chunk = ids.slice(i, i + 50);
-      await request(getToken, '/me/tracks', {
-        method: 'DELETE',
-        body: JSON.stringify({ ids: chunk }),
-      });
-    }
-  },
-
-  getMySavedTrackIds: async (): Promise<string[]> => {
-    const ids: string[] = [];
-    let url = '/me/tracks?limit=50';
-    while (url) {
-      const page = await request<
-        Paged<{ track: { id: string } | null }> & { next: string | null }
-      >(getToken, url);
-      for (const item of page.items) {
-        if (item.track?.id) ids.push(item.track.id);
-      }
-      if (!page.next) break;
-      url = page.next.replace(BASE, '');
-    }
-    return ids;
-  },
-
-  getMyPlaylists: async (): Promise<ApiPlaylist[]> => {
-    const all: ApiPlaylist[] = [];
-    let url = '/me/playlists?limit=50';
-    while (url) {
-      const page = await request<Paged<ApiPlaylist>>(getToken, url);
-      all.push(...page.items);
-      if (!page.next) break;
-      url = page.next.replace(BASE, '');
-    }
-    return all;
-  },
-
-  createPlaylist: (
-    userId: string,
-    name: string,
-    opts: { description?: string; public?: boolean } = {},
-  ) =>
-    request<ApiPlaylist>(getToken, `/users/${userId}/playlists`, {
-      method: 'POST',
-      body: JSON.stringify({
-        name,
-        description: opts.description ?? '',
-        public: opts.public ?? false,
-      }),
-    }),
-
-  addTracksToPlaylist: (playlistId: string, uris: string[]) =>
-    request<{ snapshot_id: string }>(
-      getToken,
-      `/playlists/${playlistId}/tracks`,
-      {
-        method: 'POST',
-        body: JSON.stringify({ uris }),
-      },
     ),
 });
 

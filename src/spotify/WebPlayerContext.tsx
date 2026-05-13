@@ -49,6 +49,8 @@ interface SpotifyPlayer {
   resume(): Promise<void>;
   togglePlay(): Promise<void>;
   seek(positionMs: number): Promise<void>;
+  nextTrack(): Promise<void>;
+  previousTrack(): Promise<void>;
   addListener(event: string, cb: (...args: unknown[]) => void): boolean;
   removeListener(event: string, cb?: (...args: unknown[]) => void): boolean;
 }
@@ -95,6 +97,8 @@ interface WebPlayerValue {
   resume: () => Promise<void>;
   toggle: () => Promise<void>;
   seek: (positionMs: number) => Promise<void>;
+  nextTrack: () => Promise<void>;
+  previousTrack: () => Promise<void>;
   // Resume the last known track from a previous session. No-op if nothing saved.
   resumeLast: () => Promise<void>;
   // Smart play: in-place resume if SDK has live state, else play from persisted position.
@@ -120,6 +124,8 @@ const initial: WebPlayerValue = {
   resume: noop,
   toggle: noop,
   seek: noop,
+  nextTrack: noop,
+  previousTrack: noop,
   resumeLast: noop,
   playOrResume: noop,
 };
@@ -309,6 +315,12 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
     },
     [],
   );
+  const nextTrack = useCallback(async () => {
+    await playerRef.current?.nextTrack();
+  }, []);
+  const previousTrack = useCallback(async () => {
+    await playerRef.current?.previousTrack();
+  }, []);
   const resumeLast = useCallback(async () => {
     const saved = await readPersisted();
     if (!saved) return;
@@ -376,6 +388,8 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
       resume,
       toggle,
       seek,
+      nextTrack,
+      previousTrack,
       resumeLast,
       playOrResume,
     }),
@@ -397,6 +411,8 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
       resume,
       toggle,
       seek,
+      nextTrack,
+      previousTrack,
       resumeLast,
       playOrResume,
     ],

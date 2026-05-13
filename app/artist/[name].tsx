@@ -4,6 +4,7 @@ import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 import { Screen } from '@/components/Screen';
 import { SongRow } from '@/components/SongRow';
 import { ArtistAvatar } from '@/components/ArtistAvatar';
+import { PlayControls } from '@/components/PlayControls';
 import {
   formatDuration,
   songsByArtist,
@@ -120,6 +121,15 @@ export default function ArtistDetail() {
                   : ''}
                 {allSongs.length > 0 ? ` · ${totalDuration}` : ''}
               </Text>
+              <PlayControls
+                queue={songs}
+                palette={{
+                  base: tint.fg,
+                  soft: tint.bg,
+                  ink: tint.bg,
+                  glyph: '',
+                }}
+              />
             </View>
 
             <View style={styles.coverageHeader}>

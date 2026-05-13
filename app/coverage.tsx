@@ -317,11 +317,12 @@ const styles = StyleSheet.create({
     letterSpacing: 1.4,
     textTransform: 'uppercase',
     marginTop: spacing.lg,
+    marginBottom: spacing.sm,
   },
   sectionHint: {
     color: colors.textDim,
     fontSize: fontSize.sm,
-    marginTop: 2,
+    marginTop: -spacing.xs,
     marginBottom: spacing.sm,
   },
   chartBleed: {
@@ -352,13 +353,12 @@ const styles = StyleSheet.create({
   },
   barCount: {
     color: colors.textDim,
-    fontSize: 9,
+    fontSize: 8,
     fontWeight: '700',
     height: 12,
     lineHeight: 12,
     textAlign: 'center',
-    width: 18,
-    marginLeft: -4,
+    width: SLOT_WIDTH,
   },
   bar: {
     width: BAR_WIDTH,

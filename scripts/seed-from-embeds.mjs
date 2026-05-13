@@ -172,6 +172,42 @@ const SOURCES = [
     album: 'Psalm 91',
   },
   {
+    url: 'https://open.spotify.com/album/2VBwVkXwL3GPOml7e6ceLF',
+    artist: 'Verses',
+    album: 'Psalm 20:6-8',
+    psalmOverride: 20,
+  },
+  {
+    url: 'https://open.spotify.com/album/1dYfTj3l7cE4z6iYSAZmVl',
+    artist: 'Verses',
+    album: 'Psalm 23:1-2',
+    psalmOverride: 23,
+  },
+  {
+    url: 'https://open.spotify.com/album/2POMvCRUyJ9rpnWKaMJc7F',
+    artist: 'Verses',
+    album: 'Psalm 34:9-11',
+    psalmOverride: 34,
+  },
+  {
+    url: 'https://open.spotify.com/album/2X6lwFjOeTvbtZ9g3dnTje',
+    artist: 'Verses',
+    album: 'Psalm 103:17-19',
+    psalmOverride: 103,
+  },
+  {
+    url: 'https://open.spotify.com/album/59KoCY5l3zZHoHOCzEzwSy',
+    artist: 'Verses',
+    album: 'Psalm 116:1-4',
+    psalmOverride: 116,
+  },
+  {
+    url: 'https://open.spotify.com/album/6eg3rNdvwYKWKYk7NMSeRJ',
+    artist: 'Verses',
+    album: 'Psalm 116:5-9',
+    psalmOverride: 116,
+  },
+  {
     url: 'https://open.spotify.com/album/3NTzlr6c294C4HmGp5W6i3',
     artist: 'Liturgical Folk',
     album: 'Psalm Settings',

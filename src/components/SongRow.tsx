@@ -3,7 +3,6 @@ import { Image, Platform, Pressable, StyleSheet, Text, View } from 'react-native
 import { useRouter } from 'expo-router';
 import { Song } from '../types';
 import { colors, fontSize, radius, spacing } from '../theme';
-import { useFavorites } from '../storage/favorites';
 import { useSpotifyAuth } from '../spotify/AuthContext';
 import { useWebPlayer } from '../spotify/WebPlayerContext';
 import { usePreviewPlayer } from '../spotify/PreviewPlayerContext';
@@ -17,24 +16,17 @@ export function SongRow({
   song: Song;
   queue?: Song[];
 }) {
-  const { isFavorite, toggle } = useFavorites();
   const { tokens, login } = useSpotifyAuth();
   const player = useWebPlayer();
   const preview = usePreviewPlayer();
   const router = useRouter();
-  const fav = isFavorite(song.id);
   const trackId = extractTrackId(song.spotifyUrl);
   const trackUri = trackId ? `spotify:track:${trackId}` : null;
   const isCurrentFull = trackUri !== null && player.currentUri === trackUri;
   const isCurrentPreview =
     trackId !== null && preview.currentTrackId === trackId;
   const isCurrent = isCurrentFull || isCurrentPreview;
-  const isPlayingNow =
-    (isCurrentFull && player.isPlaying) ||
-    (isCurrentPreview && preview.isPlaying);
-  const previewLoading = isCurrentPreview && preview.loading;
   const [expanded, setExpanded] = useState(false);
-  const [busy, setBusy] = useState(false);
 
   const playQueueUris = useMemo(() => {
     if (!queue || queue.length === 0) return null;
@@ -54,12 +46,12 @@ export function SongRow({
       return;
     }
     if (!tokens) {
-      setBusy(true);
+      // Auth status + sign-in lives on the top AuthBar now. Tapping a row
+      // before sign-in still kicks off the flow as a fallback, silently.
       try {
         await login();
       } catch {
-      } finally {
-        setBusy(false);
+        // ignore
       }
       return;
     }
@@ -78,47 +70,6 @@ export function SongRow({
     setExpanded((v) => !v);
   }
 
-  function handleAddToPlaylist() {
-    router.push({
-      pathname: '/add-to-playlist',
-      params: { songId: song.id },
-    });
-  }
-
-  const meta = !trackId
-    ? 'Search on Spotify'
-    : !tokens
-      ? busy
-        ? 'Opening Spotify…'
-        : 'Sign in to play'
-      : player.supported
-        ? isCurrentFull
-          ? player.isPlaying
-            ? 'Playing'
-            : 'Paused'
-          : !player.ready
-            ? 'Connecting…'
-            : 'Tap to play'
-        : preview.supported
-          ? previewLoading
-            ? 'Loading preview…'
-            : isCurrentPreview
-              ? preview.isPlaying
-                ? 'Playing preview'
-                : 'Paused'
-              : '30-sec preview'
-          : expanded
-            ? 'Tap to hide preview'
-            : '30-sec preview';
-
-  const playGlyph = !trackId
-    ? '↗'
-    : previewLoading
-      ? '…'
-      : isPlayingNow
-        ? '❚❚'
-        : '▶';
-
   return (
     <View style={[styles.card, isCurrent && styles.cardCurrent]}>
       <Pressable
@@ -135,21 +86,6 @@ export function SongRow({
           ) : (
             <View style={[styles.cover, styles.coverPlaceholder]} />
           )}
-          <View
-            style={[
-              styles.coverOverlay,
-              isCurrent && styles.coverOverlayOn,
-            ]}
-          >
-            <Text
-              style={[
-                styles.playGlyph,
-                isCurrent && styles.playGlyphOn,
-              ]}
-            >
-              {playGlyph}
-            </Text>
-          </View>
         </View>
         <View style={{ flex: 1 }}>
           <Text style={styles.title} numberOfLines={1}>
@@ -175,45 +111,7 @@ export function SongRow({
               {song.album}
             </Text>
           ) : null}
-          <View style={styles.metaRow}>
-            {isPlayingNow ? (
-              <View style={styles.eq}>
-                <View style={[styles.eqBar, styles.eqBarA]} />
-                <View style={[styles.eqBar, styles.eqBarB]} />
-                <View style={[styles.eqBar, styles.eqBarC]} />
-              </View>
-            ) : null}
-            <Text
-              style={[
-                styles.meta,
-                isCurrent && styles.metaOn,
-              ]}
-              numberOfLines={1}
-            >
-              {meta}
-            </Text>
-          </View>
         </View>
-        {tokens && trackId && (
-          <Pressable
-            hitSlop={12}
-            onPress={handleAddToPlaylist}
-            style={styles.iconBtn}
-            accessibilityLabel="Add to playlist"
-          >
-            <Text style={styles.plus}>＋</Text>
-          </Pressable>
-        )}
-        <Pressable
-          hitSlop={12}
-          onPress={() => toggle(song)}
-          style={styles.iconBtn}
-          accessibilityLabel={fav ? 'Remove from favorites' : 'Add to favorites'}
-        >
-          <Text style={[styles.heart, fav && styles.heartOn]}>
-            {fav ? '♥' : '♡'}
-          </Text>
-        </Pressable>
       </Pressable>
       {trackId &&
         expanded &&
@@ -265,28 +163,6 @@ const styles = StyleSheet.create({
   coverPlaceholder: {
     backgroundColor: colors.surfaceAlt,
   },
-  coverOverlay: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'rgba(0,0,0,0.42)',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  coverOverlayOn: {
-    backgroundColor: 'rgba(0,0,0,0.55)',
-  },
-  playGlyph: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: '800',
-    marginLeft: 1,
-    textShadowColor: 'rgba(0,0,0,0.6)',
-    textShadowRadius: 4,
-  },
-  playGlyphOn: { color: colors.accentHi },
   title: { color: colors.text, fontSize: fontSize.lg, fontWeight: '600' },
   album: {
     color: colors.textDim,
@@ -301,38 +177,6 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   artistArrow: { color: colors.textDim, fontSize: fontSize.lg },
-  metaRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.xs + 2,
-    marginTop: 4,
-  },
-  meta: {
-    color: colors.accent,
-    fontSize: fontSize.xs,
-    fontWeight: '700',
-    letterSpacing: 0.4,
-    textTransform: 'uppercase',
-  },
-  metaOn: { color: colors.accentHi },
-  eq: {
-    flexDirection: 'row',
-    alignItems: 'flex-end',
-    gap: 2,
-    height: 10,
-  },
-  eqBar: {
-    width: 2,
-    backgroundColor: colors.accent,
-    borderRadius: 1,
-  },
-  eqBarA: { height: 7 },
-  eqBarB: { height: 10 },
-  eqBarC: { height: 5 },
-  iconBtn: { paddingHorizontal: spacing.xs + 2, paddingVertical: spacing.xs },
-  heart: { color: colors.textMuted, fontSize: 22 },
-  heartOn: { color: colors.accent },
-  plus: { color: colors.textMuted, fontSize: 22, fontWeight: '700' },
   playerWrap: {
     paddingHorizontal: spacing.md,
     paddingBottom: spacing.md,

@@ -2,6 +2,7 @@ import { Stack, useLocalSearchParams } from 'expo-router';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 import { Screen } from '@/components/Screen';
 import { PsalmCard } from '@/components/PsalmCard';
+import { PlayControls } from '@/components/PlayControls';
 import { playlistById } from '@/data/playlists';
 import { psalmByNumber } from '@/data/psalms';
 import {
@@ -73,6 +74,7 @@ export default function PlaylistDetail() {
                 </Text>
               </View>
             </View>
+            <PlayControls queue={playlistSongs} palette={palette} />
           </View>
         }
         contentContainerStyle={{ paddingBottom: spacing.xl }}

@@ -1,74 +1,17 @@
 import { Tabs } from 'expo-router';
-import { Text } from 'react-native';
 import { colors } from '@/theme';
 
-const TabIcon = ({ glyph, color }: { glyph: string; color: string }) => (
-  <Text style={{ color, fontSize: 18 }}>{glyph}</Text>
-);
-
+// The visible navigation bar lives at the root layout (src/components/BottomNav)
+// so it persists across detail screens. The Tabs navigator still owns these
+// routes; we just hide its built-in bar.
 export default function TabsLayout() {
   return (
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarStyle: {
-          backgroundColor: colors.surface,
-          borderTopColor: colors.border,
-        },
-        tabBarActiveTintColor: colors.accent,
-        tabBarInactiveTintColor: colors.textMuted,
+        tabBarStyle: { display: 'none' },
         sceneStyle: { backgroundColor: colors.bg },
       }}
-    >
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Psalms',
-          tabBarIcon: ({ color }) => <TabIcon glyph="❖" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="playlists"
-        options={{
-          title: 'Featured',
-          tabBarIcon: ({ color }) => <TabIcon glyph="✶" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="themes"
-        options={{
-          title: 'Themes',
-          tabBarIcon: ({ color }) => <TabIcon glyph="✦" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="artists"
-        options={{
-          title: 'Artists',
-          tabBarIcon: ({ color }) => <TabIcon glyph="♪" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="search"
-        options={{
-          title: 'Search',
-          tabBarIcon: ({ color }) => <TabIcon glyph="⌕" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="favorites"
-        options={{
-          title: 'Liked',
-          tabBarIcon: ({ color }) => <TabIcon glyph="♥" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="account"
-        options={{
-          title: 'Account',
-          tabBarIcon: ({ color }) => <TabIcon glyph="◉" color={color} />,
-        }}
-      />
-    </Tabs>
+    />
   );
 }

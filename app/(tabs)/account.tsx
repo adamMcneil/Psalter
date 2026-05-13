@@ -327,7 +327,7 @@ const styles = StyleSheet.create({
     paddingVertical: spacing.md,
     alignItems: 'center',
   },
-  buttonText: { color: '#1a1207', fontWeight: '800', fontSize: fontSize.lg },
+  buttonText: { color: colors.accentInk, fontWeight: '800', fontSize: fontSize.lg },
   buttonGhost: {
     backgroundColor: 'transparent',
     borderWidth: 1,
