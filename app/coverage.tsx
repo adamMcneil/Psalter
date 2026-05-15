@@ -16,6 +16,7 @@ const BAR_WIDTH = 10;
 const BAR_GAP = 2;
 const CHART_HEIGHT = 180;
 const SLOT_WIDTH = BAR_WIDTH + BAR_GAP;
+const DIVIDER_LABEL_WIDTH = 18;
 
 const BOOK_DIVIDERS = [42, 73, 90, 107];
 const LABELLED = new Set([1, 10, 25, 50, 75, 100, 125, 150]);
@@ -79,6 +80,33 @@ export default function CoverageScreen() {
           contentContainerStyle={styles.chartContent}
         >
           <View>
+            <View style={styles.dividerLabels}>
+              {BOOK_DIVIDERS.map((d) => {
+                const x = (d - 1) * SLOT_WIDTH - 1;
+                return (
+                  <View key={d} pointerEvents="none">
+                    <Text
+                      style={[
+                        styles.dividerLabel,
+                        styles.dividerLabelLeft,
+                        { left: x - DIVIDER_LABEL_WIDTH - 1 },
+                      ]}
+                    >
+                      {d - 1}
+                    </Text>
+                    <Text
+                      style={[
+                        styles.dividerLabel,
+                        styles.dividerLabelRight,
+                        { left: x + 2 },
+                      ]}
+                    >
+                      {d}
+                    </Text>
+                  </View>
+                );
+              })}
+            </View>
             <View style={styles.chart}>
               {BOOK_DIVIDERS.map((d) => (
                 <View
@@ -298,6 +326,24 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.md,
     paddingBottom: spacing.xs,
   },
+  dividerLabels: {
+    width: 150 * SLOT_WIDTH,
+    height: 14,
+    marginBottom: 2,
+    position: 'relative',
+  },
+  dividerLabel: {
+    position: 'absolute',
+    top: 0,
+    width: DIVIDER_LABEL_WIDTH,
+    fontSize: 9,
+    fontWeight: '800',
+    color: colors.accent,
+    letterSpacing: 0.2,
+    lineHeight: 12,
+  },
+  dividerLabelLeft: { textAlign: 'right' },
+  dividerLabelRight: { textAlign: 'left' },
   chart: {
     flexDirection: 'row',
     alignItems: 'flex-end',
