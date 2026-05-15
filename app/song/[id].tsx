@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   GestureResponderEvent,
   Image,
@@ -9,9 +9,9 @@ import {
   Text,
   View,
 } from 'react-native';
-import { Link, Stack, useLocalSearchParams } from 'expo-router';
+import { Link, Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { Screen } from '@/components/Screen';
-import { formatDuration, songById } from '@/data/catalog';
+import { formatDuration, songById, songByTrackId } from '@/data/catalog';
 import { useSpotifyAuth } from '@/spotify/AuthContext';
 import { useWebPlayer } from '@/spotify/WebPlayerContext';
 import { usePreviewPlayer } from '@/spotify/PreviewPlayerContext';
@@ -24,6 +24,8 @@ export default function SongDetail() {
   const { tokens, login } = useSpotifyAuth();
   const web = useWebPlayer();
   const preview = usePreviewPlayer();
+  const router = useRouter();
+  const wantsFollowRef = useRef(false);
 
   const trackId = extractTrackId(song?.spotifyUrl);
   const trackUri = trackId ? `spotify:track:${trackId}` : null;
@@ -51,6 +53,20 @@ export default function SongDetail() {
   const [barWidth, setBarWidth] = useState(0);
   const draggingRef = useRef(false);
   const [dragPct, setDragPct] = useState<number | null>(null);
+
+  // When the user hits prev/next, Spotify advances its queue and the page
+  // would otherwise stay on the old song. Watch web.currentUri after a skip
+  // and replace into the new song's route once the SDK reports it.
+  useEffect(() => {
+    if (!wantsFollowRef.current) return;
+    if (!web.currentUri) return;
+    if (web.currentUri === trackUri) return;
+    const nextTrackId = web.currentUri.replace('spotify:track:', '');
+    const nextSong = songByTrackId(nextTrackId);
+    if (!nextSong) return;
+    wantsFollowRef.current = false;
+    router.replace({ pathname: '/song/[id]', params: { id: nextSong.id } });
+  }, [web.currentUri, trackUri, router]);
 
   if (!song) {
     return (
@@ -189,7 +205,10 @@ export default function SongDetail() {
 
         <View style={styles.controls}>
           <Pressable
-            onPress={() => void web.previousTrack()}
+            onPress={() => {
+              wantsFollowRef.current = true;
+              void web.previousTrack();
+            }}
             disabled={!web.supported}
             accessibilityLabel="Previous track"
             style={({ pressed }) => [
@@ -211,7 +230,10 @@ export default function SongDetail() {
             <Text style={styles.playGlyph}>{isPlaying ? '❚❚' : '▶'}</Text>
           </Pressable>
           <Pressable
-            onPress={() => void web.nextTrack()}
+            onPress={() => {
+              wantsFollowRef.current = true;
+              void web.nextTrack();
+            }}
             disabled={!web.supported}
             accessibilityLabel="Next track"
             style={({ pressed }) => [
