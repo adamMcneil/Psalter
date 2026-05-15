@@ -135,10 +135,8 @@ export default function SearchScreen() {
                   </Text>
                 </View>
                 <View style={{ flex: 1 }}>
-                  <Text style={styles.songTitle} numberOfLines={1}>
-                    {item.song.title}
-                  </Text>
-                  <Text style={styles.songMeta} numberOfLines={1}>
+                  <Text style={styles.songTitle}>{item.song.title}</Text>
+                  <Text style={styles.songMeta}>
                     {item.song.artist} · Psalm {item.song.psalm}
                   </Text>
                 </View>

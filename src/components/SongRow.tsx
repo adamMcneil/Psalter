@@ -88,9 +88,7 @@ export function SongRow({
           )}
         </View>
         <View style={{ flex: 1 }}>
-          <Text style={styles.title} numberOfLines={1}>
-            {song.title}
-          </Text>
+          <Text style={styles.title}>{song.title}</Text>
           <Pressable
             onPress={(e) => {
               e.stopPropagation?.();
@@ -102,14 +100,12 @@ export function SongRow({
             hitSlop={{ top: 4, bottom: 4 }}
             accessibilityLabel={`View ${song.artist}`}
           >
-            <Text style={styles.artist} numberOfLines={1}>
+            <Text style={styles.artist}>
               {song.artist} <Text style={styles.artistArrow}>›</Text>
             </Text>
           </Pressable>
           {song.album ? (
-            <Text style={styles.album} numberOfLines={1}>
-              {song.album}
-            </Text>
+            <Text style={styles.album}>{song.album}</Text>
           ) : null}
         </View>
       </Pressable>
