@@ -93,8 +93,9 @@ export function SongRow({
                 params: { name: song.artist },
               });
             }}
-            hitSlop={{ top: 4, bottom: 4 }}
+            hitSlop={{ top: 6, bottom: 6, left: 8, right: 24 }}
             accessibilityLabel={`View ${song.artist}`}
+            style={styles.artistHit}
           >
             <Text style={styles.artist}>
               {song.artist} <Text style={styles.artistArrow}>›</Text>
@@ -153,6 +154,7 @@ const styles = StyleSheet.create({
     marginTop: 2,
     fontStyle: 'italic',
   },
+  artistHit: { alignSelf: 'flex-start' },
   artist: {
     color: colors.text,
     opacity: 0.85,

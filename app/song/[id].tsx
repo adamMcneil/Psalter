@@ -141,6 +141,7 @@ export default function SongDetail() {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scroll}
       >
+        <View style={styles.container}>
         <View style={styles.coverWrap}>
           {song.albumCoverUrl ? (
             <Image
@@ -188,6 +189,18 @@ export default function SongDetail() {
 
         <View style={styles.controls}>
           <Pressable
+            onPress={() => void web.previousTrack()}
+            disabled={!web.supported}
+            accessibilityLabel="Previous track"
+            style={({ pressed }) => [
+              styles.skipBtn,
+              !web.supported && styles.skipDisabled,
+              pressed && styles.pressed,
+            ]}
+          >
+            <Text style={styles.skipGlyph}>⏮</Text>
+          </Pressable>
+          <Pressable
             onPress={() => void handleTogglePlay()}
             accessibilityLabel={isPlaying ? 'Pause' : 'Play'}
             style={({ pressed }) => [
@@ -196,6 +209,18 @@ export default function SongDetail() {
             ]}
           >
             <Text style={styles.playGlyph}>{isPlaying ? '❚❚' : '▶'}</Text>
+          </Pressable>
+          <Pressable
+            onPress={() => void web.nextTrack()}
+            disabled={!web.supported}
+            accessibilityLabel="Next track"
+            style={({ pressed }) => [
+              styles.skipBtn,
+              !web.supported && styles.skipDisabled,
+              pressed && styles.pressed,
+            ]}
+          >
+            <Text style={styles.skipGlyph}>⏭</Text>
           </Pressable>
         </View>
 
@@ -210,6 +235,7 @@ export default function SongDetail() {
             <Text style={styles.psalmLinkText}>‹ Psalm {song.psalm}</Text>
           </Pressable>
         </Link>
+        </View>
       </ScrollView>
     </Screen>
   );
@@ -220,6 +246,13 @@ const styles = StyleSheet.create({
     paddingTop: spacing.md,
     paddingBottom: spacing.xl,
     alignItems: 'stretch',
+  },
+  // Keep the whole layout phone-sized on wide screens — otherwise the
+  // 1:1 cover stretches to ~the viewport height on desktop.
+  container: {
+    width: '100%',
+    maxWidth: 420,
+    alignSelf: 'center',
   },
   coverWrap: {
     aspectRatio: 1,
@@ -294,7 +327,10 @@ const styles = StyleSheet.create({
     fontVariant: ['tabular-nums'],
   },
   controls: {
+    flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
+    gap: spacing.xl,
     marginTop: spacing.xl,
   },
   playBtn: {
@@ -310,6 +346,23 @@ const styles = StyleSheet.create({
     fontSize: 26,
     fontWeight: '800',
     marginLeft: 2,
+  },
+  skipBtn: {
+    width: 56,
+    height: 56,
+    borderRadius: 28,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.surfaceAlt,
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
+  skipDisabled: { opacity: 0.35 },
+  skipGlyph: {
+    color: colors.text,
+    fontSize: 24,
+    fontWeight: '700',
+    lineHeight: 24,
   },
   pressed: { opacity: 0.78, transform: [{ scale: 0.96 }] },
   pressedSubtle: { opacity: 0.6 },
