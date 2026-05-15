@@ -5,7 +5,7 @@ import { useSpotifyAuth } from '../spotify/AuthContext';
 import { useWebPlayer } from '../spotify/WebPlayerContext';
 import { usePreviewPlayer } from '../spotify/PreviewPlayerContext';
 import { extractTrackId, openSpotifyTrack } from '../spotify/launch';
-import { ThemePalette, colors, fontSize, radius, spacing } from '../theme';
+import { colors, fontSize, radius, spacing } from '../theme';
 
 function shuffle<T>(arr: T[]): T[] {
   const out = arr.slice();
@@ -16,13 +16,7 @@ function shuffle<T>(arr: T[]): T[] {
   return out;
 }
 
-export function PlayControls({
-  queue,
-  palette,
-}: {
-  queue: Song[];
-  palette: ThemePalette;
-}) {
+export function PlayControls({ queue }: { queue: Song[] }) {
   const { tokens, login } = useSpotifyAuth();
   const player = useWebPlayer();
   const preview = usePreviewPlayer();
@@ -82,12 +76,11 @@ export function PlayControls({
         style={({ pressed }) => [
           styles.btn,
           styles.btnGhost,
-          { borderColor: palette.base },
           pressed && styles.pressed,
         ]}
       >
-        <Text style={[styles.glyph, { color: palette.base }]}>⇄</Text>
-        <Text style={[styles.label, { color: palette.base }]}>Shuffle</Text>
+        <Text style={[styles.glyph, styles.labelGhost]}>⇄</Text>
+        <Text style={[styles.label, styles.labelGhost]}>Shuffle</Text>
       </Pressable>
     </View>
   );
@@ -114,10 +107,12 @@ const styles = StyleSheet.create({
   },
   btnGhost: {
     backgroundColor: 'transparent',
+    borderColor: colors.border,
   },
   glyph: { fontSize: fontSize.md, fontWeight: '800', lineHeight: fontSize.md + 2 },
   glyphPrimary: { color: colors.accentInk },
   label: { fontSize: fontSize.md, fontWeight: '800', letterSpacing: 0.3 },
   labelPrimary: { color: colors.accentInk },
+  labelGhost: { color: colors.text },
   pressed: { opacity: 0.78, transform: [{ scale: 0.98 }] },
 });

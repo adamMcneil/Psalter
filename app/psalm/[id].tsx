@@ -14,13 +14,7 @@ import {
   totalDurationSec,
 } from '@/data/catalog';
 import { Song } from '@/types';
-import {
-  colors,
-  fontSize,
-  paletteForThemes,
-  radius,
-  spacing,
-} from '@/theme';
+import { colors, fontSize, radius, spacing } from '@/theme';
 
 type Row =
   | { kind: 'song'; song: Song }
@@ -83,8 +77,6 @@ export default function PsalmDetail() {
     );
   }
 
-  const palette = paletteForThemes(psalm.themes);
-
   return (
     <Screen>
       <Stack.Screen options={{ title: `Psalm ${psalm.number}` }} />
@@ -104,11 +96,9 @@ export default function PsalmDetail() {
           if (item.kind === 'section') {
             return (
               <View style={styles.letterRow}>
-                <Text style={[styles.letterGlyph, { color: palette.base }]}>
-                  {item.section.glyph}
-                </Text>
+                <Text style={styles.letterGlyph}>{item.section.glyph}</Text>
                 <View style={{ flex: 1 }}>
-                  <Text style={[styles.letterName, { color: palette.base }]}>
+                  <Text style={styles.letterName}>
                     {item.section.letter.toUpperCase()}
                   </Text>
                   <Text style={styles.letterMeta}>
@@ -122,11 +112,11 @@ export default function PsalmDetail() {
           }
           return (
             <View style={styles.letterRow}>
-              <Text style={[styles.letterGlyph, { color: colors.textDim }]}>
+              <Text style={[styles.letterGlyph, styles.letterGlyphMuted]}>
                 ✦
               </Text>
               <View style={{ flex: 1 }}>
-                <Text style={[styles.letterName, { color: colors.textDim }]}>
+                <Text style={[styles.letterName, styles.letterNameMuted]}>
                   WHOLE PSALM
                 </Text>
                 <Text style={styles.letterMeta}>
@@ -140,52 +130,15 @@ export default function PsalmDetail() {
         showsVerticalScrollIndicator={false}
         ListHeaderComponent={
           <View>
-            <View
-              style={[
-                styles.hero,
-                {
-                  backgroundColor: palette.soft,
-                  borderColor: palette.base,
-                },
-              ]}
-            >
+            <View style={styles.hero}>
               <View style={styles.heroTop}>
-                <View
-                  style={[
-                    styles.numberBadge,
-                    { borderColor: palette.base },
-                  ]}
-                >
-                  <Text style={[styles.numberText, { color: palette.base }]}>
-                    {psalm.number}
-                  </Text>
+                <View style={styles.numberBadge}>
+                  <Text style={styles.numberText}>{psalm.number}</Text>
                 </View>
-                <Text style={[styles.heroGlyph, { color: palette.base }]}>
-                  {palette.glyph}
-                </Text>
               </View>
-              <Text style={[styles.kicker, { color: palette.base }]}>
-                PSALM {psalm.number}
-              </Text>
+              <Text style={styles.kicker}>PSALM {psalm.number}</Text>
               <Text style={styles.title}>{psalm.title}</Text>
-              <View style={styles.themes}>
-                {psalm.themes.map((t) => (
-                  <View
-                    key={t}
-                    style={[
-                      styles.themeChip,
-                      { borderColor: palette.base },
-                    ]}
-                  >
-                    <Text
-                      style={[styles.themeText, { color: palette.base }]}
-                    >
-                      {t}
-                    </Text>
-                  </View>
-                ))}
-              </View>
-              <PlayControls queue={queue} palette={palette} />
+              <PlayControls queue={queue} />
             </View>
             <View style={styles.sectionRow}>
               <Text style={styles.section}>Songs</Text>
@@ -217,6 +170,8 @@ const styles = StyleSheet.create({
     padding: spacing.lg,
     borderRadius: radius.lg,
     borderWidth: 1,
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
   },
   heroTop: {
     flexDirection: 'row',
@@ -230,14 +185,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 1.5,
+    borderColor: colors.border,
+    backgroundColor: colors.surfaceAlt,
   },
-  numberText: { fontSize: 22, fontWeight: '800' },
-  heroGlyph: { fontSize: 32 },
+  numberText: { fontSize: 22, fontWeight: '800', color: colors.text },
   kicker: {
     fontWeight: '800',
     letterSpacing: 1.6,
     fontSize: fontSize.xs,
     marginTop: spacing.md,
+    color: colors.accent,
   },
   title: {
     color: colors.text,
@@ -247,19 +204,6 @@ const styles = StyleSheet.create({
     lineHeight: 34,
     letterSpacing: -0.5,
   },
-  themes: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: spacing.sm,
-    marginTop: spacing.md,
-  },
-  themeChip: {
-    paddingHorizontal: spacing.sm + 2,
-    paddingVertical: 3,
-    borderRadius: radius.pill,
-    borderWidth: 1,
-  },
-  themeText: { fontSize: 11, fontWeight: '700', letterSpacing: 0.5 },
   sectionRow: {
     flexDirection: 'row',
     alignItems: 'flex-end',
@@ -292,12 +236,16 @@ const styles = StyleSheet.create({
     width: 44,
     textAlign: 'center',
     lineHeight: 40,
+    color: colors.accent,
   },
+  letterGlyphMuted: { color: colors.textDim },
   letterName: {
     fontSize: fontSize.lg,
     fontWeight: '800',
     letterSpacing: 1.6,
+    color: colors.accent,
   },
+  letterNameMuted: { color: colors.textDim },
   letterMeta: {
     color: colors.textMuted,
     fontSize: fontSize.xs,

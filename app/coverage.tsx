@@ -10,13 +10,7 @@ import { Link, Stack } from 'expo-router';
 import { Screen } from '@/components/Screen';
 import { catalog } from '@/data/catalog';
 import { psalms } from '@/data/psalms';
-import {
-  colors,
-  fontSize,
-  paletteForThemes,
-  radius,
-  spacing,
-} from '@/theme';
+import { colors, fontSize, radius, spacing } from '@/theme';
 
 const BAR_WIDTH = 10;
 const BAR_GAP = 2;
@@ -97,7 +91,6 @@ export default function CoverageScreen() {
               ))}
               {psalms.map((p) => {
                 const count = counts.get(p.number) ?? 0;
-                const palette = paletteForThemes(p.themes);
                 const h =
                   count > 0
                     ? Math.max(3, (count / max) * CHART_HEIGHT)
@@ -122,15 +115,8 @@ export default function CoverageScreen() {
                       <View
                         style={[
                           styles.bar,
-                          {
-                            height: h,
-                            backgroundColor: empty
-                              ? colors.surfaceAlt
-                              : palette.base,
-                            borderColor: empty
-                              ? colors.border
-                              : palette.base,
-                          },
+                          empty ? styles.barEmpty : styles.barFilled,
+                          { height: h },
                         ]}
                       />
                     </Pressable>
@@ -166,52 +152,32 @@ export default function CoverageScreen() {
         {top.length === 0 ? (
           <Text style={styles.empty}>No songs in the catalog yet.</Text>
         ) : (
-          top.map((t, i) => {
-            const palette = paletteForThemes(t.psalm.themes);
-            return (
-              <Link key={t.num} href={`/psalm/${t.num}`} asChild>
-                <Pressable
-                  style={({ pressed }) => [
-                    styles.row,
-                    pressed && styles.pressed,
-                  ]}
-                >
-                  <Text style={styles.rank}>{i + 1}</Text>
-                  <View
-                    style={[
-                      styles.numBadge,
-                      {
-                        backgroundColor: palette.soft,
-                        borderColor: palette.base,
-                      },
-                    ]}
-                  >
-                    <Text style={[styles.numText, { color: palette.base }]}>
-                      {t.num}
-                    </Text>
-                  </View>
-                  <View style={{ flex: 1 }}>
-                    <Text style={styles.rowTitle} numberOfLines={1}>
-                      {t.psalm.title}
-                    </Text>
-                    <Text style={styles.rowMeta}>Psalm {t.num}</Text>
-                  </View>
-                  <View
-                    style={[
-                      styles.countPill,
-                      { borderColor: palette.base },
-                    ]}
-                  >
-                    <Text
-                      style={[styles.countText, { color: palette.base }]}
-                    >
-                      {t.count} {t.count === 1 ? 'song' : 'songs'}
-                    </Text>
-                  </View>
-                </Pressable>
-              </Link>
-            );
-          })
+          top.map((t, i) => (
+            <Link key={t.num} href={`/psalm/${t.num}`} asChild>
+              <Pressable
+                style={({ pressed }) => [
+                  styles.row,
+                  pressed && styles.pressed,
+                ]}
+              >
+                <Text style={styles.rank}>{i + 1}</Text>
+                <View style={styles.numBadge}>
+                  <Text style={styles.numText}>{t.num}</Text>
+                </View>
+                <View style={{ flex: 1 }}>
+                  <Text style={styles.rowTitle} numberOfLines={1}>
+                    {t.psalm.title}
+                  </Text>
+                  <Text style={styles.rowMeta}>Psalm {t.num}</Text>
+                </View>
+                <View style={styles.countPill}>
+                  <Text style={styles.countText}>
+                    {t.count} {t.count === 1 ? 'song' : 'songs'}
+                  </Text>
+                </View>
+              </Pressable>
+            </Link>
+          ))
         )}
       </ScrollView>
     </Screen>
@@ -365,6 +331,14 @@ const styles = StyleSheet.create({
     borderRadius: 2,
     borderWidth: 0.5,
   },
+  barFilled: {
+    backgroundColor: colors.accent,
+    borderColor: colors.accent,
+  },
+  barEmpty: {
+    backgroundColor: colors.surfaceAlt,
+    borderColor: colors.border,
+  },
   axis: {
     flexDirection: 'row',
     marginTop: 4,
@@ -426,8 +400,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 1,
+    backgroundColor: colors.surfaceAlt,
+    borderColor: colors.border,
   },
-  numText: { fontSize: fontSize.lg, fontWeight: '800' },
+  numText: { fontSize: fontSize.lg, fontWeight: '800', color: colors.text },
   rowTitle: {
     color: colors.text,
     fontSize: fontSize.lg,
@@ -443,11 +419,13 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     borderRadius: radius.pill,
     borderWidth: 1,
+    borderColor: colors.border,
   },
   countText: {
     fontSize: 10,
     fontWeight: '800',
     letterSpacing: 0.5,
+    color: colors.textMuted,
   },
   empty: {
     color: colors.textMuted,

@@ -13,13 +13,7 @@ import { PsalmCard } from '@/components/PsalmCard';
 import { psalms } from '@/data/psalms';
 import { catalog } from '@/data/catalog';
 import { Psalm, Song } from '@/types';
-import {
-  colors,
-  fontSize,
-  paletteForThemes,
-  radius,
-  spacing,
-} from '@/theme';
+import { colors, fontSize, radius, spacing } from '@/theme';
 
 type Row =
   | { kind: 'header'; label: string; count: number }
@@ -111,8 +105,6 @@ export default function SearchScreen() {
           if (item.kind === 'psalm') {
             return <PsalmCard psalm={item.psalm} />;
           }
-          const psalm = psalms.find((p) => p.number === item.song.psalm);
-          const palette = paletteForThemes(psalm?.themes);
           return (
             <Link href={`/psalm/${item.song.psalm}`} asChild>
               <Pressable
@@ -121,16 +113,8 @@ export default function SearchScreen() {
                   pressed && styles.pressed,
                 ]}
               >
-                <View
-                  style={[
-                    styles.songMark,
-                    {
-                      backgroundColor: palette.soft,
-                      borderColor: palette.base,
-                    },
-                  ]}
-                >
-                  <Text style={[styles.songMarkText, { color: palette.base }]}>
+                <View style={styles.songMark}>
+                  <Text style={styles.songMarkText}>
                     {item.song.psalm}
                   </Text>
                 </View>
@@ -244,8 +228,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderWidth: 1,
     marginRight: spacing.md,
+    backgroundColor: colors.surfaceAlt,
+    borderColor: colors.border,
   },
-  songMarkText: { fontWeight: '800', fontSize: fontSize.md },
+  songMarkText: { fontWeight: '800', fontSize: fontSize.md, color: colors.text },
   songTitle: { color: colors.text, fontWeight: '600', fontSize: fontSize.lg },
   songMeta: {
     color: colors.textMuted,

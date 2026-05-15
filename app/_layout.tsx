@@ -60,10 +60,6 @@ export default function RootLayout() {
                       options={{ title: 'Artist' }}
                     />
                     <Stack.Screen
-                      name="playlist/[id]"
-                      options={{ title: 'Playlist' }}
-                    />
-                    <Stack.Screen
                       name="coverage"
                       options={{ title: 'Coverage' }}
                     />

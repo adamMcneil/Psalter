@@ -121,15 +121,7 @@ export default function ArtistDetail() {
                   : ''}
                 {allSongs.length > 0 ? ` · ${totalDuration}` : ''}
               </Text>
-              <PlayControls
-                queue={songs}
-                palette={{
-                  base: tint.fg,
-                  soft: tint.bg,
-                  ink: tint.bg,
-                  glyph: '',
-                }}
-              />
+              <PlayControls queue={songs} />
             </View>
 
             <View style={styles.coverageHeader}>

@@ -1,7 +1,6 @@
 import {
   FlatList,
   Pressable,
-  ScrollView,
   StyleSheet,
   Text,
   View,
@@ -10,8 +9,6 @@ import { Link } from 'expo-router';
 import { Screen } from '@/components/Screen';
 import { PsalmCard } from '@/components/PsalmCard';
 import { psalms } from '@/data/psalms';
-import { themes } from '@/data/themes';
-import { featuredPlaylists } from '@/data/playlists';
 import {
   catalog,
   formatDuration,
@@ -19,31 +16,7 @@ import {
   totalDurationSec,
 } from '@/data/catalog';
 import { useSpotifyAuth } from '@/spotify/AuthContext';
-import { Theme } from '@/types';
-import {
-  colors,
-  fontSize,
-  paletteForThemes,
-  radius,
-  spacing,
-  themePalettes,
-} from '@/theme';
-
-const PLAYLIST_PALETTE_OVERRIDE: Record<string, Theme> = {
-  'songs-of-ascent': 'Confidence',
-  'morning-psalms': 'Praise',
-  'evening-psalms': 'Remembrance',
-  'psalms-for-mourning': 'Lament',
-  kingship: 'Kingship',
-  'great-thanksgiving': 'Thanksgiving',
-  'praise-the-lord': 'Praise',
-};
-
-function paletteForPlaylist(id: string, fallback: Theme[] | undefined) {
-  const override = PLAYLIST_PALETTE_OVERRIDE[id];
-  if (override) return themePalettes[override];
-  return paletteForThemes(fallback);
-}
+import { colors, fontSize, radius, spacing } from '@/theme';
 
 function greeting(): string {
   const h = new Date().getHours();
@@ -68,7 +41,6 @@ const psalmOfTheDay = () => {
 export default function PsalmsList() {
   const { user } = useSpotifyAuth();
   const featured = psalmOfTheDay();
-  const featuredPalette = paletteForThemes(featured.themes);
   const featuredSongCount = songsForPsalm(featured.number).length;
 
   return (
@@ -97,174 +69,20 @@ export default function PsalmsList() {
             <Link href={`/psalm/${featured.number}`} asChild>
               <Pressable>
                 {({ pressed }) => (
-                  <View
-                    style={[
-                      styles.hero,
-                      {
-                        backgroundColor: featuredPalette.soft,
-                        borderColor: featuredPalette.base,
-                      },
-                      pressed && styles.pressed,
-                    ]}
-                  >
-                    <View style={styles.heroTop}>
-                      <Text
-                        style={[
-                          styles.heroKicker,
-                          { color: featuredPalette.base },
-                        ]}
-                      >
-                        PSALM {featured.number}
-                      </Text>
-                      <Text
-                        style={[
-                          styles.heroGlyph,
-                          { color: featuredPalette.base },
-                        ]}
-                      >
-                        {featuredPalette.glyph}
-                      </Text>
-                    </View>
-                    <Text style={styles.heroTitle} numberOfLines={2}>
-                      {featured.title}
+                  <View style={[styles.hero, pressed && styles.pressed]}>
+                    <Text style={styles.heroKicker}>
+                      PSALM {featured.number}
                     </Text>
-                    <View style={styles.heroFoot}>
-                      <View style={styles.heroTags}>
-                        {featured.themes.map((t) => (
-                          <View
-                            key={t}
-                            style={[
-                              styles.heroTag,
-                              { borderColor: featuredPalette.base },
-                            ]}
-                          >
-                            <Text
-                              style={[
-                                styles.heroTagText,
-                                { color: featuredPalette.base },
-                              ]}
-                            >
-                              {t}
-                            </Text>
-                          </View>
-                        ))}
-                      </View>
-                      <Text
-                        style={[
-                          styles.heroMeta,
-                          { color: featuredPalette.base },
-                        ]}
-                      >
-                        {featuredSongCount > 0
-                          ? `${featuredSongCount} ${featuredSongCount === 1 ? 'song' : 'songs'} →`
-                          : 'Open →'}
-                      </Text>
-                    </View>
+                    <Text style={styles.heroTitle}>{featured.title}</Text>
+                    <Text style={styles.heroMeta}>
+                      {featuredSongCount > 0
+                        ? `${featuredSongCount} ${featuredSongCount === 1 ? 'song' : 'songs'} →`
+                        : 'Open →'}
+                    </Text>
                   </View>
                 )}
               </Pressable>
             </Link>
-
-            <Text style={styles.sectionLabel}>Featured Playlists</Text>
-            <ScrollView
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              style={styles.railBleed}
-              contentContainerStyle={styles.railContent}
-            >
-              {featuredPlaylists.map((pl) => {
-                const palette = paletteForPlaylist(
-                  pl.id,
-                  psalms.find((p) => p.number === pl.psalms[0])?.themes,
-                );
-                return (
-                  <Link
-                    key={pl.id}
-                    href={{ pathname: '/playlist/[id]', params: { id: pl.id } }}
-                    asChild
-                  >
-                    <Pressable>
-                      {({ pressed }) => (
-                        <View
-                          style={[
-                            styles.railCard,
-                            {
-                              backgroundColor: palette.soft,
-                              borderColor: palette.base,
-                            },
-                            pressed && styles.pressed,
-                          ]}
-                        >
-                          <Text
-                            style={[styles.railGlyph, { color: palette.base }]}
-                          >
-                            {palette.glyph}
-                          </Text>
-                          <Text style={styles.railTitle} numberOfLines={2}>
-                            {pl.title}
-                          </Text>
-                          <Text style={styles.railMeta}>
-                            {pl.psalms.length} psalms
-                          </Text>
-                        </View>
-                      )}
-                    </Pressable>
-                  </Link>
-                );
-              })}
-            </ScrollView>
-
-            <Text style={styles.sectionLabel}>Browse by Theme</Text>
-            <ScrollView
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              style={styles.railBleed}
-              contentContainerStyle={styles.railContent}
-            >
-              {themes.map((t) => {
-                const palette = themePalettes[t.name];
-                const count = psalms.filter((p) =>
-                  p.themes.includes(t.name),
-                ).length;
-                return (
-                  <Link key={t.name} href="/themes" asChild>
-                    <Pressable>
-                      {({ pressed }) => (
-                        <View
-                          style={[
-                            styles.themeChip,
-                            {
-                              backgroundColor: palette.soft,
-                              borderColor: palette.base,
-                            },
-                            pressed && styles.pressed,
-                          ]}
-                        >
-                          <Text
-                            style={[styles.themeGlyph, { color: palette.base }]}
-                          >
-                            {palette.glyph}
-                          </Text>
-                          <View>
-                            <Text
-                              style={[
-                                styles.themeName,
-                                { color: palette.base },
-                              ]}
-                            >
-                              {t.name}
-                            </Text>
-                            <Text style={styles.themeCount}>
-                              {count} psalms
-                            </Text>
-                          </View>
-                        </View>
-                      )}
-                    </Pressable>
-                  </Link>
-                );
-              })}
-            </ScrollView>
 
             <Text style={styles.sectionLabel}>All Psalms</Text>
           </View>
@@ -312,14 +130,11 @@ const styles = StyleSheet.create({
     borderRadius: radius.lg,
     borderWidth: 1,
     padding: spacing.lg,
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
   },
-  heroTop: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  heroGlyph: { fontSize: 22 },
   heroKicker: {
+    color: colors.accent,
     fontSize: fontSize.xs,
     fontWeight: '800',
     letterSpacing: 1.6,
@@ -331,77 +146,12 @@ const styles = StyleSheet.create({
     marginTop: spacing.sm,
     lineHeight: 30,
   },
-  heroFoot: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: spacing.md,
-  },
-  heroTags: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: spacing.xs,
-    flex: 1,
-  },
-  heroTag: {
-    paddingHorizontal: spacing.sm,
-    paddingVertical: 3,
-    borderRadius: radius.pill,
-    borderWidth: 1,
-  },
-  heroTagText: {
-    fontSize: 10,
-    fontWeight: '700',
-    letterSpacing: 0.5,
-  },
   heroMeta: {
+    color: colors.textMuted,
     fontSize: fontSize.sm,
     fontWeight: '700',
-    marginLeft: spacing.sm,
+    marginTop: spacing.md,
   },
-
-  railBleed: {
-    marginHorizontal: -spacing.md,
-  },
-  railContent: {
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.xs,
-    gap: spacing.sm,
-  },
-  railCard: {
-    width: 170,
-    height: 130,
-    borderRadius: radius.md,
-    borderWidth: 1,
-    padding: spacing.md,
-    justifyContent: 'space-between',
-  },
-  railGlyph: { fontSize: 20 },
-  railTitle: {
-    color: colors.text,
-    fontSize: fontSize.lg,
-    fontWeight: '700',
-    lineHeight: 19,
-  },
-  railMeta: {
-    color: colors.textMuted,
-    fontSize: fontSize.xs,
-    fontWeight: '700',
-    letterSpacing: 0.5,
-    textTransform: 'uppercase',
-  },
-
-  themeChip: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.sm,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm + 2,
-    borderRadius: radius.pill,
-    borderWidth: 1,
-  },
-  themeGlyph: { fontSize: 16 },
-  themeName: { fontWeight: '700', fontSize: fontSize.md },
-  themeCount: { color: colors.textDim, fontSize: 10, marginTop: 1 },
 
   pressed: { opacity: 0.78, transform: [{ scale: 0.99 }] },
 });
