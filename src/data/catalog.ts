@@ -6,9 +6,6 @@ export const catalog: Song[] = (raw.songs as Song[]).slice();
 export const songsForPsalm = (n: number): Song[] =>
   catalog.filter((s) => s.psalm === n);
 
-export const songById = (id: string): Song | undefined =>
-  catalog.find((s) => s.id === id);
-
 export const songByTrackId = (trackId: string): Song | undefined => {
   const needle = `/track/${trackId}`;
   return catalog.find((s) => s.spotifyUrl?.includes(needle));

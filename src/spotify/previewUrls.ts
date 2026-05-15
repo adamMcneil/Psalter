@@ -131,8 +131,3 @@ export async function getPreviewUrl(
   inflight.set(trackId, p);
   return p;
 }
-
-export function getCachedPreviewUrl(trackId: string): string | null | undefined {
-  const e = cache.get(trackId);
-  return fresh(e) ? (e!.url ?? null) : undefined;
-}

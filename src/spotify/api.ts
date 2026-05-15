@@ -60,25 +60,10 @@ export interface ApiTrack {
 }
 
 export const spotifyApi = (getToken: GetToken) => ({
-  getMe: () =>
-    request<{
-      id: string;
-      display_name: string | null;
-      email: string | null;
-      product: string | null;
-      country: string | null;
-    }>(getToken, '/me'),
-
   getTracks: (ids: string[]): Promise<{ tracks: (ApiTrack | null)[] }> => {
     if (ids.length === 0) return Promise.resolve({ tracks: [] });
     return request(getToken, `/tracks?ids=${ids.join(',')}`);
   },
-
-  search: (q: string, limit = 20) =>
-    request<{ tracks: { items: ApiTrack[] } }>(
-      getToken,
-      `/search?type=track&limit=${limit}&q=${encodeURIComponent(q)}`,
-    ),
 
   searchArtist: (q: string) =>
     request<{
@@ -94,5 +79,3 @@ export const spotifyApi = (getToken: GetToken) => ({
       `/search?type=artist&limit=1&q=${encodeURIComponent(q)}`,
     ),
 });
-
-export type SpotifyApi = ReturnType<typeof spotifyApi>;

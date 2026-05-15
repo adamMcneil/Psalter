@@ -1,10 +1,6 @@
 import * as AuthSession from 'expo-auth-session';
 import { Platform } from 'react-native';
-import {
-  SPOTIFY_CLIENT_ID,
-  SPOTIFY_DISCOVERY,
-  SPOTIFY_SCOPES,
-} from './config';
+import { SPOTIFY_CLIENT_ID, SPOTIFY_DISCOVERY } from './config';
 import { saveTokens, StoredTokens } from './tokens';
 
 const REDIRECT_PATH = 'spotify-auth';

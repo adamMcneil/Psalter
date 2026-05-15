@@ -41,7 +41,6 @@ interface AuthContextValue {
   login: () => Promise<void>;
   logout: () => Promise<void>;
   getAccessToken: () => Promise<string | null>;
-  refreshUser: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextValue | null>(null);
@@ -164,12 +163,6 @@ export function SpotifyAuthProvider({ children }: { children: ReactNode }) {
     setUser(null);
   }, []);
 
-  const refreshUser = useCallback(async () => {
-    const token = await getAccessToken();
-    if (!token) return;
-    await fetchUser(token);
-  }, [fetchUser, getAccessToken]);
-
   const value = useMemo<AuthContextValue>(
     () => ({
       configured: isSpotifyConfigured(),
@@ -179,9 +172,8 @@ export function SpotifyAuthProvider({ children }: { children: ReactNode }) {
       login,
       logout,
       getAccessToken,
-      refreshUser,
     }),
-    [loading, tokens, user, login, logout, getAccessToken, refreshUser],
+    [loading, tokens, user, login, logout, getAccessToken],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

@@ -176,13 +176,6 @@ const styles = StyleSheet.create({
     paddingTop: spacing.md,
     letterSpacing: -0.5,
   },
-  intro: {
-    color: colors.textMuted,
-    marginTop: spacing.md,
-    marginBottom: spacing.lg,
-    fontSize: fontSize.lg,
-    lineHeight: 21,
-  },
   muted: {
     color: colors.textMuted,
     marginTop: spacing.md,
