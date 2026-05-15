@@ -41,4 +41,6 @@ yarn-error.*
 # Build outputs
 *.tsbuildinfo
 
-.playwright-mcp
+.playwright-mcp/
+.claude/
+plan.md

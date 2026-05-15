@@ -14,8 +14,5 @@ module.exports = {
       typedRoutes: true,
       ...(baseUrl ? { baseUrl } : {}),
     },
-    extra: {
-      SPOTIFY_CLIENT_ID: "750204e46dfa414988d5776ad9196988",
-    },
   },
 };

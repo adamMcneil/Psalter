@@ -99,8 +99,6 @@ interface WebPlayerValue {
   seek: (positionMs: number) => Promise<void>;
   nextTrack: () => Promise<void>;
   previousTrack: () => Promise<void>;
-  // Resume the last known track from a previous session. No-op if nothing saved.
-  resumeLast: () => Promise<void>;
   // Smart play: in-place resume if SDK has live state, else play from persisted position.
   playOrResume: () => Promise<void>;
 }
@@ -126,7 +124,6 @@ const initial: WebPlayerValue = {
   seek: noop,
   nextTrack: noop,
   previousTrack: noop,
-  resumeLast: noop,
   playOrResume: noop,
 };
 
@@ -150,7 +147,7 @@ function loadSdk(): Promise<void> {
 }
 
 export function WebPlayerProvider({ children }: { children: ReactNode }) {
-  const { user, tokens, getAccessToken } = useSpotifyAuth();
+  const { user, tokens, getAccessToken, logout } = useSpotifyAuth();
   const isWeb = Platform.OS === 'web';
   const isPremium = user?.product === 'premium';
   const supported = isWeb && isPremium;
@@ -187,6 +184,13 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
     let cancelled = false;
     setInitializing(true);
     setError(null);
+    // If `ready` never fires within this window, surface a recoverable error
+    // instead of leaving the UI stuck on "initializing" forever.
+    const connectTimer = setTimeout(() => {
+      if (cancelled) return;
+      setError('Spotify player failed to connect — try refreshing.');
+      setInitializing(false);
+    }, 15000);
     loadSdk()
       .then(() => {
         if (cancelled || playerRef.current || !window.Spotify) return;
@@ -204,6 +208,7 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
           deviceIdRef.current = device_id;
           setReady(true);
           setInitializing(false);
+          clearTimeout(connectTimer);
         });
         player.addListener('not_ready', () => setReady(false));
         player.addListener('player_state_changed', (...args: unknown[]) => {
@@ -225,6 +230,7 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
           const { message } = (args[0] as { message?: string }) ?? {};
           setError(`${label}: ${message ?? 'unknown'}`);
           setInitializing(false);
+          clearTimeout(connectTimer);
         };
         player.addListener('initialization_error', errHandler('Init'));
         player.addListener('authentication_error', errHandler('Auth'));
@@ -237,10 +243,12 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
       .catch((e) => {
         setError(e instanceof Error ? e.message : 'Failed to load Spotify SDK');
         setInitializing(false);
+        clearTimeout(connectTimer);
       });
 
     return () => {
       cancelled = true;
+      clearTimeout(connectTimer);
     };
   }, [supported, tokens, getAccessToken]);
 
@@ -292,10 +300,15 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
       );
       if (!res.ok) {
         const txt = await res.text();
-        setError(`Play failed (${res.status}): ${txt}`);
+        if (res.status === 401 || res.status === 403) {
+          setError('Spotify session expired — sign in again.');
+          await logout();
+        } else {
+          setError(`Play failed (${res.status}): ${txt}`);
+        }
       }
     },
-    [supported, getAccessToken],
+    [supported, getAccessToken, logout],
   );
 
   const pause = useCallback(async () => {
@@ -321,11 +334,6 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
   const previousTrack = useCallback(async () => {
     await playerRef.current?.previousTrack();
   }, []);
-  const resumeLast = useCallback(async () => {
-    const saved = await readPersisted();
-    if (!saved) return;
-    await play(saved.uri, { positionMs: saved.position });
-  }, [play]);
 
   // Smart play action for UI: resume in-place if the SDK is mid-track,
   // otherwise start fresh from the persisted position.
@@ -390,7 +398,6 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
       seek,
       nextTrack,
       previousTrack,
-      resumeLast,
       playOrResume,
     }),
     [
@@ -413,7 +420,6 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
       seek,
       nextTrack,
       previousTrack,
-      resumeLast,
       playOrResume,
     ],
   );

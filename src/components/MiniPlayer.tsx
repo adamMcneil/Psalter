@@ -12,7 +12,6 @@ import { useRouter } from 'expo-router';
 import { useWebPlayer } from '../spotify/WebPlayerContext';
 import { usePreviewPlayer } from '../spotify/PreviewPlayerContext';
 import { formatDuration, songByTrackId } from '../data/catalog';
-import { extractTrackId } from '../spotify/launch';
 import { colors, fontSize, radius, spacing } from '../theme';
 import { MarqueeText } from './MarqueeText';
 
@@ -65,7 +64,22 @@ export function MiniPlayer() {
   const draggingRef = useRef(false);
   const [dragPct, setDragPct] = useState<number | null>(null);
 
-  if (!info) return null;
+  // Surface Web Playback errors even when no track is current — connect
+  // timeouts and 401s land here before the user has played anything.
+  const banner = web.error;
+
+  if (!info) {
+    if (!banner) return null;
+    return (
+      <View style={styles.wrap} pointerEvents="box-none">
+        <View style={styles.banner}>
+          <Text style={styles.bannerText} numberOfLines={2}>
+            {banner}
+          </Text>
+        </View>
+      </View>
+    );
+  }
 
   const pctFromEvent = (e: GestureResponderEvent): number => {
     if (barWidth <= 0) return 0;
@@ -144,6 +158,13 @@ export function MiniPlayer() {
 
   return (
     <View style={styles.wrap} pointerEvents="box-none">
+      {banner ? (
+        <View style={styles.banner}>
+          <Text style={styles.bannerText} numberOfLines={2}>
+            {banner}
+          </Text>
+        </View>
+      ) : null}
       <View style={styles.bar}>
         {usingWeb ? (
           <Pressable
@@ -288,6 +309,18 @@ const styles = StyleSheet.create({
     lineHeight: 18,
   },
   pressed: { opacity: 0.78 },
+  banner: {
+    backgroundColor: colors.surfaceAlt,
+    borderRadius: radius.sm,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
+    marginBottom: spacing.xs,
+  },
+  bannerText: {
+    color: colors.text,
+    fontSize: fontSize.xs,
+    fontWeight: '600',
+  },
   trackHit: {
     paddingVertical: spacing.sm,
     marginTop: -spacing.xs,
