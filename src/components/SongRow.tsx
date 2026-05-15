@@ -1,12 +1,21 @@
+import { useMemo } from 'react';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Song } from '../types';
 import { colors, fontSize, radius, spacing } from '../theme';
+import { useSpotifyAuth } from '../spotify/AuthContext';
 import { useWebPlayer } from '../spotify/WebPlayerContext';
 import { usePreviewPlayer } from '../spotify/PreviewPlayerContext';
-import { extractTrackId } from '../spotify/launch';
+import { extractTrackId, openSpotifyTrack } from '../spotify/launch';
 
-export function SongRow({ song }: { song: Song }) {
+export function SongRow({
+  song,
+  queue,
+}: {
+  song: Song;
+  queue?: Song[];
+}) {
+  const { tokens, login } = useSpotifyAuth();
   const player = useWebPlayer();
   const preview = usePreviewPlayer();
   const router = useRouter();
@@ -17,13 +26,50 @@ export function SongRow({ song }: { song: Song }) {
     trackId !== null && preview.currentTrackId === trackId;
   const isCurrent = isCurrentFull || isCurrentPreview;
 
-  const goToSong = () =>
-    router.push({ pathname: '/song/[id]', params: { id: song.id } });
+  const playQueueUris = useMemo(() => {
+    if (!queue || queue.length === 0) return null;
+    const idx = queue.findIndex((s) => s.id === song.id);
+    if (idx === -1) return null;
+    const uris = queue
+      .slice(idx)
+      .map((s) => extractTrackId(s.spotifyUrl))
+      .filter((id): id is string => !!id)
+      .map((id) => `spotify:track:${id}`);
+    return uris.length > 0 ? uris : null;
+  }, [queue, song.id]);
+
+  async function handlePress() {
+    if (!trackId) {
+      openSpotifyTrack(song);
+      return;
+    }
+    if (player.supported) {
+      if (!tokens) {
+        try {
+          await login();
+        } catch {
+          // ignore
+        }
+        return;
+      }
+      if (isCurrentFull) {
+        await player.toggle();
+      } else {
+        await player.play(playQueueUris ?? trackUri!);
+      }
+      return;
+    }
+    if (preview.supported) {
+      await preview.toggle(trackId);
+      return;
+    }
+    openSpotifyTrack(song);
+  }
 
   return (
     <View style={[styles.card, isCurrent && styles.cardCurrent]}>
       <Pressable
-        onPress={goToSong}
+        onPress={handlePress}
         style={({ pressed }) => [styles.row, pressed && styles.pressed]}
       >
         <View style={styles.coverWrap}>

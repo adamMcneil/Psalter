@@ -8,7 +8,7 @@ import {
   Text,
   View,
 } from 'react-native';
-import { useRouter } from 'expo-router';
+import { usePathname, useRouter } from 'expo-router';
 import { useWebPlayer } from '../spotify/WebPlayerContext';
 import { usePreviewPlayer } from '../spotify/PreviewPlayerContext';
 import { formatDuration, songByTrackId } from '../data/catalog';
@@ -19,6 +19,8 @@ export function MiniPlayer() {
   const web = useWebPlayer();
   const preview = usePreviewPlayer();
   const router = useRouter();
+  const pathname = usePathname();
+  const onSongPage = pathname?.startsWith('/song/') ?? false;
 
   const usingWeb = web.supported && !!web.currentUri;
   const usingPreview = !usingWeb && !!preview.currentTrackId;
@@ -67,6 +69,10 @@ export function MiniPlayer() {
   // Surface Web Playback errors even when no track is current — connect
   // timeouts and 401s land here before the user has played anything.
   const banner = web.error;
+
+  // The full-screen song page already shows the cover, title, and seek bar.
+  // Hide the pinned bar there so the two players don't compete.
+  if (onSongPage) return null;
 
   if (!info) {
     if (!banner) return null;
