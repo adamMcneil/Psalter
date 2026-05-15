@@ -577,31 +577,6 @@ const SOURCES = [
     album: 'In Beauty of Holiness (Remastered)',
   },
   {
-    url: 'https://open.spotify.com/album/5sW1Wdgs09FA0euLPa2bU8',
-    artist: 'Streetlights',
-    album: 'Psalms // Book 1 (Chapters 1-41)',
-  },
-  {
-    url: 'https://open.spotify.com/album/3mFAXWws9JM4KwJPM2GaCS',
-    artist: 'Streetlights',
-    album: 'Psalms // Book 2 (Chapters 42-72)',
-  },
-  {
-    url: 'https://open.spotify.com/album/44kbUZaYlKlxGPclXBFIth',
-    artist: 'Streetlights',
-    album: 'Psalms // Book 3 (Chapters 73-89)',
-  },
-  {
-    url: 'https://open.spotify.com/album/178exKL4ZJa9QHU3GhUiZi',
-    artist: 'Streetlights',
-    album: 'Psalms // Book 4 (Chapters 90-106)',
-  },
-  {
-    url: 'https://open.spotify.com/album/4MM48CrOBvCmZfmulS8aML',
-    artist: 'Streetlights',
-    album: 'Psalms // Book 5 (Chapters 107-150)',
-  },
-  {
     url: 'https://open.spotify.com/album/2tGqMl4FiikcPvMlWdrXtX',
     artist: 'Sovereign Grace Music',
     album: 'Unchanging God: Songs from the Book of Psalms, Vol. 1',
@@ -611,9 +586,64 @@ const SOURCES = [
     artist: 'Sovereign Grace Music',
     album: 'Unchanging God: Songs from the Book of Psalms, Vol. 2',
   },
+  {
+    url: 'https://open.spotify.com/album/1N9I0ZHf2nvzJfJXBCIqa4',
+    artist: 'Crown & Covenant',
+    album: 'Covenant: Selections From the Book of Psalms for Worship',
+  },
+  {
+    url: 'https://open.spotify.com/album/3A5tQVFVfhHHQsls7xabco',
+    artist: 'Crown & Covenant',
+    album: 'Glory: Selections from the Book of Psalms for Worship',
+  },
+  {
+    url: 'https://open.spotify.com/album/0POWlvCBU7LpVXly2c3Xca',
+    artist: 'Crown & Covenant',
+    album: 'Trust: Selections from the Book of Psalms for Worship',
+  },
+  {
+    url: 'https://open.spotify.com/album/6QOLDAZjIIhSlhW98fkOnw',
+    artist: 'Crown & Covenant',
+    album: 'Refuge: Selections from the Book of Psalms for Worship',
+  },
+  {
+    url: 'https://open.spotify.com/album/2wfLG9ufqsZl0sUJrvpCFw',
+    artist: 'Crown & Covenant',
+    album: 'Abundance: Selections from the Book of Psalms for Worship',
+  },
+  {
+    url: 'https://open.spotify.com/album/7jEh3lqq5u5YVIjvSLZgIm',
+    artist: 'Crown & Covenant',
+    album: 'Restoration: Selections from the Book of Psalms for Worship',
+  },
+  {
+    url: 'https://open.spotify.com/album/3rjE1Deb6yl971bf3JAn8R',
+    artist: 'Crown & Covenant',
+    album: 'Zion: Selections from the Book of Psalms for Worship',
+  },
+  {
+    url: 'https://open.spotify.com/album/7fiWVAi8rhRy3185Fb3uJb',
+    artist: 'Crown & Covenant',
+    album: 'Communion: Selections from the Book of Psalms for Worship',
+  },
+  {
+    url: 'https://open.spotify.com/album/4x70LhtInanAi1d2muXoT2',
+    artist: 'Crown & Covenant',
+    album: 'Sing a New Song: Selections from the Book of Psalms for Singing',
+  },
+  {
+    url: 'https://open.spotify.com/album/1AcxyQsATsRuDf2jYKTrHh',
+    artist: 'Crown & Covenant',
+    album: 'I Am: Kids Sing Psalms!',
+  },
 ];
 
-const PSALM_RE = /\bPsalm\s+(\d{1,3})\b/i;
+const PSALM_RE = /\bPsalm\s+(\d{1,3})[A-Za-z]?\b/i;
+// Psalter notation used by Crown & Covenant et al.: "Some Title (33B)" where
+// the digits are the psalm and the optional trailing letter is the tune variant.
+const PSALM_PARENS_RE = /\((\d{1,3})[A-Z]?\)/;
+// Same notation as a leading prefix: "32a: What Blessedness".
+const PSALM_PREFIX_RE = /^(\d{1,3})[a-z]?:\s/i;
 const URI_RE = /"uri":"spotify:track:([A-Za-z0-9]{22})"/g;
 const TITLE_RE = /"title":"((?:[^"\\]|\\.)*)"/g;
 const DUR_RE = /"duration":(\d+)/g;
@@ -718,7 +748,10 @@ function isVocalPsalmTrack(title) {
   if (/instrumental/i.test(title)) return null;
   if (/karaoke|accompaniment|piano version|guitar version/i.test(title))
     return null;
-  const m = title.match(PSALM_RE);
+  const m =
+    title.match(PSALM_RE) ??
+    title.match(PSALM_PARENS_RE) ??
+    title.match(PSALM_PREFIX_RE);
   if (!m) return null;
   const n = parseInt(m[1], 10);
   if (n < 1 || n > 150) return null;

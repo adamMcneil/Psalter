@@ -21,6 +21,16 @@
       "durationSec": 189
     },
     {
+      "id": "crown-covena-001-6bSRjb",
+      "psalm": 1,
+      "title": "Psalm 1b",
+      "artist": "Crown & Covenant",
+      "album": "Sing a New Song: Selections from the Book of Psalms for Singing",
+      "spotifyUrl": "https://open.spotify.com/track/6bSRjbvLxLRh8pCB5VNG2b",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734af2aff167c7bed2f59a58d9",
+      "durationSec": 156
+    },
+    {
       "id": "joe-stout-001-24545S",
       "psalm": 1,
       "title": "Blest Is the Man Who Does Not Walk (Psalm 1)",
@@ -99,16 +109,6 @@
       "spotifyUrl": "https://open.spotify.com/track/0U4Yx0tIPf7r2DdLUbJKJb",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27367e3578e0583d31a7db6ae5b",
       "durationSec": 197
-    },
-    {
-      "id": "streetlights-001-69U5zW",
-      "psalm": 1,
-      "title": "Psalm 1",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/69U5zWTAtBMkp2lMEn5Znf",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 68
     },
     {
       "id": "the-corner-r-001-1jt3io",
@@ -191,6 +191,16 @@
       "durationSec": 251
     },
     {
+      "id": "crown-covena-002-7qtIUT",
+      "psalm": 2,
+      "title": "Why Do Gentile Nations Rage? (Psalm 2c)",
+      "artist": "Crown & Covenant",
+      "album": "Zion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/7qtIUTMKBx4y0jFMndQdR2",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27344acf7cec4b034afef0002cc",
+      "durationSec": 196
+    },
+    {
       "id": "my-soul-amon-002-6UYZR5",
       "psalm": 2,
       "title": "He Will Rage (Psalm 2)",
@@ -219,16 +229,6 @@
       "spotifyUrl": "https://open.spotify.com/track/5tdtGgMP3qgSiwqol4Wpgk",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 312
-    },
-    {
-      "id": "streetlights-002-0RhH7H",
-      "psalm": 2,
-      "title": "Psalm 2",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/0RhH7HsbXm7KzHDBVlddli",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 120
     },
     {
       "id": "the-psalms-p-002-2pMUJ2",
@@ -291,6 +291,16 @@
       "durationSec": 216
     },
     {
+      "id": "crown-covena-003-7IzdPp",
+      "psalm": 3,
+      "title": "Lord, How My Foes Are Multiplied (Psalm 3B)",
+      "artist": "Crown & Covenant",
+      "album": "Refuge: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/7IzdPpZHHAU5PoAhVOSRFU",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27347330daa1edee11c0b26e523",
+      "durationSec": 152
+    },
+    {
       "id": "my-soul-amon-003-1RCZqV",
       "psalm": 3,
       "title": "You Are My Shield (Psalm 3)",
@@ -341,16 +351,6 @@
       "durationSec": 150
     },
     {
-      "id": "streetlights-003-5QoDnb",
-      "psalm": 3,
-      "title": "Psalm 3",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/5QoDnbuhA6q1rjImdS08Nt",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 84
-    },
-    {
       "id": "the-psalms-p-003-5yz1WG",
       "psalm": 3,
       "title": "Psalm 3: Lifter of My Head",
@@ -379,6 +379,26 @@
       "spotifyUrl": "https://open.spotify.com/track/0uMSjwnkLsZrknXNvhwn1T",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27389649eb0cd96c767303340cc",
       "durationSec": 218
+    },
+    {
+      "id": "crown-covena-004-1vb6YG",
+      "psalm": 4,
+      "title": "Answer When I Call (Psalm 4b)",
+      "artist": "Crown & Covenant",
+      "album": "Communion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/1vb6YGuX5kGgRjTZ2PuN9C",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734adaba5d792a9cf0fdef2a7d",
+      "durationSec": 184
+    },
+    {
+      "id": "crown-covena-004-4rBkNX",
+      "psalm": 4,
+      "title": "Give Answer When I Call (Psalm 4a)",
+      "artist": "Crown & Covenant",
+      "album": "Trust: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/4rBkNXL5qvWWeDzg60Thc0",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2737369aa0bdde70be5c6d25e18",
+      "durationSec": 220
     },
     {
       "id": "my-soul-amon-004-5d7dUf",
@@ -421,16 +441,6 @@
       "durationSec": 293
     },
     {
-      "id": "streetlights-004-3JXM20",
-      "psalm": 4,
-      "title": "Psalm 4",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/3JXM20dtPWGqaEnnZAz4Qa",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 83
-    },
-    {
       "id": "the-corner-r-004-6GZTMZ",
       "psalm": 4,
       "title": "Psalm 4 (English Standard Version)",
@@ -459,6 +469,26 @@
       "spotifyUrl": "https://open.spotify.com/track/3lRR5WsNqXTaTgaTHx4oDH",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2732871fc77894dcf67c2ac4757",
       "durationSec": 169
+    },
+    {
+      "id": "crown-covena-005-5zAPYM",
+      "psalm": 5,
+      "title": "Listen to My Words, O Lord (Psalm 5b)",
+      "artist": "Crown & Covenant",
+      "album": "Trust: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/5zAPYMrVKX0IPZuDbPwwrC",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2737369aa0bdde70be5c6d25e18",
+      "durationSec": 243
+    },
+    {
+      "id": "crown-covena-005-6J0IpB",
+      "psalm": 5,
+      "title": "Listen to My Words, O Lord (Psalm 5c)",
+      "artist": "Crown & Covenant",
+      "album": "Abundance: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/6J0IpBrxIOFW3LvSDCiSdP",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27323abc3895dbe15d7ccafe92a",
+      "durationSec": 165
     },
     {
       "id": "gregory-wilb-005-11ObZ4",
@@ -499,16 +529,6 @@
       "spotifyUrl": "https://open.spotify.com/track/6RDCBh86feGGvWEXg9H6LM",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 203
-    },
-    {
-      "id": "streetlights-005-29yZPG",
-      "psalm": 5,
-      "title": "Psalm 5",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/29yZPGDy3TcwpkM7JrM5SA",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 134
     },
     {
       "id": "the-psalms-p-005-64nBrN",
@@ -561,6 +581,16 @@
       "durationSec": 347
     },
     {
+      "id": "crown-covena-006-27ILlR",
+      "psalm": 6,
+      "title": "6b: Be Gracious, Lord",
+      "artist": "Crown & Covenant",
+      "album": "Restoration: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/27ILlRiq7teN9m5quWSzbw",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2735ef1c168130a22257854210f",
+      "durationSec": 142
+    },
+    {
       "id": "joe-stout-006-7bZlrX",
       "psalm": 6,
       "title": "In Anger LORD, Rebuke Me Not (Psalm 6)",
@@ -601,16 +631,6 @@
       "durationSec": 192
     },
     {
-      "id": "streetlights-006-129gaV",
-      "psalm": 6,
-      "title": "Psalm 6",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/129gaVhgLZ2d1E1XbDxvta",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 94
-    },
-    {
       "id": "the-psalms-p-006-6OX3AI",
       "psalm": 6,
       "title": "Psalm 6: Heal Me",
@@ -619,6 +639,16 @@
       "spotifyUrl": "https://open.spotify.com/track/6OX3AIFae2W3y4DRY4lyq3",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2737169884e62c82847a47306c2",
       "durationSec": 363
+    },
+    {
+      "id": "crown-covena-007-1bwVLq",
+      "psalm": 7,
+      "title": "O Lord, My God, I Take Refuge (Psalm 7a)",
+      "artist": "Crown & Covenant",
+      "album": "Abundance: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/1bwVLq85xBt6J9bxcWpMWu",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27323abc3895dbe15d7ccafe92a",
+      "durationSec": 170
     },
     {
       "id": "my-soul-amon-007-5WfOSa",
@@ -651,16 +681,6 @@
       "durationSec": 297
     },
     {
-      "id": "streetlights-007-0faUn6",
-      "psalm": 7,
-      "title": "Psalm 7",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/0faUn6NgCpeLfQu6ByJS0Y",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 124
-    },
-    {
       "id": "the-psalms-p-007-3DzKxu",
       "psalm": 7,
       "title": "Psalm 7: Vindicate Me",
@@ -669,6 +689,26 @@
       "spotifyUrl": "https://open.spotify.com/track/3DzKxuOciYacDT7OpMnNHW",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2737169884e62c82847a47306c2",
       "durationSec": 317
+    },
+    {
+      "id": "crown-covena-008-6OSEHR",
+      "psalm": 8,
+      "title": "Lord, Our Lord (Psalm 8b)",
+      "artist": "Crown & Covenant",
+      "album": "Glory: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/6OSEHR3gSPQ46fI9fmoLX5",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273a875e583a8b14d21f3c2cf49",
+      "durationSec": 113
+    },
+    {
+      "id": "crown-covena-008-7iNDhs",
+      "psalm": 8,
+      "title": "O Lord, Our Lord (Psalm 8c)",
+      "artist": "Crown & Covenant",
+      "album": "Glory: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/7iNDhs367sOCwdqyCQ1PEE",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273a875e583a8b14d21f3c2cf49",
+      "durationSec": 211
     },
     {
       "id": "joe-stout-008-471hBL",
@@ -751,16 +791,6 @@
       "durationSec": 262
     },
     {
-      "id": "streetlights-008-29dMwa",
-      "psalm": 8,
-      "title": "Psalm 8",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/29dMwadSmV9OPjZDyloc4l",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 111
-    },
-    {
       "id": "the-corner-r-008-1BKzJe",
       "psalm": 8,
       "title": "Psalm 8",
@@ -791,6 +821,26 @@
       "durationSec": 214
     },
     {
+      "id": "crown-covena-009-3Zpf66",
+      "psalm": 9,
+      "title": "I Now Will Give Wholehearted Thanks (Psalm 9a)",
+      "artist": "Crown & Covenant",
+      "album": "Trust: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/3Zpf66PYDuVFIVTDIov8r8",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2737369aa0bdde70be5c6d25e18",
+      "durationSec": 152
+    },
+    {
+      "id": "crown-covena-009-2nu0Fv",
+      "psalm": 9,
+      "title": "Sing Praise to the Lord (Psalm 9b)",
+      "artist": "Crown & Covenant",
+      "album": "Zion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/2nu0FvQLBAQncKsvBsbq34",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27344acf7cec4b034afef0002cc",
+      "durationSec": 167
+    },
+    {
       "id": "my-soul-amon-009-1XykRe",
       "psalm": 9,
       "title": "Zion's Daughter (Psalm 9)",
@@ -819,16 +869,6 @@
       "spotifyUrl": "https://open.spotify.com/track/7z0iwrS5jCw2YaaS22WntW",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 203
-    },
-    {
-      "id": "streetlights-009-5Zlu5Q",
-      "psalm": 9,
-      "title": "Psalm 9",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/5Zlu5QuL6KHOvdtCk8Bynh",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 146
     },
     {
       "id": "the-psalms-p-009-0D2546",
@@ -891,16 +931,6 @@
       "durationSec": 176
     },
     {
-      "id": "streetlights-010-3ThW0f",
-      "psalm": 10,
-      "title": "Psalm 10",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/3ThW0fuXVpBvU6bXWb6ODi",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 162
-    },
-    {
       "id": "the-psalms-p-010-3jqaeA",
       "psalm": 10,
       "title": "Psalm 10: Yahweh Is King Forever",
@@ -919,6 +949,16 @@
       "spotifyUrl": "https://open.spotify.com/track/5uCdaYtmFKpWKzp93WzcZr",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2730c911d12de5d3eb093942066",
       "durationSec": 193
+    },
+    {
+      "id": "crown-covena-011-6OEm6g",
+      "psalm": 11,
+      "title": "My Trust Is in the Lord (Psalm 11a)",
+      "artist": "Crown & Covenant",
+      "album": "Trust: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/6OEm6goCRhdhx9fV5K3V13",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2737369aa0bdde70be5c6d25e18",
+      "durationSec": 119
     },
     {
       "id": "liturgical-f-011-1gjQQM",
@@ -961,16 +1001,6 @@
       "durationSec": 238
     },
     {
-      "id": "streetlights-011-4kaR5Y",
-      "psalm": 11,
-      "title": "Psalm 11",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/4kaR5YvxfQLRzd5NSqmZ2k",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 77
-    },
-    {
       "id": "the-corner-r-011-56ASbI",
       "psalm": 11,
       "title": "Psalm 11 (English Standard Version)",
@@ -1011,16 +1041,6 @@
       "durationSec": 349
     },
     {
-      "id": "streetlights-012-29xzB0",
-      "psalm": 12,
-      "title": "Psalm 12",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/29xzB0boGsxs200mJMGmb7",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 97
-    },
-    {
       "id": "the-corner-r-012-0OuzBs",
       "psalm": 12,
       "title": "Psalm 12",
@@ -1059,6 +1079,16 @@
       "spotifyUrl": "https://open.spotify.com/track/5z9cY7pE5GaUCBO5dCs7FN",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2730b82e3f9c82ab990f02dd0f2",
       "durationSec": 186
+    },
+    {
+      "id": "crown-covena-013-6U99Bl",
+      "psalm": 13,
+      "title": "How Long Will You Forget Me, Lord? (Psalm 13a)",
+      "artist": "Crown & Covenant",
+      "album": "Trust: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/6U99BlmgTsgaRWRJkVHwtZ",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2737369aa0bdde70be5c6d25e18",
+      "durationSec": 101
     },
     {
       "id": "my-soul-amon-013-4vEBGg",
@@ -1131,16 +1161,6 @@
       "durationSec": 247
     },
     {
-      "id": "streetlights-013-4lSECf",
-      "psalm": 13,
-      "title": "Psalm 13",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/4lSECfsVhAyEhXtaE3NuTN",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 71
-    },
-    {
       "id": "the-corner-r-013-4NDlTN",
       "psalm": 13,
       "title": "Psalm 13",
@@ -1169,6 +1189,26 @@
       "spotifyUrl": "https://open.spotify.com/track/1SB1o5rGRHLxqb1xv9hZLi",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27389649eb0cd96c767303340cc",
       "durationSec": 157
+    },
+    {
+      "id": "crown-covena-014-7489bH",
+      "psalm": 14,
+      "title": "Within His Heart the Fool Speaks (Psalm 14b)",
+      "artist": "Crown & Covenant",
+      "album": "Zion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/7489bH9ZFDZeCAOcVOrc8I",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27344acf7cec4b034afef0002cc",
+      "durationSec": 127
+    },
+    {
+      "id": "crown-covena-014-2qhkyq",
+      "psalm": 14,
+      "title": "Within His Heart the Fool Spoke (Psalm 14a)",
+      "artist": "Crown & Covenant",
+      "album": "Abundance: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/2qhkyqLlridgw5OJOrNUhk",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27323abc3895dbe15d7ccafe92a",
+      "durationSec": 153
     },
     {
       "id": "my-soul-amon-014-5hoxNZ",
@@ -1201,16 +1241,6 @@
       "durationSec": 211
     },
     {
-      "id": "streetlights-014-3XQAVl",
-      "psalm": 14,
-      "title": "Psalm 14",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/3XQAVltBVOPvahW19FrY85",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 70
-    },
-    {
       "id": "the-psalms-p-014-2RHLLV",
       "psalm": 14,
       "title": "Psalm 14: The Fool Has Said",
@@ -1239,16 +1269,6 @@
       "spotifyUrl": "https://open.spotify.com/track/4V8GPcRLGlLkWINLbjKxlJ",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 184
-    },
-    {
-      "id": "streetlights-015-6SkoE5",
-      "psalm": 15,
-      "title": "Psalm 15",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/6SkoE5tVtLhMDErQfBXF7J",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 63
     },
     {
       "id": "the-corner-r-015-5tZ8fB",
@@ -1291,6 +1311,36 @@
       "durationSec": 233
     },
     {
+      "id": "crown-covena-016-4CniFw",
+      "psalm": 16,
+      "title": "I Am the Resurrection and the Life (Psalm 16c)",
+      "artist": "Crown & Covenant",
+      "album": "I Am: Kids Sing Psalms!",
+      "spotifyUrl": "https://open.spotify.com/track/4CniFw9gzZLwNq89VQiDqH",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273195938a90471e46db4370480",
+      "durationSec": 203
+    },
+    {
+      "id": "crown-covena-016-6NT7nQ",
+      "psalm": 16,
+      "title": "Keep Me, O God (Psalm 16a)",
+      "artist": "Crown & Covenant",
+      "album": "Trust: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/6NT7nQxweXBOk8Qz6RJAN8",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2737369aa0bdde70be5c6d25e18",
+      "durationSec": 102
+    },
+    {
+      "id": "crown-covena-016-40SASY",
+      "psalm": 16,
+      "title": "Keep Me, O God (Psalm 16e)",
+      "artist": "Crown & Covenant",
+      "album": "Communion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/40SASYNWi9AC95tvbj0LG4",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734adaba5d792a9cf0fdef2a7d",
+      "durationSec": 199
+    },
+    {
       "id": "my-soul-amon-016-51hlMz",
       "psalm": 16,
       "title": "Fullness of Joy (Psalm 16)",
@@ -1329,16 +1379,6 @@
       "spotifyUrl": "https://open.spotify.com/track/1o183oAaUbloCxDnLgnHYA",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2739665b35e5ccb120d20240fd0",
       "durationSec": 447
-    },
-    {
-      "id": "streetlights-016-4xuXjd",
-      "psalm": 16,
-      "title": "Psalm 16",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/4xuXjdQfJmw0K2NOGopwky",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 96
     },
     {
       "id": "the-corner-r-016-05S93O",
@@ -1411,16 +1451,6 @@
       "durationSec": 253
     },
     {
-      "id": "streetlights-017-2t7H8D",
-      "psalm": 17,
-      "title": "Psalm 17",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/2t7H8Dfrt0qwNadUH7sPUw",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 117
-    },
-    {
       "id": "the-psalms-p-017-3gOXm1",
       "psalm": 17,
       "title": "Psalm 17: The Apple of Your Eye",
@@ -1471,16 +1501,6 @@
       "durationSec": 208
     },
     {
-      "id": "streetlights-018-2vSj3s",
-      "psalm": 18,
-      "title": "Psalm 18",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/2vSj3sNwdvqFZdWczG60vx",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 396
-    },
-    {
       "id": "the-psalms-p-018-3vplfV",
       "psalm": 18,
       "title": "Psalm 18: He Delights in Me",
@@ -1501,6 +1521,16 @@
       "durationSec": 266
     },
     {
+      "id": "crown-covena-019-1cciym",
+      "psalm": 19,
+      "title": "The Skies Above (Psalm 19a)",
+      "artist": "Crown & Covenant",
+      "album": "Glory: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/1cciymOaevecAscy2pXcAc",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273a875e583a8b14d21f3c2cf49",
+      "durationSec": 90
+    },
+    {
       "id": "my-soul-amon-019-5JQ9TR",
       "psalm": 19,
       "title": "Satisfy My Soul (Psalm 19)",
@@ -1519,16 +1549,6 @@
       "spotifyUrl": "https://open.spotify.com/track/6GlfaSX2lDUyMBbEYa8VSK",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 273
-    },
-    {
-      "id": "streetlights-019-2xwbU0",
-      "psalm": 19,
-      "title": "Psalm 19",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/2xwbU00R6MBRSdYUV6xuaM",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 156
     },
     {
       "id": "the-corner-r-019-5Sak9N",
@@ -1651,16 +1671,6 @@
       "durationSec": 248
     },
     {
-      "id": "streetlights-020-2bbkhm",
-      "psalm": 20,
-      "title": "Psalm 20",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/2bbkhm9XVdS4O9QylKLkq9",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 84
-    },
-    {
       "id": "the-psalms-p-020-3Y5c46",
       "psalm": 20,
       "title": "Psalm 20: We Will Trust",
@@ -1699,16 +1709,6 @@
       "spotifyUrl": "https://open.spotify.com/track/7F8OhQe60UuysT0fn5cyzV",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 108
-    },
-    {
-      "id": "streetlights-021-6cjoCw",
-      "psalm": 21,
-      "title": "Psalm 21",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/6cjoCw2Swbpe7b28t3ykcw",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 111
     },
     {
       "id": "the-psalms-p-021-1KToph",
@@ -1759,16 +1759,6 @@
       "spotifyUrl": "https://open.spotify.com/track/646pOsTpoVRrrH36KfiI30",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 429
-    },
-    {
-      "id": "streetlights-022-4fTZwe",
-      "psalm": 22,
-      "title": "Psalm 22",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/4fTZweIS2g5NSNnYEdbFlR",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 255
     },
     {
       "id": "the-psalms-p-022-0aFMsz",
@@ -1829,6 +1819,36 @@
       "spotifyUrl": "https://open.spotify.com/track/5isl30AWpU5ikMp0jyTTXn",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27304e49fef6fc7370ea26ffbcd",
       "durationSec": 259
+    },
+    {
+      "id": "crown-covena-023-4wJWFO",
+      "psalm": 23,
+      "title": "I Am the Good Shepherd (Psalm 23c)",
+      "artist": "Crown & Covenant",
+      "album": "I Am: Kids Sing Psalms!",
+      "spotifyUrl": "https://open.spotify.com/track/4wJWFOw4ok5RhDmfpth1UG",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273195938a90471e46db4370480",
+      "durationSec": 168
+    },
+    {
+      "id": "crown-covena-023-66lxI7",
+      "psalm": 23,
+      "title": "Psalm 23d",
+      "artist": "Crown & Covenant",
+      "album": "Sing a New Song: Selections from the Book of Psalms for Singing",
+      "spotifyUrl": "https://open.spotify.com/track/66lxI7wIZode3rCKcVtGsl",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734af2aff167c7bed2f59a58d9",
+      "durationSec": 144
+    },
+    {
+      "id": "crown-covena-023-2WwXN8",
+      "psalm": 23,
+      "title": "The Lord Is My Shepherd (Psalm 23d)",
+      "artist": "Crown & Covenant",
+      "album": "Communion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/2WwXN8tVxzthxN4Lr71FKq",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734adaba5d792a9cf0fdef2a7d",
+      "durationSec": 75
     },
     {
       "id": "keith-green-023-2b5hbr",
@@ -1899,16 +1919,6 @@
       "spotifyUrl": "https://open.spotify.com/track/4jEHmsFNpbw8qXBA5icyrF",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27391e505398eb4c6a28d3a8039",
       "durationSec": 234
-    },
-    {
-      "id": "streetlights-023-66PSJi",
-      "psalm": 23,
-      "title": "Psalm 23",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/66PSJi7w6nJJwqzwhKepQn",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 81
     },
     {
       "id": "the-corner-r-023-3pI8th",
@@ -1990,6 +2000,16 @@
       "durationSec": 159
     },
     {
+      "id": "crown-covena-024-5hx6mZ",
+      "psalm": 24,
+      "title": "Psalm 24c",
+      "artist": "Crown & Covenant",
+      "album": "Sing a New Song: Selections from the Book of Psalms for Singing",
+      "spotifyUrl": "https://open.spotify.com/track/5hx6mZ7M0IjJue7esjEimS",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734af2aff167c7bed2f59a58d9",
+      "durationSec": 180
+    },
+    {
       "id": "my-soul-amon-024-1xBbc2",
       "psalm": 24,
       "title": "King of Glory (Psalm 24)",
@@ -2028,16 +2048,6 @@
       "spotifyUrl": "https://open.spotify.com/track/56TnIW7W9fKT5PcUGlsPj3",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 284
-    },
-    {
-      "id": "streetlights-024-0sNzfh",
-      "psalm": 24,
-      "title": "Psalm 24",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/0sNzfh2GfLElqrZBaPAA6H",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 81
     },
     {
       "id": "the-psalms-p-024-2MH737",
@@ -2100,6 +2110,36 @@
       "durationSec": 299
     },
     {
+      "id": "crown-covena-025-1L57mp",
+      "psalm": 25,
+      "title": "Be Gracious, Turn to Me (Psalm 25c)",
+      "artist": "Crown & Covenant",
+      "album": "Communion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/1L57mpiBzF2EYPvHL9QNYU",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734adaba5d792a9cf0fdef2a7d",
+      "durationSec": 116
+    },
+    {
+      "id": "crown-covena-025-5GvEJL",
+      "psalm": 25,
+      "title": "The Lord Is Good and Just (Psalm 25b)",
+      "artist": "Crown & Covenant",
+      "album": "Communion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/5GvEJLgFV3seUqu1wmmjRn",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734adaba5d792a9cf0fdef2a7d",
+      "durationSec": 131
+    },
+    {
+      "id": "crown-covena-025-6ZfNCS",
+      "psalm": 25,
+      "title": "To You I Lift My Soul (Psalm 25a)",
+      "artist": "Crown & Covenant",
+      "album": "Communion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/6ZfNCS6NBnD2wjaULoHSQF",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734adaba5d792a9cf0fdef2a7d",
+      "durationSec": 175
+    },
+    {
       "id": "my-soul-amon-025-7rqCsa",
       "psalm": 25,
       "title": "Lead Me, Lord (Psalm 25)",
@@ -2150,16 +2190,6 @@
       "durationSec": 106
     },
     {
-      "id": "streetlights-025-6vPggv",
-      "psalm": 25,
-      "title": "Psalm 25",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/6vPggvtADAL2HKyOTcQu9C",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 182
-    },
-    {
       "id": "the-psalms-p-025-3DY1RT",
       "psalm": 25,
       "title": "Psalm 25 (Show Me Your Ways)",
@@ -2168,6 +2198,16 @@
       "spotifyUrl": "https://open.spotify.com/track/3DY1RTJiLjDvuhoH2hSO8f",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273de81e6382063da3fea647463",
       "durationSec": 506
+    },
+    {
+      "id": "crown-covena-026-4getY4",
+      "psalm": 26,
+      "title": "Lord, Vindicate Me (Psalm 26a)",
+      "artist": "Crown & Covenant",
+      "album": "Trust: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/4getY4UBib3McFmkNdK60I",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2737369aa0bdde70be5c6d25e18",
+      "durationSec": 163
     },
     {
       "id": "my-soul-amon-026-2MYwwW",
@@ -2190,16 +2230,6 @@
       "durationSec": 233
     },
     {
-      "id": "streetlights-026-1SoVuE",
-      "psalm": 26,
-      "title": "Psalm 26",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/1SoVuEokU60Mk6SGgVykio",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 122
-    },
-    {
       "id": "the-psalms-p-026-3l8z9J",
       "psalm": 26,
       "title": "Psalm 26 (Judge Me)",
@@ -2208,6 +2238,36 @@
       "spotifyUrl": "https://open.spotify.com/track/3l8z9J2X32RaCtd6oycTP3",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273de81e6382063da3fea647463",
       "durationSec": 236
+    },
+    {
+      "id": "crown-covena-027-1Z0E3P",
+      "psalm": 27,
+      "title": "O Hear My Voice, Lord (Psalm 27c)",
+      "artist": "Crown & Covenant",
+      "album": "Communion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/1Z0E3Pzny7ygxoJnORJcLt",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734adaba5d792a9cf0fdef2a7d",
+      "durationSec": 100
+    },
+    {
+      "id": "crown-covena-027-0xJeQu",
+      "psalm": 27,
+      "title": "Psalm 27c",
+      "artist": "Crown & Covenant",
+      "album": "Sing a New Song: Selections from the Book of Psalms for Singing",
+      "spotifyUrl": "https://open.spotify.com/track/0xJeQuTEC7OcpISrEfGKtR",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734af2aff167c7bed2f59a58d9",
+      "durationSec": 122
+    },
+    {
+      "id": "crown-covena-027-1S5wPO",
+      "psalm": 27,
+      "title": "The Lord Is My Light and My Salvation (Psalm 27A)",
+      "artist": "Crown & Covenant",
+      "album": "Refuge: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/1S5wPOAqyywP8jlwFxAvPe",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27347330daa1edee11c0b26e523",
+      "durationSec": 65
     },
     {
       "id": "gregory-wilb-027-1p3PaP",
@@ -2260,14 +2320,14 @@
       "durationSec": 310
     },
     {
-      "id": "streetlights-027-08UDwU",
+      "id": "sons-of-kora-027-48XE0T",
       "psalm": 27,
-      "title": "Psalm 27",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/08UDwUMfYbBrtqS3mvrQVi",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 156
+      "title": "Psalm 27b",
+      "artist": "Sons of Korah",
+      "album": "Psalm 27b",
+      "spotifyUrl": "https://open.spotify.com/track/48XE0T1VbGJDZAbIDQRLFC",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273f0edaa02bea693898a8083df",
+      "durationSec": 269
     },
     {
       "id": "the-psalms-p-027-0lsczP",
@@ -2320,6 +2380,16 @@
       "durationSec": 216
     },
     {
+      "id": "crown-covena-028-2fXTe6",
+      "psalm": 28,
+      "title": "Lord, I Call on You (Psalm 28a)",
+      "artist": "Crown & Covenant",
+      "album": "Abundance: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/2fXTe6cAfg66r9cO9HYIOF",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27323abc3895dbe15d7ccafe92a",
+      "durationSec": 193
+    },
+    {
       "id": "my-soul-amon-028-62doD5",
       "psalm": 28,
       "title": "Carry Me (Psalm 28)",
@@ -2338,16 +2408,6 @@
       "spotifyUrl": "https://open.spotify.com/track/7kFOTBzcNMdi2lA3PuJVVC",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 188
-    },
-    {
-      "id": "streetlights-028-6SY8Tm",
-      "psalm": 28,
-      "title": "Psalm 28",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/6SY8TmAxDQFevz77XVIa8W",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 94
     },
     {
       "id": "the-psalms-p-028-4XXYB2",
@@ -2420,16 +2480,6 @@
       "durationSec": 248
     },
     {
-      "id": "streetlights-029-3M6f8A",
-      "psalm": 29,
-      "title": "Psalm 29",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/3M6f8AnptoDt3vtyB3NYkk",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 108
-    },
-    {
       "id": "the-psalms-p-029-5fDjuQ",
       "psalm": 29,
       "title": "Psalm 29 (The Voice of the Lord)",
@@ -2438,6 +2488,16 @@
       "spotifyUrl": "https://open.spotify.com/track/5fDjuQNmvw9i8rVlAlPKvz",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273de81e6382063da3fea647463",
       "durationSec": 370
+    },
+    {
+      "id": "crown-covena-030-0Egzbf",
+      "psalm": 30,
+      "title": "O Lord, I Will Exalt You (Psalm 30B)",
+      "artist": "Crown & Covenant",
+      "album": "Refuge: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/0EgzbfbDVMlh9bePtXHgSm",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27347330daa1edee11c0b26e523",
+      "durationSec": 217
     },
     {
       "id": "my-soul-amon-030-6CqKKz",
@@ -2458,16 +2518,6 @@
       "spotifyUrl": "https://open.spotify.com/track/5oe04QiHUmh812NdasDsHv",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 246
-    },
-    {
-      "id": "streetlights-030-1R7ivs",
-      "psalm": 30,
-      "title": "Psalm 30",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/1R7ivsG9NLUvYcRDJA3nOy",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 111
     },
     {
       "id": "the-corner-r-030-5MCnhT",
@@ -2500,6 +2550,36 @@
       "durationSec": 250
     },
     {
+      "id": "crown-covena-031-2ZEG03",
+      "psalm": 31,
+      "title": "How Great the Good (Psalm 31d)",
+      "artist": "Crown & Covenant",
+      "album": "Trust: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/2ZEG036u5TYp0xfazowd35",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2737369aa0bdde70be5c6d25e18",
+      "durationSec": 113
+    },
+    {
+      "id": "crown-covena-031-2pwH4J",
+      "psalm": 31,
+      "title": "O Lord, Be Gracious to Me (Psalm 31c)",
+      "artist": "Crown & Covenant",
+      "album": "Trust: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/2pwH4JyjpzXIuAHSeL3lW5",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2737369aa0bdde70be5c6d25e18",
+      "durationSec": 167
+    },
+    {
+      "id": "crown-covena-031-4dYBuN",
+      "psalm": 31,
+      "title": "Psalm 31f",
+      "artist": "Crown & Covenant",
+      "album": "Sing a New Song: Selections from the Book of Psalms for Singing",
+      "spotifyUrl": "https://open.spotify.com/track/4dYBuN9LTfTbsIQ6rOpeUB",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734af2aff167c7bed2f59a58d9",
+      "durationSec": 159
+    },
+    {
       "id": "poor-bishop--031-4hZUKj",
       "psalm": 31,
       "title": "Psalm 31",
@@ -2508,16 +2588,6 @@
       "spotifyUrl": "https://open.spotify.com/track/4hZUKjQVngdDaqKEAu45Bh",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 244
-    },
-    {
-      "id": "streetlights-031-1AuaZ7",
-      "psalm": 31,
-      "title": "Psalm 31",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/1AuaZ7uZTGESl28aranacl",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 226
     },
     {
       "id": "the-psalms-p-031-1KkYlq",
@@ -2560,6 +2630,26 @@
       "durationSec": 321
     },
     {
+      "id": "crown-covena-032-0TBlhs",
+      "psalm": 32,
+      "title": "32a: What Blessedness",
+      "artist": "Crown & Covenant",
+      "album": "Restoration: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/0TBlhsjEPKtIEmoS1PV6iM",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2735ef1c168130a22257854210f",
+      "durationSec": 151
+    },
+    {
+      "id": "crown-covena-032-5Rw0Sh",
+      "psalm": 32,
+      "title": "32b: Instruction I Will Give to You",
+      "artist": "Crown & Covenant",
+      "album": "Restoration: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/5Rw0ShtoCpzf1tVb7D5XZS",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2735ef1c168130a22257854210f",
+      "durationSec": 91
+    },
+    {
       "id": "gregory-wilb-032-14ztIU",
       "psalm": 32,
       "title": "Psalm 32: Blest Is Tha Man",
@@ -2588,16 +2678,6 @@
       "spotifyUrl": "https://open.spotify.com/track/42IGHJRz13fzxHGjc3c54h",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 279
-    },
-    {
-      "id": "streetlights-032-01TKRM",
-      "psalm": 32,
-      "title": "Psalm 32",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/01TKRMla4BI8rCo4TvqdIm",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 128
     },
     {
       "id": "tcr-032",
@@ -2700,6 +2780,36 @@
       "durationSec": 211
     },
     {
+      "id": "crown-covena-033-0iavhV",
+      "psalm": 33,
+      "title": "Psalm 33a",
+      "artist": "Crown & Covenant",
+      "album": "Sing a New Song: Selections from the Book of Psalms for Singing",
+      "spotifyUrl": "https://open.spotify.com/track/0iavhVcZxDR4ylBShuRg2B",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734af2aff167c7bed2f59a58d9",
+      "durationSec": 142
+    },
+    {
+      "id": "crown-covena-033-52RsgW",
+      "psalm": 33,
+      "title": "The Lord by His Word Has Created (33C)",
+      "artist": "Crown & Covenant",
+      "album": "Covenant: Selections From the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/52RsgWiEBOXZXrCGo19spv",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273ceed2d289f86a20a14eb6f66",
+      "durationSec": 271
+    },
+    {
+      "id": "crown-covena-033-3mQRuo",
+      "psalm": 33,
+      "title": "With Gladness in the Lord (33B)",
+      "artist": "Crown & Covenant",
+      "album": "Covenant: Selections From the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/3mQRuoAH4hrDdzsivS8DEh",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273ceed2d289f86a20a14eb6f66",
+      "durationSec": 125
+    },
+    {
       "id": "nathan-clark-033-4t6Nfp",
       "psalm": 33,
       "title": "Alleluia! Sing for Joy (Psalm 33)",
@@ -2718,16 +2828,6 @@
       "spotifyUrl": "https://open.spotify.com/track/6tUgoaCKziqfbINhNHpbNG",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 165
-    },
-    {
-      "id": "streetlights-033-1EObti",
-      "psalm": 33,
-      "title": "Psalm 33",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/1EObti6fGBbrZRvLgKztMA",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 150
     },
     {
       "id": "the-psalms-p-033-4yfuLA",
@@ -2780,6 +2880,26 @@
       "durationSec": 168
     },
     {
+      "id": "crown-covena-034-5gG0rO",
+      "psalm": 34,
+      "title": "I Will at All Times Bless the Lord (Psalm 34B)",
+      "artist": "Crown & Covenant",
+      "album": "Refuge: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/5gG0rO4cu9GY0whezvgWyY",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27347330daa1edee11c0b26e523",
+      "durationSec": 120
+    },
+    {
+      "id": "crown-covena-034-0tC7lk",
+      "psalm": 34,
+      "title": "Psalm 34c",
+      "artist": "Crown & Covenant",
+      "album": "Sing a New Song: Selections from the Book of Psalms for Singing",
+      "spotifyUrl": "https://open.spotify.com/track/0tC7lkcwMieW1tFPlc5hTE",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734af2aff167c7bed2f59a58d9",
+      "durationSec": 156
+    },
+    {
       "id": "pbh-034",
       "psalm": 34,
       "title": "Psalm 34",
@@ -2818,16 +2938,6 @@
       "spotifyUrl": "https://open.spotify.com/track/4JDmqxJrJS9FoMPzWmILkQ",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2736cdb7a72bbf98fe789c5c516",
       "durationSec": 327
-    },
-    {
-      "id": "streetlights-034-5DUKU9",
-      "psalm": 34,
-      "title": "psalm 34",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/5DUKU9uxiaVlYfYGbFWJcp",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 169
     },
     {
       "id": "the-psalms-p-034-5P2n2Y",
@@ -2920,16 +3030,6 @@
       "durationSec": 226
     },
     {
-      "id": "streetlights-035-7EOC17",
-      "psalm": 35,
-      "title": "Psalm 35",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/7EOC17xGNZ8zKOXwVhDfyP",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 282
-    },
-    {
       "id": "the-psalms-p-035-6MQX26",
       "psalm": 35,
       "title": "Psalm 35 (Awake, O Lord)",
@@ -2940,6 +3040,26 @@
       "durationSec": 408
     },
     {
+      "id": "crown-covena-036-3RvnNW",
+      "psalm": 36,
+      "title": "About the Wicked (Psalm 36c)",
+      "artist": "Crown & Covenant",
+      "album": "Trust: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/3RvnNWbL9AvQsJBE8lBkyi",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2737369aa0bdde70be5c6d25e18",
+      "durationSec": 199
+    },
+    {
+      "id": "crown-covena-036-48AiP5",
+      "psalm": 36,
+      "title": "I Am the Bread of Life (Psalm 36b)",
+      "artist": "Crown & Covenant",
+      "album": "I Am: Kids Sing Psalms!",
+      "spotifyUrl": "https://open.spotify.com/track/48AiP5jybTpaEXn4nSJs1a",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273195938a90471e46db4370480",
+      "durationSec": 136
+    },
+    {
       "id": "poor-bishop--036-1ANXib",
       "psalm": 36,
       "title": "Psalm 36",
@@ -2948,16 +3068,6 @@
       "spotifyUrl": "https://open.spotify.com/track/1ANXibteoqTedkGMaZdQR2",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 217
-    },
-    {
-      "id": "streetlights-036-0jSQwu",
-      "psalm": 36,
-      "title": "Psalm 36",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/0jSQwusu9j6DT5gbBDHh4k",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 114
     },
     {
       "id": "the-psalms-p-036-4qCGm9",
@@ -3020,6 +3130,56 @@
       "durationSec": 279
     },
     {
+      "id": "crown-covena-037-6svqGm",
+      "psalm": 37,
+      "title": "Do Not Be Angry (Psalm 37a)",
+      "artist": "Crown & Covenant",
+      "album": "Trust: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/6svqGm26kKwqTfbtK085zt",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2737369aa0bdde70be5c6d25e18",
+      "durationSec": 190
+    },
+    {
+      "id": "crown-covena-037-2yr8pG",
+      "psalm": 37,
+      "title": "Steps a Man Takes (Psalm 37c)",
+      "artist": "Crown & Covenant",
+      "album": "Trust: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/2yr8pGL1wXoxmyehGuI9Hv",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2737369aa0bdde70be5c6d25e18",
+      "durationSec": 136
+    },
+    {
+      "id": "crown-covena-037-1nxgJt",
+      "psalm": 37,
+      "title": "Steps a Man Takes (Psalm 37c)",
+      "artist": "Crown & Covenant",
+      "album": "Abundance: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/1nxgJtP5mEV9P83DWPxTNQ",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27323abc3895dbe15d7ccafe92a",
+      "durationSec": 126
+    },
+    {
+      "id": "crown-covena-037-65UjqM",
+      "psalm": 37,
+      "title": "Though the Wicked Hound the Righteous (Psalm 37d)",
+      "artist": "Crown & Covenant",
+      "album": "Trust: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/65UjqMPniWpoRAs9eTWd8E",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2737369aa0bdde70be5c6d25e18",
+      "durationSec": 114
+    },
+    {
+      "id": "crown-covena-037-0kg7ow",
+      "psalm": 37,
+      "title": "Wicked Men Against the Righteous (Psalm 37b)",
+      "artist": "Crown & Covenant",
+      "album": "Trust: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/0kg7owqXzwCay0dzPbzYth",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2737369aa0bdde70be5c6d25e18",
+      "durationSec": 118
+    },
+    {
       "id": "pbh-037",
       "psalm": 37,
       "title": "Psalm 37",
@@ -3038,16 +3198,6 @@
       "spotifyUrl": "https://open.spotify.com/track/5ChKJrm8CrGuY5VunaYXpn",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2733d628f26b59517dff6242ba2",
       "durationSec": 128
-    },
-    {
-      "id": "streetlights-037-32FlOG",
-      "psalm": 37,
-      "title": "Psalm 37",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/32FlOGeBDMC2KeXqTyWMvj",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 292
     },
     {
       "id": "the-psalms-p-037-5OMUcd",
@@ -3080,6 +3230,36 @@
       "durationSec": 229
     },
     {
+      "id": "crown-covena-038-1NVZ48",
+      "psalm": 38,
+      "title": "38a: Lord, Do Not in Hot Displeasure Speak",
+      "artist": "Crown & Covenant",
+      "album": "Restoration: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/1NVZ48gaqpL1MkQzS4xqSA",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2735ef1c168130a22257854210f",
+      "durationSec": 111
+    },
+    {
+      "id": "crown-covena-038-31HkgP",
+      "psalm": 38,
+      "title": "38c: You, O Lord, I Have Been Trusting",
+      "artist": "Crown & Covenant",
+      "album": "Restoration: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/31HkgPZN64lojo4nHfCgRg",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2735ef1c168130a22257854210f",
+      "durationSec": 79
+    },
+    {
+      "id": "crown-covena-038-79b7xK",
+      "psalm": 38,
+      "title": "My Desire and Ceaseless Wailing (Psalm 38b)",
+      "artist": "Crown & Covenant",
+      "album": "Abundance: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/79b7xKmwM9EJaIEMD83UWF",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27323abc3895dbe15d7ccafe92a",
+      "durationSec": 90
+    },
+    {
       "id": "poor-bishop--038-6ITGGF",
       "psalm": 38,
       "title": "Psalm 38",
@@ -3088,16 +3268,6 @@
       "spotifyUrl": "https://open.spotify.com/track/6ITGGFTK0HZlNDsXlEdp2q",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 213
-    },
-    {
-      "id": "streetlights-038-2h5acI",
-      "psalm": 38,
-      "title": "Psalm 38",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/2h5acIUpclYbBbvQxzhdDR",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 137
     },
     {
       "id": "tpp-038",
@@ -3110,6 +3280,26 @@
       "durationSec": 354
     },
     {
+      "id": "crown-covena-039-31gYz5",
+      "psalm": 39,
+      "title": "39a: I Said, “i Will Keep Watch”",
+      "artist": "Crown & Covenant",
+      "album": "Restoration: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/31gYz5qEmciVEo6D5vIZXn",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2735ef1c168130a22257854210f",
+      "durationSec": 138
+    },
+    {
+      "id": "crown-covena-039-3lDP9w",
+      "psalm": 39,
+      "title": "39b: and Now, O Lord",
+      "artist": "Crown & Covenant",
+      "album": "Restoration: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/3lDP9wqgCx65gH4LyHCHe1",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2735ef1c168130a22257854210f",
+      "durationSec": 142
+    },
+    {
       "id": "poor-bishop--039-4cE0TZ",
       "psalm": 39,
       "title": "Psalm 39",
@@ -3118,16 +3308,6 @@
       "spotifyUrl": "https://open.spotify.com/track/4cE0TZzyQXJV8C9GKmF1Is",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 272
-    },
-    {
-      "id": "streetlights-039-3JU2sI",
-      "psalm": 39,
-      "title": "Psalm 39",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/3JU2sIrNuzVgVJzQcrYs0O",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 141
     },
     {
       "id": "the-psalms-p-039-5twrtu",
@@ -3148,6 +3328,16 @@
       "spotifyUrl": "https://open.spotify.com/track/1XXCN5fECM0JrvLZVMujP1",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273200b953fcc3c076f153ec5bd",
       "durationSec": 355
+    },
+    {
+      "id": "crown-covena-040-0BKPrT",
+      "psalm": 40,
+      "title": "I Waited for the Lord (Psalm 40a)",
+      "artist": "Crown & Covenant",
+      "album": "Communion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/0BKPrT36lWvr1fDMC0Zpo6",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734adaba5d792a9cf0fdef2a7d",
+      "durationSec": 222
     },
     {
       "id": "gregory-wilb-040-7LzumH",
@@ -3178,16 +3368,6 @@
       "spotifyUrl": "https://open.spotify.com/track/7Dmap2QHdFFuoweoQxNrNm",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273123b7e9212b862a1966194dc",
       "durationSec": 290
-    },
-    {
-      "id": "streetlights-040-2xlDXS",
-      "psalm": 40,
-      "title": "Psalm 40",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/2xlDXSSHDXnPAsuy5NBR9d",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 195
     },
     {
       "id": "the-psalms-p-040-2nfvsA",
@@ -3230,6 +3410,16 @@
       "durationSec": 373
     },
     {
+      "id": "crown-covena-041-3uF605",
+      "psalm": 41,
+      "title": "All Those Who Hate Me (Psalm 41b)",
+      "artist": "Crown & Covenant",
+      "album": "Abundance: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/3uF6058DqpGfbYcxdWu3Me",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27323abc3895dbe15d7ccafe92a",
+      "durationSec": 145
+    },
+    {
       "id": "gregory-wilb-041-30e7ae",
       "psalm": 41,
       "title": "Psalm 41: How Blest the Man",
@@ -3248,16 +3438,6 @@
       "spotifyUrl": "https://open.spotify.com/track/0d9qiDiyNwqlCTG0AAWZZX",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 227
-    },
-    {
-      "id": "streetlights-041-3oBqOR",
-      "psalm": 41,
-      "title": "Psalm 41",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 1 (Chapters 1-41)",
-      "spotifyUrl": "https://open.spotify.com/track/3oBqORxivINfkftZknCV2H",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27339c8708deca71da9e68c4153",
-      "durationSec": 97
     },
     {
       "id": "the-psalms-p-041-2zh0zx",
@@ -3308,6 +3488,46 @@
       "spotifyUrl": "https://open.spotify.com/track/1QgCU1K4JATXcKbb2jG4z9",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2730b82e3f9c82ab990f02dd0f2",
       "durationSec": 428
+    },
+    {
+      "id": "crown-covena-042-2zl1H3",
+      "psalm": 42,
+      "title": "As Deer for Streams, I Pant for God (Psalm 42c)",
+      "artist": "Crown & Covenant",
+      "album": "Abundance: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/2zl1H3Lb76a3aYtk5bXizk",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27323abc3895dbe15d7ccafe92a",
+      "durationSec": 113
+    },
+    {
+      "id": "crown-covena-042-7rqMjX",
+      "psalm": 42,
+      "title": "As Pants the Deer (Psalm 42a)",
+      "artist": "Crown & Covenant",
+      "album": "Communion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/7rqMjXfBQgEOt6LdI5Pu5l",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734adaba5d792a9cf0fdef2a7d",
+      "durationSec": 92
+    },
+    {
+      "id": "crown-covena-042-0V531n",
+      "psalm": 42,
+      "title": "O God, My Soul Is in Despair (Psalm 42d)",
+      "artist": "Crown & Covenant",
+      "album": "Abundance: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/0V531na1oz4DwroOIZaFXU",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27323abc3895dbe15d7ccafe92a",
+      "durationSec": 121
+    },
+    {
+      "id": "crown-covena-042-0GbFB1",
+      "psalm": 42,
+      "title": "O God, My Soul Is in Despair (Psalm 42D)",
+      "artist": "Crown & Covenant",
+      "album": "Refuge: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/0GbFB1nR1V8r0xnzn5JrOy",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27347330daa1edee11c0b26e523",
+      "durationSec": 150
     },
     {
       "id": "gregory-wilb-042-0d5r60",
@@ -3368,16 +3588,6 @@
       "spotifyUrl": "https://open.spotify.com/track/5CJ67qnqLDrjdNDRZLqVIr",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273794853271f31b7e5b54a7513",
       "durationSec": 359
-    },
-    {
-      "id": "streetlights-042-3ty0aw",
-      "psalm": 42,
-      "title": "Psalm 42",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 2 (Chapters 42-72)",
-      "spotifyUrl": "https://open.spotify.com/track/3ty0awRZRHAnHpQBJfEj8e",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273927649e229f48c27a6b9a509",
-      "durationSec": 136
     },
     {
       "id": "the-corner-r-042-6dq4m9",
@@ -3470,16 +3680,6 @@
       "durationSec": 293
     },
     {
-      "id": "streetlights-043-7pGVNC",
-      "psalm": 43,
-      "title": "Psalm 43",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 2 (Chapters 42-72)",
-      "spotifyUrl": "https://open.spotify.com/track/7pGVNCqRSWD1CubgMqvFZc",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273927649e229f48c27a6b9a509",
-      "durationSec": 84
-    },
-    {
       "id": "the-corner-r-043-4np7tq",
       "psalm": 43,
       "title": "Psalm 43 (English Standard Version)",
@@ -3508,16 +3708,6 @@
       "spotifyUrl": "https://open.spotify.com/track/2Z64WaruQDL1eOX4PpKxqS",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 349
-    },
-    {
-      "id": "streetlights-044-6iVBs4",
-      "psalm": 44,
-      "title": "Psalm 44",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 2 (Chapters 42-72)",
-      "spotifyUrl": "https://open.spotify.com/track/6iVBs4DbByVbEblljZX0F4",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273927649e229f48c27a6b9a509",
-      "durationSec": 210
     },
     {
       "id": "the-psalms-p-044-5PEGgh",
@@ -3578,16 +3768,6 @@
       "spotifyUrl": "https://open.spotify.com/track/2N5KnMApNzcblJeYStLM0N",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273114c907dd71219a18287f7bc",
       "durationSec": 329
-    },
-    {
-      "id": "streetlights-045-2eOPML",
-      "psalm": 45,
-      "title": "Psalm 45",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 2 (Chapters 42-72)",
-      "spotifyUrl": "https://open.spotify.com/track/2eOPMLO8p94pp9cqqrr13d",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273927649e229f48c27a6b9a509",
-      "durationSec": 164
     },
     {
       "id": "the-psalms-p-045-2W8roA",
@@ -3670,6 +3850,16 @@
       "durationSec": 303
     },
     {
+      "id": "sons-of-kora-046-6naYjM",
+      "psalm": 46,
+      "title": "Psalm 46b",
+      "artist": "Sons of Korah",
+      "album": "Psalm 46b",
+      "spotifyUrl": "https://open.spotify.com/track/6naYjMFlAVrDnMYVoDddkw",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273be7e09e0fd855ba7df3bd160",
+      "durationSec": 256
+    },
+    {
       "id": "sovereign-gr-046-1dDes9",
       "psalm": 46,
       "title": "Be Still, Be Still, My Soul (Psalm 46) - Live",
@@ -3678,16 +3868,6 @@
       "spotifyUrl": "https://open.spotify.com/track/1dDes9e3j7HEJJ3TnFsbWJ",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27391e505398eb4c6a28d3a8039",
       "durationSec": 237
-    },
-    {
-      "id": "streetlights-046-77BHPZ",
-      "psalm": 46,
-      "title": "Psalm 46",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 2 (Chapters 42-72)",
-      "spotifyUrl": "https://open.spotify.com/track/77BHPZMV9jmiQ5jNdZgyQc",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273927649e229f48c27a6b9a509",
-      "durationSec": 109
     },
     {
       "id": "the-corner-r-046-6iYBOv",
@@ -3730,6 +3910,26 @@
       "durationSec": 278
     },
     {
+      "id": "crown-covena-047-7n0ovl",
+      "psalm": 47,
+      "title": "All Nations, Clap Your Hands (Psalm 47a)",
+      "artist": "Crown & Covenant",
+      "album": "Glory: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/7n0ovlb55JQk2iuBaxnsoH",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273a875e583a8b14d21f3c2cf49",
+      "durationSec": 126
+    },
+    {
+      "id": "crown-covena-047-2sY7ZD",
+      "psalm": 47,
+      "title": "Psalm 47a",
+      "artist": "Crown & Covenant",
+      "album": "Sing a New Song: Selections from the Book of Psalms for Singing",
+      "spotifyUrl": "https://open.spotify.com/track/2sY7ZD5a6izNRmOwUbNY3x",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734af2aff167c7bed2f59a58d9",
+      "durationSec": 122
+    },
+    {
       "id": "poor-bishop--047-1lTvG9",
       "psalm": 47,
       "title": "Psalm 47",
@@ -3750,16 +3950,6 @@
       "durationSec": 209
     },
     {
-      "id": "streetlights-047-0X8q6T",
-      "psalm": 47,
-      "title": "Psalm 47",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 2 (Chapters 42-72)",
-      "spotifyUrl": "https://open.spotify.com/track/0X8q6T72MxfTzDZY9Mi9cE",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273927649e229f48c27a6b9a509",
-      "durationSec": 89
-    },
-    {
       "id": "the-psalms-p-047-5l7fq7",
       "psalm": 47,
       "title": "Psalm 47 (Shout to God)",
@@ -3770,6 +3960,36 @@
       "durationSec": 220
     },
     {
+      "id": "crown-covena-048-34VkfF",
+      "psalm": 48,
+      "title": "The Lord Is Great (Psalm 48A)",
+      "artist": "Crown & Covenant",
+      "album": "Refuge: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/34VkfFLCIeYJDXUmfy6V1E",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27347330daa1edee11c0b26e523",
+      "durationSec": 130
+    },
+    {
+      "id": "crown-covena-048-5iUDuM",
+      "psalm": 48,
+      "title": "The Lord Is Great (Psalm 48b)",
+      "artist": "Crown & Covenant",
+      "album": "Zion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/5iUDuMxu27k25DbrBcvPUe",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27344acf7cec4b034afef0002cc",
+      "durationSec": 126
+    },
+    {
+      "id": "crown-covena-048-100umK",
+      "psalm": 48,
+      "title": "Within Your Temple (Psalm 48c)",
+      "artist": "Crown & Covenant",
+      "album": "Zion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/100umKfYNnol761LXLnPkI",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27344acf7cec4b034afef0002cc",
+      "durationSec": 125
+    },
+    {
       "id": "pbh-048",
       "psalm": 48,
       "title": "Psalm 48",
@@ -3778,16 +3998,6 @@
       "spotifyUrl": "https://open.spotify.com/track/5GVXG1hP4gbyrSWbFPoiU3",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 437
-    },
-    {
-      "id": "streetlights-048-1XT17X",
-      "psalm": 48,
-      "title": "Psalm 48",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 2 (Chapters 42-72)",
-      "spotifyUrl": "https://open.spotify.com/track/1XT17XqtcYp5Sev01vmezt",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273927649e229f48c27a6b9a509",
-      "durationSec": 126
     },
     {
       "id": "the-psalms-p-048-6WN1Qs",
@@ -3810,16 +4020,6 @@
       "durationSec": 277
     },
     {
-      "id": "streetlights-049-5kRebG",
-      "psalm": 49,
-      "title": "Psalm 49",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 2 (Chapters 42-72)",
-      "spotifyUrl": "https://open.spotify.com/track/5kRebGmMryLLqsA4gf3xwY",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273927649e229f48c27a6b9a509",
-      "durationSec": 139
-    },
-    {
       "id": "the-psalms-p-049-0GyOmX",
       "psalm": 49,
       "title": "Psalm 49 (God Will Ransom My Soul)",
@@ -3830,6 +4030,36 @@
       "durationSec": 427
     },
     {
+      "id": "crown-covena-050-4dVVPa",
+      "psalm": 50,
+      "title": "But to the Wicked One (50C)",
+      "artist": "Crown & Covenant",
+      "album": "Covenant: Selections From the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/4dVVPahwJSd9odggGRLn1h",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273ceed2d289f86a20a14eb6f66",
+      "durationSec": 153
+    },
+    {
+      "id": "crown-covena-050-6OhTpM",
+      "psalm": 50,
+      "title": "God, Most Supreme in Might (50A)",
+      "artist": "Crown & Covenant",
+      "album": "Covenant: Selections From the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/6OhTpMW6M93ovEyb5rkkFS",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273ceed2d289f86a20a14eb6f66",
+      "durationSec": 108
+    },
+    {
+      "id": "crown-covena-050-7fIsy2",
+      "psalm": 50,
+      "title": "O You, My People Hear (50B)",
+      "artist": "Crown & Covenant",
+      "album": "Covenant: Selections From the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/7fIsy2P0Ebil8PNfR3jLuG",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273ceed2d289f86a20a14eb6f66",
+      "durationSec": 181
+    },
+    {
       "id": "pbh-050",
       "psalm": 50,
       "title": "Psalm 50",
@@ -3838,16 +4068,6 @@
       "spotifyUrl": "https://open.spotify.com/track/7sRH7Izjda2XTG5zJUoiDZ",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 243
-    },
-    {
-      "id": "streetlights-050-4t23Ya",
-      "psalm": 50,
-      "title": "Psalm 50",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 2 (Chapters 42-72)",
-      "spotifyUrl": "https://open.spotify.com/track/4t23YaKC13z0feHxcQuoAY",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273927649e229f48c27a6b9a509",
-      "durationSec": 220
     },
     {
       "id": "the-psalms-p-050-19Icl2",
@@ -3868,6 +4088,36 @@
       "spotifyUrl": "https://open.spotify.com/track/6ey95T0cP9WZXwohuBy0d6",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27304e49fef6fc7370ea26ffbcd",
       "durationSec": 268
+    },
+    {
+      "id": "crown-covena-051-4fL1hw",
+      "psalm": 51,
+      "title": "51a: God, Be Merciful to Me",
+      "artist": "Crown & Covenant",
+      "album": "Restoration: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/4fL1hwNxP2YZbUTzansfld",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2735ef1c168130a22257854210f",
+      "durationSec": 142
+    },
+    {
+      "id": "crown-covena-051-4MOgd8",
+      "psalm": 51,
+      "title": "51b: O Hide Your Face",
+      "artist": "Crown & Covenant",
+      "album": "Restoration: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/4MOgd8GYjfSkNvoIO6RtBu",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2735ef1c168130a22257854210f",
+      "durationSec": 270
+    },
+    {
+      "id": "crown-covena-051-3GzHaq",
+      "psalm": 51,
+      "title": "God, Be Merciful to Me (Psalm 51C)",
+      "artist": "Crown & Covenant",
+      "album": "Refuge: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/3GzHaqOvnN2MpfZJzJUT6x",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27347330daa1edee11c0b26e523",
+      "durationSec": 184
     },
     {
       "id": "indelible-gr-051-3uyj3B",
@@ -3950,16 +4200,6 @@
       "durationSec": 482
     },
     {
-      "id": "streetlights-051-5vzkFB",
-      "psalm": 51,
-      "title": "Psalm 51",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 2 (Chapters 42-72)",
-      "spotifyUrl": "https://open.spotify.com/track/5vzkFB2SnJZt6EpkRX3ne9",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273927649e229f48c27a6b9a509",
-      "durationSec": 152
-    },
-    {
       "id": "the-psalms-p-051-4jAids",
       "psalm": 51,
       "title": "Psalm 51 (Forgive Me)",
@@ -4010,6 +4250,16 @@
       "durationSec": 465
     },
     {
+      "id": "crown-covena-052-2Wevik",
+      "psalm": 52,
+      "title": "Mighty Man, Why Boast in Evil? (Psalm 52b)",
+      "artist": "Crown & Covenant",
+      "album": "Trust: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/2WevikBctFYgUdn0lHSELG",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2737369aa0bdde70be5c6d25e18",
+      "durationSec": 152
+    },
+    {
       "id": "poor-bishop--052-3kDqzR",
       "psalm": 52,
       "title": "Psalm 52",
@@ -4018,16 +4268,6 @@
       "spotifyUrl": "https://open.spotify.com/track/3kDqzR59zwsMF45k3hPz4a",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 262
-    },
-    {
-      "id": "streetlights-052-5S0AuM",
-      "psalm": 52,
-      "title": "Psalm 52",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 2 (Chapters 42-72)",
-      "spotifyUrl": "https://open.spotify.com/track/5S0AuM0P0Lyg90CcAtnIZm",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273927649e229f48c27a6b9a509",
-      "durationSec": 93
     },
     {
       "id": "the-psalms-p-052-38HbEG",
@@ -4050,6 +4290,16 @@
       "durationSec": 161
     },
     {
+      "id": "crown-covena-053-1zNGNb",
+      "psalm": 53,
+      "title": "The Fool Has Spoken in His Heart (Psalm 53b)",
+      "artist": "Crown & Covenant",
+      "album": "Zion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/1zNGNbTir5od8JzfU8dft7",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27344acf7cec4b034afef0002cc",
+      "durationSec": 161
+    },
+    {
       "id": "nathan-clark-053-0XOmME",
       "psalm": 53,
       "title": "Psalm 53: Yishma Yisrael",
@@ -4068,16 +4318,6 @@
       "spotifyUrl": "https://open.spotify.com/track/5ZuSPh8vC8jh4nvGG0EaUP",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 203
-    },
-    {
-      "id": "streetlights-053-5cFFaB",
-      "psalm": 53,
-      "title": "Psalm 53",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 2 (Chapters 42-72)",
-      "spotifyUrl": "https://open.spotify.com/track/5cFFaBLhO2D4EVwAH9rUaV",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273927649e229f48c27a6b9a509",
-      "durationSec": 92
     },
     {
       "id": "the-corner-r-053-2HBrQ7",
@@ -4110,16 +4350,6 @@
       "durationSec": 225
     },
     {
-      "id": "streetlights-054-0iPbaQ",
-      "psalm": 54,
-      "title": "Psalm 54",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 2 (Chapters 42-72)",
-      "spotifyUrl": "https://open.spotify.com/track/0iPbaQVMpEw0aYzrhupoWd",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273927649e229f48c27a6b9a509",
-      "durationSec": 78
-    },
-    {
       "id": "the-psalms-p-054-4z4Cfz",
       "psalm": 54,
       "title": "Psalm 54 (Your Name Is Good)",
@@ -4138,16 +4368,6 @@
       "spotifyUrl": "https://open.spotify.com/track/2MmX54p8WVm9Ed2syBtSwu",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 284
-    },
-    {
-      "id": "streetlights-055-4iOGd9",
-      "psalm": 55,
-      "title": "Psalm 55",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 2 (Chapters 42-72)",
-      "spotifyUrl": "https://open.spotify.com/track/4iOGd9RbQWhmlZXaX3ApUO",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273927649e229f48c27a6b9a509",
-      "durationSec": 170
     },
     {
       "id": "the-psalms-p-055-13lEX1",
@@ -4170,6 +4390,26 @@
       "durationSec": 194
     },
     {
+      "id": "crown-covena-056-5RzX7s",
+      "psalm": 56,
+      "title": "Be Merciful to Me, O God (Psalm 56a)",
+      "artist": "Crown & Covenant",
+      "album": "Trust: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/5RzX7sWvm6hKp0rBHqbms0",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2737369aa0bdde70be5c6d25e18",
+      "durationSec": 96
+    },
+    {
+      "id": "crown-covena-056-22p66Y",
+      "psalm": 56,
+      "title": "You Have Recorded All My Ways (Psalm 56b)",
+      "artist": "Crown & Covenant",
+      "album": "Trust: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/22p66YyahUpQ0DsN1iXR7f",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2737369aa0bdde70be5c6d25e18",
+      "durationSec": 102
+    },
+    {
       "id": "poor-bishop--056-18wWDh",
       "psalm": 56,
       "title": "Psalm 56",
@@ -4180,16 +4420,6 @@
       "durationSec": 228
     },
     {
-      "id": "streetlights-056-05LdNd",
-      "psalm": 56,
-      "title": "Psalm 56",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 2 (Chapters 42-72)",
-      "spotifyUrl": "https://open.spotify.com/track/05LdNdjx8b9ubHJkL2D2OB",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273927649e229f48c27a6b9a509",
-      "durationSec": 130
-    },
-    {
       "id": "verses-056-54Qj00",
       "psalm": 56,
       "title": "Psalm 56:3-4",
@@ -4198,6 +4428,16 @@
       "spotifyUrl": "https://open.spotify.com/track/54Qj00iZySmBmbABrXkXFt",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27390ba226b4ee2e2b6830b4063",
       "durationSec": 249
+    },
+    {
+      "id": "crown-covena-057-1j1pLB",
+      "psalm": 57,
+      "title": "O Be Exalted High, O God (Psalm 57b)",
+      "artist": "Crown & Covenant",
+      "album": "Glory: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/1j1pLBi9cbIoCWfTAKk3Lc",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273a875e583a8b14d21f3c2cf49",
+      "durationSec": 158
     },
     {
       "id": "gregory-wilb-057-4qzEnU",
@@ -4218,16 +4458,6 @@
       "spotifyUrl": "https://open.spotify.com/track/4r0p945qJCySKduNXy6pXC",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 312
-    },
-    {
-      "id": "streetlights-057-3iX9qP",
-      "psalm": 57,
-      "title": "Psalm 57",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 2 (Chapters 42-72)",
-      "spotifyUrl": "https://open.spotify.com/track/3iX9qPp1I7kzrDVhAG9hnO",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273927649e229f48c27a6b9a509",
-      "durationSec": 114
     },
     {
       "id": "writers-well-057-1fwc9p",
@@ -4280,16 +4510,6 @@
       "durationSec": 200
     },
     {
-      "id": "streetlights-058-5qfNcw",
-      "psalm": 58,
-      "title": "Psalm 58",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 2 (Chapters 42-72)",
-      "spotifyUrl": "https://open.spotify.com/track/5qfNcwjYwVIekpKQEmHTxI",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273927649e229f48c27a6b9a509",
-      "durationSec": 98
-    },
-    {
       "id": "poor-bishop--059-4O0egt",
       "psalm": 59,
       "title": "Psalm 59",
@@ -4300,14 +4520,24 @@
       "durationSec": 275
     },
     {
-      "id": "streetlights-059-26zuCW",
-      "psalm": 59,
-      "title": "Psalm 59",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 2 (Chapters 42-72)",
-      "spotifyUrl": "https://open.spotify.com/track/26zuCWvNKo2vFgKFvPlrhe",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273927649e229f48c27a6b9a509",
-      "durationSec": 176
+      "id": "crown-covena-060-1DVKFb",
+      "psalm": 60,
+      "title": "60a: O God, You Have Rejected Us",
+      "artist": "Crown & Covenant",
+      "album": "Restoration: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/1DVKFbiHHdu2cSrh5nqutu",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2735ef1c168130a22257854210f",
+      "durationSec": 123
+    },
+    {
+      "id": "crown-covena-060-4YBP76",
+      "psalm": 60,
+      "title": "60b: God in His Holiness Declared",
+      "artist": "Crown & Covenant",
+      "album": "Restoration: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/4YBP76puKXxxGQTZYLu3Tm",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2735ef1c168130a22257854210f",
+      "durationSec": 118
     },
     {
       "id": "poor-bishop--060-6tkOAZ",
@@ -4320,16 +4550,6 @@
       "durationSec": 223
     },
     {
-      "id": "streetlights-060-6jC5vo",
-      "psalm": 60,
-      "title": "Psalm 60",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 2 (Chapters 42-72)",
-      "spotifyUrl": "https://open.spotify.com/track/6jC5voaE1ewqh7YTItDN43",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273927649e229f48c27a6b9a509",
-      "durationSec": 156
-    },
-    {
       "id": "poor-bishop--061-3XRwPP",
       "psalm": 61,
       "title": "Psalm 61",
@@ -4340,16 +4560,6 @@
       "durationSec": 221
     },
     {
-      "id": "streetlights-061-0ecwt9",
-      "psalm": 61,
-      "title": "Psalm 61",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 2 (Chapters 42-72)",
-      "spotifyUrl": "https://open.spotify.com/track/0ecwt9LCHQrhwFC9oNlL4E",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273927649e229f48c27a6b9a509",
-      "durationSec": 83
-    },
-    {
       "id": "zac-fitzsimm-061-1eiN5A",
       "psalm": 61,
       "title": "Psalm 61 Word for Word",
@@ -4358,6 +4568,16 @@
       "spotifyUrl": "https://open.spotify.com/track/1eiN5AQRJ1YREZ7z1ie3k8",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27389649eb0cd96c767303340cc",
       "durationSec": 217
+    },
+    {
+      "id": "crown-covena-062-74M068",
+      "psalm": 62,
+      "title": "My Soul Finds Rest in God Alone (Psalm 62a)",
+      "artist": "Crown & Covenant",
+      "album": "Abundance: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/74M068h4ukrnxBOlzCZvGF",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27323abc3895dbe15d7ccafe92a",
+      "durationSec": 138
     },
     {
       "id": "nathan-clark-062-76FOzW",
@@ -4418,16 +4638,6 @@
       "spotifyUrl": "https://open.spotify.com/track/2qf99LP5TYnPXMQX1EG7VU",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734fcee6fd27886f84d6efc638",
       "durationSec": 314
-    },
-    {
-      "id": "streetlights-062-1Zg71b",
-      "psalm": 62,
-      "title": "Psalm 62",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 2 (Chapters 42-72)",
-      "spotifyUrl": "https://open.spotify.com/track/1Zg71bBzBVAjKWdTP7cNUr",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273927649e229f48c27a6b9a509",
-      "durationSec": 120
     },
     {
       "id": "verses-062-5n0Yp9",
@@ -4610,16 +4820,6 @@
       "durationSec": 329
     },
     {
-      "id": "streetlights-063-6t7tcu",
-      "psalm": 63,
-      "title": "Psalm 63",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 2 (Chapters 42-72)",
-      "spotifyUrl": "https://open.spotify.com/track/6t7tcuxD7MuoxRuu5kRboN",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273927649e229f48c27a6b9a509",
-      "durationSec": 95
-    },
-    {
       "id": "the-corner-r-063-0eeEn1",
       "psalm": 63,
       "title": "Psalm 63",
@@ -4650,14 +4850,24 @@
       "durationSec": 275
     },
     {
-      "id": "streetlights-064-2gDQtb",
-      "psalm": 64,
-      "title": "Psalm 64",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 2 (Chapters 42-72)",
-      "spotifyUrl": "https://open.spotify.com/track/2gDQtbABMeSGkVuOQ6sdGF",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273927649e229f48c27a6b9a509",
-      "durationSec": 94
+      "id": "crown-covena-065-4o4IAm",
+      "psalm": 65,
+      "title": "Awaiting You in Zion (Psalm 65a)",
+      "artist": "Crown & Covenant",
+      "album": "Zion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/4o4IAmyu0fUPUQCbYOD2x3",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27344acf7cec4b034afef0002cc",
+      "durationSec": 87
+    },
+    {
+      "id": "crown-covena-065-6kyR5r",
+      "psalm": 65,
+      "title": "O God of Our Salvation (Psalm 65b)",
+      "artist": "Crown & Covenant",
+      "album": "Zion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/6kyR5rfqnYAj0XbaUiD1ZR",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27344acf7cec4b034afef0002cc",
+      "durationSec": 169
     },
     {
       "id": "pbh-065",
@@ -4668,16 +4878,6 @@
       "spotifyUrl": "https://open.spotify.com/track/2nlq7GiWmWAcbYN8P3aWs6",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 215
-    },
-    {
-      "id": "streetlights-065-7C7zAj",
-      "psalm": 65,
-      "title": "Psalm 65",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 2 (Chapters 42-72)",
-      "spotifyUrl": "https://open.spotify.com/track/7C7zAja5Bq24PZJ7YNvKXy",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273927649e229f48c27a6b9a509",
-      "durationSec": 134
     },
     {
       "id": "wendell-kimb-065-0Q8Xsi",
@@ -4698,6 +4898,26 @@
       "spotifyUrl": "https://open.spotify.com/track/5fudboKA55CeRQ86nsWEsI",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2733dd620f2d2173d1379b46bbc",
       "durationSec": 175
+    },
+    {
+      "id": "crown-covena-066-4B7CFg",
+      "psalm": 66,
+      "title": "66b: O All You Peoples, Bless Our God",
+      "artist": "Crown & Covenant",
+      "album": "Restoration: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/4B7CFg1t1KYhngHKLvrLsG",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2735ef1c168130a22257854210f",
+      "durationSec": 156
+    },
+    {
+      "id": "crown-covena-066-5n3L5F",
+      "psalm": 66,
+      "title": "O All the Earth (Psalm 66a)",
+      "artist": "Crown & Covenant",
+      "album": "Glory: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/5n3L5F35usCSAi5aQRqNTf",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273a875e583a8b14d21f3c2cf49",
+      "durationSec": 199
     },
     {
       "id": "poor-bishop--066-2nsTes",
@@ -4730,16 +4950,6 @@
       "durationSec": 322
     },
     {
-      "id": "streetlights-066-0NCa6m",
-      "psalm": 66,
-      "title": "Psalm 66",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 2 (Chapters 42-72)",
-      "spotifyUrl": "https://open.spotify.com/track/0NCa6mfpBY4aXl6uSqe1mz",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273927649e229f48c27a6b9a509",
-      "durationSec": 163
-    },
-    {
       "id": "liturgical-f-067-1yiDcf",
       "psalm": 67,
       "title": "Psalm 67",
@@ -4758,16 +4968,6 @@
       "spotifyUrl": "https://open.spotify.com/track/6JzyrLZP3oNEndvjNA5ZFM",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 200
-    },
-    {
-      "id": "streetlights-067-6y1bN0",
-      "psalm": 67,
-      "title": "Psalm 67",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 2 (Chapters 42-72)",
-      "spotifyUrl": "https://open.spotify.com/track/6y1bN0xKiaAvucJsGvNoth",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273927649e229f48c27a6b9a509",
-      "durationSec": 73
     },
     {
       "id": "the-corner-r-067-7n4ZqC",
@@ -4810,6 +5010,16 @@
       "durationSec": 180
     },
     {
+      "id": "crown-covena-068-33i7R0",
+      "psalm": 68,
+      "title": "Let God Arise (Psalm 68A)",
+      "artist": "Crown & Covenant",
+      "album": "Refuge: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/33i7R08nZ3GP2xROdVIcIm",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27347330daa1edee11c0b26e523",
+      "durationSec": 100
+    },
+    {
       "id": "gregory-wilb-068-76jK9g",
       "psalm": 68,
       "title": "Psalm 68: Let God Arise",
@@ -4830,14 +5040,24 @@
       "durationSec": 252
     },
     {
-      "id": "streetlights-068-6IqFVp",
+      "id": "sons-of-kora-068-0I46qy",
       "psalm": 68,
-      "title": "Psalm 68",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 2 (Chapters 42-72)",
-      "spotifyUrl": "https://open.spotify.com/track/6IqFVp5VWP6livsqFXVJin",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273927649e229f48c27a6b9a509",
-      "durationSec": 264
+      "title": "Psalm 68c",
+      "artist": "Sons of Korah",
+      "album": "Psalm 68c",
+      "spotifyUrl": "https://open.spotify.com/track/0I46qynNfyaHKa4j59VLWt",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2735a98735975497b80f048ba29",
+      "durationSec": 391
+    },
+    {
+      "id": "sons-of-kora-068-0350Is",
+      "psalm": 68,
+      "title": "Psalm 68e",
+      "artist": "Sons of Korah",
+      "album": "Psalm 68e",
+      "spotifyUrl": "https://open.spotify.com/track/0350IsEbOonYF01V2S0MZJ",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273ad3ab475bf48be8e354cf20f",
+      "durationSec": 131
     },
     {
       "id": "wendell-kimb-068-56CXFN",
@@ -4870,16 +5090,6 @@
       "durationSec": 231
     },
     {
-      "id": "streetlights-069-6pWarX",
-      "psalm": 69,
-      "title": "Psalm 69",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 2 (Chapters 42-72)",
-      "spotifyUrl": "https://open.spotify.com/track/6pWarXToiZOMKZG2iIXBGD",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273927649e229f48c27a6b9a509",
-      "durationSec": 341
-    },
-    {
       "id": "wendell-kimb-069-6QtkVD",
       "psalm": 69,
       "title": "Draw Near (Psalm 69) (feat. Sandra McCracken)",
@@ -4910,16 +5120,6 @@
       "durationSec": 196
     },
     {
-      "id": "streetlights-070-1nw6u2",
-      "psalm": 70,
-      "title": "Psalm 70",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 2 (Chapters 42-72)",
-      "spotifyUrl": "https://open.spotify.com/track/1nw6u2KUzwFheAYvCpHRKf",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273927649e229f48c27a6b9a509",
-      "durationSec": 74
-    },
-    {
       "id": "poor-bishop--071-0aNn20",
       "psalm": 71,
       "title": "Psalm 71",
@@ -4930,16 +5130,6 @@
       "durationSec": 213
     },
     {
-      "id": "streetlights-071-1RvoWA",
-      "psalm": 71,
-      "title": "Psalm 71",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 2 (Chapters 42-72)",
-      "spotifyUrl": "https://open.spotify.com/track/1RvoWAGTXQ24YIH66SWQF6",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273927649e229f48c27a6b9a509",
-      "durationSec": 200
-    },
-    {
       "id": "brian-sauv-072-2NAuSG",
       "psalm": 72,
       "title": "Psalm 72 (His Great Dominion Shall Extend)",
@@ -4948,6 +5138,26 @@
       "spotifyUrl": "https://open.spotify.com/track/2NAuSGoaMeDDNYaThbBA1V",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273e3fe151497e6312b52b867ae",
       "durationSec": 435
+    },
+    {
+      "id": "crown-covena-072-3xZm3l",
+      "psalm": 72,
+      "title": "He Will Save the Needy (Psalm 72e)",
+      "artist": "Crown & Covenant",
+      "album": "Abundance: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/3xZm3lL8aGJ3LCj1awD5pv",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27323abc3895dbe15d7ccafe92a",
+      "durationSec": 105
+    },
+    {
+      "id": "crown-covena-072-40zAVJ",
+      "psalm": 72,
+      "title": "Now Blessed Be the Lord Our God (Book Two Doxology) [Psalm 72f]",
+      "artist": "Crown & Covenant",
+      "album": "Glory: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/40zAVJGw09JytrRxNMkO90",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273a875e583a8b14d21f3c2cf49",
+      "durationSec": 54
     },
     {
       "id": "gregory-wilb-072-3dMOpp",
@@ -4970,16 +5180,6 @@
       "durationSec": 297
     },
     {
-      "id": "streetlights-072-7ARxxf",
-      "psalm": 72,
-      "title": "Psalm 72",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 2 (Chapters 42-72)",
-      "spotifyUrl": "https://open.spotify.com/track/7ARxxfoQA3wGCik3SbM0I0",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273927649e229f48c27a6b9a509",
-      "durationSec": 170
-    },
-    {
       "id": "cardiphonia--073-3EJHDR",
       "psalm": 73,
       "title": "Yet, God Is Good to Israel (Psalm 73)",
@@ -4988,6 +5188,16 @@
       "spotifyUrl": "https://open.spotify.com/track/3EJHDR93Vbd85nrbCNy3QO",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2739d2e070c566acad51767995b",
       "durationSec": 301
+    },
+    {
+      "id": "crown-covena-073-3oAeFM",
+      "psalm": 73,
+      "title": "Then Surely I Have Toiled in Vain (Psalm 73B)",
+      "artist": "Crown & Covenant",
+      "album": "Refuge: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/3oAeFMYYar8mWnjiZkbANF",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27347330daa1edee11c0b26e523",
+      "durationSec": 138
     },
     {
       "id": "gregory-wilb-073-7epqDr",
@@ -5020,16 +5230,6 @@
       "durationSec": 181
     },
     {
-      "id": "streetlights-073-7H0ufA",
-      "psalm": 73,
-      "title": "Psalm 73",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 3 (Chapters 73-89)",
-      "spotifyUrl": "https://open.spotify.com/track/7H0ufA2skmLiAKwr1yjwLX",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27326eccc3ba1dd1ece75f79676",
-      "durationSec": 188
-    },
-    {
       "id": "verses-073-1y1faj",
       "psalm": 73,
       "title": "Psalm 73:25-26",
@@ -5060,6 +5260,26 @@
       "durationSec": 140
     },
     {
+      "id": "crown-covena-074-1NpSjD",
+      "psalm": 74,
+      "title": "God, Why Forever Cast Us Off (74A)",
+      "artist": "Crown & Covenant",
+      "album": "Covenant: Selections From the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/1NpSjDd9P8HaeOceJ75WMP",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273ceed2d289f86a20a14eb6f66",
+      "durationSec": 192
+    },
+    {
+      "id": "crown-covena-074-4wkvdv",
+      "psalm": 74,
+      "title": "Yet God My King Brings Forth (74B)",
+      "artist": "Crown & Covenant",
+      "album": "Covenant: Selections From the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/4wkvdvvMiXdyjHGSkDdEL2",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273ceed2d289f86a20a14eb6f66",
+      "durationSec": 158
+    },
+    {
       "id": "nathan-clark-074-4ZbfOl",
       "psalm": 74,
       "title": "Psalm 74: Why Hast Thou?",
@@ -5078,16 +5298,6 @@
       "spotifyUrl": "https://open.spotify.com/track/3UoXpkUk8CzuXDI3TMrQsO",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 310
-    },
-    {
-      "id": "streetlights-074-1F3fRg",
-      "psalm": 74,
-      "title": "Psalm 74",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 3 (Chapters 73-89)",
-      "spotifyUrl": "https://open.spotify.com/track/1F3fRg8iaJt1U187zEumNB",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27326eccc3ba1dd1ece75f79676",
-      "durationSec": 181
     },
     {
       "id": "brother-down-075-1eOfpW",
@@ -5120,16 +5330,6 @@
       "durationSec": 227
     },
     {
-      "id": "streetlights-075-7FGqfJ",
-      "psalm": 75,
-      "title": "Psalm 75",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 3 (Chapters 73-89)",
-      "spotifyUrl": "https://open.spotify.com/track/7FGqfJgciSQfoscE0HMQW6",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27326eccc3ba1dd1ece75f79676",
-      "durationSec": 105
-    },
-    {
       "id": "cardiphonia--076-5q4yaK",
       "psalm": 76,
       "title": "You Alone O God (Psalm 76)",
@@ -5138,6 +5338,16 @@
       "spotifyUrl": "https://open.spotify.com/track/5q4yaK5Vd5QARbCDaRgBtR",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2739d2e070c566acad51767995b",
       "durationSec": 211
+    },
+    {
+      "id": "crown-covena-076-2HJHUr",
+      "psalm": 76,
+      "title": "God Is Truly Known in Judah (Psalm 76B)",
+      "artist": "Crown & Covenant",
+      "album": "Refuge: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/2HJHUrr8P6y9vLI5Qc4gG2",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27347330daa1edee11c0b26e523",
+      "durationSec": 173
     },
     {
       "id": "poor-bishop--076-1lSMl9",
@@ -5150,16 +5360,6 @@
       "durationSec": 272
     },
     {
-      "id": "streetlights-076-36BllN",
-      "psalm": 76,
-      "title": "Psalm 76",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 3 (Chapters 73-89)",
-      "spotifyUrl": "https://open.spotify.com/track/36BllNAZ377gt9xcDqLDpM",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27326eccc3ba1dd1ece75f79676",
-      "durationSec": 119
-    },
-    {
       "id": "poor-bishop--077-0bXGFJ",
       "psalm": 77,
       "title": "Psalm 77",
@@ -5168,16 +5368,6 @@
       "spotifyUrl": "https://open.spotify.com/track/0bXGFJsJqTIXxViD08DgiF",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 215
-    },
-    {
-      "id": "streetlights-077-1suVOS",
-      "psalm": 77,
-      "title": "Psalm 77",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 3 (Chapters 73-89)",
-      "spotifyUrl": "https://open.spotify.com/track/1suVOSc3HtpHcJSWv4YgH9",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27326eccc3ba1dd1ece75f79676",
-      "durationSec": 168
     },
     {
       "id": "verses-077-2tzJeK",
@@ -5210,14 +5400,24 @@
       "durationSec": 345
     },
     {
-      "id": "streetlights-078-3275NL",
-      "psalm": 78,
-      "title": "Psalm 78",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 3 (Chapters 73-89)",
-      "spotifyUrl": "https://open.spotify.com/track/3275NLvNksUeEupHNhK5N8",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27326eccc3ba1dd1ece75f79676",
-      "durationSec": 448
+      "id": "crown-covena-079-60FTus",
+      "psalm": 79,
+      "title": "79a: O God, To Your Inheritance",
+      "artist": "Crown & Covenant",
+      "album": "Restoration: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/60FTusdDwgesWuH4b909Vc",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2735ef1c168130a22257854210f",
+      "durationSec": 145
+    },
+    {
+      "id": "crown-covena-079-5DY3pE",
+      "psalm": 79,
+      "title": "79b: O Charge Us Not with Former Sins",
+      "artist": "Crown & Covenant",
+      "album": "Restoration: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/5DY3pE4rOkuID0VTlhDLTH",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2735ef1c168130a22257854210f",
+      "durationSec": 149
     },
     {
       "id": "gregory-wilb-079-4yPBOO",
@@ -5250,16 +5450,6 @@
       "durationSec": 234
     },
     {
-      "id": "streetlights-079-2XjYBJ",
-      "psalm": 79,
-      "title": "Psalm 79",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 3 (Chapters 73-89)",
-      "spotifyUrl": "https://open.spotify.com/track/2XjYBJLfRZvoqa2FsjxEfG",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27326eccc3ba1dd1ece75f79676",
-      "durationSec": 131
-    },
-    {
       "id": "verses-079-7M3Nbx",
       "psalm": 79,
       "title": "Psalm 79:9",
@@ -5278,6 +5468,16 @@
       "spotifyUrl": "https://open.spotify.com/track/78In7dQdifSM1mBLDlpOVG",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2739d2e070c566acad51767995b",
       "durationSec": 240
+    },
+    {
+      "id": "crown-covena-080-06o17u",
+      "psalm": 80,
+      "title": "Psalm 80b",
+      "artist": "Crown & Covenant",
+      "album": "Sing a New Song: Selections from the Book of Psalms for Singing",
+      "spotifyUrl": "https://open.spotify.com/track/06o17uncKh77E95WK4yAke",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734af2aff167c7bed2f59a58d9",
+      "durationSec": 177
     },
     {
       "id": "poor-bishop--080-2NsdC4",
@@ -5300,14 +5500,24 @@
       "durationSec": 324
     },
     {
-      "id": "streetlights-080-1JdXjD",
-      "psalm": 80,
-      "title": "Psalm 80",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 3 (Chapters 73-89)",
-      "spotifyUrl": "https://open.spotify.com/track/1JdXjDi27iKOPb4D0cdf9i",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27326eccc3ba1dd1ece75f79676",
-      "durationSec": 171
+      "id": "crown-covena-081-0WmSfS",
+      "psalm": 81,
+      "title": "Hear, O My People (Psalm 81b)",
+      "artist": "Crown & Covenant",
+      "album": "Communion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/0WmSfSdVN1Fv6t0diowE1a",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734adaba5d792a9cf0fdef2a7d",
+      "durationSec": 132
+    },
+    {
+      "id": "crown-covena-081-2ACBcQ",
+      "psalm": 81,
+      "title": "To God Our Strength (Psalm 81a)",
+      "artist": "Crown & Covenant",
+      "album": "Communion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/2ACBcQS52NqKlHRckGJCwF",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734adaba5d792a9cf0fdef2a7d",
+      "durationSec": 88
     },
     {
       "id": "poor-bishop--081-6AbJ2N",
@@ -5318,16 +5528,6 @@
       "spotifyUrl": "https://open.spotify.com/track/6AbJ2NEuHwGhTVqMAPyF2R",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 175
-    },
-    {
-      "id": "streetlights-081-3jNrht",
-      "psalm": 81,
-      "title": "Psalm 81",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 3 (Chapters 73-89)",
-      "spotifyUrl": "https://open.spotify.com/track/3jNrhtXXEkWN4RffbXgXtg",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27326eccc3ba1dd1ece75f79676",
-      "durationSec": 137
     },
     {
       "id": "brian-sauv-082-3lmdRq",
@@ -5370,16 +5570,6 @@
       "durationSec": 204
     },
     {
-      "id": "streetlights-082-3FZfbM",
-      "psalm": 82,
-      "title": "Psalm 82",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 3 (Chapters 73-89)",
-      "spotifyUrl": "https://open.spotify.com/track/3FZfbMCnQC3wF7eXSQU95y",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27326eccc3ba1dd1ece75f79676",
-      "durationSec": 72
-    },
-    {
       "id": "wendell-kimb-082-6ZjeWY",
       "psalm": 82,
       "title": "The Hand of God (Psalm 82)",
@@ -5400,6 +5590,16 @@
       "durationSec": 189
     },
     {
+      "id": "crown-covena-083-4ln4Hi",
+      "psalm": 83,
+      "title": "Psalm 83c",
+      "artist": "Crown & Covenant",
+      "album": "Sing a New Song: Selections from the Book of Psalms for Singing",
+      "spotifyUrl": "https://open.spotify.com/track/4ln4HiKaH713JV2dLsoIOX",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734af2aff167c7bed2f59a58d9",
+      "durationSec": 179
+    },
+    {
       "id": "poor-bishop--083-3XqAQW",
       "psalm": 83,
       "title": "Psalm 83",
@@ -5408,16 +5608,6 @@
       "spotifyUrl": "https://open.spotify.com/track/3XqAQWh0Sw9dycoQ9dd47L",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 295
-    },
-    {
-      "id": "streetlights-083-62bR1O",
-      "psalm": 83,
-      "title": "Psalm 83",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 3 (Chapters 73-89)",
-      "spotifyUrl": "https://open.spotify.com/track/62bR1OafhhWNCKbeX93CAo",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27326eccc3ba1dd1ece75f79676",
-      "durationSec": 138
     },
     {
       "id": "wendell-kimb-083-0OoO71",
@@ -5450,6 +5640,46 @@
       "durationSec": 283
     },
     {
+      "id": "crown-covena-084-47XG6V",
+      "psalm": 84,
+      "title": "Advancing Still (Psalm 84b)",
+      "artist": "Crown & Covenant",
+      "album": "Zion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/47XG6VMHgOfxLNaBsE5ilL",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27344acf7cec4b034afef0002cc",
+      "durationSec": 117
+    },
+    {
+      "id": "crown-covena-084-6SpezZ",
+      "psalm": 84,
+      "title": "How Lovely, Lord (Psalm 84a)",
+      "artist": "Crown & Covenant",
+      "album": "Zion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/6SpezZQ1G50Yfr5gZSikIV",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27344acf7cec4b034afef0002cc",
+      "durationSec": 161
+    },
+    {
+      "id": "crown-covena-084-7m6A3w",
+      "psalm": 84,
+      "title": "O Hear My Prayer (Psalm 84d)",
+      "artist": "Crown & Covenant",
+      "album": "Communion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/7m6A3wOGqfPfO35Gz2Oz5T",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734adaba5d792a9cf0fdef2a7d",
+      "durationSec": 98
+    },
+    {
+      "id": "crown-covena-084-0WjJJC",
+      "psalm": 84,
+      "title": "Your Dwelling Places, Lord (Psalm 84C)",
+      "artist": "Crown & Covenant",
+      "album": "Refuge: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/0WjJJCxbQaP0xxfs0bOxz5",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27347330daa1edee11c0b26e523",
+      "durationSec": 85
+    },
+    {
       "id": "poor-bishop--084-60gFqO",
       "psalm": 84,
       "title": "Psalm 84",
@@ -5468,16 +5698,6 @@
       "spotifyUrl": "https://open.spotify.com/track/6BaCssQMVGSLNElXyrmmGF",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27335338543a20891d9659a6b85",
       "durationSec": 303
-    },
-    {
-      "id": "streetlights-084-3z6pLO",
-      "psalm": 84,
-      "title": "Psalm 84",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 3 (Chapters 73-89)",
-      "spotifyUrl": "https://open.spotify.com/track/3z6pLOcGc2KXdNocwUNLlo",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27326eccc3ba1dd1ece75f79676",
-      "durationSec": 150
     },
     {
       "id": "verses-084-2oIjDF",
@@ -5580,6 +5800,26 @@
       "durationSec": 225
     },
     {
+      "id": "crown-covena-085-6xiHVA",
+      "psalm": 85,
+      "title": "85a: O Lord, Unto Your Land",
+      "artist": "Crown & Covenant",
+      "album": "Restoration: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/6xiHVA83nHJHTt0cxuxKAS",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2735ef1c168130a22257854210f",
+      "durationSec": 134
+    },
+    {
+      "id": "crown-covena-085-1KQ7Cw",
+      "psalm": 85,
+      "title": "85b: I’ll Hear What God the Lord Will Say",
+      "artist": "Crown & Covenant",
+      "album": "Restoration: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/1KQ7CwvHX2ZeWU4aTJIKRG",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2735ef1c168130a22257854210f",
+      "durationSec": 87
+    },
+    {
       "id": "poor-bishop--085-0M9nbG",
       "psalm": 85,
       "title": "Psalm 85",
@@ -5590,14 +5830,24 @@
       "durationSec": 286
     },
     {
-      "id": "streetlights-085-2sjwfW",
-      "psalm": 85,
-      "title": "Psalm 85",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 3 (Chapters 73-89)",
-      "spotifyUrl": "https://open.spotify.com/track/2sjwfWx3utaoFHgnTAbVaO",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27326eccc3ba1dd1ece75f79676",
-      "durationSec": 98
+      "id": "crown-covena-086-2STOyZ",
+      "psalm": 86,
+      "title": "86a: Lord, Listen and Answer",
+      "artist": "Crown & Covenant",
+      "album": "Restoration: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/2STOyZfqD1uVmhmKUYmhS4",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2735ef1c168130a22257854210f",
+      "durationSec": 136
+    },
+    {
+      "id": "crown-covena-086-1AJIPQ",
+      "psalm": 86,
+      "title": "I Am the Way, The Truth, And the Life (Psalm 86b)",
+      "artist": "Crown & Covenant",
+      "album": "I Am: Kids Sing Psalms!",
+      "spotifyUrl": "https://open.spotify.com/track/1AJIPQFHSADR5x2dpX0XfQ",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273195938a90471e46db4370480",
+      "durationSec": 192
     },
     {
       "id": "gregory-wilb-086-2tZspQ",
@@ -5630,16 +5880,6 @@
       "durationSec": 143
     },
     {
-      "id": "streetlights-086-0knm7K",
-      "psalm": 86,
-      "title": "Psalm 86",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 3 (Chapters 73-89)",
-      "spotifyUrl": "https://open.spotify.com/track/0knm7KCt6Dyi0oHzdRVdG3",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27326eccc3ba1dd1ece75f79676",
-      "durationSec": 125
-    },
-    {
       "id": "verses-086-6ESZoi",
       "psalm": 86,
       "title": "Psalm 86:11",
@@ -5650,6 +5890,26 @@
       "durationSec": 280
     },
     {
+      "id": "crown-covena-087-2Oogp3",
+      "psalm": 87,
+      "title": "The Lord’s Foundation (Psalm 87a)",
+      "artist": "Crown & Covenant",
+      "album": "Zion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/2Oogp3Vt0P5FViwIT2WBQo",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27344acf7cec4b034afef0002cc",
+      "durationSec": 110
+    },
+    {
+      "id": "crown-covena-087-1o1Tgu",
+      "psalm": 87,
+      "title": "The Lord’s Foundation (Psalm 87b)",
+      "artist": "Crown & Covenant",
+      "album": "Zion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/1o1Tgu3i5JjYGBuSzhxQRx",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27344acf7cec4b034afef0002cc",
+      "durationSec": 153
+    },
+    {
       "id": "poor-bishop--087-5j48B2",
       "psalm": 87,
       "title": "Psalm 87",
@@ -5658,16 +5918,6 @@
       "spotifyUrl": "https://open.spotify.com/track/5j48B2dqtknou0NDResZ9C",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 196
-    },
-    {
-      "id": "streetlights-087-56GzXj",
-      "psalm": 87,
-      "title": "Psalm 87",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 3 (Chapters 73-89)",
-      "spotifyUrl": "https://open.spotify.com/track/56GzXj2p7Xxp3k6TSKCcWO",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27326eccc3ba1dd1ece75f79676",
-      "durationSec": 86
     },
     {
       "id": "wendell-kimb-087-3xvLBG",
@@ -5720,14 +5970,14 @@
       "durationSec": 330
     },
     {
-      "id": "streetlights-088-5crGk4",
+      "id": "sons-of-kora-088-1B9xg7",
       "psalm": 88,
-      "title": "Psalm 88",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 3 (Chapters 73-89)",
-      "spotifyUrl": "https://open.spotify.com/track/5crGk4b47G4L0GvAwJFrpx",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27326eccc3ba1dd1ece75f79676",
-      "durationSec": 159
+      "title": "Psalm 88c",
+      "artist": "Sons of Korah",
+      "album": "Psalm 88c",
+      "spotifyUrl": "https://open.spotify.com/track/1B9xg71jwetcz2b0b1AL45",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273498c23bbcddf17041100d4c6",
+      "durationSec": 338
     },
     {
       "id": "the-corner-r-088-1glO7Q",
@@ -5750,6 +6000,56 @@
       "durationSec": 220
     },
     {
+      "id": "crown-covena-089-57hlTB",
+      "psalm": 89,
+      "title": "And If His Sons Forsake My Law (89E)",
+      "artist": "Crown & Covenant",
+      "album": "Covenant: Selections From the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/57hlTB3R5EjnUKPwD9kZLi",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273ceed2d289f86a20a14eb6f66",
+      "durationSec": 162
+    },
+    {
+      "id": "crown-covena-089-0EkQnw",
+      "psalm": 89,
+      "title": "How Long, Lord (89G)",
+      "artist": "Crown & Covenant",
+      "album": "Covenant: Selections From the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/0EkQnwUMRmEtQ06ui2JePS",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273ceed2d289f86a20a14eb6f66",
+      "durationSec": 145
+    },
+    {
+      "id": "crown-covena-089-149aRG",
+      "psalm": 89,
+      "title": "In Visions Once You Spoke (89D)",
+      "artist": "Crown & Covenant",
+      "album": "Covenant: Selections From the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/149aRGGIYRztU50jNWPwBB",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273ceed2d289f86a20a14eb6f66",
+      "durationSec": 158
+    },
+    {
+      "id": "crown-covena-089-6sysiA",
+      "psalm": 89,
+      "title": "Now To the Lord (89H)",
+      "artist": "Crown & Covenant",
+      "album": "Covenant: Selections From the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/6sysiAq6xrWirE2p4D679J",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273ceed2d289f86a20a14eb6f66",
+      "durationSec": 71
+    },
+    {
+      "id": "crown-covena-089-1kAlWy",
+      "psalm": 89,
+      "title": "Now Your Anointed You Have Spurned (89F)",
+      "artist": "Crown & Covenant",
+      "album": "Covenant: Selections From the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/1kAlWyOSjnqLFLt982MF46",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273ceed2d289f86a20a14eb6f66",
+      "durationSec": 114
+    },
+    {
       "id": "gregory-wilb-089-4zGIAp",
       "psalm": 89,
       "title": "We Will Sing Your Love Forever: Psalm 89:1-18",
@@ -5770,16 +6070,6 @@
       "durationSec": 235
     },
     {
-      "id": "streetlights-089-423HiN",
-      "psalm": 89,
-      "title": "Psalm 89",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 3 (Chapters 73-89)",
-      "spotifyUrl": "https://open.spotify.com/track/423HiNTimyyinLGoOdIvvH",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27326eccc3ba1dd1ece75f79676",
-      "durationSec": 322
-    },
-    {
       "id": "cardiphonia--090-6RiipJ",
       "psalm": 90,
       "title": "You Have Been Our Dwelling Place (Psalm 90)",
@@ -5788,6 +6078,36 @@
       "spotifyUrl": "https://open.spotify.com/track/6RiipJLi4Lw0PQFX7EJz7e",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273af30101fb795c341f1cb146b",
       "durationSec": 213
+    },
+    {
+      "id": "crown-covena-090-2UNI0c",
+      "psalm": 90,
+      "title": "90a: Lord, You Have Been Our Dwelling Place",
+      "artist": "Crown & Covenant",
+      "album": "Restoration: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/2UNI0cCRR4SqLpJjfoCa5P",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2735ef1c168130a22257854210f",
+      "durationSec": 202
+    },
+    {
+      "id": "crown-covena-090-6th2mz",
+      "psalm": 90,
+      "title": "90b: O Teach Us How to Count Our Days",
+      "artist": "Crown & Covenant",
+      "album": "Restoration: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/6th2mzv67Xmo7WDrEu8jKQ",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2735ef1c168130a22257854210f",
+      "durationSec": 124
+    },
+    {
+      "id": "crown-covena-090-1oifIc",
+      "psalm": 90,
+      "title": "Psalm 90d",
+      "artist": "Crown & Covenant",
+      "album": "Sing a New Song: Selections from the Book of Psalms for Singing",
+      "spotifyUrl": "https://open.spotify.com/track/1oifIcbTsMBzG4YUlLR65i",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734af2aff167c7bed2f59a58d9",
+      "durationSec": 189
     },
     {
       "id": "pbh-090",
@@ -5838,16 +6158,6 @@
       "album": "Unchanging God: Songs from the Book of Psalms, Vol. 1",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734fcee6fd27886f84d6efc638",
       "durationSec": 258
-    },
-    {
-      "id": "streetlights-090-681iKW",
-      "psalm": 90,
-      "title": "Psalm 90",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 4 (Chapters 90-106)",
-      "spotifyUrl": "https://open.spotify.com/track/681iKW9oaap8JABbBJhn18",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27346ec2c1dbf23495debc7d683",
-      "durationSec": 152
     },
     {
       "id": "verses-090-6L3ncx",
@@ -5908,6 +6218,16 @@
       "spotifyUrl": "https://open.spotify.com/track/0Hkvbk6F9DfNlGA8X3nVui",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27304e49fef6fc7370ea26ffbcd",
       "durationSec": 221
+    },
+    {
+      "id": "crown-covena-091-7yTbFm",
+      "psalm": 91,
+      "title": "The One Who Has a Refuge Safe (Psalm 91b)",
+      "artist": "Crown & Covenant",
+      "album": "Trust: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/7yTbFmWX0XNH9YHsXIjv46",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2737369aa0bdde70be5c6d25e18",
+      "durationSec": 131
     },
     {
       "id": "gregory-wilb-091-19zGLl",
@@ -5988,16 +6308,6 @@
       "spotifyUrl": "https://open.spotify.com/track/5ZEekTUdIRdPf9V8QP2or5",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273faf57fe08334c0f4ce4da80c",
       "durationSec": 405
-    },
-    {
-      "id": "streetlights-091-2j7IRq",
-      "psalm": 91,
-      "title": "Psalm 91",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 4 (Chapters 90-106)",
-      "spotifyUrl": "https://open.spotify.com/track/2j7IRqnPuToNuwepAVQ662",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27346ec2c1dbf23495debc7d683",
-      "durationSec": 121
     },
     {
       "id": "the-verses-p-091-76gyVU",
@@ -6170,6 +6480,16 @@
       "durationSec": 226
     },
     {
+      "id": "crown-covena-092-6Xkytc",
+      "psalm": 92,
+      "title": "I Am the Vine (Psalm 92)",
+      "artist": "Crown & Covenant",
+      "album": "I Am: Kids Sing Psalms!",
+      "spotifyUrl": "https://open.spotify.com/track/6XkytcrIezEXryntCHi55N",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273195938a90471e46db4370480",
+      "durationSec": 243
+    },
+    {
       "id": "poor-bishop--092-7o5qys",
       "psalm": 92,
       "title": "Psalm 92",
@@ -6178,16 +6498,6 @@
       "spotifyUrl": "https://open.spotify.com/track/7o5qysWpXdyflPTzQbLbXS",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 149
-    },
-    {
-      "id": "streetlights-092-3xuspv",
-      "psalm": 92,
-      "title": "Psalm 92",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 4 (Chapters 90-106)",
-      "spotifyUrl": "https://open.spotify.com/track/3xuspvVqtjoqkNQ8MrQtuE",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27346ec2c1dbf23495debc7d683",
-      "durationSec": 122
     },
     {
       "id": "verses-092-5gsmUS",
@@ -6260,16 +6570,6 @@
       "durationSec": 243
     },
     {
-      "id": "streetlights-093-2Alc8k",
-      "psalm": 93,
-      "title": "Psalm 93",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 4 (Chapters 90-106)",
-      "spotifyUrl": "https://open.spotify.com/track/2Alc8keHIJzS0cFD6IDe6p",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27346ec2c1dbf23495debc7d683",
-      "durationSec": 72
-    },
-    {
       "id": "cardiphonia--094-550WNs",
       "psalm": 94,
       "title": "Our Defense (Psalm 94)",
@@ -6298,16 +6598,6 @@
       "spotifyUrl": "https://open.spotify.com/track/4bUmZzO7wo7qZ14KCJdCRg",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273d1b83e293f0b11bc32d0f659",
       "durationSec": 354
-    },
-    {
-      "id": "streetlights-094-4e0tqS",
-      "psalm": 94,
-      "title": "Psalm 94",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 4 (Chapters 90-106)",
-      "spotifyUrl": "https://open.spotify.com/track/4e0tqS0maOVdKOqS8VSUy8",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27346ec2c1dbf23495debc7d683",
-      "durationSec": 155
     },
     {
       "id": "brian-sauv-095-6cDzAT",
@@ -6340,6 +6630,46 @@
       "durationSec": 254
     },
     {
+      "id": "crown-covena-095-754IEv",
+      "psalm": 95,
+      "title": "Come to the Lord and Sing for Joy (Psalm 95a)",
+      "artist": "Crown & Covenant",
+      "album": "Communion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/754IEvYHujUgkaoNL0E5XT",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734adaba5d792a9cf0fdef2a7d",
+      "durationSec": 91
+    },
+    {
+      "id": "crown-covena-095-6WZyb7",
+      "psalm": 95,
+      "title": "O Come and Let Us Worship Him (Psalm 95b)",
+      "artist": "Crown & Covenant",
+      "album": "Communion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/6WZyb7x1bbokoOfn6UsPz5",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734adaba5d792a9cf0fdef2a7d",
+      "durationSec": 65
+    },
+    {
+      "id": "crown-covena-095-0ognXb",
+      "psalm": 95,
+      "title": "O Come to the Lord (Psalm 95d)",
+      "artist": "Crown & Covenant",
+      "album": "Abundance: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/0ognXbu2VphWIbcBppO9vv",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27323abc3895dbe15d7ccafe92a",
+      "durationSec": 58
+    },
+    {
+      "id": "crown-covena-095-1TiLoH",
+      "psalm": 95,
+      "title": "Today If You Will Hear His Voice (Psalm 95c)",
+      "artist": "Crown & Covenant",
+      "album": "Communion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/1TiLoHLHsIruAl2bkOXf9g",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734adaba5d792a9cf0fdef2a7d",
+      "durationSec": 81
+    },
+    {
       "id": "poor-bishop--095-2C23y9",
       "psalm": 95,
       "title": "Psalm 95",
@@ -6358,16 +6688,6 @@
       "spotifyUrl": "https://open.spotify.com/track/6muFwZtCukiTH6y8gaLwIN",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273271bee46eac90a857fd795cc",
       "durationSec": 263
-    },
-    {
-      "id": "streetlights-095-1WzU8s",
-      "psalm": 95,
-      "title": "Psalm 95",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 4 (Chapters 90-106)",
-      "spotifyUrl": "https://open.spotify.com/track/1WzU8s9sm1PE70uUDv6xdz",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27346ec2c1dbf23495debc7d683",
-      "durationSec": 91
     },
     {
       "id": "writers-well-095-6XP6HM",
@@ -6420,6 +6740,36 @@
       "durationSec": 181
     },
     {
+      "id": "crown-covena-096-6dUADT",
+      "psalm": 96,
+      "title": "Ascribe Unto the Lord (Psalm 96d)",
+      "artist": "Crown & Covenant",
+      "album": "Abundance: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/6dUADTVOsJo9gK2zCLbD9P",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27323abc3895dbe15d7ccafe92a",
+      "durationSec": 165
+    },
+    {
+      "id": "crown-covena-096-78qpjq",
+      "psalm": 96,
+      "title": "O Sing a New Song (Psalm 96a)",
+      "artist": "Crown & Covenant",
+      "album": "Glory: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/78qpjqdaGN1xZzxtExPquL",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273a875e583a8b14d21f3c2cf49",
+      "durationSec": 109
+    },
+    {
+      "id": "crown-covena-096-2zNRPV",
+      "psalm": 96,
+      "title": "O Sing a New Song (Special Arrangement) [Psalm 96] [Bonus]",
+      "artist": "Crown & Covenant",
+      "album": "Glory: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/2zNRPVNd1cYHbT2TBHQZnc",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273a875e583a8b14d21f3c2cf49",
+      "durationSec": 127
+    },
+    {
       "id": "poor-bishop--096-53xghO",
       "psalm": 96,
       "title": "Psalm 96",
@@ -6438,16 +6788,6 @@
       "spotifyUrl": "https://open.spotify.com/track/6GE9CWpTSBYwconHFM9zw0",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273518fe730b959d6f416f65d43",
       "durationSec": 363
-    },
-    {
-      "id": "streetlights-096-2vdIA1",
-      "psalm": 96,
-      "title": "Psalm 96",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 4 (Chapters 90-106)",
-      "spotifyUrl": "https://open.spotify.com/track/2vdIA1WnQe1KJqN8vlgRY6",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27346ec2c1dbf23495debc7d683",
-      "durationSec": 146
     },
     {
       "id": "verses-096-5ch0Oc",
@@ -6570,6 +6910,26 @@
       "durationSec": 232
     },
     {
+      "id": "crown-covena-097-1t0Efg",
+      "psalm": 97,
+      "title": "I Am the Light of the World (Psalm 97b)",
+      "artist": "Crown & Covenant",
+      "album": "I Am: Kids Sing Psalms!",
+      "spotifyUrl": "https://open.spotify.com/track/1t0Efgq09kFPt6BAQdXR0P",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273195938a90471e46db4370480",
+      "durationSec": 78
+    },
+    {
+      "id": "crown-covena-097-3URRhd",
+      "psalm": 97,
+      "title": "The Lord Is King! (Psalm 97c)",
+      "artist": "Crown & Covenant",
+      "album": "Glory: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/3URRhd1mYrRiTIf9FEGp4c",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273a875e583a8b14d21f3c2cf49",
+      "durationSec": 163
+    },
+    {
       "id": "poor-bishop--097-037Bjd",
       "psalm": 97,
       "title": "Psalm 97",
@@ -6578,16 +6938,6 @@
       "spotifyUrl": "https://open.spotify.com/track/037Bjd3BW0eFefGsPjBUSr",
       "albumCoverUrl": "https://i.scdn.co/image/ab67706c0000bebb5abebd273d782f1c636ebdd3",
       "durationSec": 267
-    },
-    {
-      "id": "streetlights-097-4I50x8",
-      "psalm": 97,
-      "title": "Psalm 97",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 4 (Chapters 90-106)",
-      "spotifyUrl": "https://open.spotify.com/track/4I50x8cwlcsVpS8Udq96ol",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27346ec2c1dbf23495debc7d683",
-      "durationSec": 97
     },
     {
       "id": "brian-sauv-098-0TdN11",
@@ -6620,6 +6970,16 @@
       "durationSec": 148
     },
     {
+      "id": "crown-covena-098-3wqQxS",
+      "psalm": 98,
+      "title": "Psalm 98a",
+      "artist": "Crown & Covenant",
+      "album": "Sing a New Song: Selections from the Book of Psalms for Singing",
+      "spotifyUrl": "https://open.spotify.com/track/3wqQxSeRQ608AYooMV1er2",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734af2aff167c7bed2f59a58d9",
+      "durationSec": 154
+    },
+    {
       "id": "poor-bishop--098-47srma",
       "psalm": 98,
       "title": "Psalm 98",
@@ -6648,16 +7008,6 @@
       "spotifyUrl": "https://open.spotify.com/track/2wXbVH6oQtUPMcZrlUqnPs",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2736cdb7a72bbf98fe789c5c516",
       "durationSec": 223
-    },
-    {
-      "id": "streetlights-098-5kfiIL",
-      "psalm": 98,
-      "title": "Psalm 98",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 4 (Chapters 90-106)",
-      "spotifyUrl": "https://open.spotify.com/track/5kfiIL1EVrVdcjZODYXWcE",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27346ec2c1dbf23495debc7d683",
-      "durationSec": 88
     },
     {
       "id": "wendell-kimb-098-5l1zAJ",
@@ -6698,16 +7048,6 @@
       "spotifyUrl": "https://open.spotify.com/track/5KJMcxOx0P4dhXejfUcKpn",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273322c25b8c9f0dfdf52097d3a",
       "durationSec": 224
-    },
-    {
-      "id": "streetlights-099-3hQySR",
-      "psalm": 99,
-      "title": "Psalm 99",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 4 (Chapters 90-106)",
-      "spotifyUrl": "https://open.spotify.com/track/3hQySRdXVnY5rqNGjtP0Wl",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27346ec2c1dbf23495debc7d683",
-      "durationSec": 80
     },
     {
       "id": "brian-sauv-100-2sEt31",
@@ -6790,16 +7130,6 @@
       "durationSec": 154
     },
     {
-      "id": "streetlights-100-65JYNx",
-      "psalm": 100,
-      "title": "Psalm 100",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 4 (Chapters 90-106)",
-      "spotifyUrl": "https://open.spotify.com/track/65JYNxSd6x2cyhdGffSokP",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27346ec2c1dbf23495debc7d683",
-      "durationSec": 51
-    },
-    {
       "id": "the-corner-r-100-0f7ncd",
       "psalm": 100,
       "title": "Psalm 100",
@@ -6870,16 +7200,6 @@
       "durationSec": 112
     },
     {
-      "id": "streetlights-101-1NGt3b",
-      "psalm": 101,
-      "title": "Psalm 101",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 4 (Chapters 90-106)",
-      "spotifyUrl": "https://open.spotify.com/track/1NGt3b6Oy73NVSbkvgiS8S",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27346ec2c1dbf23495debc7d683",
-      "durationSec": 82
-    },
-    {
       "id": "cardiphonia--102-4MnZkR",
       "psalm": 102,
       "title": "Come Messiah, Come (Psalm 102)",
@@ -6900,6 +7220,26 @@
       "durationSec": 321
     },
     {
+      "id": "crown-covena-102-44KIvg",
+      "psalm": 102,
+      "title": "My Days Like Evening’s Shade (Psalm 102b)",
+      "artist": "Crown & Covenant",
+      "album": "Zion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/44KIvg7csXxvdVlFWsf0OR",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27344acf7cec4b034afef0002cc",
+      "durationSec": 185
+    },
+    {
+      "id": "crown-covena-102-4V3FGq",
+      "psalm": 102,
+      "title": "To This My Prayer (Psalm 102a)",
+      "artist": "Crown & Covenant",
+      "album": "Zion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/4V3FGqpI5fenfWjJ8O2ruu",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27344acf7cec4b034afef0002cc",
+      "durationSec": 164
+    },
+    {
       "id": "gregory-wilb-102-5nQYX9",
       "psalm": 102,
       "title": "Psalm 102: Lord, Hear My Prayer",
@@ -6918,16 +7258,6 @@
       "spotifyUrl": "https://open.spotify.com/track/1mSOxkVY1JkbUwKTN5ytRp",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273295d605c782ceee3d2cf4924",
       "durationSec": 323
-    },
-    {
-      "id": "streetlights-102-5YbDQP",
-      "psalm": 102,
-      "title": "Psalm 102",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 4 (Chapters 90-106)",
-      "spotifyUrl": "https://open.spotify.com/track/5YbDQPESpmohAbgi6vl495",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27346ec2c1dbf23495debc7d683",
-      "durationSec": 204
     },
     {
       "id": "brother-down-103-53zaY6",
@@ -6958,6 +7288,16 @@
       "spotifyUrl": "https://open.spotify.com/track/0iSVG7jRHuD8c27ZD58VBs",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273af30101fb795c341f1cb146b",
       "durationSec": 143
+    },
+    {
+      "id": "crown-covena-103-2H3cc3",
+      "psalm": 103,
+      "title": "Bless the Lord, My Soul (103B)",
+      "artist": "Crown & Covenant",
+      "album": "Covenant: Selections From the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/2H3cc3H75rgI19aDlSxrDV",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273ceed2d289f86a20a14eb6f66",
+      "durationSec": 193
     },
     {
       "id": "gregory-wilb-103-2vOoCC",
@@ -7038,16 +7378,6 @@
       "spotifyUrl": "https://open.spotify.com/track/2t8nn5SJaDvL1BXqHqC0Zk",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734fcee6fd27886f84d6efc638",
       "durationSec": 220
-    },
-    {
-      "id": "streetlights-103-3tjwBP",
-      "psalm": 103,
-      "title": "Psalm 103",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 4 (Chapters 90-106)",
-      "spotifyUrl": "https://open.spotify.com/track/3tjwBPtbruZ4vM2g5vIsot",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27346ec2c1dbf23495debc7d683",
-      "durationSec": 154
     },
     {
       "id": "verses-103-2xn09R",
@@ -7180,6 +7510,56 @@
       "durationSec": 212
     },
     {
+      "id": "crown-covena-104-3xZxny",
+      "psalm": 104,
+      "title": "By Limits You Set (Psalm 104b)",
+      "artist": "Crown & Covenant",
+      "album": "Glory: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/3xZxnyKlyqKf00NBTqTYcN",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273a875e583a8b14d21f3c2cf49",
+      "durationSec": 133
+    },
+    {
+      "id": "crown-covena-104-3AQiev",
+      "psalm": 104,
+      "title": "Forevermore May the Lord’s Glory Stand (Psalm 104e)",
+      "artist": "Crown & Covenant",
+      "album": "Glory: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/3AQievfTURX4U2ek2gWglt",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273a875e583a8b14d21f3c2cf49",
+      "durationSec": 114
+    },
+    {
+      "id": "crown-covena-104-04U2cl",
+      "psalm": 104,
+      "title": "How Many Works, Lord (Psalm 104d)",
+      "artist": "Crown & Covenant",
+      "album": "Glory: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/04U2cleCQaoKdiOl898qse",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273a875e583a8b14d21f3c2cf49",
+      "durationSec": 99
+    },
+    {
+      "id": "crown-covena-104-2LWJjQ",
+      "psalm": 104,
+      "title": "My Soul, Bless the Lord! (Psalm 104a)",
+      "artist": "Crown & Covenant",
+      "album": "Glory: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/2LWJjQXMK9XNaOEefEhdb3",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273a875e583a8b14d21f3c2cf49",
+      "durationSec": 136
+    },
+    {
+      "id": "crown-covena-104-15MJqv",
+      "psalm": 104,
+      "title": "The Trees of the Lord (Psalm 104c)",
+      "artist": "Crown & Covenant",
+      "album": "Glory: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/15MJqv4VTchbe7AJgztBXe",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273a875e583a8b14d21f3c2cf49",
+      "durationSec": 140
+    },
+    {
       "id": "nathan-clark-104-0PcnNU",
       "psalm": 104,
       "title": "Bless the Lord O My Soul (Psalm 104)",
@@ -7218,16 +7598,6 @@
       "spotifyUrl": "https://open.spotify.com/track/1ZM6UnCG3wJFp4COk5jFY1",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273496bb6eb342063c8b4981a09",
       "durationSec": 262
-    },
-    {
-      "id": "streetlights-104-3Sh5VS",
-      "psalm": 104,
-      "title": "Psalm 104",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 4 (Chapters 90-106)",
-      "spotifyUrl": "https://open.spotify.com/track/3Sh5VStzsp06q25tWFyfYj",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27346ec2c1dbf23495debc7d683",
-      "durationSec": 246
     },
     {
       "id": "wendell-kimb-104-3zkGi7",
@@ -7270,16 +7640,6 @@
       "durationSec": 327
     },
     {
-      "id": "streetlights-105-0mw6RH",
-      "psalm": 105,
-      "title": "Psalm 105",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 4 (Chapters 90-106)",
-      "spotifyUrl": "https://open.spotify.com/track/0mw6RHjstMbXQm7p6U1RYI",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27346ec2c1dbf23495debc7d683",
-      "durationSec": 291
-    },
-    {
       "id": "wendell-kimb-105-0rA3NE",
       "psalm": 105,
       "title": "He Hears Your Voice (Psalm 105)",
@@ -7320,16 +7680,6 @@
       "durationSec": 244
     },
     {
-      "id": "streetlights-106-1vwz2K",
-      "psalm": 106,
-      "title": "Psalm 106",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 4 (Chapters 90-106)",
-      "spotifyUrl": "https://open.spotify.com/track/1vwz2KAUGy0Xl4hDtFIEWb",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27346ec2c1dbf23495debc7d683",
-      "durationSec": 308
-    },
-    {
       "id": "cardiphonia--107-1JcNY9",
       "psalm": 107,
       "title": "Thanks and Praise (Psalm 107)",
@@ -7338,6 +7688,76 @@
       "spotifyUrl": "https://open.spotify.com/track/1JcNY951y1McxC56UdTv1W",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27376b2d3b52ec980c734479f24",
       "durationSec": 241
+    },
+    {
+      "id": "crown-covena-107-1sSDUy",
+      "psalm": 107,
+      "title": "Fools Were Afflicted (107H)",
+      "artist": "Crown & Covenant",
+      "album": "Covenant: Selections From the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/1sSDUyNe9zWFQpAvKyRiyl",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273ceed2d289f86a20a14eb6f66",
+      "durationSec": 93
+    },
+    {
+      "id": "crown-covena-107-3zPVng",
+      "psalm": 107,
+      "title": "In Death's Dark Shadow (Psalm 107b)",
+      "artist": "Crown & Covenant",
+      "album": "Abundance: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/3zPVngL5UPVMB8KZTFWgSk",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27323abc3895dbe15d7ccafe92a",
+      "durationSec": 105
+    },
+    {
+      "id": "crown-covena-107-1ptbqG",
+      "psalm": 107,
+      "title": "O Glorify Him (107F)",
+      "artist": "Crown & Covenant",
+      "album": "Covenant: Selections From the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/1ptbqGMa27pZhVvKggf1Jq",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273ceed2d289f86a20a14eb6f66",
+      "durationSec": 209
+    },
+    {
+      "id": "crown-covena-107-2E2LiR",
+      "psalm": 107,
+      "title": "Some Lived in Darkness (107G)",
+      "artist": "Crown & Covenant",
+      "album": "Covenant: Selections From the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/2E2LiRTD2JCKrc23RqxlzF",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273ceed2d289f86a20a14eb6f66",
+      "durationSec": 119
+    },
+    {
+      "id": "crown-covena-107-6lz60z",
+      "psalm": 107,
+      "title": "Some Rivers He Changes (107J)",
+      "artist": "Crown & Covenant",
+      "album": "Covenant: Selections From the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/6lz60zLEgp7ocbtOnkCN3j",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273ceed2d289f86a20a14eb6f66",
+      "durationSec": 150
+    },
+    {
+      "id": "crown-covena-107-2UsTVb",
+      "psalm": 107,
+      "title": "The Foolish Suffered for Their Sins (Psalm 107C)",
+      "artist": "Crown & Covenant",
+      "album": "Refuge: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/2UsTVbB3tgWHG0NZfmLK7A",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27347330daa1edee11c0b26e523",
+      "durationSec": 103
+    },
+    {
+      "id": "crown-covena-107-4YTDlQ",
+      "psalm": 107,
+      "title": "To Those Who Sail the Seas (107D)",
+      "artist": "Crown & Covenant",
+      "album": "Covenant: Selections From the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/4YTDlQQtMePepxF7Nlz9nk",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273ceed2d289f86a20a14eb6f66",
+      "durationSec": 176
     },
     {
       "id": "poor-bishop--107-36SgvG",
@@ -7358,16 +7778,6 @@
       "spotifyUrl": "https://open.spotify.com/track/2HHI1ZtuLVPP49CpegOLjU",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27391e505398eb4c6a28d3a8039",
       "durationSec": 250
-    },
-    {
-      "id": "streetlights-107-0AxAsx",
-      "psalm": 107,
-      "title": "Psalm 107",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/0AxAsxDTKK9gYE1mF0qPT6",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 296
     },
     {
       "id": "wendell-kimb-107-1udggF",
@@ -7420,6 +7830,26 @@
       "durationSec": 250
     },
     {
+      "id": "crown-covena-108-5QVfXn",
+      "psalm": 108,
+      "title": "God Spoke in Holiness (Psalm 108b)",
+      "artist": "Crown & Covenant",
+      "album": "Glory: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/5QVfXn9KE7pia9JE0VGeyS",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273a875e583a8b14d21f3c2cf49",
+      "durationSec": 148
+    },
+    {
+      "id": "crown-covena-108-7iPiA3",
+      "psalm": 108,
+      "title": "With Steadfast Heart, O God (Psalm 108c)",
+      "artist": "Crown & Covenant",
+      "album": "Glory: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/7iPiA3Q23TeSLOvUDks92f",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273a875e583a8b14d21f3c2cf49",
+      "durationSec": 110
+    },
+    {
       "id": "poor-bishop--108-5c3sp0",
       "psalm": 108,
       "title": "Psalm 108",
@@ -7428,16 +7858,6 @@
       "spotifyUrl": "https://open.spotify.com/track/5c3sp0t9RDc6J5IYMmQyw0",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2732ea11d5e1374e9624f78cd4b",
       "durationSec": 277
-    },
-    {
-      "id": "streetlights-108-4UVgsO",
-      "psalm": 108,
-      "title": "Psalm 108",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/4UVgsOdSC7IJnVPhNdFLAU",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 104
     },
     {
       "id": "cardiphonia--109-4DcqiM",
@@ -7458,16 +7878,6 @@
       "spotifyUrl": "https://open.spotify.com/track/2gAssO509QYXubGcy872DP",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27313fc63a18a5a22c6aaa0ad4a",
       "durationSec": 267
-    },
-    {
-      "id": "streetlights-109-5CxJFc",
-      "psalm": 109,
-      "title": "Psalm 109",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/5CxJFcrQOc4o2MMrq7LV9M",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 236
     },
     {
       "id": "brian-sauv-110-4Qk1gr",
@@ -7498,6 +7908,36 @@
       "spotifyUrl": "https://open.spotify.com/track/6iHXcPH0DIUieEBC32nWJF",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27376b2d3b52ec980c734479f24",
       "durationSec": 247
+    },
+    {
+      "id": "crown-covena-110-2qXeOo",
+      "psalm": 110,
+      "title": "I Am He (Messiah) [Psalm 110b]",
+      "artist": "Crown & Covenant",
+      "album": "I Am: Kids Sing Psalms!",
+      "spotifyUrl": "https://open.spotify.com/track/2qXeOon9MaacC3AviHwgVc",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273195938a90471e46db4370480",
+      "durationSec": 207
+    },
+    {
+      "id": "crown-covena-110-6HTWcz",
+      "psalm": 110,
+      "title": "The Lord Has Spoken to My Lord (Psalm 110a)",
+      "artist": "Crown & Covenant",
+      "album": "Abundance: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/6HTWcziG3nq8f9batZlNTZ",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27323abc3895dbe15d7ccafe92a",
+      "durationSec": 146
+    },
+    {
+      "id": "crown-covena-110-4iLpHr",
+      "psalm": 110,
+      "title": "The Lord Said to My Lord (Psalm 110c)",
+      "artist": "Crown & Covenant",
+      "album": "Zion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/4iLpHrAJnjYc6raKIIm9VT",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27344acf7cec4b034afef0002cc",
+      "durationSec": 145
     },
     {
       "id": "liturgical-f-110-2ubz9g",
@@ -7540,16 +7980,6 @@
       "durationSec": 341
     },
     {
-      "id": "streetlights-110-7wZz2L",
-      "psalm": 110,
-      "title": "Psalm 110",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/7wZz2LlXYwxtIBFRlsBKJV",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 89
-    },
-    {
       "id": "tim-bushong-110-1FaFI6",
       "psalm": 110,
       "title": "Hail To Jesus (Psalm 110)",
@@ -7578,6 +8008,26 @@
       "spotifyUrl": "https://open.spotify.com/track/06AYxQiyDhj3hGMFnkrMqQ",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27376b2d3b52ec980c734479f24",
       "durationSec": 235
+    },
+    {
+      "id": "crown-covena-111-6g8ccG",
+      "psalm": 111,
+      "title": "O Praise the Lord (111C)",
+      "artist": "Crown & Covenant",
+      "album": "Covenant: Selections From the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/6g8ccGb8GaAh64iAfsQrrJ",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273ceed2d289f86a20a14eb6f66",
+      "durationSec": 105
+    },
+    {
+      "id": "crown-covena-111-57LLSq",
+      "psalm": 111,
+      "title": "The Might Power of His Works (111D)",
+      "artist": "Crown & Covenant",
+      "album": "Covenant: Selections From the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/57LLSqnCv4g1wvtjpFePv4",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273ceed2d289f86a20a14eb6f66",
+      "durationSec": 95
     },
     {
       "id": "gregory-wilb-111-5wZEGC",
@@ -7640,16 +8090,6 @@
       "durationSec": 185
     },
     {
-      "id": "streetlights-111-2oJijT",
-      "psalm": 111,
-      "title": "Psalm 111",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/2oJijTjFmvvkXZtHcQ96SF",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 92
-    },
-    {
       "id": "zac-fitzsimm-111-4qWNCA",
       "psalm": 111,
       "title": "Psalm 111 Word For Word",
@@ -7698,16 +8138,6 @@
       "spotifyUrl": "https://open.spotify.com/track/3zfoGUporn7JIkvCEVaZhp",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273415a9d89bf2aef76a672b7b8",
       "durationSec": 191
-    },
-    {
-      "id": "streetlights-112-2YeaL2",
-      "psalm": 112,
-      "title": "Psalm 112",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/2YeaL2gknc1zOh9aphW6aX",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 86
     },
     {
       "id": "wendell-kimb-112-7Ehlfw",
@@ -7800,16 +8230,6 @@
       "durationSec": 290
     },
     {
-      "id": "streetlights-113-4U2wSa",
-      "psalm": 113,
-      "title": "Psalm 113",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/4U2wSaypiaJuxLf2jC2UNc",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 70
-    },
-    {
       "id": "cardiphonia--114-1UJ1yC",
       "psalm": 114,
       "title": "Tremble Before the Lord (Psalm 114) [feat. Greg Scheer]",
@@ -7830,6 +8250,16 @@
       "durationSec": 189
     },
     {
+      "id": "crown-covena-114-15ykM8",
+      "psalm": 114,
+      "title": "When Isr'el Went Forth (Psalm 114a)",
+      "artist": "Crown & Covenant",
+      "album": "Abundance: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/15ykM8rQ5X7TzoV8PxmEWU",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27323abc3895dbe15d7ccafe92a",
+      "durationSec": 140
+    },
+    {
       "id": "poor-bishop--114-5tVdci",
       "psalm": 114,
       "title": "Psalm 114",
@@ -7848,16 +8278,6 @@
       "spotifyUrl": "https://open.spotify.com/track/7LVah8LLSXG6azTPqN518H",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27391e505398eb4c6a28d3a8039",
       "durationSec": 231
-    },
-    {
-      "id": "streetlights-114-1tKmA9",
-      "psalm": 114,
-      "title": "Psalm 114",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/1tKmA9UqyqDrk67LUHhTOk",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 70
     },
     {
       "id": "cardiphonia--115-3G1wq7",
@@ -7888,16 +8308,6 @@
       "spotifyUrl": "https://open.spotify.com/track/5KMPeRKyOdEVmYCotZFQGV",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273e7242ad3aa12cbe9ad31f8f9",
       "durationSec": 263
-    },
-    {
-      "id": "streetlights-115-7202yq",
-      "psalm": 115,
-      "title": "Psalm 115",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/7202yqV0vT9HxMRpYJzNO5",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 125
     },
     {
       "id": "writers-well-115-2EQ3Sg",
@@ -7960,6 +8370,36 @@
       "durationSec": 222
     },
     {
+      "id": "crown-covena-116-7dW7M1",
+      "psalm": 116,
+      "title": "How Fervently I Love the Lord (Psalm 116a)",
+      "artist": "Crown & Covenant",
+      "album": "Communion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/7dW7M1yz3D4XmXOVRb7XFJ",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734adaba5d792a9cf0fdef2a7d",
+      "durationSec": 133
+    },
+    {
+      "id": "crown-covena-116-6d25Py",
+      "psalm": 116,
+      "title": "I Still Believed (Psalm 116b)",
+      "artist": "Crown & Covenant",
+      "album": "Communion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/6d25PyRGYvP1AGQVUlYBBT",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734adaba5d792a9cf0fdef2a7d",
+      "durationSec": 137
+    },
+    {
+      "id": "crown-covena-116-4n8DFM",
+      "psalm": 116,
+      "title": "Psalm 116c",
+      "artist": "Crown & Covenant",
+      "album": "Sing a New Song: Selections from the Book of Psalms for Singing",
+      "spotifyUrl": "https://open.spotify.com/track/4n8DFMH1FnSTQN9KrUelYP",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734af2aff167c7bed2f59a58d9",
+      "durationSec": 159
+    },
+    {
       "id": "poor-bishop--116-46QAzh",
       "psalm": 116,
       "title": "Psalm 116",
@@ -7988,16 +8428,6 @@
       "spotifyUrl": "https://open.spotify.com/track/0jbeWQqod5FKazaF8AGoDk",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273b62f68c6f2897250161b1de4",
       "durationSec": 286
-    },
-    {
-      "id": "streetlights-116-19JfKT",
-      "psalm": 116,
-      "title": "Psalm 116",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/19JfKTJrAGmryl1qznT987",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 115
     },
     {
       "id": "verses-116-6bY5a0",
@@ -8070,6 +8500,16 @@
       "durationSec": 116
     },
     {
+      "id": "crown-covena-117-2Diglr",
+      "psalm": 117,
+      "title": "Praise the Lord (Psalm 117c)",
+      "artist": "Crown & Covenant",
+      "album": "Abundance: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/2Diglrud9oKKTqpXPAiwDu",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27323abc3895dbe15d7ccafe92a",
+      "durationSec": 108
+    },
+    {
       "id": "joe-stout-117-6QlKu7",
       "psalm": 117,
       "title": "Praise the LORD, All You Gentiles (Psalm 117)",
@@ -8088,16 +8528,6 @@
       "spotifyUrl": "https://open.spotify.com/track/3SOUXrwSWJQq3juHJBd5Gw",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273f630245dfc0be66f8ead65e1",
       "durationSec": 145
-    },
-    {
-      "id": "streetlights-117-1OZNtn",
-      "psalm": 117,
-      "title": "Psalm 117",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/1OZNtnSzk3b6mnCGfoFUm5",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 42
     },
     {
       "id": "verses-117-5xakDW",
@@ -8160,6 +8590,16 @@
       "durationSec": 167
     },
     {
+      "id": "crown-covena-118-3VzCrI",
+      "psalm": 118,
+      "title": "I Am the Gate (Psalm 118e)",
+      "artist": "Crown & Covenant",
+      "album": "I Am: Kids Sing Psalms!",
+      "spotifyUrl": "https://open.spotify.com/track/3VzCrIfpc02nkgD9oajPWY",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273195938a90471e46db4370480",
+      "durationSec": 135
+    },
+    {
       "id": "poor-bishop--118-7mjXE4",
       "psalm": 118,
       "title": "Psalm 118",
@@ -8208,16 +8648,6 @@
       "spotifyUrl": "https://open.spotify.com/track/3f8p3Yyt2n4n3pJIXUuha5",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273c31f5e99a3b39a954bab2ad5",
       "durationSec": 190
-    },
-    {
-      "id": "streetlights-118-2oALHA",
-      "psalm": 118,
-      "title": "Psalm 118",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/2oALHAP2VckD56etPpHZBi",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 209
     },
     {
       "id": "verses-118-5mYWt4",
@@ -8488,6 +8918,26 @@
       "spotifyUrl": "https://open.spotify.com/track/4GIIcD3fMzdlGP09H8lW1O",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27304e49fef6fc7370ea26ffbcd",
       "durationSec": 256
+    },
+    {
+      "id": "crown-covena-119-4DkYdO",
+      "psalm": 119,
+      "title": "Psalm 119g",
+      "artist": "Crown & Covenant",
+      "album": "Sing a New Song: Selections from the Book of Psalms for Singing",
+      "spotifyUrl": "https://open.spotify.com/track/4DkYdO4Mnz2PPIA1dBksJK",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734af2aff167c7bed2f59a58d9",
+      "durationSec": 155
+    },
+    {
+      "id": "crown-covena-119-6gTW1p",
+      "psalm": 119,
+      "title": "Psalm 119x",
+      "artist": "Crown & Covenant",
+      "album": "Sing a New Song: Selections from the Book of Psalms for Singing",
+      "spotifyUrl": "https://open.spotify.com/track/6gTW1ph42Ftabk9a8baBnw",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734af2aff167c7bed2f59a58d9",
+      "durationSec": 164
     },
     {
       "id": "exodus-music-119-4rmRBi",
@@ -9000,16 +9450,6 @@
       "durationSec": 248
     },
     {
-      "id": "streetlights-119-3RNMjV",
-      "psalm": 119,
-      "title": "Psalm 119",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/3RNMjVDMqjymXI7BvEJ9oh",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 1090
-    },
-    {
       "id": "the-corner-r-119-3VmHN5",
       "psalm": 119,
       "title": "Psalm 119:105-112 (English Standard Version)",
@@ -9080,16 +9520,6 @@
       "durationSec": 264
     },
     {
-      "id": "streetlights-120-4dP8at",
-      "psalm": 120,
-      "title": "Psalm 120",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/4dP8at9bav97QgFi5qAP35",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 65
-    },
-    {
       "id": "coram-deo-ch-121-17jJ5E",
       "psalm": 121,
       "title": "I / You (Psalm 121)",
@@ -9158,16 +9588,6 @@
       "spotifyUrl": "https://open.spotify.com/track/4yhOZKxQAeODp5KmYWV71w",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734fcee6fd27886f84d6efc638",
       "durationSec": 176
-    },
-    {
-      "id": "streetlights-121-6drpsc",
-      "psalm": 121,
-      "title": "Psalm 121",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/6drpscTZB7kTNKpZf8DJsA",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 68
     },
     {
       "id": "the-corner-r-121-1yrGr1",
@@ -9270,6 +9690,16 @@
       "durationSec": 281
     },
     {
+      "id": "crown-covena-122-5s31C1",
+      "psalm": 122,
+      "title": "Now to the Lord's House Let Us Go! (Psalm 122b)",
+      "artist": "Crown & Covenant",
+      "album": "Communion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/5s31C1Tgfvx4c1ILNa6CIQ",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734adaba5d792a9cf0fdef2a7d",
+      "durationSec": 130
+    },
+    {
       "id": "poor-bishop--122-2Tdjhv",
       "psalm": 122,
       "title": "Psalm 122",
@@ -9288,16 +9718,6 @@
       "spotifyUrl": "https://open.spotify.com/track/3vDi6QwOsrYq15j8x8XoGU",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2736b3d576172b195b17d02b1e7",
       "durationSec": 353
-    },
-    {
-      "id": "streetlights-122-6sw0oS",
-      "psalm": 122,
-      "title": "Psalm 122",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/6sw0oSJOXWFyyK0MiU3yi0",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 79
     },
     {
       "id": "wendell-kimb-122-0L4Ol9",
@@ -9320,6 +9740,16 @@
       "durationSec": 234
     },
     {
+      "id": "crown-covena-123-2NMWHo",
+      "psalm": 123,
+      "title": "I Lift My Eyes to You (Psalm 123A)",
+      "artist": "Crown & Covenant",
+      "album": "Refuge: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/2NMWHoMDGjtBvcRn2JnCN4",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27347330daa1edee11c0b26e523",
+      "durationSec": 101
+    },
+    {
       "id": "poor-bishop--123-1DPXe8",
       "psalm": 123,
       "title": "Psalm 123",
@@ -9328,16 +9758,6 @@
       "spotifyUrl": "https://open.spotify.com/track/1DPXe8Hsto5CUDh0R34qj4",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2735fdaf83f404e892b54305b4c",
       "durationSec": 207
-    },
-    {
-      "id": "streetlights-123-3IZtPU",
-      "psalm": 123,
-      "title": "Psalm 123",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/3IZtPUAKj1RpLpZ3lr2Qrk",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 50
     },
     {
       "id": "brother-down-124-4UQutt",
@@ -9378,16 +9798,6 @@
       "spotifyUrl": "https://open.spotify.com/track/3J1mJsgLkPl878UYxee1ub",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2739005a2d08a34c5e48d71be38",
       "durationSec": 178
-    },
-    {
-      "id": "streetlights-124-7CbOJ1",
-      "psalm": 124,
-      "title": "Psalm 124",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/7CbOJ1HDkFCxZalsk1HHoC",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 63
     },
     {
       "id": "wendell-kimb-124-0UlbNS",
@@ -9470,16 +9880,6 @@
       "durationSec": 155
     },
     {
-      "id": "streetlights-125-0QV65E",
-      "psalm": 125,
-      "title": "Psalm 125",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/0QV65EraI3uANi4nACRwEg",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 57
-    },
-    {
       "id": "verses-125-5fyst1",
       "psalm": 125,
       "title": "Psalm 125:1-2",
@@ -9510,6 +9910,16 @@
       "durationSec": 242
     },
     {
+      "id": "crown-covena-126-1vcNtR",
+      "psalm": 126,
+      "title": "When Zion's Captive Ones Returned (Psalm 126b)",
+      "artist": "Crown & Covenant",
+      "album": "Communion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/1vcNtRcrjpeszRi7xJn5AB",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734adaba5d792a9cf0fdef2a7d",
+      "durationSec": 71
+    },
+    {
       "id": "poor-bishop--126-6A5gYw",
       "psalm": 126,
       "title": "Psalm 126",
@@ -9528,16 +9938,6 @@
       "spotifyUrl": "https://open.spotify.com/track/20d2oiNb6278Y24k8gWVF0",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2736b3d576172b195b17d02b1e7",
       "durationSec": 296
-    },
-    {
-      "id": "streetlights-126-71331i",
-      "psalm": 126,
-      "title": "Psalm 126",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/71331ivv0R0mpX7I41jcaO",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 59
     },
     {
       "id": "advent-birmi-127-2mrtTw",
@@ -9580,16 +9980,6 @@
       "durationSec": 221
     },
     {
-      "id": "streetlights-127-2zhccC",
-      "psalm": 127,
-      "title": "Psalm 127",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/2zhccCJ7XrtgKzx6NT5EGu",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 68
-    },
-    {
       "id": "the-corner-r-127-14i7nR",
       "psalm": 127,
       "title": "Psalm 127",
@@ -9630,16 +10020,6 @@
       "durationSec": 265
     },
     {
-      "id": "streetlights-128-4ORP0u",
-      "psalm": 128,
-      "title": "Psalm 128",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/4ORP0uabUWyclReMH3wzb7",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 57
-    },
-    {
       "id": "coram-deo-ch-129-6bwe8X",
       "psalm": 129,
       "title": "The Lord Is Right and Just (Psalm 129) [feat. Daniel Snoke]",
@@ -9658,16 +10038,6 @@
       "spotifyUrl": "https://open.spotify.com/track/2kIZjcfdrorvEcN3bnreYr",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734dcba27f8cb7547022b175d6",
       "durationSec": 215
-    },
-    {
-      "id": "streetlights-129-6ukKSp",
-      "psalm": 129,
-      "title": "Psalm 129",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/6ukKSp2LIP8D7O4HyDnbUJ",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 61
     },
     {
       "id": "brian-sauv-130-3hZCq6",
@@ -9718,6 +10088,16 @@
       "spotifyUrl": "https://open.spotify.com/track/77mhMS4h1iYN3ipS7t3yqc",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273a0bc80223f170fc2eb57d8bb",
       "durationSec": 242
+    },
+    {
+      "id": "crown-covena-130-0CiFUy",
+      "psalm": 130,
+      "title": "Lord, From the Depths I Cried to You (Psalm 130B)",
+      "artist": "Crown & Covenant",
+      "album": "Refuge: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/0CiFUylKLTPsycz6ujLwo5",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27347330daa1edee11c0b26e523",
+      "durationSec": 183
     },
     {
       "id": "gregory-wilb-130-6iHNa1",
@@ -9810,16 +10190,6 @@
       "durationSec": 378
     },
     {
-      "id": "streetlights-130-15p6CN",
-      "psalm": 130,
-      "title": "Psalm 130",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/15p6CN3b3txlzHiiAXxRMj",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 74
-    },
-    {
       "id": "verses-130-0o5epJ",
       "psalm": 130,
       "title": "Psalm 130:1-2",
@@ -9900,16 +10270,6 @@
       "durationSec": 185
     },
     {
-      "id": "streetlights-131-2gwlvx",
-      "psalm": 131,
-      "title": "Psalm 131",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/2gwlvxXpeTRo3FlmE6yDiq",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 55
-    },
-    {
       "id": "coram-deo-ch-132-3i2ubN",
       "psalm": 132,
       "title": "Let Us Go! (Psalm 132) [feat. Wendell Kimbrough]",
@@ -9940,16 +10300,6 @@
       "durationSec": 269
     },
     {
-      "id": "streetlights-132-6G3IZG",
-      "psalm": 132,
-      "title": "Psalm 132",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/6G3IZGr75c2hgm3BXoY8fg",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 134
-    },
-    {
       "id": "brian-sauv-133-7Ma3bh",
       "psalm": 133,
       "title": "Psalm 133 (Like Dew of Hermon)",
@@ -9968,6 +10318,16 @@
       "spotifyUrl": "https://open.spotify.com/track/4DAS6kfAfVFDH7LyUQZahv",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27342613d0cc62694da874ae76e",
       "durationSec": 255
+    },
+    {
+      "id": "crown-covena-133-5Q5o9X",
+      "psalm": 133,
+      "title": "Behold How Very Good It Is (Psalm 133b)",
+      "artist": "Crown & Covenant",
+      "album": "Communion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/5Q5o9XChKa1PAvVb4qt6Io",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734adaba5d792a9cf0fdef2a7d",
+      "durationSec": 56
     },
     {
       "id": "poor-bishop--133-6VTHHw",
@@ -9990,16 +10350,6 @@
       "durationSec": 136
     },
     {
-      "id": "streetlights-133-3ohNas",
-      "psalm": 133,
-      "title": "Psalm 133",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/3ohNasM2pjIJGiwNl8Dva4",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 47
-    },
-    {
       "id": "wendell-kimb-133-6JP4aI",
       "psalm": 133,
       "title": "See How Good It Is (Psalm 133)",
@@ -10008,6 +10358,16 @@
       "spotifyUrl": "https://open.spotify.com/track/6JP4aICrMV0HqNH5bGESvR",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2731e5a8d45f93a4cb3766d1407",
       "durationSec": 195
+    },
+    {
+      "id": "crown-covena-134-7KechL",
+      "psalm": 134,
+      "title": "Come, Bless the Lord (Psalm 134A)",
+      "artist": "Crown & Covenant",
+      "album": "Refuge: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/7KechL3sFDNjfUuyZb0IZZ",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27347330daa1edee11c0b26e523",
+      "durationSec": 45
     },
     {
       "id": "poor-bishop--134-6IEthX",
@@ -10040,16 +10400,6 @@
       "durationSec": 221
     },
     {
-      "id": "streetlights-134-2yMhcD",
-      "psalm": 134,
-      "title": "Psalm 134",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/2yMhcDTkOPoaMfaElLpo8l",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 41
-    },
-    {
       "id": "cardiphonia--135-4Ypc5Z",
       "psalm": 135,
       "title": "Come and Praise (Psalm 135) [feat. The Gathering Sound Collective]",
@@ -10070,6 +10420,36 @@
       "durationSec": 138
     },
     {
+      "id": "crown-covena-135-05xFXl",
+      "psalm": 135,
+      "title": "135b: Your Name, Lord, Endures Forever",
+      "artist": "Crown & Covenant",
+      "album": "Restoration: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/05xFXl61smuaZgOXbCi9lU",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2735ef1c168130a22257854210f",
+      "durationSec": 91
+    },
+    {
+      "id": "crown-covena-135-6lLUGO",
+      "psalm": 135,
+      "title": "Hallelujah! Praise the Lord’s Name (Psalm 135a)",
+      "artist": "Crown & Covenant",
+      "album": "Zion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/6lLUGOFFiqNQdL6Egmnzdl",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27344acf7cec4b034afef0002cc",
+      "durationSec": 141
+    },
+    {
+      "id": "crown-covena-135-3afFM7",
+      "psalm": 135,
+      "title": "Your Name, Lord, Endures Forever (Psalm 135c)",
+      "artist": "Crown & Covenant",
+      "album": "Zion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/3afFM7BXC4sueTcCINPLHC",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27344acf7cec4b034afef0002cc",
+      "durationSec": 114
+    },
+    {
       "id": "poor-bishop--135-1epDIT",
       "psalm": 135,
       "title": "Psalm 135",
@@ -10078,16 +10458,6 @@
       "spotifyUrl": "https://open.spotify.com/track/1epDITti9Mz3abzaJwykop",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273884f7bb481a6d6eb95710611",
       "durationSec": 246
-    },
-    {
-      "id": "streetlights-135-5NgkxH",
-      "psalm": 135,
-      "title": "Psalm 135",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/5NgkxHAL43YOdkzYeGiU76",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 132
     },
     {
       "id": "cardiphonia--136-4BEFJY",
@@ -10110,16 +10480,6 @@
       "durationSec": 207
     },
     {
-      "id": "streetlights-136-1V6Afy",
-      "psalm": 136,
-      "title": "Psalm 136",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/1V6Afy987j4QqzlHZPLYH4",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 201
-    },
-    {
       "id": "cardiphonia--137-6cPsf6",
       "psalm": 137,
       "title": "When Zion from the Dust Shall Spring (Psalm 137) [feat. Coastland Commons]",
@@ -10128,6 +10488,16 @@
       "spotifyUrl": "https://open.spotify.com/track/6cPsf6y5eYOHSwlTiSoX2q",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273748bb55b7ea930a313df3678",
       "durationSec": 187
+    },
+    {
+      "id": "crown-covena-137-4qH78l",
+      "psalm": 137,
+      "title": "In Babylon We Thought of Zion (Psalm 137a)",
+      "artist": "Crown & Covenant",
+      "album": "Zion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/4qH78lPHFne11h6vffSeJC",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27344acf7cec4b034afef0002cc",
+      "durationSec": 224
     },
     {
       "id": "liturgical-f-137-3FqUUO",
@@ -10160,14 +10530,24 @@
       "durationSec": 184
     },
     {
-      "id": "streetlights-137-7LY7cQ",
-      "psalm": 137,
-      "title": "Psalm 137",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/7LY7cQ3bDR1RzNzNfHuQkN",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 88
+      "id": "crown-covena-138-2J4rCx",
+      "psalm": 138,
+      "title": "Psalm 138b",
+      "artist": "Crown & Covenant",
+      "album": "Sing a New Song: Selections from the Book of Psalms for Singing",
+      "spotifyUrl": "https://open.spotify.com/track/2J4rCxQnwv4LT2O5oLbCY7",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734af2aff167c7bed2f59a58d9",
+      "durationSec": 87
+    },
+    {
+      "id": "crown-covena-138-3JRNpw",
+      "psalm": 138,
+      "title": "With All My Heart My Thanks I’ll Bring (Psalm 138b)",
+      "artist": "Crown & Covenant",
+      "album": "Glory: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/3JRNpwNprzEvrKodQSQggP",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273a875e583a8b14d21f3c2cf49",
+      "durationSec": 166
     },
     {
       "id": "poor-bishop--138-7CM3S9",
@@ -10178,16 +10558,6 @@
       "spotifyUrl": "https://open.spotify.com/track/7CM3S9JNpSqQKTb7M0bJHI",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2736b3d576172b195b17d02b1e7",
       "durationSec": 273
-    },
-    {
-      "id": "streetlights-138-4jSYS3",
-      "psalm": 138,
-      "title": "Psalm 138",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/4jSYS3lg8eWaEHTS1xSnDQ",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 86
     },
     {
       "id": "brian-sauv-139-2p6xJH",
@@ -10278,16 +10648,6 @@
       "spotifyUrl": "https://open.spotify.com/track/2bJGYM8ZKgO0yNwcyVagEZ",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2735dcc378f79cd866e13acd1bf",
       "durationSec": 312
-    },
-    {
-      "id": "streetlights-139-6cI3a1",
-      "psalm": 139,
-      "title": "Psalm 139",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/6cI3a16qZfNhXciib16oDU",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 192
     },
     {
       "id": "the-corner-r-139-5ZuJg1",
@@ -10550,6 +10910,16 @@
       "durationSec": 100
     },
     {
+      "id": "crown-covena-140-636aDx",
+      "psalm": 140,
+      "title": "Save Me, O Lord (Psalm 140A)",
+      "artist": "Crown & Covenant",
+      "album": "Refuge: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/636aDxwqOq8s7WoY2N76Qb",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27347330daa1edee11c0b26e523",
+      "durationSec": 251
+    },
+    {
       "id": "poor-bishop--140-0vxKWD",
       "psalm": 140,
       "title": "Psalm 140",
@@ -10580,16 +10950,6 @@
       "durationSec": 267
     },
     {
-      "id": "streetlights-140-7Cwraa",
-      "psalm": 140,
-      "title": "Psalm 140",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/7CwraapyEkIh2jenNqc43K",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 113
-    },
-    {
       "id": "poor-bishop--141-6hxUfI",
       "psalm": 141,
       "title": "Psalm 141",
@@ -10598,16 +10958,6 @@
       "spotifyUrl": "https://open.spotify.com/track/6hxUfIy8ikB18I4i6QKbje",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273499cb9aca7111858e7253466",
       "durationSec": 161
-    },
-    {
-      "id": "streetlights-141-791Ghe",
-      "psalm": 141,
-      "title": "Psalm 141",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/791GheM96Qda3uSBjn2ZSQ",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 99
     },
     {
       "id": "verses-141-07uDid",
@@ -10640,16 +10990,6 @@
       "durationSec": 267
     },
     {
-      "id": "streetlights-142-4uCuGL",
-      "psalm": 142,
-      "title": "Psalm 142",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/4uCuGLIAP2TCr0LSsf4TIf",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 81
-    },
-    {
       "id": "cardiphonia--143-0qya4t",
       "psalm": 143,
       "title": "Hear, O My God, With Pity Hear (Psalm 143) [feat. Wes Crawford]",
@@ -10658,6 +10998,26 @@
       "spotifyUrl": "https://open.spotify.com/track/0qya4tKEv3kYRCDs6rbxWI",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273748bb55b7ea930a313df3678",
       "durationSec": 236
+    },
+    {
+      "id": "crown-covena-143-7tFpW8",
+      "psalm": 143,
+      "title": "Lord, Listen to My Prayer (Psalm 143a)",
+      "artist": "Crown & Covenant",
+      "album": "Trust: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/7tFpW8unNznpkTjOyzzuMZ",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2737369aa0bdde70be5c6d25e18",
+      "durationSec": 120
+    },
+    {
+      "id": "crown-covena-143-7yGGbX",
+      "psalm": 143,
+      "title": "O Lord, My Spirit Fails (Psalm 143b)",
+      "artist": "Crown & Covenant",
+      "album": "Trust: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/7yGGbXizpWEAMvAVUpLJcs",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2737369aa0bdde70be5c6d25e18",
+      "durationSec": 127
     },
     {
       "id": "poor-bishop--143-5Rl1FL",
@@ -10678,16 +11038,6 @@
       "spotifyUrl": "https://open.spotify.com/track/1teNGVT852NegVcjqt7EMn",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273c31f5e99a3b39a954bab2ad5",
       "durationSec": 367
-    },
-    {
-      "id": "streetlights-143-3mbnqJ",
-      "psalm": 143,
-      "title": "Psalm 143",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/3mbnqJezFqkSlrLbbjdX8y",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 117
     },
     {
       "id": "brian-sauv-144-6Y4cca",
@@ -10720,16 +11070,6 @@
       "durationSec": 281
     },
     {
-      "id": "streetlights-144-1T4O4X",
-      "psalm": 144,
-      "title": "Psalm 144",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/1T4O4Xdhzpcm5h3WO6KQpa",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 135
-    },
-    {
       "id": "cardiphonia--145-3E0TYh",
       "psalm": 145,
       "title": "I Will Extol You (Psalm 145) [feat. Tim Nicholson & Megan Francis]",
@@ -10738,6 +11078,26 @@
       "spotifyUrl": "https://open.spotify.com/track/3E0TYhzAVcNtRRZYfYdNHJ",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273748bb55b7ea930a313df3678",
       "durationSec": 270
+    },
+    {
+      "id": "crown-covena-145-5mpA5w",
+      "psalm": 145,
+      "title": "I Will Extol You (Psalm 145d)",
+      "artist": "Crown & Covenant",
+      "album": "Abundance: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/5mpA5wKx5ZqgYDjY3ukBzj",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27323abc3895dbe15d7ccafe92a",
+      "durationSec": 210
+    },
+    {
+      "id": "crown-covena-145-6jlp9Q",
+      "psalm": 145,
+      "title": "The Eyes of All Are Turned to You (Psalm 145c)",
+      "artist": "Crown & Covenant",
+      "album": "Communion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/6jlp9QqLcUF6KcHpGiUKHs",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734adaba5d792a9cf0fdef2a7d",
+      "durationSec": 155
     },
     {
       "id": "poor-bishop--145-7srzWi",
@@ -10790,16 +11150,6 @@
       "durationSec": 249
     },
     {
-      "id": "streetlights-145-4ivrmN",
-      "psalm": 145,
-      "title": "Psalm 145",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/4ivrmNgvSNkaw02Q8FDfaL",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 146
-    },
-    {
       "id": "writers-well-145-5I29hC",
       "psalm": 145,
       "title": "Yahweh, The Lord (Psalm 145) - Live",
@@ -10820,6 +11170,16 @@
       "durationSec": 244
     },
     {
+      "id": "crown-covena-146-0ieE6O",
+      "psalm": 146,
+      "title": "Praise the Lord (Psalm 146b)",
+      "artist": "Crown & Covenant",
+      "album": "Communion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/0ieE6Ob71ysOlaQxDIJtvw",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734adaba5d792a9cf0fdef2a7d",
+      "durationSec": 134
+    },
+    {
       "id": "poor-bishop--146-7ytPR0",
       "psalm": 146,
       "title": "Psalm 146",
@@ -10828,16 +11188,6 @@
       "spotifyUrl": "https://open.spotify.com/track/7ytPR0zP95IdpwjVMsc5El",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273594d62114a3c5ac5b456fcff",
       "durationSec": 160
-    },
-    {
-      "id": "streetlights-146-0fAgWl",
-      "psalm": 146,
-      "title": "Psalm 146",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/0fAgWlU8H0o1wvyLZJW3Kq",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 85
     },
     {
       "id": "the-corner-r-146-5tg4in",
@@ -10880,6 +11230,26 @@
       "durationSec": 386
     },
     {
+      "id": "crown-covena-147-4RiEls",
+      "psalm": 147,
+      "title": "O Praise the Lord, Jerusalem (Psalm 147b)",
+      "artist": "Crown & Covenant",
+      "album": "Zion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/4RiElskfapbyQzD9NoVFLw",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27344acf7cec4b034afef0002cc",
+      "durationSec": 131
+    },
+    {
+      "id": "crown-covena-147-6GwNdg",
+      "psalm": 147,
+      "title": "Sing Hallelujah! (Psalm 147a)",
+      "artist": "Crown & Covenant",
+      "album": "Trust: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/6GwNdgUerMbHrrQxk2FQ8V",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2737369aa0bdde70be5c6d25e18",
+      "durationSec": 146
+    },
+    {
       "id": "poor-bishop--147-33iZ7v",
       "psalm": 147,
       "title": "Psalm 147",
@@ -10898,16 +11268,6 @@
       "spotifyUrl": "https://open.spotify.com/track/0sns4SCWBRYgygUWz9v9uL",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27351740a9b06e91b42553986e1",
       "durationSec": 189
-    },
-    {
-      "id": "streetlights-147-69ivyo",
-      "psalm": 147,
-      "title": "Psalm 147",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/69ivyozC42VxRyF2ZMfAP2",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 139
     },
     {
       "id": "brian-sauv-148-4eLsg8",
@@ -10930,6 +11290,16 @@
       "durationSec": 217
     },
     {
+      "id": "crown-covena-148-1aI5ig",
+      "psalm": 148,
+      "title": "Hallelujah! Praise the Lord’s Name (Psalm 148b)",
+      "artist": "Crown & Covenant",
+      "album": "Glory: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/1aI5igavLZC9tEh3yNWPDs",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273a875e583a8b14d21f3c2cf49",
+      "durationSec": 165
+    },
+    {
       "id": "poor-bishop--148-0Ygj1v",
       "psalm": 148,
       "title": "Psalm 148",
@@ -10948,16 +11318,6 @@
       "spotifyUrl": "https://open.spotify.com/track/6e1DQSyXmmzVIKExG7LunA",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27391e505398eb4c6a28d3a8039",
       "durationSec": 304
-    },
-    {
-      "id": "streetlights-148-71c8X3",
-      "psalm": 148,
-      "title": "Psalm 148",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/71c8X3poOrhrziEnzv6k7U",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 117
     },
     {
       "id": "brian-sauv-149-7zj98s",
@@ -10980,6 +11340,26 @@
       "durationSec": 295
     },
     {
+      "id": "crown-covena-149-5owhSV",
+      "psalm": 149,
+      "title": "O Praise the Lord, O Sing Aloud (Psalm 149b)",
+      "artist": "Crown & Covenant",
+      "album": "Zion: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/5owhSVlo3RVIOyJbTECLk7",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27344acf7cec4b034afef0002cc",
+      "durationSec": 177
+    },
+    {
+      "id": "crown-covena-149-3VMO5z",
+      "psalm": 149,
+      "title": "Praise the Lord! Hallelujah! (Psalm 149A)",
+      "artist": "Crown & Covenant",
+      "album": "Refuge: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/3VMO5zqPMqYXwRTiQaakaZ",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27347330daa1edee11c0b26e523",
+      "durationSec": 122
+    },
+    {
       "id": "poor-bishop--149-00c78B",
       "psalm": 149,
       "title": "Psalm 149",
@@ -10988,16 +11368,6 @@
       "spotifyUrl": "https://open.spotify.com/track/00c78BiBQjhAH6IPgD0ANd",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2731fc533620ae72b50fda1d8da",
       "durationSec": 169
-    },
-    {
-      "id": "streetlights-149-3eCQG0",
-      "psalm": 149,
-      "title": "Psalm 149",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/3eCQG0jIMw4ZQd6jBZ5tW0",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 76
     },
     {
       "id": "brian-sauv-150-07emoB",
@@ -11020,6 +11390,26 @@
       "durationSec": 196
     },
     {
+      "id": "crown-covena-150-5iT1Sp",
+      "psalm": 150,
+      "title": "O Praise the Lord! Give Praise to God (Book Five Doxology) [Psalm 150b]",
+      "artist": "Crown & Covenant",
+      "album": "Glory: Selections from the Book of Psalms for Worship",
+      "spotifyUrl": "https://open.spotify.com/track/5iT1Spxas8D90Kqbq5MwFd",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273a875e583a8b14d21f3c2cf49",
+      "durationSec": 107
+    },
+    {
+      "id": "crown-covena-150-7zVIEN",
+      "psalm": 150,
+      "title": "Psalm 150b",
+      "artist": "Crown & Covenant",
+      "album": "Sing a New Song: Selections from the Book of Psalms for Singing",
+      "spotifyUrl": "https://open.spotify.com/track/7zVIENw5g0EeJXp9gABBXq",
+      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b2734af2aff167c7bed2f59a58d9",
+      "durationSec": 64
+    },
+    {
       "id": "liturgical-f-150-0t1j0n",
       "psalm": 150,
       "title": "Psalm 150",
@@ -11038,16 +11428,6 @@
       "spotifyUrl": "https://open.spotify.com/track/5iHJWrpQVv91xiw0mTrzod",
       "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b273c030a922353bed206c0ca797",
       "durationSec": 240
-    },
-    {
-      "id": "streetlights-150-02jXcW",
-      "psalm": 150,
-      "title": "Psalm 150",
-      "artist": "Streetlights",
-      "album": "Psalms // Book 5 (Chapters 107-150)",
-      "spotifyUrl": "https://open.spotify.com/track/02jXcWp1tfaqYXhzpcOvWh",
-      "albumCoverUrl": "https://i.scdn.co/image/ab67616d0000b27349b2426c8e1881ad8ecf9815",
-      "durationSec": 54
     },
     {
       "id": "the-corner-r-150-005cMS",
