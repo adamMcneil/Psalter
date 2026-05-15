@@ -23,7 +23,7 @@ export function MiniPlayer() {
   const usingWeb = web.supported && !!web.currentUri;
   const usingPreview = !usingWeb && !!preview.currentTrackId;
 
-  // Resolve track display info + a psalm number we can deep-link to.
+  // Resolve track display info + a song id we can deep-link to.
   const info = useMemo(() => {
     if (usingWeb) {
       const trackId = web.currentUri
@@ -37,7 +37,7 @@ export function MiniPlayer() {
         positionSec: Math.floor(web.position / 1000),
         durationSec: Math.floor(web.duration / 1000) || song?.durationSec || 0,
         isPlaying: web.isPlaying,
-        psalm: song?.psalm,
+        songId: song?.id,
       };
     }
     if (usingPreview) {
@@ -54,7 +54,7 @@ export function MiniPlayer() {
         positionSec: preview.position,
         durationSec: dur,
         isPlaying: preview.isPlaying,
-        psalm: song?.psalm,
+        songId: song?.id,
       };
     }
     return null;
@@ -152,8 +152,10 @@ export function MiniPlayer() {
     }
   };
 
-  const goToPsalm = () => {
-    if (info.psalm) router.push(`/psalm/${info.psalm}`);
+  const goToSong = () => {
+    if (info.songId) {
+      router.push({ pathname: '/song/[id]', params: { id: info.songId } });
+    }
   };
 
   return (
@@ -176,7 +178,7 @@ export function MiniPlayer() {
           </Pressable>
         ) : null}
         <Pressable
-          onPress={goToPsalm}
+          onPress={goToSong}
           style={({ pressed }) => [styles.meta, pressed && styles.pressed]}
         >
           {info.cover ? (
@@ -322,27 +324,29 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   trackHit: {
-    paddingVertical: spacing.sm,
+    paddingVertical: spacing.md,
     marginTop: -spacing.xs,
   },
   track: {
-    height: 4,
-    borderRadius: 2,
+    height: 6,
+    borderRadius: 3,
     backgroundColor: colors.surfaceAlt,
     overflow: 'visible',
   },
   fill: {
     height: '100%',
     backgroundColor: colors.accent,
-    borderRadius: 2,
+    borderRadius: 3,
   },
   thumb: {
     position: 'absolute',
-    top: -4,
-    width: 12,
-    height: 12,
-    borderRadius: 6,
+    top: -7,
+    width: 20,
+    height: 20,
+    borderRadius: 10,
     backgroundColor: colors.accent,
-    marginLeft: -6,
+    marginLeft: -10,
+    borderWidth: 2,
+    borderColor: colors.accentInk,
   },
 });

@@ -1,22 +1,12 @@
-import { useMemo, useState } from 'react';
-import { Image, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Song } from '../types';
 import { colors, fontSize, radius, spacing } from '../theme';
-import { useSpotifyAuth } from '../spotify/AuthContext';
 import { useWebPlayer } from '../spotify/WebPlayerContext';
 import { usePreviewPlayer } from '../spotify/PreviewPlayerContext';
-import { extractTrackId, openSpotifyTrack } from '../spotify/launch';
-import { SpotifyEmbedPlayer } from './SpotifyEmbedPlayer';
+import { extractTrackId } from '../spotify/launch';
 
-export function SongRow({
-  song,
-  queue,
-}: {
-  song: Song;
-  queue?: Song[];
-}) {
-  const { tokens, login } = useSpotifyAuth();
+export function SongRow({ song }: { song: Song }) {
   const player = useWebPlayer();
   const preview = usePreviewPlayer();
   const router = useRouter();
@@ -26,54 +16,14 @@ export function SongRow({
   const isCurrentPreview =
     trackId !== null && preview.currentTrackId === trackId;
   const isCurrent = isCurrentFull || isCurrentPreview;
-  const [expanded, setExpanded] = useState(false);
 
-  const playQueueUris = useMemo(() => {
-    if (!queue || queue.length === 0) return null;
-    const idx = queue.findIndex((s) => s.id === song.id);
-    if (idx === -1) return null;
-    const uris = queue
-      .slice(idx)
-      .map((s) => extractTrackId(s.spotifyUrl))
-      .filter((id): id is string => !!id)
-      .map((id) => `spotify:track:${id}`);
-    return uris.length > 0 ? uris : null;
-  }, [queue, song.id]);
-
-  async function handlePress() {
-    if (!trackId) {
-      openSpotifyTrack(song);
-      return;
-    }
-    if (!tokens) {
-      // Auth status + sign-in lives on the top AuthBar now. Tapping a row
-      // before sign-in still kicks off the flow as a fallback, silently.
-      try {
-        await login();
-      } catch {
-        // ignore
-      }
-      return;
-    }
-    if (player.supported) {
-      if (isCurrentFull) {
-        await player.toggle();
-      } else {
-        await player.play(playQueueUris ?? trackUri!);
-      }
-      return;
-    }
-    if (preview.supported) {
-      await preview.toggle(trackId);
-      return;
-    }
-    setExpanded((v) => !v);
-  }
+  const goToSong = () =>
+    router.push({ pathname: '/song/[id]', params: { id: song.id } });
 
   return (
     <View style={[styles.card, isCurrent && styles.cardCurrent]}>
       <Pressable
-        onPress={handlePress}
+        onPress={goToSong}
         style={({ pressed }) => [styles.row, pressed && styles.pressed]}
       >
         <View style={styles.coverWrap}>
@@ -109,15 +59,6 @@ export function SongRow({
           ) : null}
         </View>
       </Pressable>
-      {trackId &&
-        expanded &&
-        !player.supported &&
-        !preview.supported &&
-        Platform.OS !== 'web' && (
-          <View style={styles.playerWrap}>
-            <SpotifyEmbedPlayer trackId={trackId} />
-          </View>
-        )}
     </View>
   );
 }
@@ -173,8 +114,4 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   artistArrow: { color: colors.textDim, fontSize: fontSize.lg },
-  playerWrap: {
-    paddingHorizontal: spacing.md,
-    paddingBottom: spacing.md,
-  },
 });

@@ -92,7 +92,7 @@ export default function ArtistDetail() {
       <FlatList
         data={songs}
         keyExtractor={(s) => s.id}
-        renderItem={({ item }) => <SongRow song={item} queue={songs} />}
+        renderItem={({ item }) => <SongRow song={item} />}
         showsVerticalScrollIndicator={false}
         ListHeaderComponent={
           <View>

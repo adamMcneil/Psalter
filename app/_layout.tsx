@@ -56,6 +56,10 @@ export default function RootLayout() {
                     />
                     <Stack.Screen name="psalm/[id]" options={{ title: 'Psalm' }} />
                     <Stack.Screen
+                      name="song/[id]"
+                      options={{ title: 'Now Playing' }}
+                    />
+                    <Stack.Screen
                       name="artist/[name]"
                       options={{ title: 'Artist' }}
                     />

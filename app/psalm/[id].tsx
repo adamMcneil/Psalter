@@ -91,7 +91,7 @@ export default function PsalmDetail() {
         }
         renderItem={({ item }) => {
           if (item.kind === 'song') {
-            return <SongRow song={item.song} queue={queue} />;
+            return <SongRow song={item.song} />;
           }
           if (item.kind === 'section') {
             return (
