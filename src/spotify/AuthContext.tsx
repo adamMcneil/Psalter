@@ -8,6 +8,7 @@ import {
   useRef,
   useState,
 } from 'react';
+import { Platform } from 'react-native';
 import * as AuthSession from 'expo-auth-session';
 import * as WebBrowser from 'expo-web-browser';
 import {
@@ -17,9 +18,12 @@ import {
   isSpotifyConfigured,
 } from './config';
 import {
+  beginWebRedirectLogin,
+  completeWebRedirectLogin,
   exchangeCodeForTokens,
   getRedirectUri,
   refreshAccessToken,
+  WebRedirectResult,
 } from './auth';
 import { clearTokens, loadTokens, StoredTokens } from './tokens';
 
@@ -41,6 +45,7 @@ interface AuthContextValue {
   login: () => Promise<void>;
   logout: () => Promise<void>;
   getAccessToken: () => Promise<string | null>;
+  completeWebRedirect: () => Promise<WebRedirectResult>;
 }
 
 const AuthContext = createContext<AuthContextValue | null>(null);
@@ -131,6 +136,16 @@ export function SpotifyAuthProvider({ children }: { children: ReactNode }) {
         'Spotify client ID is not configured. Set EXPO_PUBLIC_SPOTIFY_CLIENT_ID.',
       );
     }
+
+    if (Platform.OS === 'web') {
+      const returnTo =
+        window.location.pathname +
+        window.location.search +
+        window.location.hash;
+      await beginWebRedirectLogin(returnTo);
+      return;
+    }
+
     const redirectUri = getRedirectUri();
     const request = new AuthSession.AuthRequest({
       clientId: SPOTIFY_CLIENT_ID,
@@ -157,6 +172,20 @@ export function SpotifyAuthProvider({ children }: { children: ReactNode }) {
     await fetchUser(next.accessToken);
   }, [fetchUser]);
 
+  const completeWebRedirect = useCallback(async (): Promise<WebRedirectResult> => {
+    const result = await completeWebRedirectLogin();
+    if (result.tokens) {
+      setTokens(result.tokens);
+      try {
+        await fetchUser(result.tokens.accessToken);
+      } catch {
+        // /me fetch failed but tokens are saved — leave user null and let the
+        // next render retry.
+      }
+    }
+    return result;
+  }, [fetchUser]);
+
   const logout = useCallback(async () => {
     await clearTokens();
     setTokens(null);
@@ -172,8 +201,9 @@ export function SpotifyAuthProvider({ children }: { children: ReactNode }) {
       login,
       logout,
       getAccessToken,
+      completeWebRedirect,
     }),
-    [loading, tokens, user, login, logout, getAccessToken],
+    [loading, tokens, user, login, logout, getAccessToken, completeWebRedirect],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

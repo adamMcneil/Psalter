@@ -69,6 +69,10 @@ export default function RootLayout() {
                       name="coverage"
                       options={{ title: 'Coverage' }}
                     />
+                    <Stack.Screen
+                      name="spotify-auth"
+                      options={{ headerShown: false }}
+                    />
                   </Stack>
                 </View>
                 <MiniPlayer />
