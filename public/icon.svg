@@ -18,10 +18,10 @@
   <!-- Background -->
   <rect x="40" y="40" width="944" height="944" rx="180" fill="url(#bg)"/>
 
-  <!-- Star of David (both triangles centered at 512,512, side 396) -->
+  <!-- Star of David (both triangles centered at 512,512, side 520) -->
   <g filter="url(#shadow)">
     <polygon
-      points="512,283 710,626 314,626"
+      points="512,212 772,662 252,662"
       fill="none"
       stroke="url(#gold)"
       stroke-width="34"
@@ -29,7 +29,7 @@
     />
 
     <polygon
-      points="512,741 710,398 314,398"
+      points="512,812 772,362 252,362"
       fill="none"
       stroke="url(#gold)"
       stroke-width="34"
@@ -70,6 +70,6 @@
     font-family="Georgia, serif"
     letter-spacing="10"
   >
-    Psalter
+    PSALTER
   </text>
 </svg>
