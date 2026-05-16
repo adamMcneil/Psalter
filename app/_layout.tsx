@@ -8,6 +8,7 @@ import { WebPlayerProvider } from '@/spotify/WebPlayerContext';
 import { PreviewPlayerProvider } from '@/spotify/PreviewPlayerContext';
 import { MiniPlayer } from '@/components/MiniPlayer';
 import { BottomNav } from '@/components/BottomNav';
+import { usePwaSetup } from '@/pwa';
 import { colors, spacing } from '@/theme';
 
 function HeaderBackButton() {
@@ -32,6 +33,7 @@ function HeaderBackButton() {
 }
 
 export default function RootLayout() {
+  usePwaSetup();
   return (
     <GestureHandlerRootView style={{ flex: 1, backgroundColor: colors.bg }}>
       <SafeAreaProvider>
