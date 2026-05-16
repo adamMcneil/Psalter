@@ -2,15 +2,15 @@
   "name": "Psalter",
   "short_name": "Psalter",
   "description": "Sing the Psalms — connect Spotify, sync Liked Songs, and explore coverage of every psalm.",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#15110f",
   "theme_color": "#15110f",
   "icons": [
     {
-      "src": "/icon.svg",
+      "src": "./icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"

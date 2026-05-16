@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
+import { withBase } from '../pwa';
 import { colors, fontSize, radius, spacing } from '../theme';
 
 type BeforeInstallPromptEvent = Event & {
@@ -87,7 +88,7 @@ export function InstallPwaButton() {
     };
     setDiag(base);
 
-    fetch('/manifest.webmanifest', { cache: 'no-store' })
+    fetch(withBase('/manifest.webmanifest'), { cache: 'no-store' })
       .then((r) =>
         setDiag((d) => (d ? { ...d, manifestOk: r.ok, manifestStatus: r.status } : d)),
       )
@@ -99,7 +100,7 @@ export function InstallPwaButton() {
 
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker
-        .getRegistration('/')
+        .getRegistration(withBase('/'))
         .then((reg) => setDiag((d) => (d ? { ...d, swRegistered: !!reg } : d)))
         .catch((e) =>
           setDiag((d) => (d ? { ...d, swRegistered: false, swError: String(e?.message ?? e) } : d)),

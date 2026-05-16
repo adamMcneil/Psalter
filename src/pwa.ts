@@ -1,10 +1,36 @@
 import { useEffect } from 'react';
 import { Platform } from 'react-native';
 
-function ensureHead(
-  selector: string,
-  build: () => HTMLElement,
-): void {
+let cachedBase: string | null = null;
+
+function detectBaseUrl(): string {
+  const fromEnv = (process.env.EXPO_BASE_URL ?? '').toString().replace(/\/$/, '');
+  if (fromEnv) return fromEnv;
+
+  if (typeof document !== 'undefined') {
+    const scripts = Array.from(
+      document.querySelectorAll('script[src]'),
+    ) as HTMLScriptElement[];
+    for (const s of scripts) {
+      const m = s.src.match(/^(?:https?:\/\/[^/]+)?(.*?)\/_expo\/static\/js\/web\//);
+      if (m && m[1]) return m[1];
+    }
+  }
+
+  return '';
+}
+
+export function baseUrl(): string {
+  if (cachedBase === null) cachedBase = detectBaseUrl();
+  return cachedBase;
+}
+
+export function withBase(path: string): string {
+  const normalized = path.startsWith('/') ? path : `/${path}`;
+  return `${baseUrl()}${normalized}`;
+}
+
+function ensureHead(selector: string, build: () => HTMLElement): void {
   if (document.head.querySelector(selector)) return;
   document.head.appendChild(build());
 }
@@ -33,9 +59,9 @@ export function usePwaSetup(): void {
     if (Platform.OS !== 'web') return;
     if (typeof window === 'undefined' || typeof document === 'undefined') return;
 
-    setLink('manifest', '/manifest.webmanifest');
-    setLink('icon', '/icon.svg', 'image/svg+xml');
-    setLink('apple-touch-icon', '/icon.svg');
+    setLink('manifest', withBase('/manifest.webmanifest'));
+    setLink('icon', withBase('/icon.svg'), 'image/svg+xml');
+    setLink('apple-touch-icon', withBase('/icon.svg'));
 
     setMeta('theme-color', '#15110f');
     setMeta('application-name', 'Psalter');
@@ -45,7 +71,9 @@ export function usePwaSetup(): void {
     setMeta('mobile-web-app-capable', 'yes');
 
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js').catch(() => {});
+      navigator.serviceWorker
+        .register(withBase('/sw.js'), { scope: withBase('/') })
+        .catch(() => {});
     }
   }, []);
 }
