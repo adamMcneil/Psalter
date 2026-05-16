@@ -7,6 +7,7 @@ import {
   Text,
   View,
 } from 'react-native';
+import { InstallPwaButton } from '@/components/InstallPwaButton';
 import { Screen } from '@/components/Screen';
 import { useSpotifyAuth } from '@/spotify/AuthContext';
 import { colors, fontSize, radius, spacing } from '@/theme';
@@ -121,6 +122,8 @@ export default function AccountScreen() {
             >
               <Text style={styles.buttonGhostText}>Sign out of Spotify</Text>
             </Pressable>
+
+            <InstallPwaButton />
           </View>
         ) : (
           <View>
@@ -150,6 +153,8 @@ export default function AccountScreen() {
               <FeatureRow glyph="✚" label="Add to your playlists" />
               <FeatureRow glyph="▶" label="Full-track in-app playback" />
             </View>
+
+            <InstallPwaButton />
           </View>
         )}
       </ScrollView>
