@@ -13,7 +13,7 @@ import { Link, Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { Screen } from '@/components/Screen';
 import { formatDuration, songById, songByTrackId } from '@/data/catalog';
 import { useSpotifyAuth } from '@/spotify/AuthContext';
-import { useWebPlayer } from '@/spotify/WebPlayerContext';
+import { useWebPlayer, useWebPlayerProgress } from '@/spotify/WebPlayerContext';
 import { usePreviewPlayer } from '@/spotify/PreviewPlayerContext';
 import { extractTrackId, openSpotifyTrack } from '@/spotify/launch';
 import { colors, fontSize, radius, spacing } from '@/theme';
@@ -23,6 +23,7 @@ export default function SongDetail() {
   const song = id ? songById(id) : undefined;
   const { tokens, login } = useSpotifyAuth();
   const web = useWebPlayer();
+  const progress = useWebPlayerProgress();
   const preview = usePreviewPlayer();
   const router = useRouter();
   const wantsFollowRef = useRef(false);
@@ -38,12 +39,12 @@ export default function SongDetail() {
     (isCurrentPreview && preview.isPlaying);
 
   const positionSec = isCurrentFull
-    ? Math.floor(web.position / 1000)
+    ? Math.floor(progress.position / 1000)
     : isCurrentPreview
       ? preview.position
       : 0;
   const durationSec = isCurrentFull
-    ? Math.floor(web.duration / 1000) || song?.durationSec || 0
+    ? Math.floor(progress.duration / 1000) || song?.durationSec || 0
     : isCurrentPreview
       ? preview.duration > 0
         ? preview.duration

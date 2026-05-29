@@ -11,8 +11,21 @@ import {
 import { Platform } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useSpotifyAuth } from './AuthContext';
+import {
+  createStallTracker,
+  observeSample,
+  StallSample,
+  StallTrackerState,
+} from './stallDetector';
 
 const STATE_KEY = 'psalter:webPlayer:lastState:v1';
+// Persist position at most this often while playing (it changes ~2x/sec).
+const PERSIST_INTERVAL_MS = 7000;
+// How often the stall watchdog samples real playback position.
+const WATCHDOG_INTERVAL_MS = 1000;
+// Max time we let getAccessToken() run before falling back, so a slow refresh
+// never hangs the SDK's streaming (re)authentication.
+const OAUTH_TIMEOUT_MS = 5000;
 
 interface PersistedState {
   uri: string;
@@ -51,6 +64,7 @@ interface SpotifyPlayer {
   seek(positionMs: number): Promise<void>;
   nextTrack(): Promise<void>;
   previousTrack(): Promise<void>;
+  getCurrentState(): Promise<PlayerState | null>;
   addListener(event: string, cb: (...args: unknown[]) => void): boolean;
   removeListener(event: string, cb?: (...args: unknown[]) => void): boolean;
 }
@@ -82,8 +96,6 @@ interface WebPlayerValue {
   initializing: boolean;
   isPremium: boolean;
   isPlaying: boolean;
-  position: number;
-  duration: number;
   currentUri: string | null;
   trackName: string | null;
   artistName: string | null;
@@ -103,6 +115,13 @@ interface WebPlayerValue {
   playOrResume: () => Promise<void>;
 }
 
+// High-frequency playback progress lives in its own context so that updating it
+// ~2x/sec does not re-render every useWebPlayer() consumer (e.g. each SongRow).
+interface WebPlayerProgressValue {
+  position: number;
+  duration: number;
+}
+
 const noop = async () => {};
 const initial: WebPlayerValue = {
   supported: false,
@@ -110,8 +129,6 @@ const initial: WebPlayerValue = {
   initializing: false,
   isPremium: false,
   isPlaying: false,
-  position: 0,
-  duration: 0,
   currentUri: null,
   trackName: null,
   artistName: null,
@@ -128,6 +145,10 @@ const initial: WebPlayerValue = {
 };
 
 const Ctx = createContext<WebPlayerValue>(initial);
+const ProgressCtx = createContext<WebPlayerProgressValue>({
+  position: 0,
+  duration: 0,
+});
 
 const SDK_SRC = 'https://sdk.scdn.co/spotify-player.js';
 let sdkPromise: Promise<void> | null = null;
@@ -169,6 +190,18 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
   // from disk, never played this session" (need to send play to the API).
   const [hasLiveState, setHasLiveState] = useState(false);
 
+  // Render-time mirrors so callbacks/effects can read the latest value without
+  // taking it as a dependency (and re-subscribing every tick).
+  const tokensRef = useRef(tokens);
+  tokensRef.current = tokens;
+  const positionRef = useRef(0);
+  positionRef.current = position;
+
+  // Stall watchdog bookkeeping (kept in refs so it survives re-renders and the
+  // brief isPlaying flip our own pause/resume recovery causes).
+  const stallTrackerRef = useRef<StallTrackerState>(createStallTracker());
+  const stalledRef = useRef(false);
+
   useEffect(() => {
     if (!supported || !tokens) {
       if (playerRef.current) {
@@ -193,12 +226,36 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
     }, 15000);
     loadSdk()
       .then(() => {
-        if (cancelled || playerRef.current || !window.Spotify) return;
+        // If the player already exists (e.g. this effect re-ran because the
+        // auth token refreshed), do NOT build a second one — but DO clear the
+        // freshly-armed connect timer, or it will later fire a spurious
+        // "failed to connect" banner on a healthy, playing session.
+        if (cancelled || playerRef.current || !window.Spotify) {
+          clearTimeout(connectTimer);
+          return;
+        }
         const player = new window.Spotify.Player({
           name: 'Psalter',
           getOAuthToken: async (cb: (t: string) => void) => {
-            const t = await getAccessToken();
-            if (t) cb(t);
+            // Always hand the SDK a token if we possibly can — and never let a
+            // slow refresh hang the streaming (re)auth. A hung callback here
+            // silently starves playback with no error surfaced.
+            try {
+              const t = await Promise.race([
+                getAccessToken(),
+                new Promise<null>((resolve) =>
+                  setTimeout(() => resolve(null), OAUTH_TIMEOUT_MS),
+                ),
+              ]);
+              if (t) {
+                cb(t);
+                return;
+              }
+            } catch {
+              // fall through to the last-known token
+            }
+            const fallback = tokensRef.current?.accessToken;
+            if (fallback) cb(fallback);
           },
           volume: 0.8,
         });
@@ -252,13 +309,81 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
     };
   }, [supported, tokens, getAccessToken]);
 
+  // Disconnect the SDK player only on true unmount (empty deps), never on a
+  // token-refresh re-run of the init effect — disconnecting there would kill
+  // active playback.
+  useEffect(() => {
+    return () => {
+      playerRef.current?.disconnect();
+      playerRef.current = null;
+    };
+  }, []);
+
+  // Smooth UI position between SDK updates by dead-reckoning. Freeze it while
+  // the watchdog believes audio is stalled, so the bar stops lying.
   useEffect(() => {
     if (!isPlaying || duration === 0) return;
     const id = setInterval(() => {
+      if (stalledRef.current) return;
       setPosition((p) => Math.min(p + 500, duration));
     }, 500);
     return () => clearInterval(id);
   }, [isPlaying, duration]);
+
+  // Stall watchdog: while playing, sample the SDK's real position. If it stops
+  // advancing while the player still claims to be playing (the documented
+  // "stalled but not paused" state), automate the manual pause+resume the user
+  // would otherwise have to do. Also corrects the dead-reckoned UI position.
+  useEffect(() => {
+    if (!ready || !isPlaying) return;
+    const player = playerRef.current;
+    if (!player) return;
+    let cancelled = false;
+    const id = setInterval(async () => {
+      let state: PlayerState | null = null;
+      try {
+        state = await player.getCurrentState();
+      } catch {
+        return;
+      }
+      if (cancelled || !state) return;
+
+      const sample: StallSample = {
+        position: state.position,
+        paused: state.paused,
+        timestamp: Date.now(),
+      };
+      const obs = observeSample(stallTrackerRef.current, sample);
+      stallTrackerRef.current = obs.state;
+      stalledRef.current = obs.stalled;
+
+      // Trust the SDK's real position over the interpolated guess.
+      setPosition(state.position);
+      if (state.duration) setDuration(state.duration);
+
+      if (obs.shouldRecover) {
+        console.warn(
+          `[WebPlayer] playback stalled (position frozen at ${state.position}ms) — auto-recovering with pause/resume`,
+        );
+        try {
+          // NOTE: do not gate the resume on `cancelled`. Our own pause() flips
+          // isPlaying to false, which tears down this effect and sets
+          // cancelled=true — but we still must resume, or recovery would leave
+          // playback paused. resume() on a disconnected player is a harmless
+          // no-op (caught below).
+          await player.pause();
+          await new Promise((resolve) => setTimeout(resolve, 250));
+          await player.resume();
+        } catch {
+          // Recovery failed; the watchdog will try again within its budget.
+        }
+      }
+    }, WATCHDOG_INTERVAL_MS);
+    return () => {
+      cancelled = true;
+      clearInterval(id);
+    };
+  }, [ready, isPlaying]);
 
   const play = useCallback(
     async (
@@ -283,6 +408,10 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
         return;
       }
       setError(null);
+      // A fresh play command starts a new playback episode — reset the watchdog
+      // so leftover state from a previous track can't trigger a false recovery.
+      stallTrackerRef.current = createStallTracker();
+      stalledRef.current = false;
       const body: Record<string, unknown> = { uris };
       if (opts?.positionMs && opts.positionMs > 0) {
         body.position_ms = Math.floor(opts.positionMs);
@@ -336,16 +465,17 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
   }, []);
 
   // Smart play action for UI: resume in-place if the SDK is mid-track,
-  // otherwise start fresh from the persisted position.
+  // otherwise start fresh from the persisted position. Reads positionRef so its
+  // identity stays stable across the ~2x/sec position updates.
   const playOrResume = useCallback(async () => {
     if (hasLiveState) {
       await playerRef.current?.resume();
       return;
     }
     if (currentUri) {
-      await play(currentUri, { positionMs: position });
+      await play(currentUri, { positionMs: positionRef.current });
     }
-  }, [hasLiveState, currentUri, position, play]);
+  }, [hasLiveState, currentUri, play]);
 
   // Hydrate last-known track so the MiniPlayer can show it before the user hits play.
   useEffect(() => {
@@ -365,17 +495,39 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
     };
   }, [currentUri]);
 
-  // Persist current state whenever it meaningfully changes.
+  // Keep a cheap snapshot of what we'd persist, refreshed on every change
+  // (including the ~2x/sec position tick) — but this only assigns a ref, it
+  // does not touch storage.
+  const persistSnapshotRef = useRef<PersistedState | null>(null);
+  useEffect(() => {
+    persistSnapshotRef.current = currentUri
+      ? {
+          uri: currentUri,
+          position,
+          trackName: trackName ?? undefined,
+          artistName: artistName ?? undefined,
+          albumArt: albumArt ?? undefined,
+        }
+      : null;
+  }, [currentUri, position, trackName, artistName, albumArt]);
+
+  // Persist immediately when the track or its metadata changes (infrequent).
+  useEffect(() => {
+    if (persistSnapshotRef.current) void writePersisted(persistSnapshotRef.current);
+  }, [currentUri, trackName, artistName, albumArt]);
+
+  // Persist position on a throttle (not on every tick), plus a final write when
+  // the track changes or the provider unmounts.
   useEffect(() => {
     if (!currentUri) return;
-    void writePersisted({
-      uri: currentUri,
-      position,
-      trackName: trackName ?? undefined,
-      artistName: artistName ?? undefined,
-      albumArt: albumArt ?? undefined,
-    });
-  }, [currentUri, position, trackName, artistName, albumArt]);
+    const id = setInterval(() => {
+      if (persistSnapshotRef.current) void writePersisted(persistSnapshotRef.current);
+    }, PERSIST_INTERVAL_MS);
+    return () => {
+      clearInterval(id);
+      if (persistSnapshotRef.current) void writePersisted(persistSnapshotRef.current);
+    };
+  }, [currentUri]);
 
   const value = useMemo<WebPlayerValue>(
     () => ({
@@ -384,8 +536,6 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
       initializing,
       isPremium: !!isPremium,
       isPlaying,
-      position,
-      duration,
       currentUri,
       trackName,
       artistName,
@@ -406,8 +556,6 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
       initializing,
       isPremium,
       isPlaying,
-      position,
-      duration,
       currentUri,
       trackName,
       artistName,
@@ -424,9 +572,24 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
     ],
   );
 
-  return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
+  const progressValue = useMemo<WebPlayerProgressValue>(
+    () => ({ position, duration }),
+    [position, duration],
+  );
+
+  return (
+    <Ctx.Provider value={value}>
+      <ProgressCtx.Provider value={progressValue}>
+        {children}
+      </ProgressCtx.Provider>
+    </Ctx.Provider>
+  );
 }
 
 export function useWebPlayer(): WebPlayerValue {
   return useContext(Ctx);
+}
+
+export function useWebPlayerProgress(): WebPlayerProgressValue {
+  return useContext(ProgressCtx);
 }

@@ -8,6 +8,7 @@
     "ios": "expo run:ios",
     "prebuild": "expo prebuild",
     "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --test \"src/**/*.test.mts\"",
     "seed": "node scripts/seed-catalog.mjs"
   },
   "dependencies": {

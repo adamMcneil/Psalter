@@ -9,7 +9,7 @@ import {
   View,
 } from 'react-native';
 import { usePathname, useRouter } from 'expo-router';
-import { useWebPlayer } from '../spotify/WebPlayerContext';
+import { useWebPlayer, useWebPlayerProgress } from '../spotify/WebPlayerContext';
 import { usePreviewPlayer } from '../spotify/PreviewPlayerContext';
 import { formatDuration, songByTrackId } from '../data/catalog';
 import { colors, fontSize, radius, spacing } from '../theme';
@@ -17,6 +17,7 @@ import { MarqueeText } from './MarqueeText';
 
 export function MiniPlayer() {
   const web = useWebPlayer();
+  const progress = useWebPlayerProgress();
   const preview = usePreviewPlayer();
   const router = useRouter();
   const pathname = usePathname();
@@ -36,8 +37,8 @@ export function MiniPlayer() {
         title: web.trackName ?? song?.title ?? 'Now playing',
         artist: web.artistName ?? song?.artist ?? '',
         cover: web.albumArt ?? song?.albumCoverUrl ?? null,
-        positionSec: Math.floor(web.position / 1000),
-        durationSec: Math.floor(web.duration / 1000) || song?.durationSec || 0,
+        positionSec: Math.floor(progress.position / 1000),
+        durationSec: Math.floor(progress.duration / 1000) || song?.durationSec || 0,
         isPlaying: web.isPlaying,
         songId: song?.id,
       };
@@ -60,7 +61,7 @@ export function MiniPlayer() {
       };
     }
     return null;
-  }, [usingWeb, usingPreview, web, preview]);
+  }, [usingWeb, usingPreview, web, progress, preview]);
 
   const [barWidth, setBarWidth] = useState(0);
   const draggingRef = useRef(false);
