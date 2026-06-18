@@ -44,6 +44,10 @@ export function SongRow({
       return;
     }
     if (player.supported) {
+      // Unlock the audio element inside the tap so Spotify can auto-advance
+      // through the queue without the browser pausing the next track. Must run
+      // before the first await below or the user gesture is lost.
+      player.activateElement();
       if (!tokens) {
         try {
           await login();

@@ -34,6 +34,10 @@ export function PlayControls({ queue }: { queue: Song[] }) {
     const firstTrackId = extractTrackId(first.spotifyUrl)!;
 
     if (player.supported) {
+      // Unlock the audio element now, inside the tap, so Spotify is allowed to
+      // auto-advance to later tracks in the queue without the browser pausing it.
+      // Must happen before the first await below or the user gesture is lost.
+      player.activateElement();
       if (!tokens) {
         try {
           await login();

@@ -84,6 +84,10 @@ export default function SongDetail() {
       return;
     }
     if (web.supported) {
+      // Unlock the audio element inside the tap so Spotify can auto-advance to
+      // the next track without the browser pausing it. Must run before the
+      // first await below or the user gesture is lost.
+      web.activateElement();
       if (!tokens) {
         try {
           await login();

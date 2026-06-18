@@ -58,6 +58,7 @@ async function writePersisted(state: PersistedState): Promise<void> {
 interface SpotifyPlayer {
   connect(): Promise<boolean>;
   disconnect(): void;
+  activateElement(): Promise<void>;
   pause(): Promise<void>;
   resume(): Promise<void>;
   togglePlay(): Promise<void>;
@@ -111,6 +112,10 @@ interface WebPlayerValue {
   seek: (positionMs: number) => Promise<void>;
   nextTrack: () => Promise<void>;
   previousTrack: () => Promise<void>;
+  // Unlock the SDK's audio element from within a user gesture so the browser's
+  // autoplay policy permits the *next* queued track to auto-start. Must be
+  // called synchronously from a tap handler, before any await. Fire-and-forget.
+  activateElement: () => void;
   // Smart play: in-place resume if SDK has live state, else play from persisted position.
   playOrResume: () => Promise<void>;
 }
@@ -141,6 +146,7 @@ const initial: WebPlayerValue = {
   seek: noop,
   nextTrack: noop,
   previousTrack: noop,
+  activateElement: () => {},
   playOrResume: noop,
 };
 
@@ -201,6 +207,9 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
   // brief isPlaying flip our own pause/resume recovery causes).
   const stallTrackerRef = useRef<StallTrackerState>(createStallTracker());
   const stalledRef = useRef(false);
+  // True once we've unlocked the SDK's audio element from a real user gesture.
+  // The unlock lasts the session, so we only need to do it once.
+  const activatedRef = useRef(false);
 
   useEffect(() => {
     if (!supported || !tokens) {
@@ -293,6 +302,19 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
         player.addListener('authentication_error', errHandler('Auth'));
         player.addListener('account_error', errHandler('Account'));
         player.addListener('playback_error', errHandler('Playback'));
+        // The browser's autoplay policy blocked the SDK from auto-starting the
+        // next track at a boundary (the auto-advance isn't a fresh user gesture).
+        // This is the exact "song ends, next one is cued but paused" symptom.
+        // We can't fix it from here — a resume() issued outside a user gesture is
+        // refused too — so reflect the paused state and prompt a tap. The real
+        // prevention is activateElement(), armed from a tap (see below).
+        player.addListener('autoplay_failed', () => {
+          console.warn(
+            '[WebPlayer] autoplay blocked at track boundary — tap play to continue',
+          );
+          setIsPlaying(false);
+          setError('Tap play to keep the music going.');
+        });
 
         player.connect();
         playerRef.current = player;
@@ -444,10 +466,32 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
     await playerRef.current?.pause();
   }, []);
   const resume = useCallback(async () => {
+    setError(null);
     await playerRef.current?.resume();
   }, []);
   const toggle = useCallback(async () => {
+    setError(null);
     await playerRef.current?.togglePlay();
+  }, []);
+  // Unlock the SDK's hidden audio element from within a user gesture. The SDK
+  // starts the *next* queued track without a fresh click, which the browser's
+  // autoplay policy can block — leaving the player paused at the boundary
+  // ("the next song is cued but paused"). Calling this once from a real tap
+  // resumes the underlying AudioContext for the session so auto-advance is
+  // permitted. MUST run synchronously from the gesture (before any await) and
+  // fire-and-forget: awaiting it, or calling it after `await getAccessToken()`
+  // inside play(), would consume/expire the user activation and not register.
+  const activateElement = useCallback(() => {
+    if (activatedRef.current) return;
+    const player = playerRef.current;
+    if (!player || typeof player.activateElement !== 'function') return;
+    activatedRef.current = true;
+    try {
+      void player.activateElement();
+    } catch {
+      // Older SDK builds may lack it; let a later gesture re-arm.
+      activatedRef.current = false;
+    }
   }, []);
   const seek = useCallback(
     async (positionMs: number) => {
@@ -548,6 +592,7 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
       seek,
       nextTrack,
       previousTrack,
+      activateElement,
       playOrResume,
     }),
     [
@@ -568,6 +613,7 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
       seek,
       nextTrack,
       previousTrack,
+      activateElement,
       playOrResume,
     ],
   );

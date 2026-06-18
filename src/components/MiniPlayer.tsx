@@ -141,6 +141,10 @@ export function MiniPlayer() {
 
   const togglePlay = () => {
     if (usingWeb) {
+      // Unlock the audio element inside the tap so Spotify can auto-advance the
+      // queue without the browser pausing the next track (also re-arms recovery
+      // when the user taps play after an autoplay-blocked pause).
+      web.activateElement();
       if (web.isPlaying) {
         void web.pause();
       } else {
