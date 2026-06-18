@@ -9,7 +9,7 @@
     "prebuild": "expo prebuild",
     "typecheck": "tsc --noEmit",
     "test": "node --experimental-strip-types --test \"src/**/*.test.mts\"",
-    "seed": "node scripts/seed-catalog.mjs"
+    "seed": "node scripts/seed-from-embeds.mjs"
   },
   "dependencies": {
     "@expo/metro-runtime": "~6.1.2",

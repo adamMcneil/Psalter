@@ -636,6 +636,11 @@ const SOURCES = [
     artist: 'Crown & Covenant',
     album: 'I Am: Kids Sing Psalms!',
   },
+  {
+    url: 'https://open.spotify.com/album/4xjAMwucdzFNTR4oZ1Peat',
+    artist: 'David R. Erb',
+    album: 'Cantica Sanctorum: A Collection of Psalms, Hymns & Spiritual Songs',
+  },
 ];
 
 const PSALM_RE = /\bPsalm\s+(\d{1,3})[A-Za-z]?\b/i;
