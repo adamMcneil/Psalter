@@ -1,3 +1,5 @@
+import { tokenManager } from './spotifyAuth';
+
 const BASE = 'https://api.spotify.com/v1';
 
 export type GetToken = () => Promise<string | null>;
@@ -17,6 +19,7 @@ async function request<T>(
   getToken: GetToken,
   path: string,
   init: RequestInit = {},
+  retried = false,
 ): Promise<T> {
   const token = await getToken();
   if (!token) throw new Error('Not authenticated with Spotify.');
@@ -28,6 +31,12 @@ async function request<T>(
       'Content-Type': 'application/json',
     },
   });
+  // The token was rejected (revoked / scope change / clock skew). Force one
+  // refresh and retry once; getToken() then returns the freshly-minted token.
+  if (res.status === 401 && !retried) {
+    const refreshed = await tokenManager.forceRefresh().catch(() => null);
+    if (refreshed) return request<T>(getToken, path, init, true);
+  }
   if (res.status === 204) return undefined as T;
   const text = await res.text();
   let body: any = null;
