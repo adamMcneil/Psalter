@@ -55,3 +55,95 @@ export function classifyTokenError(status: number, body: unknown): SpotifyAuthEr
   }
   return new SpotifyAuthError('http', message, status);
 }
+
+// --- Token client (stateless network + pure transforms) --------------------
+
+export interface TokenResponse {
+  access_token: string;
+  refresh_token?: string;
+  expires_in: number;
+  scope?: string;
+  token_type?: string;
+}
+
+/**
+ * Build StoredTokens from a token-endpoint response. Applies Spotify's rotation
+ * rule — when no refresh_token is returned, keep the previous one — and computes
+ * the absolute expiry from an injected clock (testable without real time).
+ */
+export function toStoredTokens(
+  resp: TokenResponse,
+  nowMs: number,
+  prev?: StoredTokens,
+): StoredTokens {
+  return {
+    accessToken: resp.access_token,
+    refreshToken: resp.refresh_token ?? prev?.refreshToken ?? '',
+    expiresAt: nowMs + resp.expires_in * 1000,
+    scope: resp.scope ?? prev?.scope,
+  };
+}
+
+export interface TokenClientConfig {
+  clientId: string;
+  tokenEndpoint: string;
+  now?: () => number;
+}
+
+export interface SpotifyTokenClient {
+  exchangeCode(args: { code: string; codeVerifier: string; redirectUri: string }): Promise<StoredTokens>;
+  refresh(prev: StoredTokens): Promise<StoredTokens>;
+}
+
+export function createTokenClient(config: TokenClientConfig): SpotifyTokenClient {
+  const now = config.now ?? (() => Date.now());
+
+  async function post(params: Record<string, string>): Promise<TokenResponse> {
+    let res: Response;
+    try {
+      res = await fetch(config.tokenEndpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(params).toString(),
+      });
+    } catch (e) {
+      throw new SpotifyAuthError('network', e instanceof Error ? e.message : 'Network error reaching Spotify.');
+    }
+    const text = await res.text();
+    let body: unknown = null;
+    if (text) {
+      try {
+        body = JSON.parse(text);
+      } catch {
+        body = text;
+      }
+    }
+    if (!res.ok) throw classifyTokenError(res.status, body);
+    return body as TokenResponse;
+  }
+
+  return {
+    async exchangeCode({ code, codeVerifier, redirectUri }) {
+      const json = await post({
+        grant_type: 'authorization_code',
+        code,
+        redirect_uri: redirectUri,
+        client_id: config.clientId,
+        code_verifier: codeVerifier,
+      });
+      if (!json.refresh_token) {
+        throw new SpotifyAuthError('http', 'Spotify did not return a refresh token.');
+      }
+      return toStoredTokens(json, now());
+    },
+
+    async refresh(prev) {
+      const json = await post({
+        grant_type: 'refresh_token',
+        refresh_token: prev.refreshToken,
+        client_id: config.clientId,
+      });
+      return toStoredTokens(json, now(), prev);
+    },
+  };
+}
