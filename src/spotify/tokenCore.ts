@@ -186,6 +186,10 @@ export function createTokenManager(deps: TokenManagerDeps): TokenManager {
   const leewayMs = deps.leewayMs ?? DEFAULT_LEEWAY_MS;
   let current: StoredTokens | null = null;
   let inFlight: Promise<StoredTokens> | null = null;
+  // Bumped by any authoritative state change (set/clear). A refresh that began
+  // before such a change must not write its now-superseded result back — else a
+  // background refresh could resurrect a logged-out session or clobber a fresh login.
+  let epoch = 0;
   const listeners = new Set<TokenListener>();
 
   const notify = () => {
@@ -193,17 +197,33 @@ export function createTokenManager(deps: TokenManagerDeps): TokenManager {
   };
   const isFresh = (t: StoredTokens) => t.expiresAt - deps.now() > leewayMs;
 
-  // Collapse concurrent refreshes onto a single network call so a rotating
-  // refresh token is never spent twice.
+  // Collapse concurrent refreshes onto a single network call (so a rotating
+  // refresh token is never spent twice) and apply the result — or the
+  // invalid_grant sign-out — exactly once, unless a set()/clear() superseded
+  // this attempt in the meantime.
   function refreshOnce(prev: StoredTokens): Promise<StoredTokens> {
     if (!inFlight) {
+      const startEpoch = epoch;
       inFlight = (async () => {
         try {
           const next = await deps.client.refresh(prev);
-          current = next;
-          await deps.store.save(next);
-          notify();
+          if (epoch === startEpoch) {
+            current = next;
+            await deps.store.save(next);
+            notify();
+          }
           return next;
+        } catch (e) {
+          if (
+            e instanceof SpotifyAuthError &&
+            e.kind === 'invalid_grant' &&
+            epoch === startEpoch
+          ) {
+            current = null;
+            await deps.store.clear();
+            notify();
+          }
+          throw e;
         } finally {
           inFlight = null;
         }
@@ -212,16 +232,14 @@ export function createTokenManager(deps: TokenManagerDeps): TokenManager {
     return inFlight;
   }
 
-  // Refresh, turning a permanent invalid_grant into a clean sign-out while
-  // letting transient errors propagate (the stored tokens are kept).
+  // Map a refresh outcome for callers: invalid_grant -> null (the sign-out side
+  // effects already ran once, inside refreshOnce); transient errors propagate so
+  // the caller can fall back to the held token.
   async function refreshOrSignOut(prev: StoredTokens): Promise<StoredTokens | null> {
     try {
       return await refreshOnce(prev);
     } catch (e) {
       if (e instanceof SpotifyAuthError && e.kind === 'invalid_grant') {
-        current = null;
-        await deps.store.clear();
-        notify();
         return null;
       }
       throw e;
@@ -237,9 +255,9 @@ export function createTokenManager(deps: TokenManagerDeps): TokenManager {
         } catch {
           // Transient failure at startup: keep the stale token, refresh on demand.
         }
-      } else {
-        notify();
       }
+      // Always announce the resolved initial state, including the transient path.
+      notify();
       return current;
     },
 
@@ -264,12 +282,14 @@ export function createTokenManager(deps: TokenManagerDeps): TokenManager {
     },
 
     async set(tokens) {
+      epoch += 1;
       current = tokens;
       await deps.store.save(tokens);
       notify();
     },
 
     async clear() {
+      epoch += 1;
       current = null;
       await deps.store.clear();
       notify();

@@ -275,3 +275,44 @@ test('hydrate loads stored tokens and refreshes when near expiry', async () => {
   assert.equal(hydrated?.accessToken, 'rehydrated');
   assert.equal(mgr.getTokens()?.accessToken, 'rehydrated');
 });
+
+test('clear() during an in-flight refresh keeps the session signed out', async () => {
+  const now = 1_000_000;
+  let release: (t: T) => void = () => {};
+  const gate = new Promise<T>((resolve) => {
+    release = resolve;
+  });
+  const store = makeStore();
+  const mgr = createTokenManager({
+    store,
+    client: { refresh: async () => gate },
+    now: () => now,
+  });
+  await mgr.set({ accessToken: 'old', refreshToken: 'r', expiresAt: now }); // expired -> will refresh
+  const pending = mgr.getValidAccessToken(); // starts the gated refresh
+  await mgr.clear(); // user logs out mid-refresh
+  release({ accessToken: 'refreshed', refreshToken: 'r2', expiresAt: now + 3_600_000 });
+  await pending; // let the refresh settle
+  assert.equal(mgr.getTokens(), null, 'logout is not resurrected by the in-flight refresh');
+  assert.equal(store.saved(), null, 'storage stays cleared');
+  assert.equal(await mgr.getValidAccessToken(), null);
+});
+
+test('forceRefresh returns refreshed tokens when a session exists', async () => {
+  const now = 1_000_000;
+  const mgr = createTokenManager({
+    store: makeStore(),
+    client: { refresh: async (p: T) => ({ ...p, accessToken: 'forced', expiresAt: now + 3_600_000 }) },
+    now: () => now,
+  });
+  await mgr.set({ accessToken: 'a', refreshToken: 'r', expiresAt: now + 999_999 });
+  const next = await mgr.forceRefresh();
+  assert.equal(next?.accessToken, 'forced');
+  assert.equal(mgr.getTokens()?.accessToken, 'forced');
+});
+
+test('forceRefresh returns null when there is no session', async () => {
+  const now = 1;
+  const mgr = createTokenManager({ store: makeStore(), client: { refresh: async (p: T) => p }, now: () => now });
+  assert.equal(await mgr.forceRefresh(), null);
+});
