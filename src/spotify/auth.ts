@@ -67,7 +67,7 @@ export async function completeWebRedirectLogin(): Promise<WebRedirectResult> {
   };
   // Strip OAuth params from the URL up front so a reload, Back navigation, or a
   // double-mount can never replay the single-use authorization code.
-  if (params.code || params.error || params.state) {
+  if (params.code || params.error) {
     url.searchParams.delete('code');
     url.searchParams.delete('state');
     url.searchParams.delete('error');
