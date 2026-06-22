@@ -17,6 +17,13 @@ import {
   StallSample,
   StallTrackerState,
 } from './stallDetector';
+import { tokenManager } from './spotifyAuth';
+import {
+  selectSdkToken,
+  createAuthRecovery,
+  onAuthError,
+  type AuthRecoveryState,
+} from './sdkAuth';
 
 const STATE_KEY = 'psalter:webPlayer:lastState:v1';
 // Persist position at most this often while playing (it changes ~2x/sec).
@@ -196,10 +203,8 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
   // from disk, never played this session" (need to send play to the API).
   const [hasLiveState, setHasLiveState] = useState(false);
 
-  // Render-time mirrors so callbacks/effects can read the latest value without
+  // Render-time mirror so callbacks/effects can read the latest value without
   // taking it as a dependency (and re-subscribing every tick).
-  const tokensRef = useRef(tokens);
-  tokensRef.current = tokens;
   const positionRef = useRef(0);
   positionRef.current = position;
 
@@ -210,6 +215,9 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
   // True once we've unlocked the SDK's audio element from a real user gesture.
   // The unlock lasts the session, so we only need to do it once.
   const activatedRef = useRef(false);
+  // Bounded auto-recovery budget for SDK authentication_error events (reset once
+  // playback is healthy again).
+  const authRecoveryRef = useRef<AuthRecoveryState>(createAuthRecovery());
 
   useEffect(() => {
     if (!supported || !tokens) {
@@ -246,25 +254,45 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
         const player = new window.Spotify.Player({
           name: 'Psalter',
           getOAuthToken: async (cb: (t: string) => void) => {
-            // Always hand the SDK a token if we possibly can — and never let a
-            // slow refresh hang the streaming (re)auth. A hung callback here
-            // silently starves playback with no error surfaced.
+            // Hand the SDK a *currently valid* token. Giving it an expired one
+            // makes the SDK raise authentication_error and pause at the next
+            // track (the mobile symptom, where a slow refresh let an expired
+            // token through the old fallback). getValidAccessToken refreshes
+            // within the expiry leeway (single-flight); each wait is bounded so a
+            // hung network can't starve the SDK callback.
+            const timeout = () =>
+              new Promise<null>((resolve) =>
+                setTimeout(() => resolve(null), OAUTH_TIMEOUT_MS),
+              );
             try {
-              const t = await Promise.race([
-                getAccessToken(),
-                new Promise<null>((resolve) =>
-                  setTimeout(() => resolve(null), OAUTH_TIMEOUT_MS),
-                ),
-              ]);
-              if (t) {
-                cb(t);
-                return;
-              }
+              await Promise.race([tokenManager.getValidAccessToken(), timeout()]);
             } catch {
-              // fall through to the last-known token
+              // fall through to the validity check below
             }
-            const fallback = tokensRef.current?.accessToken;
-            if (fallback) cb(fallback);
+            let choice = selectSdkToken(tokenManager.getTokens(), Date.now());
+            if (choice.needsForceRefresh) {
+              try {
+                const refreshed = await Promise.race([
+                  tokenManager.forceRefresh(),
+                  timeout(),
+                ]);
+                choice = selectSdkToken(
+                  refreshed ?? tokenManager.getTokens(),
+                  Date.now(),
+                );
+              } catch {
+                // refresh failed; fall back below
+              }
+            }
+            if (choice.token) {
+              cb(choice.token);
+              return;
+            }
+            // Last resort: hand over whatever we hold rather than leave the SDK
+            // callback hanging (which silently starves playback). If it is stale,
+            // the authentication_error handler will force a refresh + reconnect.
+            const last = tokenManager.getTokens();
+            if (last?.accessToken) cb(last.accessToken);
           },
           volume: 0.8,
         });
@@ -280,6 +308,9 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
         player.addListener('player_state_changed', (...args: unknown[]) => {
           const state = args[0] as PlayerState | null;
           if (!state) return;
+          // Healthy playback means auth is working — refill the recovery budget
+          // so a later, unrelated auth error gets its own attempts.
+          if (!state.paused) authRecoveryRef.current = createAuthRecovery();
           setHasLiveState(true);
           setIsPlaying(!state.paused);
           setPosition(state.position);
@@ -299,7 +330,32 @@ export function WebPlayerProvider({ children }: { children: ReactNode }) {
           clearTimeout(connectTimer);
         };
         player.addListener('initialization_error', errHandler('Init'));
-        player.addListener('authentication_error', errHandler('Auth'));
+        // The token the SDK held was rejected (often a slow/failed renewal at a
+        // track boundary). Auto-recover — force a brand-new token and reconnect —
+        // instead of just pausing and making the user tap play. Bounded so a
+        // genuinely dead session surfaces the error instead of looping forever.
+        player.addListener('authentication_error', (...args: unknown[]) => {
+          const { message } = (args[0] as { message?: string }) ?? {};
+          const decision = onAuthError(authRecoveryRef.current, Date.now());
+          authRecoveryRef.current = decision.state;
+          if (decision.shouldRecover) {
+            console.warn(
+              `[WebPlayer] SDK auth failed (${message ?? 'unknown'}) — forcing refresh + reconnect`,
+            );
+            void (async () => {
+              try {
+                await tokenManager.forceRefresh();
+                await playerRef.current?.connect();
+              } catch {
+                // refresh/reconnect failed; a later error re-enters (budget permitting)
+              }
+            })();
+            return;
+          }
+          setError(`Auth: ${message ?? 'authentication failed'}`);
+          setInitializing(false);
+          clearTimeout(connectTimer);
+        });
         player.addListener('account_error', errHandler('Account'));
         player.addListener('playback_error', errHandler('Playback'));
         // The browser's autoplay policy blocked the SDK from auto-starting the
