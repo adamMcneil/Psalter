@@ -153,3 +153,125 @@ test('exchangeCode rejects when Spotify returns no refresh token', async () => {
     globalThis.fetch = realFetch;
   }
 });
+
+import { createTokenManager } from './tokenCore.ts';
+
+type T = { accessToken: string; refreshToken: string; expiresAt: number; scope?: string };
+
+function makeStore(initial: T | null = null) {
+  let saved = initial;
+  return {
+    saved: () => saved,
+    load: async () => saved,
+    save: async (t: T) => {
+      saved = t;
+    },
+    clear: async () => {
+      saved = null;
+    },
+  };
+}
+
+test('getValidAccessToken returns the held token without refreshing when fresh', async () => {
+  const now = 1_000_000;
+  let refreshCalls = 0;
+  const mgr = createTokenManager({
+    store: makeStore(),
+    client: { refresh: async (p: T) => ((refreshCalls += 1), { ...p, accessToken: 'new' }) },
+    now: () => now,
+  });
+  await mgr.set({ accessToken: 'fresh', refreshToken: 'r', expiresAt: now + 120_000 });
+  assert.equal(await mgr.getValidAccessToken(), 'fresh');
+  assert.equal(refreshCalls, 0);
+});
+
+test('concurrent getValidAccessToken calls trigger a single refresh (single-flight)', async () => {
+  const now = 1_000_000;
+  let refreshCalls = 0;
+  const mgr = createTokenManager({
+    store: makeStore(),
+    client: {
+      refresh: async (p: T) => {
+        refreshCalls += 1;
+        await new Promise((r) => setTimeout(r, 10));
+        return { ...p, accessToken: 'refreshed', expiresAt: now + 3_600_000 };
+      },
+    },
+    now: () => now,
+  });
+  await mgr.set({ accessToken: 'stale', refreshToken: 'r', expiresAt: now }); // expired (delta 0 < leeway)
+  const results = await Promise.all([mgr.getValidAccessToken(), mgr.getValidAccessToken(), mgr.getValidAccessToken()]);
+  assert.deepEqual(results, ['refreshed', 'refreshed', 'refreshed']);
+  assert.equal(refreshCalls, 1, 'all concurrent callers share one refresh');
+});
+
+test('invalid_grant on refresh clears tokens and notifies sign-out', async () => {
+  const now = 1_000_000;
+  const store = makeStore();
+  const seen: (T | null)[] = [];
+  const mgr = createTokenManager({
+    store,
+    client: { refresh: async () => { throw new SpotifyAuthError('invalid_grant', 'bad'); } },
+    now: () => now,
+  });
+  mgr.subscribe((t) => seen.push(t as T | null));
+  await mgr.set({ accessToken: 'a', refreshToken: 'r', expiresAt: now }); // expired
+  assert.equal(await mgr.getValidAccessToken(), null);
+  assert.equal(mgr.getTokens(), null);
+  assert.equal(store.saved(), null);
+  assert.equal(seen[seen.length - 1], null, 'subscribers told about sign-out');
+});
+
+test('a transient refresh error keeps the session and returns the held token', async () => {
+  const now = 1_000_000;
+  const mgr = createTokenManager({
+    store: makeStore(),
+    client: { refresh: async () => { throw new SpotifyAuthError('network', 'offline'); } },
+    now: () => now,
+  });
+  await mgr.set({ accessToken: 'stillgood', refreshToken: 'r', expiresAt: now }); // expired by clock
+  assert.equal(await mgr.getValidAccessToken(), 'stillgood');
+  assert.notEqual(mgr.getTokens(), null, 'session preserved on a transient failure');
+});
+
+test('refresh persists rotated tokens and notifies subscribers', async () => {
+  const now = 1_000_000;
+  const store = makeStore();
+  const seen: (T | null)[] = [];
+  const mgr = createTokenManager({
+    store,
+    client: { refresh: async (p: T) => ({ accessToken: 'AT2', refreshToken: 'RT2', expiresAt: now + 3_600_000, scope: p.scope }) },
+    now: () => now,
+  });
+  mgr.subscribe((t) => seen.push(t as T | null));
+  await mgr.set({ accessToken: 'AT1', refreshToken: 'RT1', expiresAt: now, scope: 's' });
+  assert.equal(await mgr.getValidAccessToken(), 'AT2');
+  assert.equal(store.saved()?.refreshToken, 'RT2');
+  assert.equal(seen[seen.length - 1]?.accessToken, 'AT2');
+});
+
+test('clear wipes memory and storage', async () => {
+  const now = 1;
+  const store = makeStore();
+  const mgr = createTokenManager({ store, client: { refresh: async (p: T) => p }, now: () => now });
+  await mgr.set({ accessToken: 'a', refreshToken: 'r', expiresAt: now + 999_999 });
+  await mgr.clear();
+  assert.equal(mgr.getTokens(), null);
+  assert.equal(store.saved(), null);
+  assert.equal(await mgr.getValidAccessToken(), null);
+});
+
+test('hydrate loads stored tokens and refreshes when near expiry', async () => {
+  const now = 1_000_000;
+  let refreshCalls = 0;
+  const store = makeStore({ accessToken: 'old', refreshToken: 'r', expiresAt: now + 1_000 }); // within 60s leeway
+  const mgr = createTokenManager({
+    store,
+    client: { refresh: async (p: T) => ((refreshCalls += 1), { ...p, accessToken: 'rehydrated', expiresAt: now + 3_600_000 }) },
+    now: () => now,
+  });
+  const hydrated = await mgr.hydrate();
+  assert.equal(refreshCalls, 1);
+  assert.equal(hydrated?.accessToken, 'rehydrated');
+  assert.equal(mgr.getTokens()?.accessToken, 'rehydrated');
+});

@@ -147,3 +147,139 @@ export function createTokenClient(config: TokenClientConfig): SpotifyTokenClient
     },
   };
 }
+
+// --- Token manager (stateful single source of truth) -----------------------
+
+export interface TokenStore {
+  load(): Promise<StoredTokens | null>;
+  save(tokens: StoredTokens): Promise<void>;
+  clear(): Promise<void>;
+}
+
+export interface TokenRefresher {
+  refresh(prev: StoredTokens): Promise<StoredTokens>;
+}
+
+export interface TokenManagerDeps {
+  store: TokenStore;
+  client: TokenRefresher;
+  now: () => number;
+  /** Refresh this many ms before the real expiry. Defaults to 60s. */
+  leewayMs?: number;
+}
+
+export type TokenListener = (tokens: StoredTokens | null) => void;
+
+export interface TokenManager {
+  hydrate(): Promise<StoredTokens | null>;
+  getTokens(): StoredTokens | null;
+  getValidAccessToken(): Promise<string | null>;
+  forceRefresh(): Promise<StoredTokens | null>;
+  set(tokens: StoredTokens): Promise<void>;
+  clear(): Promise<void>;
+  subscribe(listener: TokenListener): () => void;
+}
+
+export const DEFAULT_LEEWAY_MS = 60_000;
+
+export function createTokenManager(deps: TokenManagerDeps): TokenManager {
+  const leewayMs = deps.leewayMs ?? DEFAULT_LEEWAY_MS;
+  let current: StoredTokens | null = null;
+  let inFlight: Promise<StoredTokens> | null = null;
+  const listeners = new Set<TokenListener>();
+
+  const notify = () => {
+    for (const listener of listeners) listener(current);
+  };
+  const isFresh = (t: StoredTokens) => t.expiresAt - deps.now() > leewayMs;
+
+  // Collapse concurrent refreshes onto a single network call so a rotating
+  // refresh token is never spent twice.
+  function refreshOnce(prev: StoredTokens): Promise<StoredTokens> {
+    if (!inFlight) {
+      inFlight = (async () => {
+        try {
+          const next = await deps.client.refresh(prev);
+          current = next;
+          await deps.store.save(next);
+          notify();
+          return next;
+        } finally {
+          inFlight = null;
+        }
+      })();
+    }
+    return inFlight;
+  }
+
+  // Refresh, turning a permanent invalid_grant into a clean sign-out while
+  // letting transient errors propagate (the stored tokens are kept).
+  async function refreshOrSignOut(prev: StoredTokens): Promise<StoredTokens | null> {
+    try {
+      return await refreshOnce(prev);
+    } catch (e) {
+      if (e instanceof SpotifyAuthError && e.kind === 'invalid_grant') {
+        current = null;
+        await deps.store.clear();
+        notify();
+        return null;
+      }
+      throw e;
+    }
+  }
+
+  return {
+    async hydrate() {
+      current = await deps.store.load();
+      if (current && !isFresh(current)) {
+        try {
+          await refreshOrSignOut(current);
+        } catch {
+          // Transient failure at startup: keep the stale token, refresh on demand.
+        }
+      } else {
+        notify();
+      }
+      return current;
+    },
+
+    getTokens: () => current,
+
+    async getValidAccessToken() {
+      if (!current) return null;
+      if (isFresh(current)) return current.accessToken;
+      try {
+        const next = await refreshOrSignOut(current);
+        return next ? next.accessToken : null;
+      } catch {
+        // Transient: fall back to the token we still hold rather than starving
+        // the caller; the API layer's 401 retry will force another refresh.
+        return current ? current.accessToken : null;
+      }
+    },
+
+    async forceRefresh() {
+      if (!current) return null;
+      return refreshOrSignOut(current);
+    },
+
+    async set(tokens) {
+      current = tokens;
+      await deps.store.save(tokens);
+      notify();
+    },
+
+    async clear() {
+      current = null;
+      await deps.store.clear();
+      notify();
+    },
+
+    subscribe(listener) {
+      listeners.add(listener);
+      return () => {
+        listeners.delete(listener);
+      };
+    },
+  };
+}
