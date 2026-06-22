@@ -145,7 +145,10 @@ test('exchangeCode rejects when Spotify returns no refresh token', async () => {
   })) as unknown as typeof fetch;
   try {
     const client = createTokenClient({ clientId: 'CID', tokenEndpoint: 'https://x/token' });
-    await assert.rejects(() => client.exchangeCode({ code: 'c', codeVerifier: 'v', redirectUri: 'r' }));
+    await assert.rejects(
+      () => client.exchangeCode({ code: 'c', codeVerifier: 'v', redirectUri: 'r' }),
+      (e: unknown) => e instanceof SpotifyAuthError && e.kind === 'oauth' && e.retryable === false,
+    );
   } finally {
     globalThis.fetch = realFetch;
   }

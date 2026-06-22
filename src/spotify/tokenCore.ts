@@ -132,7 +132,7 @@ export function createTokenClient(config: TokenClientConfig): SpotifyTokenClient
         code_verifier: codeVerifier,
       });
       if (!json.refresh_token) {
-        throw new SpotifyAuthError('http', 'Spotify did not return a refresh token.');
+        throw new SpotifyAuthError('oauth', 'Spotify did not return a refresh token.');
       }
       return toStoredTokens(json, now());
     },
