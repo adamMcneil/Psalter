@@ -1,16 +1,17 @@
 import * as AuthSession from 'expo-auth-session';
 import { Platform } from 'react-native';
 import { SPOTIFY_CLIENT_ID, SPOTIFY_DISCOVERY, SPOTIFY_SCOPES } from './config';
-import { saveTokens, StoredTokens } from './tokens';
+import { SpotifyAuthError } from './tokenCore';
+import { decideRedirect } from './redirect';
+import { tokenClient, tokenManager } from './spotifyAuth';
+import {
+  clearPendingWebAuth,
+  loadPendingWebAuth,
+  savePendingWebAuth,
+  StoredTokens,
+} from './tokens';
 
 const REDIRECT_PATH = 'spotify-auth';
-const PENDING_AUTH_KEY = 'psalter.spotify.pending';
-
-interface PendingWebAuth {
-  codeVerifier: string;
-  state: string;
-  returnTo: string;
-}
 
 export interface WebRedirectResult {
   tokens?: StoredTokens;
@@ -24,84 +25,33 @@ export function getRedirectUri(): string {
     const baseUrl = (process.env.EXPO_BASE_URL ?? '').replace(/\/$/, '');
     return `${window.location.origin}${baseUrl}/${REDIRECT_PATH}`;
   }
-  return AuthSession.makeRedirectUri({
-    scheme: 'psalter',
-    path: REDIRECT_PATH,
-  });
+  return AuthSession.makeRedirectUri({ scheme: 'psalter', path: REDIRECT_PATH });
 }
 
-function expiryFromNow(expiresInSec: number): number {
-  return Date.now() + expiresInSec * 1000;
-}
-
-interface TokenResponseShape {
-  access_token: string;
-  refresh_token?: string;
-  expires_in: number;
-  scope?: string;
-  token_type?: string;
-}
-
-export async function exchangeCodeForTokens(
-  code: string,
-  codeVerifier: string,
-): Promise<StoredTokens> {
-  if (!SPOTIFY_CLIENT_ID) throw new Error('Spotify client ID is not configured.');
-  const body = new URLSearchParams({
-    grant_type: 'authorization_code',
-    code,
-    redirect_uri: getRedirectUri(),
-    client_id: SPOTIFY_CLIENT_ID,
-    code_verifier: codeVerifier,
-  });
-
-  const res = await fetch(SPOTIFY_DISCOVERY.tokenEndpoint, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: body.toString(),
-  });
-
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`Spotify token exchange failed: ${res.status} ${text}`);
-  }
-  const json = (await res.json()) as TokenResponseShape;
-  if (!json.refresh_token) {
-    throw new Error('Spotify did not return a refresh token.');
-  }
-  const tokens: StoredTokens = {
-    accessToken: json.access_token,
-    refreshToken: json.refresh_token,
-    expiresAt: expiryFromNow(json.expires_in),
-    scope: json.scope,
-  };
-  await saveTokens(tokens);
-  return tokens;
-}
-
-export async function beginWebRedirectLogin(returnTo: string): Promise<void> {
-  if (Platform.OS !== 'web' || typeof window === 'undefined') {
-    throw new Error('beginWebRedirectLogin is web-only.');
-  }
-  if (!SPOTIFY_CLIENT_ID) {
-    throw new Error('Spotify client ID is not configured.');
-  }
-
-  const request = new AuthSession.AuthRequest({
-    clientId: SPOTIFY_CLIENT_ID,
+function buildAuthRequest(): AuthSession.AuthRequest {
+  return new AuthSession.AuthRequest({
+    clientId: SPOTIFY_CLIENT_ID!,
     scopes: SPOTIFY_SCOPES,
     redirectUri: getRedirectUri(),
     usePKCE: true,
     responseType: AuthSession.ResponseType.Code,
   });
-  const authUrl = await request.makeAuthUrlAsync(SPOTIFY_DISCOVERY);
+}
 
-  const pending: PendingWebAuth = {
+export async function beginWebRedirectLogin(returnTo: string): Promise<void> {
+  if (Platform.OS !== 'web' || typeof window === 'undefined') {
+    throw new SpotifyAuthError('config', 'beginWebRedirectLogin is web-only.');
+  }
+  if (!SPOTIFY_CLIENT_ID) {
+    throw new SpotifyAuthError('config', 'Spotify client ID is not configured.');
+  }
+  const request = buildAuthRequest();
+  const authUrl = await request.makeAuthUrlAsync(SPOTIFY_DISCOVERY);
+  savePendingWebAuth({
     codeVerifier: request.codeVerifier ?? '',
     state: request.state,
     returnTo,
-  };
-  window.localStorage.setItem(PENDING_AUTH_KEY, JSON.stringify(pending));
+  });
   window.location.assign(authUrl);
 }
 
@@ -109,77 +59,66 @@ export async function completeWebRedirectLogin(): Promise<WebRedirectResult> {
   if (Platform.OS !== 'web' || typeof window === 'undefined') {
     return { returnTo: '/', consumed: false };
   }
-
   const url = new URL(window.location.href);
-  const code = url.searchParams.get('code');
-  const error = url.searchParams.get('error');
-  const stateParam = url.searchParams.get('state');
-
-  const raw = window.localStorage.getItem(PENDING_AUTH_KEY);
-  let pending: PendingWebAuth | null = null;
-  if (raw) {
-    try {
-      pending = JSON.parse(raw) as PendingWebAuth;
-    } catch {
-      pending = null;
-    }
-  }
-  const returnTo = pending?.returnTo ?? '/';
-
-  if (!code && !error) {
-    return { returnTo, consumed: false };
+  const params = {
+    code: url.searchParams.get('code'),
+    state: url.searchParams.get('state'),
+    error: url.searchParams.get('error'),
+  };
+  // Strip OAuth params from the URL up front so a reload, Back navigation, or a
+  // double-mount can never replay the single-use authorization code.
+  if (params.code || params.error || params.state) {
+    url.searchParams.delete('code');
+    url.searchParams.delete('state');
+    url.searchParams.delete('error');
+    window.history.replaceState(window.history.state, '', url.toString());
   }
 
-  if (pending) window.localStorage.removeItem(PENDING_AUTH_KEY);
-
-  if (error) {
-    return { error, returnTo, consumed: true };
+  const pending = loadPendingWebAuth();
+  const decision = decideRedirect(params, pending);
+  if (decision.kind === 'none') {
+    return { returnTo: pending?.returnTo ?? '/', consumed: false };
   }
-  if (!pending) {
-    return { error: 'No pending auth state — try signing in again.', returnTo, consumed: true };
+  clearPendingWebAuth();
+  if (decision.kind === 'error') {
+    return { error: decision.error, returnTo: decision.returnTo, consumed: true };
   }
-  if (stateParam !== pending.state) {
-    return { error: 'OAuth state mismatch — try signing in again.', returnTo, consumed: true };
-  }
-
   try {
-    const tokens = await exchangeCodeForTokens(code!, pending.codeVerifier);
-    return { tokens, returnTo, consumed: true };
+    const tokens = await tokenClient.exchangeCode({
+      code: decision.code,
+      codeVerifier: decision.codeVerifier,
+      redirectUri: getRedirectUri(),
+    });
+    await tokenManager.set(tokens);
+    return { tokens, returnTo: decision.returnTo, consumed: true };
   } catch (e) {
     return {
       error: e instanceof Error ? e.message : String(e),
-      returnTo,
+      returnTo: decision.returnTo,
       consumed: true,
     };
   }
 }
 
-export async function refreshAccessToken(
-  refreshToken: string,
-): Promise<StoredTokens> {
-  if (!SPOTIFY_CLIENT_ID) throw new Error('Spotify client ID is not configured.');
-  const body = new URLSearchParams({
-    grant_type: 'refresh_token',
-    refresh_token: refreshToken,
-    client_id: SPOTIFY_CLIENT_ID,
-  });
-
-  const res = await fetch(SPOTIFY_DISCOVERY.tokenEndpoint, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: body.toString(),
-  });
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`Spotify token refresh failed: ${res.status} ${text}`);
+export async function nativeLogin(): Promise<void> {
+  if (!SPOTIFY_CLIENT_ID) {
+    throw new SpotifyAuthError('config', 'Spotify client ID is not configured.');
   }
-  const json = (await res.json()) as TokenResponseShape;
-  const tokens: StoredTokens = {
-    accessToken: json.access_token,
-    refreshToken: json.refresh_token ?? refreshToken,
-    expiresAt: expiryFromNow(json.expires_in),
-    scope: json.scope,
-  };
-  await saveTokens(tokens);
-  return tokens;
+  const redirectUri = getRedirectUri();
+  const request = buildAuthRequest();
+  await request.makeAuthUrlAsync(SPOTIFY_DISCOVERY);
+  const result = await request.promptAsync(SPOTIFY_DISCOVERY);
+  if (result.type !== 'success') {
+    if (result.type === 'error') {
+      throw new SpotifyAuthError('oauth', result.error?.message ?? 'Spotify login failed.');
+    }
+    return; // dismissed / cancelled
+  }
+  const code = result.params.code;
+  const verifier = request.codeVerifier;
+  if (!code || !verifier) {
+    throw new SpotifyAuthError('oauth', 'Spotify login did not return a code.');
+  }
+  const tokens = await tokenClient.exchangeCode({ code, codeVerifier: verifier, redirectUri });
+  await tokenManager.set(tokens);
 }
