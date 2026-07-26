@@ -1,169 +1,55 @@
-import { useMemo } from 'react';
-import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
-import { useRouter } from 'expo-router';
+import { MouseEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Song } from '../types';
-import { colors, fontSize, radius, spacing } from '../theme';
-import { useSpotifyAuth } from '../spotify/AuthContext';
-import { useWebPlayer } from '../spotify/WebPlayerContext';
-import { usePreviewPlayer } from '../spotify/PreviewPlayerContext';
-import { extractTrackId, openSpotifyTrack } from '../spotify/launch';
+import { usePlayer } from '../player/PlayerContext';
 
-export function SongRow({
-  song,
-  queue,
-}: {
-  song: Song;
-  queue?: Song[];
-}) {
-  const { tokens, login } = useSpotifyAuth();
-  const player = useWebPlayer();
-  const preview = usePreviewPlayer();
-  const router = useRouter();
-  const trackId = extractTrackId(song.spotifyUrl);
-  const trackUri = trackId ? `spotify:track:${trackId}` : null;
-  const isCurrentFull = trackUri !== null && player.currentUri === trackUri;
-  const isCurrentPreview =
-    trackId !== null && preview.currentTrackId === trackId;
-  const isCurrent = isCurrentFull || isCurrentPreview;
+export function SongRow({ song, queue }: { song: Song; queue?: Song[] }) {
+  const player = usePlayer();
+  const navigate = useNavigate();
 
-  const playQueueUris = useMemo(() => {
-    if (!queue || queue.length === 0) return null;
-    const idx = queue.findIndex((s) => s.id === song.id);
-    if (idx === -1) return null;
-    const uris = queue
-      .slice(idx)
-      .map((s) => extractTrackId(s.spotifyUrl))
-      .filter((id): id is string => !!id)
-      .map((id) => `spotify:track:${id}`);
-    return uris.length > 0 ? uris : null;
-  }, [queue, song.id]);
+  const isCurrent = player.current?.songId === song.id;
+  const isPlayingThis = isCurrent && player.isPlaying;
 
-  async function handlePress() {
-    if (!trackId) {
-      openSpotifyTrack(song);
+  const onPress = () => {
+    if (isCurrent) {
+      player.toggle();
       return;
     }
-    if (player.supported) {
-      // Unlock the audio element inside the tap so Spotify can auto-advance
-      // through the queue without the browser pausing the next track. Must run
-      // before the first await below or the user gesture is lost.
-      player.activateElement();
-      if (!tokens) {
-        try {
-          await login();
-        } catch {
-          // ignore
-        }
-        return;
-      }
-      if (isCurrentFull) {
-        await player.toggle();
-      } else {
-        await player.play(playQueueUris ?? trackUri!);
-      }
-      return;
-    }
-    if (preview.supported) {
-      await preview.toggle(trackId);
-      return;
-    }
-    openSpotifyTrack(song);
-  }
+    void player.playSongs(queue && queue.length > 0 ? queue : [song], {
+      startId: song.id,
+    });
+  };
+
+  const onArtist = (e: MouseEvent) => {
+    e.stopPropagation();
+    navigate(`/artist/${encodeURIComponent(song.artist)}`);
+  };
 
   return (
-    <View style={[styles.card, isCurrent && styles.cardCurrent]}>
-      <Pressable
-        onPress={handlePress}
-        style={({ pressed }) => [styles.row, pressed && styles.pressed]}
-      >
-        <View style={styles.coverWrap}>
-          {song.albumCoverUrl ? (
-            <Image
-              source={{ uri: song.albumCoverUrl }}
-              style={styles.cover}
-              accessibilityIgnoresInvertColors
-            />
-          ) : (
-            <View style={[styles.cover, styles.coverPlaceholder]} />
-          )}
-        </View>
-        <View style={{ flex: 1 }}>
-          <Text style={styles.title}>{song.title}</Text>
-          <Pressable
-            onPress={(e) => {
-              e.stopPropagation?.();
-              router.push({
-                pathname: '/artist/[name]',
-                params: { name: song.artist },
-              });
-            }}
-            hitSlop={{ top: 6, bottom: 6, left: 8, right: 24 }}
-            accessibilityLabel={`View ${song.artist}`}
-            style={styles.artistHit}
-          >
-            <Text style={styles.artist}>
-              {song.artist} <Text style={styles.artistArrow}>›</Text>
-            </Text>
-          </Pressable>
-          {song.album ? (
-            <Text style={styles.album}>{song.album}</Text>
-          ) : null}
-        </View>
-      </Pressable>
-    </View>
+    <button
+      type="button"
+      className={`song-row press${isCurrent ? ' current' : ''}`}
+      onClick={onPress}
+      aria-label={
+        isPlayingThis ? `Pause ${song.title}` : `Play ${song.title}`
+      }
+    >
+      {song.albumCoverUrl ? (
+        <img className="cover" src={song.albumCoverUrl} alt="" loading="lazy" />
+      ) : (
+        <span className="cover placeholder">♪</span>
+      )}
+      <span className="body">
+        <span className="title">{song.title}</span>
+        {/* Mouse/touch shortcut to the artist page; keyboard users reach it
+            via the song page or the Artists tab (nesting a focusable link
+            inside this button would be invalid HTML). */}
+        <span className="artist" onClick={onArtist}>
+          {song.artist} <span className="arrow">›</span>
+        </span>
+        {song.album ? <span className="album">{song.album}</span> : null}
+      </span>
+      <span className="state">{isPlayingThis ? '❚❚' : isCurrent ? '▶' : ''}</span>
+    </button>
   );
 }
-
-const styles = StyleSheet.create({
-  card: {
-    backgroundColor: colors.surface,
-    borderRadius: radius.md,
-    marginBottom: spacing.sm,
-    borderWidth: 1,
-    borderColor: colors.border,
-    overflow: 'hidden',
-  },
-  cardCurrent: {
-    borderColor: colors.accent,
-    backgroundColor: colors.bgElevated,
-  },
-  row: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: spacing.sm + 2,
-    paddingRight: spacing.xs,
-    gap: spacing.sm,
-  },
-  pressed: { opacity: 0.78 },
-  coverWrap: {
-    width: 56,
-    height: 56,
-    borderRadius: radius.sm,
-    overflow: 'hidden',
-    backgroundColor: colors.surfaceAlt,
-    borderWidth: 1,
-    borderColor: colors.border,
-  },
-  cover: {
-    width: '100%',
-    height: '100%',
-  },
-  coverPlaceholder: {
-    backgroundColor: colors.surfaceAlt,
-  },
-  title: { color: colors.text, fontSize: fontSize.lg, fontWeight: '600' },
-  album: {
-    color: colors.textDim,
-    fontSize: fontSize.xs,
-    marginTop: 2,
-    fontStyle: 'italic',
-  },
-  artistHit: { alignSelf: 'flex-start' },
-  artist: {
-    color: colors.text,
-    opacity: 0.85,
-    fontSize: fontSize.md,
-    marginTop: 2,
-  },
-  artistArrow: { color: colors.textDim, fontSize: fontSize.lg },
-});

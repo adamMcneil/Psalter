@@ -1,5 +1,8 @@
+// Artist photos via the Spotify search API, available only while signed in.
+// Cached in localStorage so photos persist across sessions and the API is hit
+// at most once per artist per month.
+
 import { useEffect, useState } from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useSpotifyAuth } from './AuthContext';
 import { spotifyApi } from './api';
 
@@ -15,37 +18,32 @@ interface CacheEntry {
 const cache = new Map<string, CacheEntry>();
 const inflight = new Map<string, Promise<string | null>>();
 let hydrated = false;
-let hydration: Promise<void> | null = null;
 let dirty = false;
 let flushTimer: ReturnType<typeof setTimeout> | null = null;
 
+// Serialize search calls so a first render of a long artist list doesn't
+// burst-fire dozens of requests into Spotify's rate limiter.
 let queue: Promise<unknown> = Promise.resolve();
-
 function enqueue<T>(fn: () => Promise<T>): Promise<T> {
   const p = queue.then(fn, fn);
   queue = p.catch(() => undefined);
   return p as Promise<T>;
 }
 
-async function hydrate(): Promise<void> {
+function hydrate(): void {
   if (hydrated) return;
-  if (hydration) return hydration;
-  hydration = (async () => {
-    try {
-      const raw = await AsyncStorage.getItem(STORAGE_KEY);
-      if (raw) {
-        const parsed = JSON.parse(raw) as Record<string, CacheEntry>;
-        for (const [k, v] of Object.entries(parsed)) {
-          if (v && typeof v.ts === 'number') cache.set(k, v);
-        }
+  hydrated = true;
+  try {
+    const raw = window.localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw) as Record<string, CacheEntry>;
+      for (const [k, v] of Object.entries(parsed)) {
+        if (v && typeof v.ts === 'number') cache.set(k, v);
       }
-    } catch {
-      // ignore — bad cache shouldn't block UI
-    } finally {
-      hydrated = true;
     }
-  })();
-  return hydration;
+  } catch {
+    // bad cache shouldn't block UI
+  }
 }
 
 function scheduleFlush() {
@@ -59,7 +57,11 @@ function scheduleFlush() {
     cache.forEach((v, k) => {
       obj[k] = v;
     });
-    AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(obj)).catch(() => {});
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
+    } catch {
+      // ignore
+    }
   }, 1000);
 }
 
@@ -82,6 +84,7 @@ function pickImage(
 }
 
 export function useArtistImage(name: string): string | null {
+  hydrate();
   const { tokens, getAccessToken } = useSpotifyAuth();
   const cached = cache.get(name);
   const [url, setUrl] = useState<string | null>(
@@ -92,47 +95,39 @@ export function useArtistImage(name: string): string | null {
     if (!name) return;
     let mounted = true;
 
-    const run = async () => {
-      if (!hydrated) await hydrate();
-      if (!mounted) return;
-      const entry = cache.get(name);
-      if (fresh(entry)) {
-        setUrl(entry!.url ?? null);
-        return;
-      }
-      if (!tokens) return;
+    const entry = cache.get(name);
+    if (fresh(entry)) {
+      setUrl(entry!.url ?? null);
+      return;
+    }
+    if (!tokens) return;
 
-      let p = inflight.get(name);
-      if (!p) {
-        const api = spotifyApi(getAccessToken);
-        p = enqueue(() =>
-          api
-            .searchArtist(name)
-            .then((res) => {
-              const item = res.artists?.items?.[0];
-              const u =
-                item && item.name.toLowerCase() === name.toLowerCase()
-                  ? pickImage(item.images)
-                  : pickImage(item?.images);
-              cache.set(name, { url: u, ts: Date.now() });
-              inflight.delete(name);
-              scheduleFlush();
-              return u;
-            })
-            .catch(() => {
-              cache.set(name, { url: null, ts: Date.now() });
-              inflight.delete(name);
-              scheduleFlush();
-              return null;
-            }),
-        );
-        inflight.set(name, p);
-      }
-      const u = await p;
+    let p = inflight.get(name);
+    if (!p) {
+      const api = spotifyApi(getAccessToken);
+      p = enqueue(() =>
+        api
+          .searchArtist(name)
+          .then((res) => {
+            const item = res.artists?.items?.[0];
+            const u = pickImage(item?.images);
+            cache.set(name, { url: u, ts: Date.now() });
+            inflight.delete(name);
+            scheduleFlush();
+            return u;
+          })
+          .catch(() => {
+            cache.set(name, { url: null, ts: Date.now() });
+            inflight.delete(name);
+            scheduleFlush();
+            return null;
+          }),
+      );
+      inflight.set(name, p);
+    }
+    p.then((u) => {
       if (mounted) setUrl(u);
-    };
-
-    run();
+    });
     return () => {
       mounted = false;
     };

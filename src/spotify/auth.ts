@@ -1,8 +1,11 @@
-import * as AuthSession from 'expo-auth-session';
-import { Platform } from 'react-native';
+// Web OAuth (authorization code + PKCE) via full-page redirect. The pure
+// decision logic for the redirect return lives in redirect.ts; this file owns
+// the URL reading/stripping and the token exchange.
+
 import { SPOTIFY_CLIENT_ID, SPOTIFY_DISCOVERY, SPOTIFY_SCOPES } from './config';
 import { SpotifyAuthError } from './tokenCore';
 import { decideRedirect } from './redirect';
+import { makeCodeChallenge, makeCodeVerifier, makeState } from './pkce';
 import { tokenClient, tokenManager } from './spotifyAuth';
 import {
   clearPendingWebAuth,
@@ -20,45 +23,35 @@ export interface WebRedirectResult {
   consumed: boolean;
 }
 
+// e.g. https://example.github.io/Psalter/spotify-auth — BASE_URL always ends
+// with a slash. This must be registered in the Spotify developer dashboard.
 export function getRedirectUri(): string {
-  if (Platform.OS === 'web') {
-    const baseUrl = (process.env.EXPO_BASE_URL ?? '').replace(/\/$/, '');
-    return `${window.location.origin}${baseUrl}/${REDIRECT_PATH}`;
-  }
-  return AuthSession.makeRedirectUri({ scheme: 'psalter', path: REDIRECT_PATH });
-}
-
-function buildAuthRequest(): AuthSession.AuthRequest {
-  return new AuthSession.AuthRequest({
-    clientId: SPOTIFY_CLIENT_ID!,
-    scopes: SPOTIFY_SCOPES,
-    redirectUri: getRedirectUri(),
-    usePKCE: true,
-    responseType: AuthSession.ResponseType.Code,
-  });
+  return `${window.location.origin}${import.meta.env.BASE_URL}${REDIRECT_PATH}`;
 }
 
 export async function beginWebRedirectLogin(returnTo: string): Promise<void> {
-  if (Platform.OS !== 'web' || typeof window === 'undefined') {
-    throw new SpotifyAuthError('config', 'beginWebRedirectLogin is web-only.');
-  }
   if (!SPOTIFY_CLIENT_ID) {
     throw new SpotifyAuthError('config', 'Spotify client ID is not configured.');
   }
-  const request = buildAuthRequest();
-  const authUrl = await request.makeAuthUrlAsync(SPOTIFY_DISCOVERY);
-  savePendingWebAuth({
-    codeVerifier: request.codeVerifier ?? '',
-    state: request.state,
-    returnTo,
-  });
-  window.location.assign(authUrl);
+  const codeVerifier = makeCodeVerifier();
+  const state = makeState();
+  const challenge = await makeCodeChallenge(codeVerifier);
+  savePendingWebAuth({ codeVerifier, state, returnTo });
+
+  const url = new URL(SPOTIFY_DISCOVERY.authorizationEndpoint);
+  url.search = new URLSearchParams({
+    client_id: SPOTIFY_CLIENT_ID,
+    response_type: 'code',
+    redirect_uri: getRedirectUri(),
+    scope: SPOTIFY_SCOPES.join(' '),
+    state,
+    code_challenge_method: 'S256',
+    code_challenge: challenge,
+  }).toString();
+  window.location.assign(url.toString());
 }
 
 export async function completeWebRedirectLogin(): Promise<WebRedirectResult> {
-  if (Platform.OS !== 'web' || typeof window === 'undefined') {
-    return { returnTo: '/', consumed: false };
-  }
   const url = new URL(window.location.href);
   const params = {
     code: url.searchParams.get('code'),
@@ -98,27 +91,4 @@ export async function completeWebRedirectLogin(): Promise<WebRedirectResult> {
       consumed: true,
     };
   }
-}
-
-export async function nativeLogin(): Promise<void> {
-  if (!SPOTIFY_CLIENT_ID) {
-    throw new SpotifyAuthError('config', 'Spotify client ID is not configured.');
-  }
-  const redirectUri = getRedirectUri();
-  const request = buildAuthRequest();
-  await request.makeAuthUrlAsync(SPOTIFY_DISCOVERY);
-  const result = await request.promptAsync(SPOTIFY_DISCOVERY);
-  if (result.type !== 'success') {
-    if (result.type === 'error') {
-      throw new SpotifyAuthError('oauth', result.error?.message ?? 'Spotify login failed.');
-    }
-    return; // dismissed / cancelled
-  }
-  const code = result.params.code;
-  const verifier = request.codeVerifier;
-  if (!code || !verifier) {
-    throw new SpotifyAuthError('oauth', 'Spotify login did not return a code.');
-  }
-  const tokens = await tokenClient.exchangeCode({ code, codeVerifier: verifier, redirectUri });
-  await tokenManager.set(tokens);
 }

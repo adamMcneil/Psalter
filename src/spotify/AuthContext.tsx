@@ -7,19 +7,15 @@ import {
   useMemo,
   useState,
 } from 'react';
-import { Platform } from 'react-native';
-import * as WebBrowser from 'expo-web-browser';
 import { isSpotifyConfigured, SPOTIFY_CLIENT_ID } from './config';
 import {
   beginWebRedirectLogin,
   completeWebRedirectLogin,
-  nativeLogin,
   WebRedirectResult,
 } from './auth';
 import { tokenManager } from './spotifyAuth';
 import { StoredTokens } from './tokens';
-
-WebBrowser.maybeCompleteAuthSession();
+import { appPath } from '../base';
 
 export interface SpotifyUser {
   id: string;
@@ -67,7 +63,7 @@ export function SpotifyAuthProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const unsubscribe = tokenManager.subscribe(setTokens);
     let mounted = true;
-    (async () => {
+    void (async () => {
       const initial = await tokenManager.hydrate();
       if (mounted) {
         setTokens(initial);
@@ -89,7 +85,7 @@ export function SpotifyAuthProvider({ children }: { children: ReactNode }) {
       return;
     }
     let cancelled = false;
-    (async () => {
+    void (async () => {
       const at = await tokenManager.getValidAccessToken();
       if (!at || cancelled) return;
       try {
@@ -104,18 +100,18 @@ export function SpotifyAuthProvider({ children }: { children: ReactNode }) {
     };
   }, [hasToken]);
 
-  const getAccessToken = useCallback(() => tokenManager.getValidAccessToken(), []);
+  const getAccessToken = useCallback(
+    () => tokenManager.getValidAccessToken(),
+    [],
+  );
 
   const login = useCallback(async () => {
     if (!isSpotifyConfigured() || !SPOTIFY_CLIENT_ID) {
-      throw new Error('Spotify client ID is not configured. Set EXPO_PUBLIC_SPOTIFY_CLIENT_ID.');
+      throw new Error(
+        'Spotify client ID is not configured. Set VITE_SPOTIFY_CLIENT_ID.',
+      );
     }
-    if (Platform.OS === 'web') {
-      const returnTo = window.location.pathname + window.location.search + window.location.hash;
-      await beginWebRedirectLogin(returnTo);
-      return;
-    }
-    await nativeLogin();
+    await beginWebRedirectLogin(appPath());
   }, []);
 
   const logout = useCallback(() => tokenManager.clear(), []);

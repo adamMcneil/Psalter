@@ -1,29 +1,13 @@
 # Dependencies
 node_modules/
 
-# Expo
-.expo/
+# Build outputs
 dist/
-web-build/
-expo-env.d.ts
-
-# Native
-ios/
-android/
-*.jks
-*.p8
-*.p12
-*.key
-*.mobileprovision
-*.orig.*
-
-# Metro
-.metro-health-check*
+dev-dist/
+*.tsbuildinfo
 
 # Debug
 npm-debug.*
-yarn-debug.*
-yarn-error.*
 
 # macOS
 .DS_Store
@@ -37,9 +21,6 @@ yarn-error.*
 .env
 .env.local
 .env.*.local
-
-# Build outputs
-*.tsbuildinfo
 
 .playwright-mcp/
 .claude/

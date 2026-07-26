@@ -27,10 +27,16 @@ jobs:
 
       - run: npm ci
 
-      - name: Export web build
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Test
+        run: npm test
+
+      - name: Build
         env:
-          EXPO_BASE_URL: /${{ github.event.repository.name }}
-        run: npx expo export --platform web
+          BASE_URL: /${{ github.event.repository.name }}/
+        run: npm run build
 
       - name: Add .nojekyll and SPA fallback
         run: |

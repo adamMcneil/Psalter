@@ -39,7 +39,7 @@ async function request<T>(
   }
   if (res.status === 204) return undefined as T;
   const text = await res.text();
-  let body: any = null;
+  let body: unknown = null;
   if (text) {
     try {
       body = JSON.parse(text);
@@ -48,32 +48,17 @@ async function request<T>(
     }
   }
   if (!res.ok) {
-    const msg = body?.error?.message ?? res.statusText ?? `HTTP ${res.status}`;
-    if (typeof console !== 'undefined') {
-      console.warn(`[Spotify] ${init.method ?? 'GET'} ${path} → ${res.status}`, body);
-    }
+    const msg =
+      (body as { error?: { message?: string } } | null)?.error?.message ??
+      res.statusText ??
+      `HTTP ${res.status}`;
+    console.warn(`[Spotify] ${init.method ?? 'GET'} ${path} → ${res.status}`, body);
     throw new SpotifyApiError(res.status, `Spotify API ${res.status}: ${msg}`, body);
   }
   return body as T;
 }
 
-export interface ApiTrack {
-  id: string;
-  uri: string;
-  name: string;
-  artists: { id: string; name: string }[];
-  album: { id: string; name: string; images: { url: string }[] };
-  duration_ms: number;
-  preview_url: string | null;
-  external_urls: { spotify?: string };
-}
-
 export const spotifyApi = (getToken: GetToken) => ({
-  getTracks: (ids: string[]): Promise<{ tracks: (ApiTrack | null)[] }> => {
-    if (ids.length === 0) return Promise.resolve({ tracks: [] });
-    return request(getToken, `/tracks?ids=${ids.join(',')}`);
-  },
-
   searchArtist: (q: string) =>
     request<{
       artists: {
@@ -83,8 +68,14 @@ export const spotifyApi = (getToken: GetToken) => ({
           images: { url: string; width?: number; height?: number }[];
         }>;
       };
-    }>(
-      getToken,
-      `/search?type=artist&limit=1&q=${encodeURIComponent(q)}`,
-    ),
+    }>(getToken, `/search?type=artist&limit=1&q=${encodeURIComponent(q)}`),
+
+  play: (
+    deviceId: string,
+    body: { uris: string[]; position_ms?: number },
+  ): Promise<void> =>
+    request<void>(getToken, `/me/player/play?device_id=${deviceId}`, {
+      method: 'PUT',
+      body: JSON.stringify(body),
+    }),
 });

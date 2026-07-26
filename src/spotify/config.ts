@@ -1,16 +1,11 @@
-import Constants from 'expo-constants';
+// Spotify OAuth app configuration. The client ID is public by design (PKCE
+// flow, no secret); override with VITE_SPOTIFY_CLIENT_ID when deploying a fork
+// with your own Spotify app.
 
-const extra = (Constants.expoConfig?.extra ?? {}) as Record<string, unknown>;
+const fromEnv = import.meta.env.VITE_SPOTIFY_CLIENT_ID as string | undefined;
 
-function read(key: string): string | undefined {
-  const fromExtra = extra[key];
-  if (typeof fromExtra === 'string' && fromExtra.length > 0) return fromExtra;
-  const fromEnv = process.env[`EXPO_PUBLIC_${key}`];
-  if (typeof fromEnv === 'string' && fromEnv.length > 0) return fromEnv;
-  return undefined;
-}
-
-export const SPOTIFY_CLIENT_ID = read('SPOTIFY_CLIENT_ID');
+export const SPOTIFY_CLIENT_ID: string | undefined =
+  fromEnv && fromEnv.length > 0 ? fromEnv : '750204e46dfa414988d5776ad9196988';
 
 export const SPOTIFY_SCOPES = [
   'streaming',

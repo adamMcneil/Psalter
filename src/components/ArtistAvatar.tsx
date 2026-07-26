@@ -1,9 +1,13 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
 import { useArtistImage } from '../spotify/artistImages';
 
 function initials(name: string): string {
   const parts = name.trim().split(/\s+/).slice(0, 2);
-  return parts.map((p) => p[0] ?? '').join('').toUpperCase() || '♪';
+  return (
+    parts
+      .map((p) => p[0] ?? '')
+      .join('')
+      .toUpperCase() || '♪'
+  );
 }
 
 interface Props {
@@ -16,38 +20,36 @@ interface Props {
 
 export function ArtistAvatar({ name, size, bg, fg, bordered }: Props) {
   const url = useArtistImage(name);
-  const radius = size / 2;
-  const base = { width: size, height: size, borderRadius: radius };
-  const border = bordered ? { borderWidth: 1.5, borderColor: fg } : null;
+  const base = {
+    width: size,
+    height: size,
+    background: bg,
+    border: bordered ? `1.5px solid ${fg}` : undefined,
+  };
 
   if (url) {
     return (
-      <Image
-        source={{ uri: url }}
-        style={[base, { backgroundColor: bg }, border]}
-        accessibilityLabel={`${name} artist photo`}
+      <img
+        className="avatar"
+        src={url}
+        alt={`${name} artist photo`}
+        style={base}
+        loading="lazy"
       />
     );
   }
 
   return (
-    <View
-      style={[base, styles.fallback, { backgroundColor: bg }, border]}
-      accessibilityLabel={`${name} initials`}
+    <div
+      className="avatar"
+      style={{
+        ...base,
+        color: fg,
+        fontSize: Math.max(11, Math.round(size * 0.34)),
+      }}
+      aria-label={`${name} initials`}
     >
-      <Text
-        style={[
-          styles.text,
-          { color: fg, fontSize: Math.max(11, Math.round(size * 0.34)) },
-        ]}
-      >
-        {initials(name)}
-      </Text>
-    </View>
+      {initials(name)}
+    </div>
   );
 }
-
-const styles = StyleSheet.create({
-  fallback: { alignItems: 'center', justifyContent: 'center' },
-  text: { fontWeight: '800', letterSpacing: 1 },
-});

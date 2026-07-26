@@ -1,5 +1,5 @@
-import { Platform } from 'react-native';
-import * as SecureStore from 'expo-secure-store';
+// Web-only token persistence. Access/refresh tokens live in localStorage under
+// the same key the previous app used, so existing sessions survive the remake.
 
 const KEY = 'psalter.spotify.tokens.v1';
 
@@ -10,35 +10,21 @@ export interface StoredTokens {
   scope?: string;
 }
 
-async function setItem(value: string): Promise<void> {
-  if (Platform.OS === 'web') {
-    window.localStorage.setItem(KEY, value);
-    return;
-  }
-  await SecureStore.setItemAsync(KEY, value);
-}
-
-async function getItem(): Promise<string | null> {
-  if (Platform.OS === 'web') {
-    return window.localStorage.getItem(KEY);
-  }
-  return SecureStore.getItemAsync(KEY);
-}
-
-async function deleteItem(): Promise<void> {
-  if (Platform.OS === 'web') {
-    window.localStorage.removeItem(KEY);
-    return;
-  }
-  await SecureStore.deleteItemAsync(KEY);
-}
-
 export async function saveTokens(t: StoredTokens): Promise<void> {
-  await setItem(JSON.stringify(t));
+  try {
+    window.localStorage.setItem(KEY, JSON.stringify(t));
+  } catch {
+    // Storage full/blocked — the session just won't survive a reload.
+  }
 }
 
 export async function loadTokens(): Promise<StoredTokens | null> {
-  const raw = await getItem();
+  let raw: string | null = null;
+  try {
+    raw = window.localStorage.getItem(KEY);
+  } catch {
+    return null;
+  }
   if (!raw) return null;
   try {
     const parsed = JSON.parse(raw) as StoredTokens;
@@ -56,10 +42,14 @@ export async function loadTokens(): Promise<StoredTokens | null> {
 }
 
 export async function clearTokens(): Promise<void> {
-  await deleteItem();
+  try {
+    window.localStorage.removeItem(KEY);
+  } catch {
+    // ignore
+  }
 }
 
-// --- Transient PKCE handshake (web only) -----------------------------------
+// --- Transient PKCE handshake ------------------------------------------------
 // The code_verifier + state are single-transaction secrets, so they live in
 // sessionStorage (tab-scoped, auto-cleared, and preserved across the same-tab
 // full-page OAuth redirect) rather than localStorage.
@@ -73,13 +63,20 @@ export interface PendingWebAuth {
 const PENDING_KEY = 'psalter.spotify.pending';
 
 export function savePendingWebAuth(p: PendingWebAuth): void {
-  if (Platform.OS !== 'web' || typeof window === 'undefined') return;
-  window.sessionStorage.setItem(PENDING_KEY, JSON.stringify(p));
+  try {
+    window.sessionStorage.setItem(PENDING_KEY, JSON.stringify(p));
+  } catch {
+    // ignore
+  }
 }
 
 export function loadPendingWebAuth(): PendingWebAuth | null {
-  if (Platform.OS !== 'web' || typeof window === 'undefined') return null;
-  const raw = window.sessionStorage.getItem(PENDING_KEY);
+  let raw: string | null = null;
+  try {
+    raw = window.sessionStorage.getItem(PENDING_KEY);
+  } catch {
+    return null;
+  }
   if (!raw) return null;
   try {
     const p = JSON.parse(raw) as PendingWebAuth;
@@ -97,6 +94,9 @@ export function loadPendingWebAuth(): PendingWebAuth | null {
 }
 
 export function clearPendingWebAuth(): void {
-  if (Platform.OS !== 'web' || typeof window === 'undefined') return;
-  window.sessionStorage.removeItem(PENDING_KEY);
+  try {
+    window.sessionStorage.removeItem(PENDING_KEY);
+  } catch {
+    // ignore
+  }
 }
